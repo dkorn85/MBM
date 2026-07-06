@@ -1,0 +1,121 @@
+{
+  "id": "core-02-bremse-finden",
+  "ebene": "kernpfad",
+  "woche": 1,
+  "position": 2,
+  "titel": "Die Bremse finden",
+  "kernidee": "Deine Atmung ist die eine Bremse, die du immer dabei hast — und du kannst lernen, sie bewusst zu betätigen.",
+  "bild_id": "alarmanlage",
+  "dauer_min": 12,
+  "audio_dauer_min": 6,
+  "safety_flag": "niedrig",
+  "voraussetzung": "core-01-innerer-alarm",
+  "folgemodul": "core-03-warnsignale",
+  "bewegung": "1-ankommen-im-koerper",
+  "einordnung": "Vertieft die Bremse aus Modul 1 zur Fertigkeit. Reine Physiologie, kein Nocebo-Risiko. Kleiner Sicherheitszusatz: bei Schwindel normal weiteratmen.",
+  "guardrails": {
+    "keine_krankheit_kausalitaet": true,
+    "nocebo_sichere_spiegelung": true,
+    "bildung_keine_heilkunde": true,
+    "titration_pflicht": false,
+    "erdungs_abschluss_pflicht": false
+  },
+  "nordstern_bezug": "grundregulation-als-voraussetzung",
+  "schritte": [
+    {
+      "typ": "funke",
+      "dauer_min": 1,
+      "text": "Achte mal darauf, wie du gerade atmest. Wenn Stress da ist, wird der Atem meist flach und wandert nach oben in die Brust — schnell, knapp, hoch. Der Körper hält sich bereit. Das Praktische daran: Über genau diesen Atem kannst du dem Körper auch das Gegenteil sagen. Nur weiß kaum jemand, wie.",
+      "cta": "Zeig mir wie"
+    },
+    {
+      "typ": "warum",
+      "dauer_min": 3,
+      "bild_id": "alarmanlage",
+      "karten": [
+        {
+          "titel": "Die Bremse ist immer dabei",
+          "text": "In Modul 1 hast du sie kurz gespürt: die eingebaute Bremse. Das Schöne ist — du trägst sie immer bei dir. Kein Hilfsmittel, keine App nötig. Nur dein Atem."
+        },
+        {
+          "titel": "Oben oder unten",
+          "text": "Flache Brustatmung hält den Körper in Bereitschaft. Tiefe Bauchatmung — wenn sich beim Einatmen der Bauch weitet — gibt dem Körper das Signal: Es ist sicher, du darfst runterfahren."
+        },
+        {
+          "titel": "Das Zwerchfell macht die Arbeit",
+          "text": "Unter deiner Lunge sitzt ein großer Muskel, das Zwerchfell. Lässt du es beim Einatmen nach unten sinken, wölbt sich der Bauch. Genau diese Bewegung schaltet die Beruhigung an. Du musst nichts leisten — nur den Weg frei machen."
+        },
+        {
+          "titel": "Kennenlernen, nicht kontrollieren",
+          "text": "Es geht nicht darum, 'richtig' zu atmen. Es geht darum, deine Atmung erst mal kennenzulernen. Legen wir zwei Hände auf und schauen einfach, was passiert."
+        }
+      ],
+      "cta": "Los geht's"
+    },
+    {
+      "typ": "erleben",
+      "dauer_min": 6,
+      "uebung_typ": "zwerchfellatmung",
+      "audio_id": "audio-02-zwerchfellatmung",
+      "uebergang": "Such dir einen Ort, an dem du kurz ungestört bist. Im Sitzen oder Liegen — beides geht. Wenn Liegen möglich ist, macht es den Bauchraum oft leichter spürbar.",
+      "audio_skript": [
+        "Schön, dass du wieder da bist.",
+        "[kurz]",
+        "Finde eine bequeme Position und gib dein Gewicht nach unten ab. Im Liegen an den Boden, im Sitzen an den Stuhl. Du musst dich nicht halten.",
+        "[Atemzug]",
+        "Leg jetzt eine Hand unterhalb des Nabels auf den Bauch, und die andere oben in die Mitte der Brust, auf das Brustbein.",
+        "[kurz]",
+        "Wenn du magst, schließ die Augen — oder lass den Blick weich auf einem ruhenden Punkt.",
+        "[Atemzug]",
+        "Und jetzt spür einfach nur mit den Händen, wie du atmest. Du veränderst noch gar nichts. Nur wahrnehmen.",
+        "[Atemzug]",
+        "Was hebt sich zuerst — die Brust unter der oberen Hand? Oder der Bauch unter der unteren? Oder beides gleich?",
+        "[kurz]",
+        "Es gibt kein Richtig und kein Falsch. Du lernst gerade deine eigene Atmung kennen.",
+        "[lange Pause]",
+        "Geh jetzt mit deiner Aufmerksamkeit nach unten, zur Hand auf dem Bauch. Und lade den Atem sanft ein, dort zu beginnen — so, dass sich beim Einatmen der Bauch unter deiner Hand ein wenig hebt.",
+        "[Atemzug]",
+        "Beim Einatmen sinkt das Zwerchfell nach unten, der Bauch weitet sich. Beim Ausatmen sinkt der Bauch wieder zurück.",
+        "[kurz]",
+        "Einatmen … der Bauch hebt sich. Ausatmen … der Bauch sinkt.",
+        "[lange Pause]",
+        "Die Bewegung ist zart und fein. Du musst nichts verstärken, nichts erzwingen. In Ruhe darf die Atmung ganz weich sein.",
+        "[Atemzug]",
+        "Und wenn du magst, lass die Ausatmung ein wenig länger werden als die Einatmung. Das ist das Signal an deinen Körper: Es ist sicher.",
+        "[lange Pause — ca. 6 Atemzüge]",
+        "Falls dir schwindelig wird oder es sich komisch anfühlt: völlig normal. Dann atme einfach wieder ganz gewöhnlich weiter. Nichts muss.",
+        "[Atemzug]",
+        "Komm jetzt langsam zurück. Lass den Atem wieder von allein fließen. Spür den Boden unter dir, reck und streck dich — und bring deine Aufmerksamkeit zurück in den Raum."
+      ],
+      "nachspueren": {
+        "stille_sek": 15,
+        "frage": "Wo saß dein Atem eher — oben, unten, oder hat sich das verändert?",
+        "chips": ["eher unten", "eher oben", "hat sich verändert", "schwer zu sagen"],
+        "bei_unruhiger": "erdungsvariante-augen-auf"
+      }
+    },
+    {
+      "typ": "experiment",
+      "dauer_min": 1,
+      "experiment_typ": "wiederholung-mini",
+      "text": "Bau auf dem Experiment von gestern auf. An deinem gewählten Moment: leg kurz eine Hand auf den Bauch und nimm drei Atemzüge, bei denen sich der Bauch unter der Hand hebt. Die Hand ist nur da, um dich zu erinnern, wohin der Atem darf.",
+      "anker_vorschlaege": ["derselbe Anker wie gestern", "vor dem ersten Kaffee", "nach dem Zähneputzen", "eigener Anker"],
+      "anker_default": "derselbe Anker wie gestern",
+      "erinnerung": "optional-just-in-time"
+    },
+    {
+      "typ": "spuercheck",
+      "dauer_min": 0.5,
+      "frage": "Wie fühlt sich dein Körper gerade an — im Vergleich zu vorhin?",
+      "slider": ["koerper", "stimmung"],
+      "speichern_fuer": "vorher-nachher-spiegelung"
+    },
+    {
+      "typ": "weitergehen",
+      "dauer_min": 0.5,
+      "text": "Du hast jetzt die Bremse in der Hand — buchstäblich. Je öfter du sie benutzt, desto selbstverständlicher wird sie. Beim nächsten Mal schauen wir, woran du überhaupt merkst, dass dein Alarm angeht: deine ganz persönlichen Warnsignale.",
+      "cta_primaer": "Weiter zu Modul 3",
+      "cta_sekundaer": "Für heute genug"
+    }
+  ]
+}
