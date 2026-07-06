@@ -1,0 +1,93 @@
+{
+  "id": "core-01-innerer-alarm",
+  "ebene": "kernpfad",
+  "woche": 1,
+  "position": 1,
+  "titel": "Dein innerer Alarm",
+  "kernidee": "Dein Körper reagiert auf modernen Stress mit einem uralten Alarm — und du kannst lernen, ihn zu beruhigen.",
+  "bild_id": "alarmanlage",
+  "dauer_min": 12,
+  "audio_dauer_min": 5,
+  "safety_flag": "niedrig",
+  "voraussetzung": "onboarding-abgeschlossen",
+  "folgemodul": "core-02-bremse-finden",
+  "bewegung": "1-ankommen-im-koerper",
+  "einordnung": "Türöffner der Reise — reine Physiologie, keine Glaubenssatz-Arbeit, daher niedriges Nocebo-Risiko.",
+  "guardrails": {
+    "keine_krankheit_kausalitaet": true,
+    "nocebo_sichere_spiegelung": true,
+    "bildung_keine_heilkunde": true,
+    "titration_pflicht": false,
+    "erdungs_abschluss_pflicht": false
+  },
+  "nordstern_bezug": "grundregulation-als-voraussetzung",
+  "schritte": [
+    {
+      "typ": "funke",
+      "dauer_min": 1,
+      "text": "Kennst du das? Eine Nachricht ploppt auf. Noch bevor du sie ganz gelesen hast, zieht sich etwas im Bauch zusammen. Die Schultern gehen hoch. Der Kopf ist schon drei Schritte weiter. Dabei ist kein Löwe im Raum. Nur ein Bildschirm. Warum reagiert dein Körper, als ginge es ums Überleben?",
+      "cta": "Das kenne ich"
+    },
+    {
+      "typ": "warum",
+      "dauer_min": 3,
+      "bild_id": "alarmanlage",
+      "karten": [
+        {
+          "titel": "Das System unterscheidet nicht",
+          "text": "Vor langer Zeit hat uns dieser Alarm das Leben gerettet. Ein Raubtier taucht auf — der Körper schaltet in Sekunden auf Kampf oder Flucht. Das Problem: Dein Körper macht heute dasselbe. Nur ist das Raubtier jetzt eine E-Mail, ein Termin, ein Gespräch."
+        },
+        {
+          "titel": "Die Entladung fehlt",
+          "text": "Früher folgte auf den Alarm die Bewegung: kämpfen oder weglaufen. Die Energie wurde verbraucht. Heute bleibst du sitzen. Die mobilisierte Energie hat keinen Ausgang — sie bleibt im Körper."
+        },
+        {
+          "titel": "Die Erholung fehlt",
+          "text": "Das Raubtier war irgendwann weg. Dann kam Ruhe. Der moderne Stress hört nie ganz auf. So kommt das System nie zur Ruhe — und schaukelt sich über Wochen langsam hoch."
+        },
+        {
+          "titel": "Es ist auch eine Frage der Zeit",
+          "text": "Der Körper kann sich beruhigen. Er hat eine eingebaute Bremse. Aber er braucht einen Moment, in dem du sie betätigst. Fangen wir mit dem Einfachsten an: dem Atem."
+        }
+      ],
+      "cta": "Lass uns das ausprobieren"
+    },
+    {
+      "typ": "erleben",
+      "dauer_min": 5,
+      "uebung_typ": "ankommen+atem",
+      "audio_id": "audio-01-ankommen-atem",
+      "uebergang": "Du hast gerade gemerkt: Der Alarm läuft oft, ohne dass du ihn eingeschaltet hast. Schauen wir, wie sich die Bremse anfühlt.",
+      "audio_skript_ref": "02_Modul-Blaupause_Dein-innerer-Alarm.md#audio-skript",
+      "nachspueren": {
+        "stille_sek": 15,
+        "frage": "Wie war das gerade für dich?",
+        "chips": ["ruhiger", "gleich", "unruhiger"],
+        "bei_unruhiger": "erdungsvariante-augen-auf"
+      }
+    },
+    {
+      "typ": "experiment",
+      "dauer_min": 1,
+      "experiment_typ": "wiederholung-mini",
+      "text": "Such dir einen Moment, der jeden Tag ohnehin passiert. Nimm dort drei lange Ausatmungen. Mehr nicht. Es geht nicht darum, es richtig zu machen — sondern dem Körper einmal am Tag zu zeigen: Die Bremse ist da.",
+      "anker_vorschlaege": ["vor dem ersten Kaffee", "nach dem Zähneputzen", "bevor ich das Auto starte", "eigener Anker"],
+      "anker_default": "vor dem ersten Kaffee",
+      "erinnerung": "optional-just-in-time"
+    },
+    {
+      "typ": "spuercheck",
+      "dauer_min": 0.5,
+      "frage": "Wie fühlt sich dein Körper gerade an — im Vergleich zu vorhin?",
+      "slider": ["koerper", "stimmung"],
+      "speichern_fuer": "vorher-nachher-spiegelung"
+    },
+    {
+      "typ": "weitergehen",
+      "dauer_min": 0.5,
+      "text": "Du hast heute den Alarm kennengelernt — und zum ersten Mal die Bremse gespürt. Beim nächsten Mal schauen wir uns diese Bremse genauer an. Für heute hast du genug getan.",
+      "cta_primaer": "Weiter zu Modul 2",
+      "cta_sekundaer": "Für heute genug"
+    }
+  ]
+}
