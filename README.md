@@ -25,8 +25,8 @@ Die App lädt über Inspiration und ehrliche Spiegelung zu einer Reise ein: **ra
 | Studie | Status |
 |---|---|
 | [01 — Wissenschaftliche Basis & Ganzheitsmodell](research/01_wissenschaftliche-basis-und-ganzheitsmodell.md) | ✅ Verifiziert (adversariale 3-Voten-Prüfung, 22/25 Claims bestätigt) |
-| 02 — AI-Architektur, Safety & Recht (DACH/EU) | 🔄 läuft |
-| 03 — Potenzial-Studie (was lässt sich aus dem Fundus noch machen?) | 🔄 läuft |
+| 02 — AI-Architektur, Safety & Recht (DACH/EU) | ⏸ pausiert (Zwischenstände gesichert) |
+| 03 — Potenzial-Studie (was lässt sich aus dem Fundus noch machen?) | ⏸ pausiert (Zwischenstände gesichert) |
 
 ## Grundhaltung: Wissenschaft als Diener, nicht Richter
 
