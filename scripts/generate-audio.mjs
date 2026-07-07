@@ -210,11 +210,12 @@ async function synthetisiere({
     model_id: MODEL_ID,
     voice_settings: VOICE_SETTINGS,
   };
-  if (previousText) body.previous_text = previousText;
-  if (nextText) body.next_text = nextText;
-  if (previousRequestIds && previousRequestIds.length > 0) {
-    body.previous_request_ids = previousRequestIds.slice(-3);
-  }
+  // Hinweis: eleven_v3 unterstützt previous_text/next_text/previous_request_ids
+  // (noch) NICHT. Chunk-Kontinuität ist hier unnötig, da zwischen den Chunks
+  // ohnehin echte Stille sitzt. Parameter werden bewusst nicht gesendet.
+  void previousText;
+  void nextText;
+  void previousRequestIds;
 
   let versuch = 0;
   // Retry-Schleife nur für 429.
