@@ -2,14 +2,24 @@
 
 *Autor: Fable. Umsetzung: builder. Gleiche Regeln wie immer.*
 
+## Branding-Entscheid (§10, vom Nutzer): App heißt **YipYip**
+
+Das Logo liegt fertig unter `public/icons/yipyip-bison.svg` (nicht verändern). Umbenennung (rein mechanisch, alle Stellen):
+
+- `app/layout.tsx` Metadata-`title`: `YipYip — Gebrauchsanweisung zum Menschsein` (der bisherige Name wird Untertitel)
+- Seiten-Metadata-Suffixe (`/hilfe`, ggf. weitere): `… — YipYip`
+- Header-Wortmarke: Bison-Logo als kleines Bild (`/icons/yipyip-bison.svg`, ~32 px, `alt=""`, dekorativ) + Text `YipYip`
+- `AudioPlayer` MediaSession `artist`: `YipYip`
+- Sonst nichts umformulieren — alle übrigen Nutzertexte bleiben unverändert.
+
 ## Manifest (`app/manifest.ts` oder `public/manifest.webmanifest`)
 
-- `name`: `Gebrauchsanweisung zum Menschsein`
-- `short_name`: `Menschsein`
+- `name`: `YipYip — Gebrauchsanweisung zum Menschsein`
+- `short_name`: `YipYip`
 - `description`: `Ein ruhiges Selbstlernprogramm der Mind-Body-Medizin: verstehen, erleben, in den Alltag bringen.`
 - `lang: "de"`, `display: "standalone"`, `start_url: "/"`
 - `background_color: "#FAF6EF"`, `theme_color: "#FAF6EF"`
-- Icons: Platzhalter-Logo generieren — einfache Grafik: Kreis in `salbei` (#708A72) auf `grund` (#FAF6EF) mit einem kleineren, versetzten Kreis in `akzent` (#BC6C4F); als 192×192, 512×512 PNG und `maskable` Variante. Per Skript erzeugen (z.B. eigenes Node-Skript mit zlib-basiertem PNG-Writer oder eine SVG→PNG-Lösung ohne neue Runtime-Dependency; devDependency erlaubt: `sharp`). SVG-Quelle unter `public/icons/` mit ablegen.
+- Icons aus `public/icons/yipyip-bison.svg` ableiten: 192×192 und 512×512 PNG (`purpose: any` und `maskable` — das SVG ist voll­flächig mit zentriertem Motiv, taugt für beide). Erzeugung ohne neue Dependency per `npx playwright screenshot --viewport-size=<w>,<h> file://<svg-pfad> <ziel.png>` (Chromium ist im Cache vorhanden); alternativ devDependency `sharp`. Zusätzlich `app/icon.png` (512×512, Next-Favicon-Konvention).
 
 ## Service Worker (handgeschrieben, `public/sw.js`)
 
