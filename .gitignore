@@ -5,3 +5,4 @@ node_modules/
 out/
 *.tsbuildinfo
 .vercel
+public/precache-manifest.json

@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import OnboardingDisclaimer from "@/components/OnboardingDisclaimer";
+import ServiceWorkerRegistration from "@/components/ServiceWorkerRegistration";
 
 export const metadata: Metadata = {
   title: "YipYip — Gebrauchsanweisung zum Menschsein",
@@ -39,6 +40,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <OnboardingDisclaimer />
+        <ServiceWorkerRegistration />
       </body>
     </html>
   );
