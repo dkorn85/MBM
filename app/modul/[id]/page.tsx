@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { alleModule, getModul } from "@/lib/content";
+import { alleModule, getModul, landkarte } from "@/lib/content";
 import ModulPlayer from "@/components/modul/ModulPlayer";
 
 type Props = { params: Promise<{ id: string }> };
@@ -21,12 +21,15 @@ export default async function ModulPage({ params }: Props) {
   const modul = getModul(id);
   if (!modul) notFound();
 
+  // Stations-Zugehörigkeit statt des früheren „thema".
+  const station = landkarte.path.stations.find((s) => s.id === modul.station);
+
   return (
     <article className="space-y-8">
       <header className="space-y-1">
         <h1 className="text-3xl">{modul.titel}</h1>
         <p className="text-tinte-sanft">
-          {modul.thema} · ca. {modul.dauerMin} Minuten
+          {station ? `${station.title} · ` : ""}ca. {modul.dauerMin} Minuten
         </p>
       </header>
       <ModulPlayer modul={modul} />

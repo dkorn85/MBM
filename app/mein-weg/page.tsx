@@ -6,8 +6,13 @@ export const metadata: Metadata = {
   title: "Mein Weg — YipYip",
 };
 
-const modulInfos: ModulInfo[] = landkarte.ebenen.flatMap((ebene) =>
-  ebene.module.map((m) => ({ id: m.id, titel: m.titel, thema: m.thema })),
+// Modul-Infos für „Mein Weg": id → Titel + Stations-Zugehörigkeit (als Chip).
+const modulInfos: ModulInfo[] = landkarte.path.stations.flatMap((station) =>
+  station.modules.map((m) => ({
+    id: m.id,
+    titel: m.title,
+    thema: station.title,
+  })),
 );
 
 export default function MeinWegPage() {

@@ -1,18 +1,36 @@
 import type {
   Interaktion,
   Modul,
+  ModulTyp,
   Schritt,
   SchrittTyp,
+  StationId,
+  Strang,
   TextBlock,
 } from "./module-schema";
 
+// Neue Reihenfolge (Lana): Verankern (experiment) VOR Reflektieren (nachspueren).
 const SCHRITT_REIHENFOLGE: SchrittTyp[] = [
   "funke",
   "warum",
   "erleben",
-  "nachspueren",
   "experiment",
+  "nachspueren",
   "weitergehen",
+];
+
+const STATIONEN: StationId[] = [
+  "ankommen",
+  "runterkommen",
+  "wahrnehmen",
+  "weit-werden",
+];
+const STRAENGE: Strang[] = ["kopf", "hand", "herz", "alle"];
+const MODUL_TYPEN: ModulTyp[] = [
+  "fundament",
+  "werkzeug",
+  "themenwelt",
+  "integration",
 ];
 
 /**
@@ -20,7 +38,6 @@ const SCHRITT_REIHENFOLGE: SchrittTyp[] = [
  * Wirft bei Fehler einen Error mit Modul-ID, Pfad und Grund.
  */
 export function validateModul(data: unknown): Modul {
-  // Modul-ID früh bestimmen, damit Fehlermeldungen sie tragen können.
   const roh = istObjekt(data) ? data : undefined;
   const idFuerFehler =
     roh && typeof roh.id === "string" ? roh.id : "(unbekannt)";
@@ -34,8 +51,8 @@ export function validateModul(data: unknown): Modul {
   }
 
   const id = pflichtString(roh.id, "id", fehler);
-  const ebene = pflichtEbene(roh.ebene, "ebene", fehler);
-  const thema = pflichtString(roh.thema, "thema", fehler);
+  const no = pflichtZahl(roh.no, "no", fehler);
+  const station = pflichtStation(roh.station, "station", fehler);
   const titel = pflichtString(roh.titel, "titel", fehler);
   const dauerMin = pflichtZahl(roh.dauerMin, "dauerMin", fehler);
   const voraussetzungen = pflichtStringArray(
@@ -59,15 +76,27 @@ export function validateModul(data: unknown): Modul {
     validiereSchritt(s, i, fehler),
   );
 
-  return {
+  const modul: Modul = {
     id,
-    ebene,
-    thema,
+    no,
+    station,
     titel,
     dauerMin,
     voraussetzungen,
     schritte,
   };
+
+  if (roh.moduleType !== undefined) {
+    if (!MODUL_TYPEN.includes(roh.moduleType as ModulTyp)) {
+      fehler("moduleType", `unbekannt: "${String(roh.moduleType)}".`);
+    }
+    modul.moduleType = roh.moduleType as ModulTyp;
+  }
+  if (roh.bild !== undefined) {
+    modul.bild = pflichtString(roh.bild, "bild", fehler);
+  }
+
+  return modul;
 }
 
 type Fehler = (pfad: string, grund: string) => never;
@@ -105,6 +134,13 @@ function validiereSchritt(data: unknown, index: number, fehler: Fehler): Schritt
   const schritt: Schritt = { typ, titel, bloecke };
 
   // Optionale Felder
+  if (data.strang !== undefined) {
+    if (!STRAENGE.includes(data.strang as Strang)) {
+      fehler(`${pfad}.strang`, `unbekannt: "${String(data.strang)}".`);
+    }
+    schritt.strang = data.strang as Strang;
+  }
+
   if (data.audio !== undefined) {
     if (typeof data.audio !== "string" || data.audio.trim() === "") {
       fehler(`${pfad}.audio`, "muss ein nicht-leerer String sein, wenn gesetzt.");
@@ -138,7 +174,7 @@ function validiereSchritt(data: unknown, index: number, fehler: Fehler): Schritt
   // experiment-Feld genau beim Typ "experiment" vorhanden.
   if (typ === "experiment") {
     if (!istObjekt(data.experiment)) {
-      fehler(`${pfad}.experiment`, "ist beim Typ \"experiment\" erforderlich.");
+      fehler(`${pfad}.experiment`, 'ist beim Typ "experiment" erforderlich.');
     }
     const exp = data.experiment as Record<string, unknown>;
     const haupt = pflichtString(exp.haupt, `${pfad}.experiment.haupt`, fehler);
@@ -186,6 +222,51 @@ function validiereInteraktion(
     }
     return interaktion;
   }
+  if (data.art === "selbsttest") {
+    if (!Array.isArray(data.achsen) || data.achsen.length === 0) {
+      fehler(`${pfad}.achsen`, "muss ein nicht-leeres Array sein.");
+    }
+    const achsen = (data.achsen as unknown[]).map((a, k) => {
+      const aPfad = `${pfad}.achsen[${k}]`;
+      if (!istObjekt(a)) fehler(aPfad, "muss ein Objekt sein.");
+      const schluessel = pflichtString(
+        (a as Record<string, unknown>).schluessel,
+        `${aPfad}.schluessel`,
+        fehler,
+      );
+      const label = pflichtString(
+        (a as Record<string, unknown>).label,
+        `${aPfad}.label`,
+        fehler,
+      );
+      return { schluessel, label };
+    });
+    const it: Extract<Interaktion, { art: "selbsttest" }> = {
+      art: "selbsttest",
+      achsen,
+    };
+    if (data.wann !== undefined) {
+      if (data.wann !== "baseline" && data.wann !== "nachher") {
+        fehler(`${pfad}.wann`, 'muss "baseline" oder "nachher" sein.');
+      }
+      it.wann = data.wann;
+    }
+    if (data.absichtFrage !== undefined) {
+      it.absichtFrage = pflichtString(
+        data.absichtFrage,
+        `${pfad}.absichtFrage`,
+        fehler,
+      );
+    }
+    if (data.absichtVorschlaege !== undefined) {
+      it.absichtVorschlaege = pflichtStringArray(
+        data.absichtVorschlaege,
+        `${pfad}.absichtVorschlaege`,
+        fehler,
+      );
+    }
+    return it;
+  }
   return fehler(`${pfad}.art`, `unbekannt: "${String(data.art)}".`);
 }
 
@@ -208,11 +289,11 @@ function pflichtZahl(v: unknown, pfad: string, fehler: Fehler): number {
   return v as number;
 }
 
-function pflichtEbene(v: unknown, pfad: string, fehler: Fehler): 0 | 1 | 2 | 3 {
-  if (v !== 0 && v !== 1 && v !== 2 && v !== 3) {
-    fehler(pfad, "muss 0, 1, 2 oder 3 sein.");
+function pflichtStation(v: unknown, pfad: string, fehler: Fehler): StationId {
+  if (!STATIONEN.includes(v as StationId)) {
+    fehler(pfad, `muss eine gültige Station sein (${STATIONEN.join(", ")}).`);
   }
-  return v as 0 | 1 | 2 | 3;
+  return v as StationId;
 }
 
 function pflichtStringArray(

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import type {
   Interaktion,
   Modul,
@@ -15,6 +15,69 @@ import ExperimentMerken from "./ExperimentMerken";
 import Fortschritt from "./Fortschritt";
 import JournalFeld from "./JournalFeld";
 import SpuerRegler from "./SpuerRegler";
+
+/** Ein einzelner Selbsttest-Regler (0–10). Label wird an „↔" gesplittet.
+ *  Vorerst nur lokale Anzeige — Persistenz/Baseline kommt später. */
+function SelbsttestRegler({ label }: { label: string }) {
+  const [links, rechts] = label.split("↔").map((teil) => teil.trim());
+  const [wert, setWert] = useState(5);
+  return (
+    <div className="space-y-2">
+      <input
+        type="range"
+        min={0}
+        max={10}
+        step={1}
+        value={wert}
+        aria-label={label}
+        onChange={(e) => setWert(Number(e.target.value))}
+        className="h-2 w-full cursor-pointer accent-salbei-tief"
+      />
+      <div
+        aria-hidden="true"
+        className="flex justify-between text-sm text-tinte-sanft"
+      >
+        <span>{links}</span>
+        <span>{rechts}</span>
+      </div>
+    </div>
+  );
+}
+
+/** Selbsttest: mehrere Achsen als Regler + optionale Absichts-Frage.
+ *  Rein lokale Anzeige (kein Storage) — Spiegel, keine Diagnose. */
+function SelbsttestFeld({
+  interaktion,
+}: {
+  interaktion: Extract<Interaktion, { art: "selbsttest" }>;
+}) {
+  const textId = useId();
+  return (
+    <div className="space-y-6 rounded-2xl border border-linie bg-flaeche p-5">
+      <div className="space-y-5">
+        {interaktion.achsen.map((achse) => (
+          <SelbsttestRegler key={achse.schluessel} label={achse.label} />
+        ))}
+      </div>
+      {interaktion.absichtFrage ? (
+        <div className="space-y-2">
+          <label htmlFor={textId} className="block font-medium text-tinte">
+            {interaktion.absichtFrage}
+          </label>
+          <textarea
+            id={textId}
+            rows={3}
+            placeholder="Ein Satz genügt — ganz freiwillig."
+            className="w-full resize-y rounded-2xl border border-linie bg-grund px-4 py-3 text-tinte placeholder:text-tinte-sanft/70 focus-visible:border-salbei-tief"
+          />
+          <p className="text-sm text-tinte-sanft">
+            Bleibt auf deinem Gerät. Du kannst das Feld auch leer lassen.
+          </p>
+        </div>
+      ) : null}
+    </div>
+  );
+}
 
 function Interaktionen({
   liste,
@@ -30,6 +93,9 @@ function Interaktionen({
       {liste.map((it, i) => {
         if (it.art === "journal") {
           return <JournalFeld key={i} frage={it.frage} modulId={modulId} />;
+        }
+        if (it.art === "selbsttest") {
+          return <SelbsttestFeld key={i} interaktion={it} />;
         }
         const wann = schrittTyp === "nachspueren" ? "nachher" : "vorher";
         const vergleich =

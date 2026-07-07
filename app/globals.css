@@ -12,6 +12,9 @@
   --color-sand: #D9C9AC; /* Chips, dezente Hervorhebung */
   --color-akzent: #BC6C4F; /* warmer Akzent, sparsam, nie für Fließtext */
 
+  --color-gold: #C9A227; /* Horizont-Licht, sehr sparsam */
+  --color-gold-tief: #A8841C;
+
   --font-ueberschrift: "Fraunces Variable", serif;
   --font-fliesstext: "Source Sans 3 Variable", sans-serif;
 }
@@ -28,6 +31,8 @@
     --color-salbei-tief: #AFC4AE;
     --color-sand: #6E6148;
     --color-akzent: #D08A67;
+    --color-gold: #D8B84A;
+    --color-gold-tief: #C9A227;
   }
 }
 
@@ -138,6 +143,46 @@
   .mbm-deko-piktogramm {
     opacity: 0.55;
   }
+}
+
+/* ── Wegband: die Bewegung nach innen (dunkel/dicht → licht/weit) ──────
+   Entscheidung: KEIN Vollflächen-Gradient (würde in Light/Dark die
+   Text-Kontraste gefährden), sondern ein schmales vertikales „Wegband"
+   links neben den Stationen. Es trägt den journeyGradient aus
+   landkarte.designTokens sichtbar von oben (deep) nach unten (cream).
+   Karten/Texte bleiben auf den normalen Flächen-Tokens gut lesbar. */
+.mbm-journey {
+  background: linear-gradient(
+    to bottom,
+    #12231a 0%,
+    #2e4630 30%,
+    #6d8663 52%,
+    #b9c3a0 70%,
+    #f4efdd 86%,
+    #f6f0dc 100%
+  );
+}
+
+/* ── Horizont: ruhig atmende, sich öffnende konzentrische Ringe ─────── */
+@keyframes mbm-atmen {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+.mbm-horizont-ringe {
+  border-radius: 999px;
+  box-shadow:
+    0 0 0 14px color-mix(in srgb, var(--color-gold) 8%, transparent),
+    0 0 0 32px color-mix(in srgb, var(--color-gold) 6%, transparent),
+    0 0 0 56px color-mix(in srgb, var(--color-gold) 4%, transparent);
+  animation: mbm-atmen 9s ease-in-out infinite;
 }
 
 /* ── Reduzierte Bewegung: nichts drängt, nichts blinkt ─────────────── */
