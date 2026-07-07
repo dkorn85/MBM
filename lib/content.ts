@@ -1,6 +1,7 @@
 import type { Landkarte, Modul } from "./module-schema";
 import { validateModul } from "./validate-module";
 import willkommen from "@/content/modules/willkommen.json";
+import woDuStehst from "@/content/modules/wo-du-stehst.json";
 import alarm from "@/content/modules/alarm.json";
 import inseln from "@/content/modules/inseln.json";
 import koerperHoeren from "@/content/modules/koerper-hoeren.json";
@@ -13,6 +14,7 @@ import landkarteRoh from "@/content/landkarte.json";
 // Archiviert (nicht mehr eingebunden, Dateien bleiben): f1, f2, t1, t3.
 const roheModule: unknown[] = [
   willkommen,
+  woDuStehst,
   alarm,
   inseln,
   koerperHoeren,

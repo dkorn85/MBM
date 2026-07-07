@@ -64,7 +64,7 @@
         "shift": "Da ist jemand, der zuhört — und ich verstehe mich selbst schon besser.",
         "modules": [
           { "id": "willkommen", "no": 1, "title": "Willkommen — wie das hier funktioniert", "status": "written", "durationMin": 4, "format": ["text"] },
-          { "id": "wo-du-stehst", "no": 2, "title": "Wo du gerade stehst", "status": "planned", "durationMin": 6, "format": ["text", "interactive"],
+          { "id": "wo-du-stehst", "no": 2, "title": "Wo du gerade stehst", "status": "written", "durationMin": 6, "format": ["text", "interactive"],
             "note": "Anliegen + Selbsttest auf den vier Ebenen der Stressreaktion + erste Absicht; zugleich Baseline für Vorher/Nachher" }
         ]
       },

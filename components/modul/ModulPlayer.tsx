@@ -16,49 +16,74 @@ import Fortschritt from "./Fortschritt";
 import JournalFeld from "./JournalFeld";
 import SpuerRegler from "./SpuerRegler";
 
-/** Ein einzelner Selbsttest-Regler (0–10). Label wird an „↔" gesplittet.
- *  Vorerst nur lokale Anzeige — Persistenz/Baseline kommt später. */
-function SelbsttestRegler({ label }: { label: string }) {
-  const [links, rechts] = label.split("↔").map((teil) => teil.trim());
-  const [wert, setWert] = useState(5);
-  return (
-    <div className="space-y-2">
-      <input
-        type="range"
-        min={0}
-        max={10}
-        step={1}
-        value={wert}
-        aria-label={label}
-        onChange={(e) => setWert(Number(e.target.value))}
-        className="h-2 w-full cursor-pointer accent-salbei-tief"
-      />
-      <div
-        aria-hidden="true"
-        className="flex justify-between text-sm text-tinte-sanft"
-      >
-        <span>{links}</span>
-        <span>{rechts}</span>
-      </div>
-    </div>
-  );
-}
-
-/** Selbsttest: mehrere Achsen als Regler + optionale Absichts-Frage.
- *  Rein lokale Anzeige (kein Storage) — Spiegel, keine Diagnose. */
+/** Selbsttest auf mehreren Achsen (0–10) + optionales offenes Feld.
+ *  Spiegel, keine Diagnose. Speichert Baseline bzw. Nachher-Messung lokal;
+ *  lädt vorhandene Werte, wenn die Person zurückkommt. */
 function SelbsttestFeld({
   interaktion,
 }: {
   interaktion: Extract<Interaktion, { art: "selbsttest" }>;
 }) {
   const textId = useId();
+  const wann = interaktion.wann ?? "baseline";
+  const [werte, setWerte] = useState<Record<string, number>>(() =>
+    Object.fromEntries(interaktion.achsen.map((a) => [a.schluessel, 5])),
+  );
+  const [anliegen, setAnliegen] = useState("");
+  const [gespeichert, setGespeichert] = useState(false);
+
+  useEffect(() => {
+    const snap = storage.getSelbsttest(wann);
+    if (snap) {
+      setWerte((alt) => ({ ...alt, ...snap.achsen }));
+      if (typeof snap.anliegen === "string") setAnliegen(snap.anliegen);
+      setGespeichert(true);
+    }
+  }, [wann]);
+
+  const festhalten = () => {
+    storage.setSelbsttest({
+      wann,
+      achsen: werte,
+      anliegen: anliegen.trim() === "" ? undefined : anliegen.trim(),
+      erstellt: new Date().toISOString(),
+    });
+    setGespeichert(true);
+  };
+
   return (
     <div className="space-y-6 rounded-2xl border border-linie bg-flaeche p-5">
       <div className="space-y-5">
-        {interaktion.achsen.map((achse) => (
-          <SelbsttestRegler key={achse.schluessel} label={achse.label} />
-        ))}
+        {interaktion.achsen.map((achse) => {
+          const [links, rechts] = achse.label.split("↔").map((t) => t.trim());
+          return (
+            <div key={achse.schluessel} className="space-y-2">
+              <input
+                type="range"
+                min={0}
+                max={10}
+                step={1}
+                value={werte[achse.schluessel] ?? 5}
+                aria-label={achse.label}
+                onChange={(e) => {
+                  const v = Number(e.target.value);
+                  setWerte((alt) => ({ ...alt, [achse.schluessel]: v }));
+                  setGespeichert(false);
+                }}
+                className="h-2 w-full cursor-pointer accent-salbei-tief"
+              />
+              <div
+                aria-hidden="true"
+                className="flex justify-between text-sm text-tinte-sanft"
+              >
+                <span>{links}</span>
+                <span>{rechts}</span>
+              </div>
+            </div>
+          );
+        })}
       </div>
+
       {interaktion.absichtFrage ? (
         <div className="space-y-2">
           <label htmlFor={textId} className="block font-medium text-tinte">
@@ -66,15 +91,32 @@ function SelbsttestFeld({
           </label>
           <textarea
             id={textId}
-            rows={3}
-            placeholder="Ein Satz genügt — ganz freiwillig."
+            rows={2}
+            value={anliegen}
+            onChange={(e) => {
+              setAnliegen(e.target.value);
+              setGespeichert(false);
+            }}
+            placeholder="Ein Wort oder Satz genügt — ganz freiwillig."
             className="w-full resize-y rounded-2xl border border-linie bg-grund px-4 py-3 text-tinte placeholder:text-tinte-sanft/70 focus-visible:border-salbei-tief"
           />
-          <p className="text-sm text-tinte-sanft">
-            Bleibt auf deinem Gerät. Du kannst das Feld auch leer lassen.
-          </p>
         </div>
       ) : null}
+
+      <div className="flex flex-wrap items-center gap-3">
+        <button
+          type="button"
+          onClick={festhalten}
+          className="inline-flex min-h-11 items-center rounded-xl bg-salbei-tief px-5 py-2 font-medium text-grund transition-colors duration-200 ease-out hover:bg-salbei"
+        >
+          Festhalten
+        </button>
+        {gespeichert ? (
+          <span className="text-sm text-tinte-sanft">
+            Gespeichert — bleibt auf deinem Gerät. Ein Spiegel, keine Bewertung.
+          </span>
+        ) : null}
+      </div>
     </div>
   );
 }
@@ -215,6 +257,13 @@ function SchrittKoerper({
         ) : null}
         {audio}
         <Bloecke bloecke={schritt.bloecke} />
+        {schritt.interaktionen && schritt.interaktionen.length > 0 ? (
+          <Interaktionen
+            liste={schritt.interaktionen}
+            modulId={modul.id}
+            schrittTyp={schritt.typ}
+          />
+        ) : null}
       </div>
     );
   }

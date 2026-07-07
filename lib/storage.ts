@@ -26,6 +26,15 @@ export type AktivesExperiment = {
   gemerkt: string; // ISO-Datum
 };
 
+// Selbsttest auf den vier Ebenen der Stressreaktion (Modul „Wo du gerade
+// stehst"). Baseline = Ausgangswerte; nachher = erneute Messung (Modul „Rückblick").
+export type SelbsttestSnapshot = {
+  wann: "baseline" | "nachher";
+  achsen: Record<string, number>; // schluessel -> 0..10
+  anliegen?: string;
+  erstellt: string; // ISO-Datum
+};
+
 export interface MbmStorage {
   getModulStatus(modulId: string): ModulStatus;
   setModulStatus(modulId: string, status: ModulStatus): void;
@@ -37,6 +46,8 @@ export interface MbmStorage {
   getExperimente(): AktivesExperiment[];
   merkeExperiment(experiment: AktivesExperiment): void;
   entferneExperiment(modulId: string): void;
+  getSelbsttest(wann: "baseline" | "nachher"): SelbsttestSnapshot | null;
+  setSelbsttest(snap: SelbsttestSnapshot): void; // überschreibt gleiches wann
   istDisclaimerGesehen(): boolean;
   setDisclaimerGesehen(): void;
 }
@@ -48,6 +59,7 @@ const KEY_JOURNAL = `${PREFIX}journal`;
 const KEY_SPUER = `${PREFIX}spuerwerte`;
 const KEY_EXPERIMENTE = `${PREFIX}experimente`;
 const KEY_DISCLAIMER = `${PREFIX}disclaimerGesehen`;
+const KEY_SELBSTTEST = `${PREFIX}selbsttest`;
 
 /** localStorage nur im Browser; auf dem Server null. */
 function speicher(): Storage | null {
@@ -152,6 +164,17 @@ const localStorageImpl: MbmStorage = {
     const gefiltert = alle.filter((e) => e.modulId !== modulId);
     if (gefiltert.length === alle.length) return;
     schreiben(KEY_EXPERIMENTE, gefiltert);
+  },
+
+  getSelbsttest(wann) {
+    const alle = lesen<Record<string, SelbsttestSnapshot>>(KEY_SELBSTTEST, {});
+    return alle[wann] ?? null;
+  },
+
+  setSelbsttest(snap) {
+    const alle = lesen<Record<string, SelbsttestSnapshot>>(KEY_SELBSTTEST, {});
+    alle[snap.wann] = snap;
+    schreiben(KEY_SELBSTTEST, alle);
   },
 
   istDisclaimerGesehen() {
