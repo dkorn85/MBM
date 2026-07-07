@@ -4,6 +4,7 @@ import "@fontsource-variable/source-sans-3";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import OnboardingDisclaimer from "@/components/OnboardingDisclaimer";
 
 export const metadata: Metadata = {
   title: "Gebrauchsanweisung zum Menschsein",
@@ -37,6 +38,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <OnboardingDisclaimer />
       </body>
     </html>
   );
