@@ -21,22 +21,27 @@ const HIER = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(HIER, "..");
 
 // ── Konstanten (Spec §Konfiguration) ─────────────────────────────────
-const MODEL_ID = "eleven_multilingual_v2";
+// ElevenLabs v3: ausdrucksstärkstes Modell. Stability "Natural" (0.5) =
+// nah am Original, natürliche Emotion; speed < 1.0 = etwas langsamer.
+// WICHTIG: v3 unterstützt KEINE SSML-<break>-Tags. Pausen laufen daher über
+// Ellipsen im Text (v3 rendert daran natürliche Pausen) und über echte Stille
+// zwischen den Chunks (ffmpeg) an den [längere Pause]-Grenzen.
+const MODEL_ID = "eleven_v3";
 const OUTPUT_FORMAT = "mp3_44100_128";
 const VOICE_SETTINGS = {
-  stability: 0.55,
+  stability: 0.5, // Natural
   similarity_boost: 0.75,
-  style: 0.2,
-  use_speaker_boost: true,
+  speed: 0.9, // etwas langsamer, ruhiger
 };
 // mp3_44100_128 ist CBR 128 kbps → 16000 Bytes/Sekunde (für Dauer-Schätzung).
 const BYTES_PRO_SEKUNDE = 128000 / 8;
 
-// ── Pausen-Marker → SSML-Breaks (Spec §Text-Aufbereitung) ────────────
-const BREAK_KURZ = '<break time="0.6s" />';
-const BREAK_NORMAL = '<break time="1.2s" />';
-const BREAK_LANG = '<break time="2.5s" />';
-const BREAK_ABSATZ = '<break time="1.0s" />';
+// ── Pausen-Marker → Ellipsen (v3-tauglich statt SSML-Breaks) ──────────
+const ELLIPSE_KURZ = " … ";
+const ELLIPSE_NORMAL = " … … ";
+const ELLIPSE_LANG = " … … ";
+// Echte Stille (Sekunden) zwischen Chunks (an [längere Pause]-Grenzen).
+const STILLE_LANG_SEK = 2.5;
 
 const MARKER_ENDE = /\[(?:kurze Pause|Pause|längere Pause)\]\s*$/;
 const MARKER_ANFANG = /^\s*\[(?:kurze Pause|Pause|längere Pause)\]/;
@@ -99,9 +104,9 @@ function verlangeConfig() {
 function bereinige(text) {
   let t = text.replace(/\*\*/g, "").replace(/\*/g, "");
   t = t
-    .replace(/\[kurze Pause\]/g, BREAK_KURZ)
-    .replace(/\[längere Pause\]/g, BREAK_LANG)
-    .replace(/\[Pause\]/g, BREAK_NORMAL);
+    .replace(/\[kurze Pause\]/g, ELLIPSE_KURZ)
+    .replace(/\[längere Pause\]/g, ELLIPSE_LANG)
+    .replace(/\[Pause\]/g, ELLIPSE_NORMAL);
   // Zeilenumbrüche und Mehrfach-Whitespace zu einem Leerzeichen.
   t = t.replace(/\s+/g, " ").trim();
   return t;
@@ -134,10 +139,10 @@ function baueChunkText(absaetze) {
     }
     const vorher = absaetze[i - 1];
     const jetzt = absaetze[i];
-    // 1,0-s-Break zwischen Absätzen, außer an der Grenze steht schon ein Marker.
+    // Sanfte Ellipsen-Pause zwischen Absätzen, außer an der Grenze steht schon ein Marker.
     const grenzeHatMarker =
       MARKER_ENDE.test(vorher) || MARKER_ANFANG.test(jetzt);
-    out += grenzeHatMarker ? " " + sauber : ` ${BREAK_ABSATZ} ` + sauber;
+    out += grenzeHatMarker ? " " + sauber : `${ELLIPSE_NORMAL}` + sauber;
   }
   return out.replace(/\s+/g, " ").trim();
 }
@@ -262,45 +267,89 @@ function ffmpegVerfuegbar() {
   }
 }
 
-/**
- * Chunk-Buffer zu einer MP3-Datei schreiben. Standard: Byte-Konkatenation
- * (bei identischem Format zulässig). Wenn ffmpeg da ist, optional re-muxen;
- * bei jedem Fehler Fallback auf die Konkatenation.
- */
-function schreibeMp3(zielPfad_, buffers) {
-  mkdirSync(path.dirname(zielPfad_), { recursive: true });
-  const konkat = Buffer.concat(buffers);
+/** Stille-MP3 (Sekunden) via ffmpeg erzeugen; Pfad oder null. */
+function erzeugeStilleDatei(sekunden, arbeitsDir) {
+  const ziel = path.join(arbeitsDir, `stille-${sekunden}.mp3`);
+  const r = spawnSync(
+    "ffmpeg",
+    [
+      "-y", "-f", "lavfi",
+      "-i", "anullsrc=channel_layout=mono:sample_rate=44100",
+      "-t", String(sekunden), "-b:a", "128k", ziel,
+    ],
+    { stdio: "ignore" },
+  );
+  return r.status === 0 && existsSync(ziel) ? ziel : null;
+}
 
-  if (buffers.length > 1 && ffmpegVerfuegbar()) {
-    const tmp = path.join(
-      os.tmpdir(),
-      `mbm-audio-${process.pid}-${Date.now()}.mp3`,
-    );
-    try {
-      writeFileSync(tmp, konkat);
-      const r = spawnSync(
-        "ffmpeg",
-        ["-y", "-i", tmp, "-c", "copy", zielPfad_],
-        { stdio: "ignore" },
-      );
-      if (r.status === 0 && existsSync(zielPfad_)) {
-        return; // ffmpeg-Remux erfolgreich
-      }
-      // sonst Fallback
-      writeFileSync(zielPfad_, konkat);
-    } catch {
-      writeFileSync(zielPfad_, konkat);
-    } finally {
-      try {
-        if (existsSync(tmp)) rmSync(tmp);
-      } catch {
-        // egal
-      }
-    }
+/**
+ * Chunk-Buffer zu einer MP3-Datei schreiben. Zwischen den Chunks (an
+ * [längere Pause]-Grenzen) wird echte Stille eingefügt — v3 kennt keine
+ * SSML-Breaks, die langen Meditationspausen kommen also von hier. Mit ffmpeg
+ * werden alle Teile per concat-Demuxer zu einheitlichem MP3 re-encodiert; ohne
+ * ffmpeg Fallback auf Byte-Konkatenation (ohne echte Stille).
+ */
+function schreibeMp3(zielPfad_, buffers, stilleSek = 0) {
+  mkdirSync(path.dirname(zielPfad_), { recursive: true });
+
+  if (buffers.length === 1) {
+    writeFileSync(zielPfad_, buffers[0]);
     return;
   }
 
-  writeFileSync(zielPfad_, konkat);
+  const fallback = () => writeFileSync(zielPfad_, Buffer.concat(buffers));
+  if (!ffmpegVerfuegbar()) {
+    fallback();
+    return;
+  }
+
+  const arbeitsDir = path.join(
+    os.tmpdir(),
+    `mbm-audio-${process.pid}-${Date.now()}`,
+  );
+  try {
+    mkdirSync(arbeitsDir, { recursive: true });
+
+    const teile = buffers.map((buf, i) => {
+      const p = path.join(arbeitsDir, `chunk-${i}.mp3`);
+      writeFileSync(p, buf);
+      return p;
+    });
+
+    const stille =
+      stilleSek > 0 ? erzeugeStilleDatei(stilleSek, arbeitsDir) : null;
+
+    // Concat-Liste: chunk0 [stille] chunk1 [stille] chunk2 …
+    const eintraege = [];
+    teile.forEach((p, i) => {
+      if (i > 0 && stille) eintraege.push(stille);
+      eintraege.push(p);
+    });
+    const liste = path.join(arbeitsDir, "liste.txt");
+    writeFileSync(
+      liste,
+      eintraege.map((p) => `file '${p.replace(/'/g, "'\\''")}'`).join("\n") +
+        "\n",
+    );
+
+    const r = spawnSync(
+      "ffmpeg",
+      [
+        "-y", "-f", "concat", "-safe", "0", "-i", liste,
+        "-c:a", "libmp3lame", "-b:a", "128k", zielPfad_,
+      ],
+      { stdio: "ignore" },
+    );
+    if (!(r.status === 0 && existsSync(zielPfad_))) fallback();
+  } catch {
+    fallback();
+  } finally {
+    try {
+      rmSync(arbeitsDir, { recursive: true, force: true });
+    } catch {
+      // egal
+    }
+  }
 }
 
 // ── Ausgabe-Hilfen ───────────────────────────────────────────────────
@@ -447,7 +496,7 @@ async function main() {
       if (requestId) requestIds.push(requestId);
     }
 
-    schreibeMp3(ziel, buffers);
+    schreibeMp3(ziel, buffers, STILLE_LANG_SEK);
     const bytes = readFileSync(ziel).length;
     zeilen.push({
       datei: relativ,
