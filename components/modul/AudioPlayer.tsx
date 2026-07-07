@@ -40,7 +40,7 @@ export default function AudioPlayer({
     try {
       navigator.mediaSession.metadata = new MediaMetadata({
         title: `${modulTitel} — ${schrittTitel}`,
-        artist: "Gebrauchsanweisung zum Menschsein",
+        artist: "YipYip",
       });
       navigator.mediaSession.setActionHandler("play", () => {
         audioRef.current?.play().catch(() => {});

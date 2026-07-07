@@ -3,7 +3,7 @@ import { landkarte } from "@/lib/content";
 import MeinWegInhalt, { type ModulInfo } from "@/components/MeinWegInhalt";
 
 export const metadata: Metadata = {
-  title: "Mein Weg — Gebrauchsanweisung zum Menschsein",
+  title: "Mein Weg — YipYip",
 };
 
 const modulInfos: ModulInfo[] = landkarte.ebenen.flatMap((ebene) =>

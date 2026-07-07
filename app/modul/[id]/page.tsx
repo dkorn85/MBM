@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const modul = getModul(id);
   if (!modul) return {};
-  return { title: `${modul.titel} — Gebrauchsanweisung zum Menschsein` };
+  return { title: `${modul.titel} — YipYip` };
 }
 
 export default async function ModulPage({ params }: Props) {

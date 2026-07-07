@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Hilfe in Krisen — Gebrauchsanweisung zum Menschsein",
+  title: "Hilfe in Krisen — YipYip",
 };
 
 const telLinkKlasse =

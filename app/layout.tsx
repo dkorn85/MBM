@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import OnboardingDisclaimer from "@/components/OnboardingDisclaimer";
 
 export const metadata: Metadata = {
-  title: "Gebrauchsanweisung zum Menschsein",
+  title: "YipYip — Gebrauchsanweisung zum Menschsein",
   description:
     "Ein ruhiges Selbstlernprogramm der Mind-Body-Medizin: verstehen, erleben, in den Alltag bringen.",
 };
