@@ -102,7 +102,7 @@
         "shift": "Es muss nicht anders sein, als es ist.",
         "modules": [
           { "id": "eigene-praxis", "no": 9, "title": "Deine eigene Praxis", "status": "written", "note": "was bleibt + dein Plan nach vorn" },
-          { "id": "rueckblick-weite", "no": 10, "title": "Rückblick & Weite", "status": "planned", "note": "Vorher/Nachher via Selbsttest (4 Ebenen) + ES-16; öffnet zur Gelassenheit" }
+          { "id": "rueckblick-weite", "no": 10, "title": "Rückblick & Weite", "status": "written", "note": "Vorher/Nachher via Selbsttest (4 Ebenen); ES-16 später (validierte Items ausstehend); öffnet zur Gelassenheit" }
         ]
       }
     ]

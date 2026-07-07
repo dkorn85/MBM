@@ -31,6 +31,7 @@ function SelbsttestFeld({
   );
   const [anliegen, setAnliegen] = useState("");
   const [gespeichert, setGespeichert] = useState(false);
+  const [baseline, setBaseline] = useState<Record<string, number> | null>(null);
 
   useEffect(() => {
     const snap = storage.getSelbsttest(wann);
@@ -38,6 +39,11 @@ function SelbsttestFeld({
       setWerte((alt) => ({ ...alt, ...snap.achsen }));
       if (typeof snap.anliegen === "string") setAnliegen(snap.anliegen);
       setGespeichert(true);
+    }
+    // Für die Nachher-Messung (Modul „Rückblick") die Baseline zum Vergleich laden.
+    if (wann === "nachher") {
+      const b = storage.getSelbsttest("baseline");
+      setBaseline(b?.achsen ?? null);
     }
   }, [wann]);
 
@@ -117,6 +123,48 @@ function SelbsttestFeld({
           </span>
         ) : null}
       </div>
+
+      {/* Vorher/Nachher (nur in der Nachher-Messung, wenn eine Baseline existiert). */}
+      {wann === "nachher" && gespeichert && baseline ? (
+        <div className="space-y-4 border-t border-linie pt-5">
+          <p className="text-sm text-tinte-sanft">
+            Als du gestartet bist — und jetzt:
+          </p>
+          {interaktion.achsen.map((achse) => {
+            const vor = baseline[achse.schluessel];
+            const jetzt = werte[achse.schluessel];
+            if (typeof vor !== "number") return null;
+            const [links, rechts] = achse.label.split("↔").map((t) => t.trim());
+            return (
+              <div key={achse.schluessel} className="space-y-1">
+                <div
+                  aria-hidden="true"
+                  className="flex justify-between text-sm text-tinte-sanft"
+                >
+                  <span>{links}</span>
+                  <span>{rechts}</span>
+                </div>
+                <div
+                  className="relative h-2 rounded-full bg-linie"
+                  aria-hidden="true"
+                >
+                  <span
+                    className="absolute top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-tinte-sanft/60"
+                    style={{ left: `${(vor / 10) * 100}%` }}
+                  />
+                  <span
+                    className="absolute top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-salbei-tief"
+                    style={{ left: `${(jetzt / 10) * 100}%` }}
+                  />
+                </div>
+              </div>
+            );
+          })}
+          <p className="text-xs text-tinte-sanft">
+            Grau: damals · Grün: jetzt. Kein Ziel, keine Note — nur dein Weg.
+          </p>
+        </div>
+      ) : null}
     </div>
   );
 }

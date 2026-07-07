@@ -9,6 +9,7 @@ import inseln from "@/content/modules/inseln.json";
 import koerperHoeren from "@/content/modules/koerper-hoeren.json";
 import gedankenEntwirren from "@/content/modules/gedanken-entwirren.json";
 import eigenePraxis from "@/content/modules/eigene-praxis.json";
+import rueckblickWeite from "@/content/modules/rueckblick-weite.json";
 import landkarteRoh from "@/content/landkarte.json";
 
 // Neues (fertiges) Modul = neue JSON-Datei + ein Eintrag in dieser Liste.
@@ -24,6 +25,7 @@ const roheModule: unknown[] = [
   koerperHoeren,
   gedankenEntwirren,
   eigenePraxis,
+  rueckblickWeite,
 ];
 
 // Validierung bei Import-Zeit: ein fehlerhaftes Modul lässt den Build scheitern.
