@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+/* ── Design-Tokens (Light) ─────────────────────────────────────────── */
+@theme {
+  --color-grund: #FAF6EF; /* Seitenhintergrund, warmes Off-White */
+  --color-flaeche: #F3EDE2; /* Karten, Felder */
+  --color-linie: #E4DBCB; /* Ränder, Trennlinien */
+  --color-tinte: #3D3831; /* Fließtext */
+  --color-tinte-sanft: #6E675C; /* Sekundärtext */
+  --color-salbei: #708A72; /* Deko/Icons, große Flächen */
+  --color-salbei-tief: #4F6653; /* interaktive Elemente, Text auf hell */
+  --color-sand: #D9C9AC; /* Chips, dezente Hervorhebung */
+  --color-akzent: #BC6C4F; /* warmer Akzent, sparsam, nie für Fließtext */
+
+  --font-ueberschrift: "Fraunces Variable", serif;
+  --font-flaustext: "Source Sans 3 Variable", sans-serif;
+}
+
+/* ── Design-Tokens (Dark) — gedämpft warm, nicht tiefschwarz-neon ───── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-grund: #221F1A;
+    --color-flaeche: #2A261F;
+    --color-linie: #3B352B;
+    --color-tinte: #ECE4D6;
+    --color-tinte-sanft: #B3A995;
+    --color-salbei: #93AC94;
+    --color-salbei-tief: #AFC4AE;
+    --color-sand: #6E6148;
+    --color-akzent: #D08A67;
+  }
+}
+
+/* ── Basis ─────────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-grund);
+    color: var(--color-tinte);
+    font-family: var(--font-flaustext);
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.65;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-ueberschrift);
+    font-weight: 500;
+    line-height: 1.25;
+    color: var(--color-tinte);
+  }
+
+  a {
+    color: inherit;
+  }
+
+  /* Fokus stets sichtbar, ruhig in Salbei */
+  :focus-visible {
+    outline: 2px solid var(--color-salbei-tief);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Angenehme Auswahlfarbe */
+  ::selection {
+    background-color: var(--color-sand);
+    color: var(--color-tinte);
+  }
+}
+
+/* ── Sanfte Übergänge ──────────────────────────────────────────────── */
+@keyframes mbm-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.mbm-schritt-fade {
+  animation: mbm-fade-in 250ms ease-out;
+}
+
+.mbm-stille-fade {
+  animation: mbm-fade-in 600ms ease-out;
+}
+
+/* ── Reduzierte Bewegung: nichts drängt, nichts blinkt ─────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
