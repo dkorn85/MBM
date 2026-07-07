@@ -9,6 +9,7 @@ import type {
 } from "@/lib/module-schema";
 import AbgeschlossenChip from "@/components/AbgeschlossenChip";
 import HomeGemerkt from "@/components/HomeGemerkt";
+import LoopPuls from "@/components/LoopPuls";
 
 // Status jedes Moduls (aus den Stationen) — für die Needs-Chips (nur „written"
 // ist anklickbar).
@@ -180,30 +181,6 @@ function StationAbschnitt({ station }: { station: Station }) {
         </div>
       </div>
     </li>
-  );
-}
-
-// ── Loop-Puls: ruhige Vorschau, (noch) nicht interaktiv ───────────────
-function LoopPuls() {
-  const { title, subtitle, items } = landkarte.loop;
-  return (
-    <section className="space-y-4 rounded-2xl border border-linie bg-flaeche p-6 sm:p-7">
-      <div className="space-y-1">
-        <h2 className="text-xl">{title}</h2>
-        <p className="text-tinte-sanft">{subtitle}</p>
-      </div>
-      <ul className="grid gap-3 sm:grid-cols-3">
-        {items.map((item) => (
-          <li
-            key={item.id}
-            className="rounded-xl border border-linie bg-grund/60 p-4"
-          >
-            <p className="font-medium text-tinte">{item.title}</p>
-            <p className="mt-1 text-sm text-tinte-sanft">{item.detail}</p>
-          </li>
-        ))}
-      </ul>
-    </section>
   );
 }
 

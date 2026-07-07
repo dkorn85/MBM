@@ -35,6 +35,16 @@ export type SelbsttestSnapshot = {
   erstellt: string; // ISO-Datum
 };
 
+// Täglicher Loop (Puls): Spür-Check · Glücksmoment · Anker. Kein Streak-Zwang —
+// einfach ein Eintrag pro Tag, alles optional.
+export type LoopEintrag = {
+  datum: string; // YYYY-MM-DD
+  spuerKoerper?: number; // 0..10
+  spuerStimmung?: number; // 0..10
+  gluecksmoment?: string;
+  ankerGemacht?: boolean;
+};
+
 export interface MbmStorage {
   getModulStatus(modulId: string): ModulStatus;
   setModulStatus(modulId: string, status: ModulStatus): void;
@@ -48,6 +58,9 @@ export interface MbmStorage {
   entferneExperiment(modulId: string): void;
   getSelbsttest(wann: "baseline" | "nachher"): SelbsttestSnapshot | null;
   setSelbsttest(snap: SelbsttestSnapshot): void; // überschreibt gleiches wann
+  getLoopEintrag(datum: string): LoopEintrag | null;
+  setLoopEintrag(datum: string, patch: Partial<Omit<LoopEintrag, "datum">>): void;
+  getLoopHistorie(): LoopEintrag[];
   istDisclaimerGesehen(): boolean;
   setDisclaimerGesehen(): void;
 }
@@ -60,6 +73,7 @@ const KEY_SPUER = `${PREFIX}spuerwerte`;
 const KEY_EXPERIMENTE = `${PREFIX}experimente`;
 const KEY_DISCLAIMER = `${PREFIX}disclaimerGesehen`;
 const KEY_SELBSTTEST = `${PREFIX}selbsttest`;
+const KEY_LOOP = `${PREFIX}loop`;
 
 /** localStorage nur im Browser; auf dem Server null. */
 function speicher(): Storage | null {
@@ -175,6 +189,22 @@ const localStorageImpl: MbmStorage = {
     const alle = lesen<Record<string, SelbsttestSnapshot>>(KEY_SELBSTTEST, {});
     alle[snap.wann] = snap;
     schreiben(KEY_SELBSTTEST, alle);
+  },
+
+  getLoopEintrag(datum) {
+    const alle = lesen<Record<string, LoopEintrag>>(KEY_LOOP, {});
+    return alle[datum] ?? null;
+  },
+
+  setLoopEintrag(datum, patch) {
+    const alle = lesen<Record<string, LoopEintrag>>(KEY_LOOP, {});
+    alle[datum] = { ...(alle[datum] ?? { datum }), ...patch, datum };
+    schreiben(KEY_LOOP, alle);
+  },
+
+  getLoopHistorie() {
+    const alle = lesen<Record<string, LoopEintrag>>(KEY_LOOP, {});
+    return Object.values(alle).sort((a, b) => b.datum.localeCompare(a.datum));
   },
 
   istDisclaimerGesehen() {
