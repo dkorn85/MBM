@@ -56,7 +56,7 @@ Bei Widerspruch zwischen Code-Bequemlichkeit und Wissensbasis gewinnt die Wissen
 - **Next.js 15 (App Router) + Tailwind**, TypeScript. Deployment: **Vercel** (Muster: prompto-studio).
 - **PWA:** installierbar, Kernmodule offline (Texte + Audio precached via Service Worker).
 - **Inhalte als Daten, nicht als Code:** Module liegen als JSON in `content/modules/*.json` (Schema §5). Der Modul-Renderer ist generisch — neue Module = neue JSON + Audio, kein neuer Code.
-- **Audio:** vorproduzierte MP3s in `public/audio/<modulId>/`. Pipeline-Skript `scripts/generate-audio.mjs` (ElevenLabs API, Key aus `.env`, `ELEVENLABS_VOICE_ID` aus `.env` — Voice mit Lana abstimmen, Kandidat: zKHQdbB8oaQ7roNTiDTK). Lange Skripte chunken mit `previous_text`/`next_text` für Stimmkontinuität; `[Pause]`/`[längere Pause]`-Marker → `<break>`-Tags bzw. Chunk-Grenzen (1,2s / 2,5s).
+- **Audio:** vorproduzierte MP3s in `public/audio/<modulId>/`. Pipeline-Skript `scripts/generate-audio.mjs` (ElevenLabs API, Key aus `.env`, `ELEVENLABS_VOICE_ID` aus `.env` — **entschieden: v3V1d2rk6528UrLKRuy8**). Lange Skripte chunken mit `previous_text`/`next_text` für Stimmkontinuität; `[Pause]`/`[längere Pause]`-Marker → `<break>`-Tags bzw. Chunk-Grenzen (1,2s / 2,5s).
 - **Kein Backend im MVP.** Später optional Supabase (Accounts, Sync) — Architektur so bauen, dass der Storage-Layer austauschbar ist (ein `storage.ts`-Interface über localStorage).
 
 ## 5. Datenmodell (Modul-JSON, Kern)
@@ -120,6 +120,6 @@ Committe klein und benannt (`feat: modul-renderer schritt-navigation`). Nach jed
 
 ## 10. Offene Punkte (nicht raten — fragen)
 
-- ElevenLabs-Voice final (Lana entscheiden lassen)
-- App-Name/Branding (Arbeitstitel ok, Platzhalter-Logo)
+- ~~ElevenLabs-Voice final~~ → entschieden: `v3V1d2rk6528UrLKRuy8` (in `.env`)
+- ~~App-Name/Branding~~ → entschieden: **YipYip**, Logo = Appa-inspirierter fliegender Bison (eigenständige Gestaltung, `public/icons/yipyip-bison.svg`)
 - Domain/Ziel-URL nach MVP (Vercel-URL reicht zunächst)
