@@ -17,19 +17,30 @@ function walk(dir) {
   return out;
 }
 
-let audio = [];
-try {
-  audio = walk(audioDir)
-    .map((f) => "/" + relative(publicDir, f).split(sep).join("/"))
-    .filter((p) => /\.(mp3|m4a|ogg|wav)$/i.test(p))
-    .sort();
-} catch {
-  // Kein audio-Verzeichnis: leere Liste ist ok.
+function sammle(dir, muster) {
+  try {
+    return walk(dir)
+      .map((f) => "/" + relative(publicDir, f).split(sep).join("/"))
+      .filter((p) => muster.test(p))
+      .sort();
+  } catch {
+    // Fehlendes Verzeichnis: leere Liste ist ok.
+    return [];
+  }
 }
 
-const manifest = { audio, generatedAt: new Date().toISOString() };
+const audio = sammle(audioDir, /\.(mp3|m4a|ogg|wav)$/i);
+// Deko-Grafiken + App-Icons gehören zum Offline-Kern (Hero, Header, Manifest).
+const assets = [
+  ...sammle(join(publicDir, "deko"), /\.(svg|png)$/i),
+  ...sammle(join(publicDir, "icons"), /\.(svg|png)$/i),
+];
+
+const manifest = { audio, assets, generatedAt: new Date().toISOString() };
 writeFileSync(
   join(publicDir, "precache-manifest.json"),
   JSON.stringify(manifest, null, 2) + "\n",
 );
-console.log(`precache-manifest.json geschrieben: ${audio.length} Audio-Datei(en)`);
+console.log(
+  `precache-manifest.json geschrieben: ${audio.length} Audio-Datei(en), ${assets.length} Asset(s)`,
+);

@@ -92,6 +92,46 @@
   animation: mbm-fade-in 600ms ease-out;
 }
 
+/* ── Atmosphäre: sanftes Schweben (Bison, Drachen) ─────────────────── */
+@keyframes mbm-schweben {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+.mbm-schwebt {
+  animation: mbm-schweben 7s ease-in-out infinite;
+}
+
+@keyframes mbm-drachen-tanz {
+  0%,
+  100% {
+    transform: rotate(-2deg) translateY(0);
+  }
+  50% {
+    transform: rotate(2.5deg) translateY(-6px);
+  }
+}
+
+.mbm-drachen-schwebt {
+  animation: mbm-drachen-tanz 9s ease-in-out infinite;
+  transform-origin: 60% 30%;
+}
+
+/* Deko-Grafiken im Dark Mode stark dämpfen — warm, nie grell */
+@media (prefers-color-scheme: dark) {
+  .mbm-deko-wolken {
+    opacity: 0.14 !important;
+  }
+  .mbm-deko-drachen {
+    opacity: 0.7;
+  }
+}
+
 /* ── Reduzierte Bewegung: nichts drängt, nichts blinkt ─────────────── */
 @media (prefers-reduced-motion: reduce) {
   *,

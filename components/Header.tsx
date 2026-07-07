@@ -3,18 +3,18 @@ import Link from "next/link";
 export default function Header() {
   return (
     <header className="border-b border-linie">
-      <div className="mx-auto flex max-w-2xl flex-wrap items-baseline justify-between gap-x-6 gap-y-1 px-5 py-4 sm:px-6">
+      <div className="mx-auto flex max-w-2xl flex-wrap items-center justify-between gap-x-6 gap-y-1 px-5 py-3 sm:px-6">
         <Link
           href="/"
-          className="flex items-center gap-2 font-ueberschrift text-lg text-tinte transition-colors duration-200 ease-out hover:text-salbei-tief"
+          className="flex items-center gap-3 font-ueberschrift text-2xl text-tinte transition-colors duration-200 ease-out hover:text-salbei-tief"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/icons/yipyip-bison.svg"
+            src="/icons/yipyip-bison-transparent.svg"
             alt=""
-            width={32}
-            height={32}
-            className="h-8 w-8 shrink-0"
+            width={64}
+            height={64}
+            className="h-16 w-16 shrink-0"
           />
           YipYip
         </Link>

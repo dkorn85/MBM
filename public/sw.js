@@ -2,7 +2,7 @@
 // Offline-Kern: Kernrouten + S1-Audio werden bei install precached.
 // Bewusst KEINE Push-/Notification-API und kein Background-Sync (§3: keine Notifications).
 
-const CACHE = "yipyip-v1";
+const CACHE = "yipyip-v2";
 
 // Kernrouten, die offline erreichbar sein müssen.
 const CORE = ["/", "/modul/s1", "/mein-weg", "/hilfe"];
@@ -12,13 +12,15 @@ self.addEventListener("install", (event) => {
     (async () => {
       const cache = await caches.open(CACHE);
 
-      // Audio-Liste aus dem beim Build erzeugten Manifest lesen.
+      // Audio- und Asset-Liste aus dem beim Build erzeugten Manifest lesen.
       let audio = [];
+      let assets = [];
       try {
         const res = await fetch("/precache-manifest.json", { cache: "no-cache" });
         if (res.ok) {
           const data = await res.json();
           if (Array.isArray(data.audio)) audio = data.audio;
+          if (Array.isArray(data.assets)) assets = data.assets;
         }
       } catch {
         // Ohne Manifest werden nur die Kernrouten precached.
@@ -27,7 +29,7 @@ self.addEventListener("install", (event) => {
       // Einzeln hinzufügen: ein fehlschlagender Request soll die Installation
       // nicht komplett scheitern lassen.
       await Promise.all(
-        [...CORE, ...audio].map(async (url) => {
+        [...CORE, ...audio, ...assets].map(async (url) => {
           try {
             await cache.add(new Request(url, { cache: "reload" }));
           } catch {
@@ -68,6 +70,12 @@ self.addEventListener("fetch", (event) => {
 
   // Immutable Next-Assets: cache-first.
   if (url.pathname.startsWith("/_next/static/")) {
+    event.respondWith(cacheFirst(req));
+    return;
+  }
+
+  // Deko-Grafiken + Icons: cache-first (ändern sich praktisch nie).
+  if (url.pathname.startsWith("/deko/") || url.pathname.startsWith("/icons/")) {
     event.respondWith(cacheFirst(req));
     return;
   }
