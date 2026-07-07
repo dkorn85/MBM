@@ -150,7 +150,7 @@ export default function Home() {
           <p className="text-tinte-sanft">
             Die Landkarte füllt sich nach und nach: Jedes neue Modul entsteht
             zuerst in Lanas Praxis und findet dann seinen Weg hierher — als
-            Nächstes „Kleine Inseln im Tag“. Ohne Countdown, ohne Druck. Was
+            Nächstes „Den Körper hören“. Ohne Countdown, ohne Druck. Was
             heute da ist, darf für heute reichen.
           </p>
         </div>

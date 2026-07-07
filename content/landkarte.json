@@ -21,7 +21,7 @@
       "deko": "/deko/element-luft.svg",
       "module": [
         { "id": "s1", "titel": "Dein innerer Alarm", "thema": "Stress", "status": "aktiv", "dauerMin": 12 },
-        { "id": "s2", "titel": "Kleine Inseln im Tag", "thema": "Stress", "status": "bald" },
+        { "id": "s2", "titel": "Kleine Inseln im Tag", "thema": "Stress", "status": "aktiv", "dauerMin": 9 },
         { "id": "w1", "titel": "Den Körper hören", "thema": "Wahrnehmung", "status": "bald" }
       ]
     },

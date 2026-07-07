@@ -1,0 +1,81 @@
+{
+  "id": "s2",
+  "ebene": 1,
+  "thema": "Stress",
+  "titel": "Kleine Inseln im Tag",
+  "dauerMin": 9,
+  "voraussetzungen": [],
+  "schritte": [
+    {
+      "typ": "funke",
+      "titel": "Funke",
+      "audio": "/audio/s2/01-funke.mp3",
+      "bloecke": [
+        { "text": "Kennst du diesen Satz in deinem Kopf: „Ich müsste mal wieder richtig ausspannen“? Der Urlaub, der es richten soll. Das freie Wochenende, irgendwann. Die Ruhe, die kommt, „wenn das hier vorbei ist“. [kurze Pause] Und bis dahin: durchhalten." },
+        { "text": "Vielleicht kennst du auch das: Der Tag rauscht an dir vorbei wie ein einziger Strom — Termine, Nachrichten, To-dos. Abends fällst du aufs Sofa und merkst: Du warst den ganzen Tag auf den Beinen und keine einzige Minute wirklich bei dir." },
+        { "text": "Die gute Nachricht ist fast zu einfach, um sie zu glauben: Erholung braucht keine zwei Wochen. Sie braucht zwei Minuten — aber öfter. In diesem Modul geht es um eine der unterschätztesten Fähigkeiten überhaupt: mitten am Tag kurz auszusteigen." }
+      ]
+    },
+    {
+      "typ": "warum",
+      "titel": "Warum",
+      "audio": "/audio/s2/02-warum.mp3",
+      "bild": "/deko/insel.svg",
+      "bloecke": [
+        { "text": "Stell dir deinen Tag als **Fluss** vor. Morgens steigst du hinein, und dann zieht er — Aufgaben, Menschen, Bildschirme, alles fließt, und du fließt mit. Das ist nicht schlimm, dafür ist ein Fluss da. Das Problem ist nur: Viele von uns steigen morgens ein und den ganzen Tag nicht mehr aus." },
+        { "text": "Dein Körper kennt zwei Richtungen: anspannen und leisten — oder loslassen und auffüllen. Aber die zweite kommt nur zum Zug, wenn der Strom kurz unterbrochen wird. Ein Fluss ohne Inseln spült dich einfach weiter: Die Anspannung von neun Uhr nimmst du mit in den Mittag, die vom Mittag in den Abend. Nichts davon ist dramatisch. Es sammelt sich nur — Stück für Stück." },
+        { "text": "Und hier steckt der Denkfehler, dem fast alle von uns aufsitzen: Wir glauben, Erholung müsse **groß** sein, um zu zählen. Der Urlaub. Das Wochenende. Der freie Abend. Also warten wir auf die große Pause — und lassen unterwegs hundert kleine aus. Dabei gilt für dein System das Gegenteil: **Die kleinen, häufigen Pausen zählen mehr als die seltenen großen.** Ein Körper, der viele Male am Tag kurz loslassen darf, sammelt gar nicht erst so viel an." },
+        { "text": "Genau das sind Inseln: winzige Unterbrechungen mitten im Strom. Eine Minute reicht. Du musst den Fluss nicht anhalten — du trittst nur kurz heraus, atmest, und steigst wieder ein. Niemand sieht es, nichts bleibt liegen. [kurze Pause] Und das Schönste: Inseln muss man nicht suchen. Man baut sie — indem man sie an etwas koppelt, das sowieso jeden Tag passiert. Nach dem Zähneputzen. Mit dem ersten Kaffee. Nach dem Hinsetzen ins Auto, bevor der Motor anspringt. So wird aus einem guten Vorsatz eine Gewohnheit — ganz ohne Disziplin." },
+        { "text": "Wie sich so eine Insel anfühlt, probieren wir jetzt aus — einmal in Ruhe und in voller Länge. Im Alltag darf sie dann viel kürzer sein." }
+      ]
+    },
+    {
+      "typ": "erleben",
+      "titel": "Erleben",
+      "audio": "/audio/s2/03-erleben.mp3",
+      "bloecke": [
+        { "text": "Such dir einen Platz, an dem du für ein paar Minuten ungestört bist. Du kannst sitzen oder liegen — wie es dir angenehm ist. Das hier ist deine erste Insel. Und wie auf jeder guten Insel gibt es nichts zu erledigen. Wenn dir irgendetwas nicht guttut, lass es einfach weg. Du bestimmst." },
+        { "text": "Komm zuerst an. Lass den Blick einmal in Ruhe durch den Raum gehen — Farben, Formen, Licht. [Pause] Wenn du magst, schließe die Augen. Offen ist genauso richtig. [kurze Pause] Spüre die Unterlage, die dich trägt. Für die nächsten Minuten musst du nirgendwo hin. [längere Pause]" },
+        { "text": "Und nun finde deinen **Atem.** Lass ihn erst einmal so, wie er ist. [Pause] Und dann lass ihn, ganz allmählich, ein wenig langsamer und weicher werden. Kein Zählen, keine Technik. Einfach: gemächlich einatmen — und das Ausatmen lang und weich ausklingen lassen, wie eine Welle, die ausläuft. [Pause] Einatmen, wie es von selbst kommt. [Pause] Ausatmen, wie ein langes Auslaufen. [längere Pause]" },
+        { "text": "Bleib eine Weile in diesem ruhigen Takt. Wenn Gedanken kommen — und sie kommen —, ist das kein Fehler. Lass sie vorbeiziehen wie Treibholz auf dem Fluss, und komm einfach wieder zum Atem zurück. So oft, wie es eben nötig ist. [längere Pause]" },
+        { "text": "Falls sich das langsame Atmen irgendwann eng oder unangenehm anfühlt, lass den Atem einfach wieder ganz normal fließen und ruh stattdessen auf der Unterlage aus. Auch das ist eine Insel. [Pause] Und sonst: noch ein paar Atemzüge, genau so. [längere Pause]" },
+        { "text": "Merk dir dieses Gefühl — so fühlt sich deine Insel an. Im Alltag darf sie winzig sein: drei, vier ruhige Atemzüge, mehr braucht sie nicht. [Pause] Und jetzt steig in deinem Tempo wieder in den Tag ein. Nimm den Raum um dich wahr. Und wenn deine Augen geschlossen waren, öffne sie, wann immer du magst. [Pause]" }
+      ]
+    },
+    {
+      "typ": "nachspueren",
+      "titel": "Nachspüren",
+      "audio": "/audio/s2/04-nachspueren.mp3",
+      "stilleSek": 15,
+      "bloecke": [
+        { "text": "Bleib noch einen kurzen Moment einfach still. Nur nachspüren. [Pause]" },
+        { "text": "Und dann, ganz offen und für dich: **Wie war das — mitten am Tag kurz auszusteigen?**" },
+        { "text": "Wenn du magst, halte fest, was du bemerkt hast — und vergleiche einmal, wie es dir vorher ging und wie jetzt. Ohne Anspruch. Es gibt kein richtig und kein falsch." }
+      ],
+      "interaktionen": [
+        { "art": "journal", "frage": "Was hast du bemerkt?" },
+        { "art": "slider", "label": "angespannt ↔ entspannt", "vorherNachher": true }
+      ]
+    },
+    {
+      "typ": "experiment",
+      "titel": "Dein Experiment für zuhause",
+      "bloecke": [
+        { "text": "Wie immer gilt: Das ist eine Einladung, kein Programm. Keine Serie, die reißen kann. Eine ausgelassene Insel ist kein Schiffbruch — der Fluss hat morgen wieder eine." }
+      ],
+      "experiment": {
+        "haupt": "**Dein Experiment:** Bau dir **eine** Insel in deinen Tag — gekoppelt an etwas, das sowieso jeden Tag passiert: nach dem Zähneputzen, mit dem ersten Kaffee, nach dem Hinsetzen ins Auto. Dann: drei, vier ruhige Atemzüge mit langem, weichem Ausatmen. Eine Minute, mehr nicht.\n\nDer Anker ist der eigentliche Trick: Du musst nicht daran denken, dich zu erholen — dein Alltag erinnert dich von selbst.",
+        "optional": "**Wenn du magst, zusätzlich (optional):** Dein Tag hat längst Inseln, die du nie betrittst: die Schlange an der Kasse, die rote Ampel, der Moment, in dem der Wasserkocher rauscht. Achte einmal darauf, wo dein Tag sowieso schon kurz stehen bleibt — und betritt eine davon, statt zum Handy zu greifen."
+      }
+    },
+    {
+      "typ": "weitergehen",
+      "titel": "Weitergehen",
+      "audio": "/audio/s2/06-weitergehen.mp3",
+      "bloecke": [
+        { "text": "Du hast heute die zweite Hälfte eines Werkzeugs kennengelernt: Im Modul „Dein innerer Alarm“ ging es um den Moment, in dem der Alarm schon läuft — die drei langen Ausatmungen. Die Inseln sind das Gegenstück: Sie sorgen leise dafür, dass er gar nicht so oft losgehen muss." },
+        { "text": "Als Nächstes geht es auf der Landkarte weiter zu deinem Körper selbst: hinhören lernen, was er den ganzen Tag schon erzählt. Aber wie immer gilt: alles zu seiner Zeit. Lass erst einmal die Inseln in deinen Tag wachsen." }
+      ]
+    }
+  ]
+}
