@@ -1,189 +1,144 @@
-# 01 · App-Struktur: Ebenen, Pfade & Module
-*Arbeitsdokument · Stand Juli 2026 · setzt den Rahmen aus `00_App-Architektur_und_Ganzheitsrahmen.md` voraus*
+# MBM / YipYip — Neuer Grundaufbau: Die Bewegung nach innen
 
-**Einordnung:** Diese Struktur beschreibt die konkreten Ebenen und Module. Der übergeordnete Rahmen — Reise zur Ganzheit, Nordstern Gleichmut/Nicht-Anhaftung (ES-16 / NAS-7), die drei harten Leitplanken — steht in Dokument 00. Der hier beschriebene „Kernpfad" ist **Bewegung 1–2 der Reise** (Ankommen im Körper, Wahrnehmen), also der Türöffner, nicht das Ganze.
+*Zusammenfassung der Struktur-Neuentwicklung · Stand 07.07.2026*
 
-**Getroffene Grundentscheidungen:**
-- Geführter Pfad als Default, freie Navigation als Option
-- Release 1: Fokus Regulation & Wahrnehmung (Bewegung 1–2); Begegnen/Weit-werden (Bewegung 3–4) folgen mit Titration
-- Positionierung: eigenständiges Produkt — eine Reise zur Ganzheit, kein digitalisierter Kurs
+**Einordnung:** Dies ist die **neue Fassung von `01`**. Sie ersetzt das bisherige **Rückgrat** dieses Dokuments (die vier Ebenen Fundament → Werkzeug → Themenwelt → Integration) durch die *Bewegung nach innen* und setzt den Rahmen aus `00_App-Architektur_und_Ganzheitsrahmen.md` fort (Reise zur Ganzheit, messbarer Horizont, drei harte Leitplanken). Der wissenschaftliche Unterbau (`01_wissenschaftliche-basis…`), Lanas Praxiswissen (`MBM_Referenzblaetter…`) und der Schattenarbeit-Fundus bleiben unverändert gültig — sie werden hier nur neu **einsortiert**.
 
 ---
 
-## 1 · Leitprinzipien
+## 1 · Warum ein neuer Aufbau
 
-Aus Lanas Praxiswissen und der Evidenz zu Selbstlernprogrammen abgeleitet — diese Prinzipien stehen über jeder Struktur-Entscheidung:
+Die bisherige Struktur fühlte sich **nicht organisch** an: kein roter Faden, und Inhalte schienen sich zu **doppeln**. Als Nutzer wollte man geführt werden, fand aber eine Ablage statt eines Weges.
 
-1. **Spürbare Wirkung vor Wissen.** Die erste Sitzung muss ein körperlich spürbares Erlebnis liefern, keine Theorie. (Die meisten Nutzer selbstgeführter Programme springen nach Tag 1 ab — der erste Eindruck entscheidet.)
-2. **Einladung statt Anordnung.** Sprache durchgängig: „Wenn du magst…", „Experimente für Zuhause" statt Hausaufgaben. Keine Streak-Bestrafung, keine Schuld-Mechanik.
-3. **Ein Bild pro Thema.** Jedes Modul hat genau eine Kernidee, vermittelt über eine themenpassende Metapher aus der Bilder-Bibliothek (Stress = Alarmanlage; weitere Bilder werden pro Thema ergänzt).
-4. **Erklärung und Übung sind ein Bogen.** Das „Warum" mündet direkt ins „Spür mal" — kein Themenwechsel zwischen Verstehen und Erfahren.
-5. **Von außen nach innen.** Jede Übung beginnt mit Ankommen (Sinne → Raum → Körper → Atem) — didaktisch und sicherheitstechnisch.
-6. **Nachspüren vor Worten.** Nach jeder Übung erst Stille/Raum, dann offene Frage, dann optional Detail.
-7. **Therapeutische Persuasivität.** Klarer nächster Schritt, sichtbarer Fortschritt, Feedback auf Eingaben, Anpassung an den Zustand der Person — das verdoppelt bis verdreifacht nachweislich die Abschlussraten.
-8. **Nocebo-sichere Spiegelung.** Wie die App Muster zurückspiegelt, ist selbst gesundheitsrelevant. Immer ressourcen- und möglichkeitsorientiert, nie defizit-kausal („dein Glaubenssatz macht dich krank" ist verboten). Muster werden als Risiko-Korrelat gespiegelt, nie als Ursache.
-9. **Bildungsangebot, keine Heilkunde.** Klares Framing, Krisen-Verweise, trauma-sensible Sprache, keine Diagnose- oder Heilversprechen.
-10. **Messbarer Nordstern.** Fortschritt der Reise wird an validierten Skalen (ES-16 Gleichmut, NAS-7 Nicht-Anhaftung, alle 2–4 Wochen) sichtbar — nicht an Tagesstimmung. Deutsche Validierung offen → ehrlich kennzeichnen.
-11. **So tief, wie die Person tragen kann.** Titration der Tiefe, Fenster-Check vor tiefen Übungen, Erdungs-Abschluss als Pflichtschritt.
+## 2 · Die Diagnose
 
----
+Das war kein Design-Detail. Es gab **nicht eine Struktur, sondern mehrere, die gleichzeitig ganz oben standen** und um denselben Inhalt konkurrierten:
 
-## 2 · Architektur im Überblick
+- **Die Typ-Ablage** — Fundament → Werkzeug → Themenwelt → Integration. Ein *Bibliothekars-Schema*: es sortiert Module nach ihrer **Art**. Eine Sortierung nach Art fühlt sich nie wie ein Weg an → *das* war das „kein roter Faden".
+- **Die vier Bewegungen** (aus Doku 00) — Ankommen im Körper → Wahrnehmen → Begegnen → Weit werden. Das *ist* eine Reise.
+- **Der Kernpfad-Wochenplan** (Woche 1–4) — nochmal eine eigene Sequenz.
+- Im Hintergrund zusätzlich das **klinische 10-Treffen-Original**.
 
-```
-┌─────────────────────────────────────────────┐
-│  ONBOARDING — „Ankommen" (Tag 1)            │
-│  Dialog statt Formular · Selbsttest ·       │
-│  erste Mini-Übung · Pfad-Vorschlag          │
-├─────────────────────────────────────────────┤
-│  KERNPFAD (Default) — „Zur Ruhe kommen"     │
-│  ~4 Wochen · 12 Mikromodule à 10–15 min     │
-│  + Werkzeug-Bibliothek (wächst mit)         │
-├─────────────────────────────────────────────┤
-│  THEMENWELTEN (frei wählbar nach Kernpfad,  │
-│  für Selbststeuerer jederzeit freischaltbar)│
-│  Gedanken · Innere Stimmen · Beziehungen ·  │
-│  [später: Schlaf, Schmerz, Ernährung, …]    │
-├─────────────────────────────────────────────┤
-│  TIEFENLAYER (optional, mit Schwelle)       │
-│  Schattenarbeit: „Der Alarm als Botschafter"│
-├─────────────────────────────────────────────┤
-│  INTEGRATION — „Deine eigene Praxis"        │
-│  Gesundheitsprojekt · Brief an dich selbst  │
-└─────────────────────────────────────────────┘
-         Quer über allem: DER TÄGLICHE LOOP
-   (Spür-Check · Glücksmoment · Übungs-Anker)
-```
+Weil diese Karten gleichzeitig oben lagen, bekam **derselbe Inhalt mehrere Adressen** — das war die gefühlte Doppelung. Beispiel: „Ankommen im Körper" = „Fundament + erste Werkzeuge" = „Woche 1–2". Dreimal dasselbe, dreimal anders benannt.
 
-**Navigation:** Der Kernpfad ist der Default nach dem Onboarding. Ein sichtbarer „Entdecken"-Tab erlaubt jederzeit freie Navigation durch alle freigeschalteten Inhalte. Themenwelten öffnen sich standardmäßig nach Kernpfad-Woche 2 (genug Regulationsbasis), lassen sich aber aktiv vorziehen („Ich weiß, was ich brauche").
+**Wichtig:** Der **6-Schritt-Bauplan** (Funke → Warum → Erleben → Verankern → Reflektieren → Weitergehen) war *nicht* das Problem. Der ordnet das Innere *eines* Moduls und bleibt bestehen. Kaputt war nur die Ordnung *zwischen* den Modulen.
 
----
+## 3 · Das Lösungsprinzip
 
-## 3 · Onboarding — „Ankommen"
+> **Nur ein Rückgrat darf sichtbar sein — die gefühlte Reise. Alles andere (die Typ-Ablage) wird zu unsichtbaren Backend-Tags, die das System nutzt, aber der Nutzer nie sieht.**
 
-Das digitale Erstgespräch, nach dem Prinzip: *Verstehen vor Vermitteln. Das Erstgespräch ist bereits Intervention.*
+## 4 · Der rote Faden: die Bewegung nach innen
 
-**Ablauf (~10 min, unterbrechbar):**
-1. **Anliegen zuerst, dann Weitung zur Person.** 2–3 dialogische Fragen: Was führt dich her? Gibt es einen konkreten Anlass? Was hast du schon versucht — was davon hat geholfen? *(Antworten werden gespiegelt, nicht nur gespeichert — das Verstanden-werden ist Teil der Wirkung.)*
-2. **Selbsttest Stress-Warnsignale.** Interaktiver Check mit sofortigem, freundlich formuliertem Ergebnis auf vier Ebenen (Körper, Gedanken, Gefühle, Verhalten). Wird am Ende des Kernpfads wiederholt → sichtbare Veränderung.
-3. **Ein persönliches Ziel** (frei formuliert, max. 1 Satz). Wird später im Integrations-Teil wieder aufgegriffen.
-4. **Erste Mini-Übung sofort:** 2 Minuten Ankommen + verlängerte Ausatmung. Danach Spür-Frage: „Hat sich etwas verändert — und wenn ja, wo?"
-5. **Pfad-Vorschlag** basierend auf den Antworten, mit der Option „lieber selbst umschauen".
+Der Faden ist **ein einziges Weiterwerden des Abstands** zum eigenen Zustand:
 
-**Safety-Screening eingebaut:** sanfter Hinweis bei Anzeichen akuter Krise, Verweis auf professionelle Hilfe, Krisen-Ressourcen dauerhaft im Menü.
+> „ich *bin* mein Zustand" → „ich *habe* einen Zustand, den ich anschauen kann" → „es darf sein, wie es ist".
 
----
+Jede Station rückt diesen Abstand eine Kerbe weiter. Der eigentliche Fund: Die **vier Bewegungen**, Lanas **„von außen nach innen"**, Jungs **Individuation** und der Nordstern **Regulation → Gelassenheit** sind *nicht* vier verschiedene Dinge — es ist **viermal dieselbe Bewegung nach innen**, auf verschiedenen Ebenen beschrieben. Diese Deckungsgleichheit *ist* der rote Faden. Er lag schon im Material, nur verschüttet unter der Bibliotheks-Ablage.
 
-## 4 · Kernpfad „Zur Ruhe kommen" (Release-1-Herzstück · Bewegung 1–2)
+## 5 · Der Hauptweg
 
-~4 Wochen, 3 Mikromodule pro Woche (10–15 min), dazwischen der tägliche Loop. Jedes Modul folgt dem Sechs-Schritt-Bauplan: **Funke → Warum (Bild) → Erleben → Experiment für Zuhause → Spür-Check → Weitergehen.**
+**Die vier Stationen** — jeweils benannt nach dem, was sich für den Menschen *verschiebt*:
 
-### Woche 1 — Verstehen & erste Bremse
-| # | Modul | Kern |
-|---|-------|------|
-| 1 | Dein innerer Alarm | Alarmanlage in 4 Schichten: System unterscheidet nicht · Entladung fehlt · Erholung fehlt · Zeit nehmen ist Entscheidung. Übung: Ankommen + Atembeobachtung |
-| 2 | Die Bremse finden | Zwerchfellatmung, verlängerte Ausatmung. Sofort-Effekt spürbar machen |
-| 3 | Deine Warnsignale | Die eigenen Ergebnisse aus dem Onboarding-Check verstehen; Warnsignale als Freunde, nicht Feinde |
+| Station | Die innere Verschiebung | Inhalt (grob) |
+|---|---|---|
+| **0 · Ankommen** | „Da ist jemand, der zuhört — und ich verstehe mich selbst schon besser." | Erstgespräch als Schwelle, kein Formular |
+| **1 · Runterkommen** | „Ich bin meinem Körper nicht ausgeliefert — ich kann die Bremse selbst finden." | Alarm & Bremse, Atem, Entladen, Erholen |
+| **2 · Wahrnehmen** | „Ich bin nicht mein Gedanke, nicht mein Gefühl — ich kann sie anschauen." | Der nicht-wertende Blick, den Körper hören (= **Achtsamkeit**) |
+| **3 · Weit werden** | „Es muss nicht anders sein, als es ist." | Gelassenheit, Nicht-Anhaftung; daraus wächst die eigene Praxis |
 
-### Woche 2 — Entladen & Erholen
-| # | Modul | Kern |
-|---|-------|------|
-| 4 | Minis für den Alltag | 30-Sekunden-Techniken, an Anker gekoppelt |
-| 5 | Die Entspannungsantwort | Relaxation Response als angeborene Fähigkeit; erste PME (Kurzform ~15 min) |
-| 6 | Energie ablassen | Körperliche + emotionale Entladung — die fehlende Schicht 2 des Alarm-Bildes |
+**Seitenpfad · Begegnen (Schattenarbeit).** Aus **Sicherheitsgründen** *nicht* auf dem Hauptweg, sondern eine Tiefe, die **abzweigt** — betretbar, aber nie Pflicht, und erst offen, wenn **Regulationsboden** da ist (Titration, Fenster-Check, „so tief, wie die Person tragen kann"). Inhalt: der Alarm als Botschafter, innere Stimmen, das Gold im Schatten.
 
-### Woche 3 — Wahrnehmen
-| # | Modul | Kern |
-|---|-------|------|
-| 7 | Der nicht-wertende Blick | Achtsamkeits-Grundprinzipien, erlebnisorientiert |
-| 8 | Den Körper hören | Bodyscan (Kurzversion ~15 min; Langversion in der Bibliothek) |
-| 9 | Achte im Alltag mal darauf | Reine Wahrnehmungs-Einladung als eigene Übungsgattung |
+**Der Loop · Puls quer über allem.** *Keine* Station, sondern der Herzschlag, der zwischen den Stationen trägt: **Spür-Check · Glücksmoment · Anker.** Er ersetzt die alte „Integration"-Endstation — Praxis steht nicht am Ende, sie läuft von Tag 1 mit.
 
-### Woche 4 — Vertiefen & Verankern
-| # | Modul | Kern |
-|---|-------|------|
-| 10 | Ort der Ruhe und Kraft | Geführte Imagination; das Gehirn unterscheidet nicht zwischen Vorstellung und Realität (Zitronen-Prinzip als Funke) |
-| 11 | Körper und Geist reden miteinander | Das biopsychosoziale Modell — jetzt erst, wo es Erfahrung erklärt statt sie zu ersetzen. Wiederholung Selbsttest → Vorher/Nachher |
-| 12 | Deine Praxis nach dem Pfad | Was hat gewirkt? Welche 1–2 Übungen bleiben? Übergang in Themenwelten oder Integration |
+**Der Horizont · Gelassenheit.** Der Weg läuft auf **Gelassenheit** zu (warmes, alltagsdeutsches Wort für *Gleichmut*; messtechnisch dasselbe, erfassbar über die **ES-16**). Bewusste Trennung: **„Achtsamkeit" ist der Name der Station „Wahrnehmen"**, nicht des Horizonts — die Forschung definiert Gleichmut ausdrücklich als *von Achtsamkeit unterscheidbar*. Achtsamkeit ist der Weg, Gelassenheit das Ziel dahinter.
 
-**Bewusste Umsortierung gegenüber dem Kurs:** Theorie (biopsychosoziales Modell, Verhaltensänderungs-Stufen) wandert ans Ende bzw. in die Integration — im Kurs steht sie vorn, weil die Gruppe Rahmen braucht; im Selbstlernen killt sie den Einstieg.
+**Wie die alten Schubladen aufgehen:** Fundament und Werkzeug stecken beide in *Runterkommen*; die Themenwelten verteilen sich auf *Wahrnehmen* und (Seitenpfad) *Begegnen*; Integration ist der Loop plus *Weit werden*. **Nichts hat mehr zwei Adressen.**
 
----
+## 6 · Curriculum (v1): die Stationen gefüllt
 
-## 5 · Werkzeug-Bibliothek (Audio-zentriert)
+Quelle: das **KTN-Handbuch** (Teilnehmer-Handbuch der zehn Treffen, Essener MICOM-Modell). Es enthält zwei Sorten Inhalt — die *Tiefe* nach innen (Regulation → Wahrnehmung → eigene Praxis) und viel *Breite* (Ernährung, Kommunikation, soziales Netz). **Die Tiefe füllt den Hauptweg; die Breite hängt als Themenwelten daneben.** Zwei schöne Bestätigungen im Original: „Gelassenheit" steht dort (Treffen II, nach Kaluza) selbst als Regulationsziel, und der Beobachter-Schritt steckt bereits in den „Vier Schritten zur Stressreduktion".
 
-Alle Übungen aus dem Manual als eigenständig abrufbare, geführte Audios — unabhängig vom Pfad nutzbar, offline-fähig:
+**Zwei getroffene Entscheidungen:**
+- **„Gedanken entwirren" liegt auf dem Hauptweg** (als mentale Hälfte von *Wahrnehmen*) — „ich bin nicht mein Gedanke" ist dieselbe Distanz-Bewegung, nicht ein Nebenthema.
+- **Der Hauptweg bleibt in v1 bewusst schlank** (Treffen II → IV/V/VIII → X). Die ganze Breite (Ernährung, Kommunikation, soziales Netz) kommt erst später als Themenwelten.
 
-- **Atem:** Zwerchfellatmung · Minis · Atemmeditation (15 min) · mit Fokus Gedanken (20 min) · mit Fokus Gefühle (30 min)
-- **Körper:** Bodyscan (15 + 30 min) · PME (Kurz- + Langform) · achtsames Gehen
-- **Imagination:** Ort der Ruhe und Kraft · Visualisierung Gesundheitsprojekt
-- **Herz:** Metta für mich · Metta für andere · Liebevolle Güte
-- **Bewegung:** *(Release 2 — Yoga-/Qigong-Sequenzen liegen im Manual bereit)*
+| Station | Inhalt | Quelle im Kurs |
+|---|---|---|
+| **0 · Ankommen** | Onboarding: Anliegen, Selbsttest auf den *vier Ebenen der Stressreaktion* (Körper/Gedanken/Gefühle/Verhalten), ein Ziel, erste Mini-Übung | Treffen 0 + Ziel-Teile aus I |
+| **1 · Runterkommen** | Alarmanlage · die Bremse (Relaxation Response/Benson) · verlängerte Ausatmung, Zwerchfellatmung · körperbezogene Entspannung (PME) · *Vier Schritte zur Stressreduktion* (Halt–Atme–Denke–Handle) als Alltags-Mikrotool | Treffen II |
+| **2 · Wahrnehmen** | *Körper hören* (Body Scan, Achtsamkeit/Körperwahrnehmung) · *Gedanken entwirren* (ABC/ABCD, stressverschärfende Gedanken, wie Gedanken die Gesundheit beeinflussen) | Treffen VIII + IV/V |
+| **3 · Weit werden** | Gelassenheit, Nicht-Anhaftung · eigene Praxis · „Mein Gesundheitsprojekt" + Résumé · Vorher/Nachher (Selbsttest + ES-16) | Treffen X |
 
-Jedes Audio beginnt mit der Ankommens-Schwelle (von außen nach innen) und endet mit Nachspür-Raum. Filter: Dauer · Lage (sitzen/liegen/unterwegs) · Zustand („aufgewühlt" → erst Entladung/Erdung anbieten).
+**Module (v1) — bewusst 10, verdichtet aus 13 (keine Doppelung):**
+- **Ankommen:** 1 Willkommen · 2 Wo du gerade stehst
+- **Runterkommen:** 3 Dein innerer Alarm · 4 Energie ablassen · 5 Zur Ruhe kommen · 6 Kleine Inseln im Tag
+- **Wahrnehmen:** 7 Den Körper hören · 8 Gedanken entwirren
+- **Weit werden:** 9 Deine eigene Praxis · 10 Rückblick & Weite
 
----
+*Was zusammenfiel:* „Die Bremse finden" steckt in Modul 3 (die Bremse *ist* die lange Ausatmung); „Der nicht-wertende Blick" wird in Modul 7 eingeführt (Voraussetzung, keine eigene Übung); „Dein Ziel" ist in Modul 2 gefaltet, „Mein Gesundheitsprojekt" in Modul 9. **Runterkommen (3–6) folgt den vier Schichten der Alarmanlage aus Modul 3** — das Problembild trägt die ganze Station. *Nahtpunkt sauber halten:* Modul 5 (Zur Ruhe kommen) und Modul 7 (Den Körper hören) nutzen beide den liegenden Körper — aber dort *veränderst* du (entspannen), hier *beobachtest* du nur. Dieser Unterschied ist der Stationswechsel, kein Dublett.
 
-## 6 · Themenwelten (nach Kernpfad, frei wählbar · Übergang zu Bewegung 3)
+**Neben dem Weg:**
+- **Loop (Puls):** Die „Vertiefungsübungen für zu Hause" jeder Woche *sind* schon der tägliche Praxis-Motor; dazu Spür-Check + Glücksmoment.
+- **Themenwelten (optional, spätere Releases):** Essen als Selbstfürsorge (III) · Verstehen & verstanden werden / Vier Ohren (VII) · Menschen, die guttun / Soziales Netz (IX) · Deine inneren Stimmen / Inneres Team (VI, Brücke zum Seitenpfad).
+- **Seitenpfad · Begegnen:** dockt an „inneres Team" (VI) und „der Alarm als Botschafter" (aus Runterkommen); sicherheits-gated.
+- **Verhaltensänderungs-Werkzeuge** (Stufen der Veränderung, Zielformulierung, Entscheidungsbalance, Barrieren, Lebenshaus): im Kurs vorn in Treffen I; bei uns *verteilt* — Ziel bei Ankommen, Gesundheitsprojekt bei Weit werden, das Stufenmodell nur als leiser Hintergrund-Rahmen.
 
-Jede Themenwelt: 3–5 Mikromodule + zugehörige Werkzeuge + eigenes Bild aus der Bilder-Bibliothek *(Bilder für Gedanken, Stimmen, Beziehungen noch mit Lana zu erheben)*. Sobald Glaubenssätze berührt werden, gelten die Leitplanken aus Doku 00 (nocebo-sichere Spiegelung, keine Kausalität, Schema-basiert als Risiko-Korrelat).
+## 7 · Das Kompositionsgesetz jedes Moduls: Kopf · Hand · Herz
 
-**Release 1:**
-- **Gedanken entwirren** — Wahrnehmung ist Auswahl (Kippbilder interaktiv) → Gedanken sind mächtig → ABC an eigenem Beispiel (strukturiertes Journal) → Verzerrungen erkennen → ABCD: sich selbst auf andere Gedanken bringen. Das ABC-Arbeitsblatt wird zum geführten Journal-Flow mit Mustererkennung über die Zeit.
-- **Deine inneren Stimmen** — innerer Dialog wahrnehmen → Stimmen benennen → positive Absicht hemmender Stimmen → das Team bewusst gestalten. **Andockpunkt für den Schatten-Tiefenlayer.**
+Die reinen Stationsnamen beschreiben nur das **Tun**. Das Wissen und der Sinn fehlten — deshalb klang der Weg zunächst wie eine bloße Achtsamkeitsanleitung. Die Korrektur kommt aus der **Salutogenese**, die im Material ohnehin schon angelegt ist („salutogenetisch statt pathologisch"): Sie war bisher nur der *Ton* — jetzt wird sie das **Skelett**.
 
-**Release 2:**
-- **Verstehen und verstanden werden** (TALK/4 Seiten) — umgebaut von Gruppenübung auf Selbstreflexion: eine reale Nachricht durch die vier Ohren hören.
-- **Menschen, die guttun** — interaktive Soziales-Netz-Visualisierung + Metta für andere.
-- **Essen als Selbstfürsorge** · **Bewegung** · später Schlaf, Schmerz, Arbeit & Erschöpfung.
+Der rote Faden ist **kein einzelner Strang, sondern drei, die sich zu einem Seil verflechten** — Kopf, Hand, Herz. Alle drei **gleichwertig** und in **jedem einzelnen Modul zugleich** präsent:
 
----
+- **Verstehbarkeit = Kopf** — „Ich verstehe, was in mir vorgeht."
+- **Handhabbarkeit = Hand** — „Ich kann etwas tun."
+- **Sinnhaftigkeit = Herz** — „Es lohnt sich, es bedeutet mir etwas."
 
-## 7 · Tiefenlayer Schattenarbeit (Bewegung 3 · optional, Release 2+)
+Kein Modul ist „ein Wissensmodul" und ein anderes „ein Übungsmodul" — **jedes trägt alle drei.** Das ist die *Balance* jedes Moduls, so wie der 6-Schritt-Bauplan die *Reihenfolge* ist. Kopf/Hand/Herz sind **keine neue vierte Landkarte** neben dem Weg (das wäre der alte Fehler) — sie sind durch den einen sichtbaren Weg hindurchgewebt.
 
-„Der Alarm als Botschafter" — dockt an Modul 1 und die Themenwelt Innere Stimmen an. Freischaltung erst nach genutzter Regulationsbasis; Fenster-Check vor jeder tiefen Übung; ritualisierter Abschluss (Erdung + Selbstmitgefühl) als Pflichtschritt; Framing „Selbstexploration, keine Therapie". Streng nach Leitplanke 3 (Titration). Details im Schattenarbeit-Fundus.
+**Feinjustierung (aus der ersten Modul-Blaupause, 07.07.2026):** Das **Herz** ist in jedem Modul präsent, aber als **Berührung, nicht als Lektion** — *ein* warmer Satz (im Funke, an einer Wissens-Schicht), mehr nicht, sonst kippt es ins Moralisieren. Das größere Sinn-Gewicht wird **getragen** vom Horizont (Gelassenheit) und vom täglichen Loop (Glücksmoment als gelebter Sinn). Damit ist die offene Frage aus Abschnitt 12 („wo lebt die Sinnhaftigkeit?") beantwortet: *an beiden Orten, aber leicht dosiert.*
 
----
+## 8 · Wo das Wissen lebt
 
-## 8 · Integration — „Deine eigene Praxis"
+Der Theorieteil ist der **Kopf-Strang** — und er sitzt **nicht** als Block am Anfang (Theorie vorne killt den Einstieg) und **nicht** als Fußnote am Ende. Er kommt als **das Bild / das „Warum"**: die themenpassende Metapher, die erklärt, was man gleich *spüren* wird — direkt **vor** der Erfahrung (Lanas Bogen: erst das Bild, dann die Übung, in einem Zug).
 
-Jederzeit nach dem Kernpfad zugänglich, aktiv angeboten nach ~8 Wochen Nutzung:
-- **Mein Gesundheitsprojekt:** ein konkretes Vorhaben planen, mit Entscheidungsbalance + Barrieren-Management und den Stufen der Verhaltensänderung als Landkarte.
-- **Brief an dich selbst:** in der App geschrieben, zeitversetzte Zustellung nach 4–8 Wochen. Emotionales Signature-Feature.
-- **Resümee-Flow:** Rückblick auf das Onboarding-Ziel + Vorher/Nachher der Warnsignale, ergänzt um die erste ES-16/NAS-7-Messung.
+Diese Bilder **sammeln sich**: Über den Weg baut sich Stück für Stück eine **mitwachsende „Gebrauchsanweisung"** zusammen — eine Landkarte des eigenen Körper-Geist-Systems, jederzeit aufschlagbar, mit jedem Modul voller. Das ist der **sichtbare Ort des Wissens** — genährt vom Weg, aber keine Wand davor.
+
+Durch die App laufen damit **zwei** Dinge (nicht drei konkurrierende Karten):
+
+1. **Der gefühlte Weg** — die Navigation (Abschnitt 5).
+2. **Die Gebrauchsanweisung, die sich dabei füllt** — das Wissen zum Nachschlagen.
+
+Zwei Seiten derselben Bewegung.
+
+## 9 · Beispiel-Modul (Station „Runterkommen")
+
+- **Funke:** Du liegst abends im Bett, alles ruhig — und dein Körper ist trotzdem in Alarm.
+- **Kopf (das Wissen, ≈3 Min):** die Alarmanlage. Säbelzahntiger und bedrohliche E-Mail lösen dieselbe Reaktion aus — das System unterscheidet nicht. Gas (Sympathikus), Bremse (Parasympathikus). Wissen *als Bild*, nicht als Vorlesung.
+- **Hand (das Erleben, ≈7 Min):** Ankommen von außen nach innen, dann den Atem beobachten — den Alarm spüren und spüren, wie er sich legt.
+- **Herz (der Sinn):** Warum das zählt — chronisches „An" kostet dich (allostatische Last); das hier ist *dein* Körper, *deine* Zeit.
+- **Verankern · Reflektieren · Weitergehen** (Rest des 6-Schritt-Bauplans).
+
+## 10 · Navigation & erster Eindruck
+
+- **Erster Eindruck = Struktur** (für alle, die das mögen): der Weg als sichtbares Rückgrat.
+- **Gleichwertige Abzweigung = bedürfnisgetrieben** („Was brauchst du gerade?") — für alle, die *nicht* strukturiert einsteigen wollen. Deckt sich mit Lanas Haltung **„folgen statt führen"** und **„auf das individuelle Wesen reagieren"**: ein starres Curriculum widerspräche ihr, ein *Angebot* mit freiem Folgen nicht.
+
+## 11 · Was damit gelöst ist
+
+- Die konkurrierenden Karten sind weg — **ein** sichtbares Rückgrat.
+- **Jeder Inhalt hat nur noch eine Adresse** (keine Doppelung mehr).
+- Die alten Schubladen gehen in der Bewegung auf (unsichtbare Backend-Tags).
+- Das Wissen hat einen klaren, gleichwertigen Ort (Kopf-Strang + Gebrauchsanweisung) — nicht vorne als Wand, nicht hinten als Fußnote.
+- Der Weg läuft auf einen **warmen, messbaren Horizont** zu (Gelassenheit / ES-16) statt ins Leere.
+
+## 12 · Offene Entscheidungen & nächste Schritte
+
+- **Wo lebt die Sinnhaftigkeit (Herz)?** → **geklärt** (siehe Abschnitt 7, Feinjustierung): an beiden Orten, aber leicht dosiert — pro Modul als Berührung, getragen von Horizont + Loop.
+- **Module ausdetaillieren** — jede Station-Zelle aus Abschnitt 6 zu einzelnen Modulen mit Reihenfolge, Längen und dem passenden Bild (Bilder-Bibliothek) verdichten.
+- **Landkarte neu bauen** — der frühere Prototyp (Linie über Schubladen) ist verworfen; die neue Karte muss die *Bewegung* zeigen (vier Stationen + Seitenpfad + Loop + Horizont).
+- **Übergänge zwischen den Stationen** gestalten, ohne zu schulmeistern („folgen statt führen") — die Stelle, an der sich organisch von mechanisch entscheidet.
+- **Vor öffentlichem Release** weiterhin zwingend: Studie 02 (Recht/AI-Architektur DACH), YSQ-Lizenzlage, deutsche Skalen-Validierung (siehe Doku 00).
 
 ---
 
-## 9 · Der tägliche Loop (Retention-Motor)
-
-Maximal 1–2 Minuten, kein Pflichtgefühl:
-- **Spür-Check:** Körper + Stimmung je 1 Tap
-- **Glücksmoment:** „Was war heute schön?" — die Bohnen-Geschichte als Feature: pro Moment eine Bohne ins Glas. Auch ein Ein-Bohnen-Tag ist ein gelungener Tag.
-- **Übungs-Anker:** die gewählte Mikro-Gewohnheit, gekoppelt an eine bestehende Routine; sanfte Just-in-time-Erinnerung statt Streak-Druck
-- **Rückmeldung:** die App spiegelt Muster wohlwollend („An Tagen mit Übung bewertest du deine Abende im Schnitt besser") — nocebo-sicher, immer ressourcenorientiert
-
----
-
-## 10 · Nicht-Erkennbarkeit gegenüber dem Kursformat
-
-Durch den Ganzheitsrahmen (Doku 00) ohnehin weitgehend gelöst — der Kurs ist nur noch Bewegung 1–2. Zusätzlich:
-- **Andere Struktur:** funktionale Ebenen + Pfade statt 10 Treffen; keine Kursbegriffe
-- **Eigene Sprache:** alle Texte neu geschrieben, Einladungston, eigene Modulnamen
-- **Eigene Didaktik:** Sechs-Schritt-Bauplan, Ankommens-Schwelle, Bilder-Bibliothek, Nachspür-Logik
-- **Wissensbasis unkritisch:** die Inhalte (Benson, Kaluza, Schulz von Thun, ABC nach Ellis, PME nach Jacobson) sind etabliertes Allgemeingut
-- **Nicht übernehmen:** wörtliche Texte, Arbeitsblatt-Layouts, Grafiken/Folien, kursspezifische Formulierungen
-
----
-
-## 11 · Roadmap-Vorschlag
-
-**Release 1 (MVP):** Onboarding · Kernpfad (12 Module) · Werkzeug-Bibliothek (Atem, Körper, Imagination) · täglicher Loop · Themenwelt „Gedanken entwirren" · Safety-Layer · erste ES-16/NAS-7-Messung
-**Release 2:** Themenwelten Innere Stimmen, Kommunikation, Soziales Netz · Schatten-Tiefenlayer · Integration komplett · Bewegungs-Audios · AI-Engine-Ausbau (Schema-basierte Spiegelung)
-**Release 3:** Ernährung · weitere Themenwelten · HRV-Feedback optional · Personalisierungs-Logik der Bilder
-
-**Vor öffentlichem Release zwingend:** Studie 02 (Recht/AI-Architektur, DACH), YSQ-Lizenzlage, deutsche Skalen-Validierung klären (siehe Doku 00).
-
-**Offene Punkte für die nächsten Sessions mit Lana:**
-- Bilder-Bibliothek füllen: je ein bewährtes Bild für Gedanken, innere Stimmen, Beziehungen, Schlaf
-- Umgang mit „bei mir funktioniert das nicht" als eigener Inhaltsbaustein
-- Tonalität der Audio-Stimme festlegen (ElevenLabs-Pipeline)
+*Tragendes Prinzip in einem Satz: **Ein sichtbarer Weg nach innen — Ankommen → Runterkommen → Wahrnehmen → Weit werden, Horizont Gelassenheit — durch den in jedem Modul Kopf, Hand und Herz gleichwertig hindurchlaufen; Schattenarbeit zweigt sicher ab, der tägliche Loop trägt als Puls, und das Wissen sammelt sich zur aufschlagbaren Gebrauchsanweisung.***

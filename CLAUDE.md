@@ -56,40 +56,51 @@ Bei Widerspruch zwischen Code-Bequemlichkeit und Wissensbasis gewinnt die Wissen
 - **Next.js 15 (App Router) + Tailwind**, TypeScript. Deployment: **Vercel** (Muster: prompto-studio).
 - **PWA:** installierbar, Kernmodule offline (Texte + Audio precached via Service Worker).
 - **Inhalte als Daten, nicht als Code:** Module liegen als JSON in `content/modules/*.json` (Schema §5). Der Modul-Renderer ist generisch — neue Module = neue JSON + Audio, kein neuer Code.
-- **Audio:** vorproduzierte MP3s in `public/audio/<modulId>/`. Pipeline-Skript `scripts/generate-audio.mjs` (ElevenLabs API, Key aus `.env`, `ELEVENLABS_VOICE_ID` aus `.env` — **entschieden: v3V1d2rk6528UrLKRuy8**). Lange Skripte chunken mit `previous_text`/`next_text` für Stimmkontinuität; `[Pause]`/`[längere Pause]`-Marker → `<break>`-Tags bzw. Chunk-Grenzen (1,2s / 2,5s).
+- **Audio:** vorproduzierte MP3s in `public/audio/<modulId>/`. Pipeline-Skript `scripts/generate-audio.mjs` (ElevenLabs API, Key + `ELEVENLABS_VOICE_ID` aus `.env` — **entschieden: `hOBDmVrVUuqtp1I3KsIq`**, Modell **`eleven_v3`**, Natural-Stability + etwas langsamer, natürliche Emotion). **v3-Eigenheiten:** kein `previous_text`/`next_text` (nicht unterstützt) und keine SSML-`<break>`-Tags — Pausen laufen über **Ellipsen** im Text, lange Pausen (`[längere Pause]`) über **echte Stille (ffmpeg-concat)** zwischen den Chunks.
 - **Kein Backend im MVP.** Später optional Supabase (Accounts, Sync) — Architektur so bauen, dass der Storage-Layer austauschbar ist (ein `storage.ts`-Interface über localStorage).
 
-## 5. Datenmodell (Modul-JSON, Kern)
+## 5. Datenmodell (Modul-JSON, Kern) — Stand „Bewegung nach innen"
+
+Maßgeblich ist `lib/module-schema.ts`. Kern:
 
 ```ts
-type Module = {
-  id: string;              // "s1"
-  ebene: 0 | 1 | 2 | 3;
-  thema: string;           // "Stress"
-  titel: string;           // "Dein innerer Alarm"
+type Modul = {
+  id: string;              // "alarm", "wo-du-stehst", …
+  no: number;              // 1..10 — Position auf dem Weg
+  station: "ankommen" | "runterkommen" | "wahrnehmen" | "weit-werden";
+  titel: string;
   dauerMin: number;
   voraussetzungen: string[];
-  schritte: [Funke, Warum, Erleben, Nachspueren, Experiment, Weitergehen];
+  moduleType?: "fundament" | "werkzeug" | "themenwelt" | "integration"; // Backend-Tag, nie sichtbar
+  bild?: string;
+  schritte: Schritt[];     // genau 6, feste Reihenfolge (s.u.)
 };
 
 type Schritt = {
-  typ: "funke" | "warum" | "erleben" | "nachspueren" | "experiment" | "weitergehen";
-  bloecke: TextBlock[];    // vorlesbarer Text, absatzweise
-  audio?: string;          // Pfad zur MP3
-  interaktion?: Interaktion; // z.B. { art: "journal" } | { art: "slider", label: "angespannt ↔ entspannt", vorherNachher: true }
+  typ: "funke" | "warum" | "erleben" | "experiment" | "nachspueren" | "weitergehen";
+  titel: string;           // Anzeige, z.B. "Verankern" / "Reflektieren"
+  strang?: "kopf" | "hand" | "herz" | "alle"; // Kopf·Hand·Herz
+  bloecke: TextBlock[];
+  audio?: string;          // fehlt bei Text-Modulen (Willkommen, Wo du stehst, Rückblick)
+  bild?: string;
+  stilleSek?: number;
+  interaktionen?: Interaktion[]; // "journal" | "slider" (vorherNachher) | "selbsttest"
   experiment?: { haupt: string; optional?: string }; // nur bei typ "experiment"
 };
 ```
 
-Modul S1 aus `wissensfundus/` als erstes in dieses Schema überführen (Fable macht die Überführung, Opus baut den Renderer).
+**Wichtig:** Schritt-Reihenfolge ist **Funke → Warum → Erleben → Verankern (`experiment`) → Reflektieren (`nachspueren`) → Weitergehen** (Lana-Spec; der Validator erzwingt sie). Die alten Typ-Ebenen (Fundament/Werkzeug/…) sind zu unsichtbaren Backend-Tags geworden — sichtbar ist **ein Weg**: 4 Stationen + Loop + Seitenpfad + Horizont. Struktur-Quelle: `konzept/01_App-Struktur_Ebenen-und-Pfade.md` + `konzept/reworked-lana/`.
 
-## 6. MVP-Scope (Definition of Done)
+## 6. Scope (Stand v1 — „Bewegung nach innen")
 
-1. **Home:** ruhiger Einstieg, Modul-Landkarte (4 Ebenen), S1 aktiv, weitere als „bald" ausgegraut.
-2. **Modul-Player:** die 6 Schritte als geführter Flow; Audio-Player (Play/Pause, Fortschritt, Hintergrund-fähig); Text mitlesbar; Nachspüren mit optionalem Journalfeld + Vorher/Nachher-Regler; Experiment als merkbare Karte (vom Home aus wieder aufrufbar).
-3. **Mein Weg:** abgeschlossene Module, Journal-Einträge, aktive Experimente — rein lokal.
-4. **Sicherheit:** Disclaimer beim ersten Start, Krisen-Hinweis im Footer/Menü.
-5. **PWA + Deploy** auf Vercel, Lighthouse a11y ≥ 95.
+1. **Landkarte (Home):** ein sichtbarer Weg von oben (dicht/dunkel) nach unten (licht) — 4 Stationen (Ankommen · Runterkommen · Wahrnehmen · Weit werden) mit Shift-Sätzen, Modul-Karten (mit Illustration), Needs-Chips, **Loop-Puls**, **Horizont Gelassenheit**, gegateter Seitenpfad Begegnen.
+2. **Modul-Player:** 6 Schritte als geführter Flow; Audio nur wo vorhanden; Reflektieren mit Stille → Journal/Slider; Verankern als merkbare Karte; **Selbsttest** (Modul „Wo du stehst" = Baseline; „Rückblick" = Vorher/Nachher).
+3. **Loop (Puls):** täglich Spür-Check · Glücksmoment · Anker — rein lokal, ohne Streak.
+4. **Mein Weg:** abgeschlossene Module, Journal, Experimente — rein lokal.
+5. **Sicherheit:** Disclaimer beim ersten Start, Krisen-Hinweis app-weit; Selbsttest ist Spiegel, keine Diagnose.
+6. **PWA + Deploy** auf Vercel, Lighthouse a11y ≥ 95.
+
+**10 Module (v1):** 1 Willkommen · 2 Wo du gerade stehst · 3 Dein innerer Alarm · 4 Energie ablassen · 5 Zur Ruhe kommen · 6 Kleine Inseln im Tag · 7 Den Körper hören · 8 Gedanken entwirren · 9 Deine eigene Praxis · 10 Rückblick & Weite. Archiviert (nicht auf v1-Weg, in `_archiv/`): f1, f2, t1, t3.
 
 ## 7. Design-Richtung
 
@@ -106,11 +117,12 @@ Committe klein und benannt (`feat: modul-renderer schritt-navigation`). Nach jed
 - **P4** Sicherheits-Layer, Onboarding-Disclaimer *(Texte: Fable → Einbau: Opus)*
 - **P5** PWA, Offline-Precache, Vercel-Deploy *(Opus)*
 - **P6** Gesamt-QA *(Fable)*
+- **P7** Umbau auf Lanas „Bewegung nach innen" — 4 Stationen, 10 Module, Loop, Selbsttest/Baseline, v3-Audio, cozy Bildsprache *(Opus)* — erledigt (Branch `umbau/bewegung-nach-innen`); Prod-Deploy nach User-Freigabe.
 
 ## 9. Qualitäts-Checkliste (Fable-Review, jede Phase)
 
-- [ ] Alle Nutzertexte im Ton von Modul S1 (einladend, entlastend, nie belehrend)?
-- [ ] „Entspannungsantwort" konsistent; nirgends „Hausaufgabe", „Bremse", Druck-Sprache?
+- [ ] Alle Nutzertexte im Ton von Modul „Dein innerer Alarm" (einladend, entlastend, nie belehrend)?
+- [ ] Nirgends „Hausaufgabe" oder Druck-/Streak-Sprache? („Bremse" ist jetzt OK — Lanas Gas/Bremse-Bild; „Entspannungsantwort" weiterhin gern.)
 - [ ] Jede Übung mit Ausstiegs-/Wahlfreiheits-Klausel?
 - [ ] Sicherheitsrahmen sichtbar und erreichbar?
 - [ ] Alles Optionale wirklich optional (überspringbar ohne Nachteil)?
@@ -120,8 +132,11 @@ Committe klein und benannt (`feat: modul-renderer schritt-navigation`). Nach jed
 
 ## 10. Offene Punkte (nicht raten — fragen)
 
-- ~~ElevenLabs-Voice final~~ → entschieden: `v3V1d2rk6528UrLKRuy8` (in `.env`)
-- ~~App-Name/Branding~~ → entschieden: **YipYip**, Logo = Appa-inspirierter fliegender Bison (eigenständige Gestaltung, `public/icons/yipyip-bison.svg`)
+- ~~ElevenLabs-Voice final~~ → entschieden: `hOBDmVrVUuqtp1I3KsIq`, Modell `eleven_v3` (Natural, langsamer, natürliche Emotion; in `.env`). Vom User per Ohr am Alarm-Modul bestätigt.
+- ~~App-Name/Branding~~ → entschieden: **YipYip**, Logo = Appa-inspirierter fliegender Bison (`public/icons/yipyip-bison*.svg`)
 - Domain/Ziel-URL nach MVP (Vercel-URL reicht zunächst)
-- **Bilder-Bibliothek — Lana-Validierung ausstehend:** Alle „Warum"-Bilder außer dem Säbelzahntiger (s1) sind Arbeits-Entwürfe von Fable, nicht aus Lanas Praxis: Wippe (f1), Standleitung/zwei Türen (f2), Fluss & Inseln (s2), Haus-Rundgang (w1), scheues Tier (t1), Züge & Bahnsteig (t2), Gästehaus/Rumi (t3), eigener Garten (i1). In der nächsten Session mit Lana durchgehen und ggf. durch ihre bewährten Bilder ersetzen (Texte + Audio dann neu).
-- Deko-Stil entschieden: Schritt-Bilder als **Recraft-V4-Vektor** (via prompto MCP, `colors` als RGB-Objekte, Hintergrund-Pfad entfernen); keine handkodierten Flat-Icons für Modul-Bilder.
+- **Module 4 & 5 (Energie ablassen, Zur Ruhe kommen) + 10 (Rückblick) sind Opus-Entwürfe → Lana-Review ausstehend.** Module 4/5 werden **erst nach Lanas Freigabe in v3 vertont** (Text könnte sich ändern).
+- **Bilder-Bibliothek — Lana-Validierung ausstehend:** Die „Warum"-Bilder sind (außer Säbelzahntiger) von der KI erfundene Entwürfe im Geist ihrer Bilder-Bibliothek: vier Fenster (Wo du stehst), Reh schüttelt sich (Energie ablassen), Hafen (Zur Ruhe kommen), Haus-Rundgang (Körper hören), Züge (Gedanken entwirren), Gießkanne (eigene Praxis), Ringe/Weite (Rückblick), Gebrauchsanweisung (Willkommen). Von Lana absegnen lassen.
+- **ES-16 (Horizont / Modul 10):** nur der 4-Ebenen-Selbsttest ist scharf. Echte ES-16-Items brauchen validierte, lizenzierte Quelle (deutsche Validierung offen, gehört in Studie 02) — **nicht erfinden**.
+- Modul 2: die **Absicht** ist derzeit nur eine reflektierende Karte (nicht persistiert); nur der 4-Ebenen-Selbsttest wird als Baseline gespeichert.
+- Deko-Stil: Modul-Bilder als **Recraft-V4-Vektor** (via prompto MCP, `colors` als RGB-Objekte, Hintergrund-Pfad `M 0 0 …` entfernen, „no text" prompten); keine handkodierten Flat-Icons.

@@ -1,0 +1,164 @@
+{
+  "$schema": "https://yipyip.app/schema/landkarte.v1.json",
+  "meta": {
+    "screen": "Landkarte (Hauptnavigation)",
+    "version": "1.1",
+    "date": "2026-07-07",
+    "principle": "Die Bewegung nach innen. Der Screen MUSS die Bewegung visuell tragen (dicht/dunkel/eng -> licht/weit), nicht nur eine Linie zeichnen. Reihenfolge = gefuehlte Reise, nicht Typ-Ablage.",
+    "moduleCount": 10,
+    "sourceOfTruth": "01_App-Struktur_Ebenen-und-Pfade.md",
+    "moduleCopy": "Modul-NN_*.md (die eigentlichen Texte je Modul; JSON haelt nur Struktur + Kurzfassung)"
+  },
+
+  "designTokens": {
+    "note": "Fonts/Farben sind austauschbar, aber die ROLLEN und der Journey-Verlauf muessen erhalten bleiben.",
+    "colors": {
+      "deep": "#12231A", "forest": "#1E3320", "forest2": "#2E4630",
+      "sage": "#5E7A5C", "sageSoft": "#A9BBA0",
+      "cream": "#F4EFDD", "creamCard": "#FBF7EC",
+      "gold": "#C9A227", "goldDeep": "#A8841C",
+      "ink": "#17231B", "inkSoft": "#4B5A4E"
+    },
+    "journeyGradient": {
+      "description": "Ambient-Hintergrund ueber den ganzen Screen. Kodiert die Bewegung nach innen (oben dicht -> unten licht).",
+      "direction": "top-to-bottom",
+      "stops": [
+        { "at": 0.00, "color": "#12231A", "meaning": "Ankommen / noch im dichten, reaktiven Raum" },
+        { "at": 0.30, "color": "#2E4630", "meaning": "Runterkommen" },
+        { "at": 0.52, "color": "#6D8663", "meaning": "Wahrnehmen / es lichtet sich" },
+        { "at": 0.70, "color": "#B9C3A0", "meaning": "Uebergang zur Weite" },
+        { "at": 0.86, "color": "#F4EFDD", "meaning": "Weit werden" },
+        { "at": 1.00, "color": "#F6F0DC", "meaning": "Horizont: Gelassenheit / Licht" }
+      ]
+    },
+    "fonts": {
+      "display": { "family": "Fraunces", "role": "Ueberschriften, Stationstitel, Horizont" },
+      "body": { "family": "Newsreader", "role": "Lesetexte, Modultitel, Shift-Saetze" },
+      "label": { "family": "JetBrains Mono", "role": "Eyebrows, Nummern, strukturelle Labels" }
+    },
+    "radius": { "card": 16, "sheet": 22, "pill": 999 }
+  },
+
+  "horizon": {
+    "name": "Gelassenheit",
+    "subtitle": "Nicht das Ende des Wegs, sondern seine Richtung.",
+    "body": "Alles davor laeuft darauf zu - und du kommst ihr mit jeder Station ein Stueck naeher.",
+    "clarifier": "Nicht Gleichgueltigkeit, sondern innere Weite.",
+    "measure": { "instrument": "Equanimity Scale-16 (ES-16)", "cadence": "alle 2-4 Wochen", "framing": "ressourcenorientiert spiegeln, nie defizitaer" },
+    "visual": "sich oeffnende, ruhig atmende konzentrische Ringe (Klang-Resonanz-Motiv)"
+  },
+
+  "modes": [
+    { "id": "follow", "default": true, "label": "Dem Weg folgen", "sub": "Von vorne, Schritt fuer Schritt.",
+      "behavior": "Weg als Rueckgrat betont; im Modul-Sheet 'Weiter zu <naechstes Modul>'; sanfter Startpunkt an Station 0." },
+    { "id": "roam", "default": false, "label": "Frei streifen", "sub": "Alles offen - geh, wohin es dich zieht.",
+      "behavior": "Weg tritt zurueck; alle Module gleichwertig; Needs-Einstieg bekommt mehr Gewicht." }
+  ],
+
+  "needsEntry": {
+    "eyebrow": "Kein Plan? Auch gut. Was brauchst du gerade?",
+    "chips": [
+      { "label": "Ich komm nicht runter", "targetModule": "alarm" },
+      { "label": "Ich spuer mich kaum", "targetModule": "koerper-hoeren" },
+      { "label": "Mein Kopf gruebelt", "targetModule": "gedanken-entwirren" },
+      { "label": "Ich will verstehen, was los ist", "targetModule": "wo-du-stehst" }
+    ]
+  },
+
+  "path": {
+    "overviewLabel": "Der ganze Weg auf einen Blick",
+    "stations": [
+      {
+        "id": "ankommen", "number": 0, "tag": "Schwelle", "title": "Ankommen", "journeyPos": 0.05,
+        "shift": "Da ist jemand, der zuhoert - und ich verstehe mich selbst schon besser.",
+        "modules": [
+          { "id": "willkommen", "no": 1, "title": "Willkommen - wie das hier funktioniert", "status": "written", "copy": "Modul-01_Willkommen.md", "durationMin": 4, "format": ["text"] },
+          { "id": "wo-du-stehst", "no": 2, "title": "Wo du gerade stehst", "status": "written", "copy": "Modul-02_Wo-du-gerade-stehst.md", "durationMin": 6, "format": ["text", "interactive"],
+            "note": "Anliegen + Selbsttest auf den vier Ebenen der Stressreaktion (Koerper/Gedanken/Gefuehle/Verhalten) + erste Absicht; zugleich Baseline fuer Vorher/Nachher" }
+        ]
+      },
+      {
+        "id": "runterkommen", "number": 1, "tag": "Regulation", "title": "Runterkommen", "journeyPos": 0.30,
+        "shift": "Ich bin meinem Koerper nicht ausgeliefert - ich kann die Bremse selbst finden.",
+        "note": "Station folgt den vier Schichten der Alarmanlage aus Modul 3 (unterscheidet-nicht / Entladung fehlt / Erholung fehlt / keine Zeit).",
+        "modules": [
+          { "id": "alarm", "no": 3, "title": "Dein innerer Alarm", "status": "written", "copy": "Modul-03_Dein-innerer-Alarm.md",
+            "source": "Treffen II", "durationMin": 12, "format": ["text", "audio"], "image": "Alarmanlage / Kampf-oder-Flucht",
+            "note": "enthaelt die Bremse (lange Ausatmung); ein eigenes 'Bremse finden'-Modul entfaellt bewusst",
+            "steps": [
+              { "step": "Funke", "strand": "Herz", "summary": "Abends im Bett, alles ruhig - und der Koerper trotzdem startbereit." },
+              { "step": "Warum/Bild", "strand": "Kopf", "summary": "Die Alarmanlage in vier Schichten: das System unterscheidet nicht." },
+              { "step": "Erleben", "strand": "Hand", "summary": "Ankommen von aussen nach innen, dann die lange Ausatmung - die Bremse." },
+              { "step": "Verankern", "strand": "Hand", "summary": "Drei Atemzuege, an einen Alltags-Anker gekoppelt. Ein Experiment, keine Pflicht." },
+              { "step": "Reflektieren", "strand": "Herz", "summary": "Erst Stille, dann: Wie war das fuer dich?" },
+              { "step": "Weitergehen", "strand": "alle", "summary": "Die Bremse sitzt - als Naechstes laesst du die aufgestaute Energie ab." }
+            ]
+          },
+          { "id": "energie-ablassen", "no": 4, "title": "Energie ablassen", "status": "planned", "source": "Treffen II", "image": "Schicht 2: Entladung fehlt", "note": "Bewegung/Entladung der mobilisierten Energie" },
+          { "id": "zur-ruhe-kommen", "no": 5, "title": "Zur Ruhe kommen", "status": "planned", "source": "Treffen II", "image": "Schicht 3: Erholung fehlt", "note": "tiefe Erholung: Koerperentspannung (PME) / Ort der Ruhe (Imagination)" },
+          { "id": "inseln", "no": 6, "title": "Kleine Inseln im Tag", "status": "planned", "image": "Schicht 4: keine Zeit", "note": "Mikro-Pausen im Alltag" }
+        ]
+      },
+      {
+        "id": "wahrnehmen", "number": 2, "tag": "Achtsamkeit", "title": "Wahrnehmen", "journeyPos": 0.55,
+        "shift": "Ich bin nicht mein Gedanke, nicht mein Gefuehl - ich kann sie anschauen.",
+        "transitionNote": "Grenze zu Runterkommen sauber halten: dort VERAENDERST du (entspannen), hier BEOBACHTEST du nur (nicht veraendern). Dieser Unterschied IST der Stationswechsel.",
+        "modules": [
+          { "id": "koerper-hoeren", "no": 7, "title": "Den Koerper hoeren", "status": "planned", "source": "Treffen VIII", "note": "Body Scan; der nicht-wertende Blick wird hier eingefuehrt (keine eigene Uebung mehr)" },
+          { "id": "gedanken-entwirren", "no": 8, "title": "Gedanken entwirren", "status": "planned", "source": "Treffen IV/V", "note": "ABC/ABCD; liegt bewusst AUF dem Hauptweg (mentale Haelfte von Wahrnehmen)" }
+        ],
+        "branch": {
+          "id": "begegnen", "title": "Begegnen", "tag": "Seitenpfad", "gated": true,
+          "gateReason": "oeffnet sich mit Boden unter den Fuessen (Regulationsboden / Titration)",
+          "gateCopy": "Seitenpfad - oeffnet sich, wenn das Runterkommen sicher sitzt.",
+          "body": "Was dich ueberproportional triggert, gehoert zu dir - und da liegt Kraft drin. Diese Tiefe betrittst du nicht als Pflicht.",
+          "docks": ["runterkommen:alarm (der Alarm als Botschafter)", "themenwelt:innere-stimmen (inneres Team)"],
+          "source": "Schattenarbeit-Fundus"
+        }
+      },
+      {
+        "id": "weit-werden", "number": 3, "tag": "Weite", "title": "Weit werden", "journeyPos": 0.88, "isLast": true,
+        "shift": "Es muss nicht anders sein, als es ist.",
+        "modules": [
+          { "id": "eigene-praxis", "no": 9, "title": "Deine eigene Praxis", "status": "planned", "source": "Treffen X", "note": "was bleibt + dein Plan nach vorn (frueheres 'Gesundheitsprojekt' hier gefaltet)" },
+          { "id": "rueckblick-weite", "no": 10, "title": "Rueckblick & Weite", "status": "planned", "note": "Vorher/Nachher via Selbsttest (4 Ebenen) + ES-16; oeffnet zur Gelassenheit" }
+        ]
+      }
+    ]
+  },
+
+  "loop": {
+    "id": "puls", "title": "Dein taeglicher Puls",
+    "role": "Laeuft quer ueber allem - KEINE Station. Persistenter, dezent pulsierender Einstieg.",
+    "subtitle": "Kein Pflichtprogramm. Ein bis zwei Minuten, ohne Druck.",
+    "items": [
+      { "id": "spuer-check", "title": "Spuer-Check", "detail": "Koerper & Stimmung, je ein Tap. Speist Vorher/Nachher." },
+      { "id": "gluecksmoment", "title": "Gluecksmoment", "detail": "Was war heute schoen? (traegt die Sinnhaftigkeit)" },
+      { "id": "anker", "title": "Anker", "detail": "Die kleine Uebung, an eine Alltagsroutine gekoppelt." }
+    ]
+  },
+
+  "themenwelten": {
+    "label": "Neben dem Weg", "sub": "Nicht jeder Inhalt liegt auf dem Hauptweg. Optional, spaetere Releases.", "release": "spaeter",
+    "items": [
+      { "id": "essen", "title": "Essen als Selbstfuersorge", "source": "Treffen III" },
+      { "id": "kommunikation", "title": "Verstehen & verstanden werden", "source": "Treffen VII" },
+      { "id": "soziales-netz", "title": "Menschen, die guttun", "source": "Treffen IX" },
+      { "id": "innere-stimmen", "title": "Deine inneren Stimmen", "source": "Treffen VI", "note": "Bruecke zum Seitenpfad Begegnen" }
+    ]
+  },
+
+  "safety": {
+    "persistentBanner": "Bildung, keine Therapie - in Krisen: Hilfe holen",
+    "crisisSignposting": "dauerhaft im Menue erreichbar",
+    "titration": "Uebungen mit echter Wahlfreiheit (Augen offen/zu, sitzen/liegen, eigenes Tempo)",
+    "toneRule": "Einladung statt Anordnung; 'Experiment' statt 'Hausaufgabe'; nocebo-sensibel, ressourcenorientiert",
+    "selfTestRule": "Der Selbsttest ist ein Spiegel, keine Diagnose - nie pathologisierend spiegeln."
+  },
+
+  "backendTags": {
+    "note": "NUR fuer System/Sortierung - NIE als Nutzer-Navigation sichtbar.",
+    "moduleType": ["fundament", "werkzeug", "themenwelt", "integration"],
+    "strands": ["kopf", "hand", "herz"]
+  }
+}
