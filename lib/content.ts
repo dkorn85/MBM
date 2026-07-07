@@ -3,6 +3,8 @@ import { validateModul } from "./validate-module";
 import willkommen from "@/content/modules/willkommen.json";
 import woDuStehst from "@/content/modules/wo-du-stehst.json";
 import alarm from "@/content/modules/alarm.json";
+import energieAblassen from "@/content/modules/energie-ablassen.json";
+import zurRuheKommen from "@/content/modules/zur-ruhe-kommen.json";
 import inseln from "@/content/modules/inseln.json";
 import koerperHoeren from "@/content/modules/koerper-hoeren.json";
 import gedankenEntwirren from "@/content/modules/gedanken-entwirren.json";
@@ -16,6 +18,8 @@ const roheModule: unknown[] = [
   willkommen,
   woDuStehst,
   alarm,
+  energieAblassen,
+  zurRuheKommen,
   inseln,
   koerperHoeren,
   gedankenEntwirren,

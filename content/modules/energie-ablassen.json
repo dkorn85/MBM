@@ -1,0 +1,88 @@
+{
+  "id": "energie-ablassen",
+  "no": 4,
+  "station": "runterkommen",
+  "titel": "Energie ablassen",
+  "dauerMin": 9,
+  "voraussetzungen": [],
+  "moduleType": "werkzeug",
+  "schritte": [
+    {
+      "typ": "funke",
+      "titel": "Funke",
+      "strang": "herz",
+      "audio": "/audio/energie-ablassen/01-funke.mp3",
+      "bloecke": [
+        { "text": "Kennst du das Gefühl nach einem schwierigen Gespräch oder einer knappen Situation im Verkehr? Es ist vorbei, alles ist gut — und trotzdem bist du wie aufgeladen. Die Hände zittern vielleicht ein bisschen, im Bauch flattert es, du kannst nicht still sitzen." },
+        { "text": "Oder das Gegenteil: Du bist wie erstarrt, sitzt fest, und die Anspannung sackt einfach nach innen." },
+        { "text": "Beides ist dieselbe Geschichte: Dein Körper hat für einen Notfall Energie bereitgestellt — und die ist noch da. Sie will irgendwohin. In diesem Modul geht es darum, ihr einen Weg nach draußen zu geben." }
+      ]
+    },
+    {
+      "typ": "warum",
+      "titel": "Warum",
+      "strang": "kopf",
+      "audio": "/audio/energie-ablassen/02-warum.mp3",
+      "bloecke": [
+        { "text": "Erinnerst du dich an die vier Eigenheiten der Alarmanlage? Die zweite war: **die Entladung fehlt.** Genau darum geht es hier." },
+        { "text": "Schau dir einmal ein Tier in der Natur an. Ein Reh, das gerade eben noch vor etwas geflohen ist, bleibt kurz stehen — und dann **zittert und schüttelt** es sich. Ein paar Sekunden. Danach grast es weiter, als wäre nichts gewesen. Das ist kein Zufall. Das ist der Körper, der die Alarm-Energie wieder abschüttelt. Tiere machen das ganz von selbst." },
+        { "text": "Wir Menschen haben das über die Jahre verlernt. „Reiß dich zusammen“, „bleib ruhig“, „stell dich nicht so an“ — wir halten die Energie fest, statt sie herauszulassen. Und dann bleibt sie im Körper stecken: als Zittern, als Enge, als dieses Nicht-still-sitzen-Können. Über die Zeit wird daraus die Anspannung, die sich anstaut." },
+        { "text": "Die gute Nachricht: Der Körper hat das Abschütteln nicht vergessen — er darf es nur wieder tun. Und dafür braucht es keine Sportstunde. Es reicht, der Energie **kurz und bewusst Bewegung zu geben** — und dann zu spüren, wie sich das System danach von selbst beruhigt." },
+        { "text": "Genau das probieren wir jetzt. Ganz in deinem Maß — es geht nie darum, dich anzustrengen, sondern darum, etwas loszulassen." }
+      ]
+    },
+    {
+      "typ": "erleben",
+      "titel": "Erleben",
+      "strang": "hand",
+      "audio": "/audio/energie-ablassen/03-erleben.mp3",
+      "bloecke": [
+        { "text": "Stell dich, wenn es geht, locker hin — die Füße etwa hüftbreit, die Knie ganz weich. Wenn Stehen gerade nicht passt, geht das Meiste auch im Sitzen. Und wie immer gilt: Alles, was sich nicht gut anfühlt, lässt du einfach weg. Du bestimmst das Maß. [Pause]" },
+        { "text": "Komm zuerst kurz an. Spür deine Füße auf dem Boden. Ein ruhiger Atemzug. [Pause] Und dann, ganz sanft, fang an, deine **Hände auszuschütteln** — als hättest du sie gerade gewaschen und schüttelst das Wasser ab. Locker aus den Handgelenken. [Pause]" },
+        { "text": "Lass das Schütteln, wenn du magst, ein Stück den Arm hinaufwandern. Die Unterarme, die Schultern dürfen mitgehen. Nichts muss richtig aussehen. Es darf albern sein. [Pause] Vielleicht wippen die Knie leicht mit, vielleicht der ganze Körper. Lass es einfach geschehen, so viel oder so wenig, wie sich stimmig anfühlt. [längere Pause]" },
+        { "text": "Und wenn dir danach ist, lass ein Ausatmen hörbar werden — ein Seufzen, ein „phhh“. Auch das ist Entladung. [Pause] Noch ein paar Sekunden, in deinem Tempo. [längere Pause]" },
+        { "text": "Und jetzt: **lass langsam ausklingen.** Werde ruhiger, bis die Bewegung von selbst zur Stille kommt. Steh oder sitz einfach da. [Pause] Und nun spür nach: Was macht dein Körper gerade? Vielleicht ein Kribbeln, ein Strömen, eine Wärme. Vielleicht atmet es sich anders als vorhin. Nur bemerken. [längere Pause]" },
+        { "text": "Falls das Schütteln zu viel war oder unangenehm wurde, ist das völlig in Ordnung — dann steh einfach ruhig und spür die Füße am Boden. Auch das lässt Energie ab. [Pause] Und wann immer du magst, komm zurück in den Raum." }
+      ]
+    },
+    {
+      "typ": "experiment",
+      "titel": "Verankern",
+      "strang": "hand",
+      "audio": "/audio/energie-ablassen/05-experiment.mp3",
+      "bloecke": [
+        { "text": "Das Schöne an dieser Übung: Sie passt in jede Ritze des Tages. Ein Vorschlag, kein Muss:" }
+      ],
+      "experiment": {
+        "haupt": "**Schüttel es ab.** Immer wenn du merkst, dass du nach einer Situation aufgeladen oder wie festgefroren bist — nach einem Anruf, einem Streit, einer knappen Sache — nimm dir **zehn Sekunden** und schüttel Hände und Arme aus. Ein hörbares Ausatmen dazu. Dann schau, ob sich etwas löst.",
+        "optional": "**Oder, ganz ohne Bewegung:** Achte diese Woche einmal darauf, *wo* deine aufgestaute Energie sitzt, wenn du wach und angespannt bist. Im Bauch? In den Beinen, die zappeln wollen? In den Schultern? Nur bemerken — das Erkennen ist schon der halbe Weg."
+      }
+    },
+    {
+      "typ": "nachspueren",
+      "titel": "Reflektieren",
+      "strang": "herz",
+      "audio": "/audio/energie-ablassen/04-nachspueren.mp3",
+      "stilleSek": 15,
+      "bloecke": [
+        { "text": "Bleib noch einen Moment einfach stehen oder sitzen. Nichts tun, nur nachspüren. [Pause]" },
+        { "text": "Und dann, ganz offen: **Wie fühlt sich dein Körper jetzt an — verglichen mit vorhin?**" },
+        { "text": "Vielleicht ist etwas ruhiger geworden, vielleicht lebendiger, vielleicht beides. Vielleicht auch kaum etwas — auch das ist eine ehrliche Antwort. Es gibt kein richtig und kein falsch." }
+      ],
+      "interaktionen": [
+        { "art": "journal", "frage": "Wie fühlt sich dein Körper jetzt an?" },
+        { "art": "slider", "label": "aufgeladen ↔ gelöst", "vorherNachher": true }
+      ]
+    },
+    {
+      "typ": "weitergehen",
+      "titel": "Weitergehen",
+      "strang": "alle",
+      "audio": "/audio/energie-ablassen/06-weitergehen.mp3",
+      "bloecke": [
+        { "text": "Du hast der Alarm-Energie einen Weg nach draußen gegeben — das ist die zweite Schicht: erst die Bremse (die lange Ausatmung), jetzt die Entladung." },
+        { "text": "Aber Entladen allein ist nur die halbe Erholung. Nach dem Abschütteln kommt das Auffüllen — wirklich tief zur Ruhe kommen. Genau das ist der nächste Schritt. Aber wie immer: alles zu seiner Zeit." }
+      ]
+    }
+  ]
+}

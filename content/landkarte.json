@@ -75,8 +75,8 @@
         "modules": [
           { "id": "alarm", "no": 3, "title": "Dein innerer Alarm", "status": "written", "durationMin": 12, "format": ["text", "audio"], "image": "Alarmanlage / Kampf-oder-Flucht",
             "note": "enthält die Bremse (lange Ausatmung); ein eigenes 'Bremse finden'-Modul entfällt bewusst" },
-          { "id": "energie-ablassen", "no": 4, "title": "Energie ablassen", "status": "planned", "image": "Schicht 2: Entladung fehlt", "note": "Bewegung/Entladung der mobilisierten Energie" },
-          { "id": "zur-ruhe-kommen", "no": 5, "title": "Zur Ruhe kommen", "status": "planned", "image": "Schicht 3: Erholung fehlt", "note": "tiefe Erholung: Körperentspannung (PME) / Ort der Ruhe (Imagination)" },
+          { "id": "energie-ablassen", "no": 4, "title": "Energie ablassen", "status": "written", "image": "Schicht 2: Entladung fehlt", "note": "Bewegung/Entladung der mobilisierten Energie" },
+          { "id": "zur-ruhe-kommen", "no": 5, "title": "Zur Ruhe kommen", "status": "written", "image": "Schicht 3: Erholung fehlt", "note": "tiefe Erholung: Körperentspannung (PME) / Ort der Ruhe (Imagination)" },
           { "id": "inseln", "no": 6, "title": "Kleine Inseln im Tag", "status": "written", "image": "Schicht 4: keine Zeit", "note": "Mikro-Pausen im Alltag" }
         ]
       },

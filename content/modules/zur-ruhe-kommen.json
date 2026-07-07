@@ -1,0 +1,89 @@
+{
+  "id": "zur-ruhe-kommen",
+  "no": 5,
+  "station": "runterkommen",
+  "titel": "Zur Ruhe kommen",
+  "dauerMin": 11,
+  "voraussetzungen": [],
+  "moduleType": "werkzeug",
+  "schritte": [
+    {
+      "typ": "funke",
+      "titel": "Funke",
+      "strang": "herz",
+      "audio": "/audio/zur-ruhe-kommen/01-funke.mp3",
+      "bloecke": [
+        { "text": "Du machst mal Pause. Setzt dich hin, greifst zum Handy, scrollst ein bisschen. Zehn Minuten später stehst du wieder auf — und bist irgendwie genauso müde wie vorher. Die Pause war da, aber die Ruhe nicht." },
+        { "text": "So geht es vielen von uns: Wir kennen tausend kleine Unterbrechungen, aber kaum noch das echte, tiefe Ausruhen. Das, nach dem man sich wirklich erholt anfühlt." },
+        { "text": "Dieses tiefe Ausruhen ist keine Glückssache. Es ist ein Zustand, den dein Körper kennt — und in den du ihn einladen kannst. In diesem Modul lernst du, wie." }
+      ]
+    },
+    {
+      "typ": "warum",
+      "titel": "Warum",
+      "strang": "kopf",
+      "audio": "/audio/zur-ruhe-kommen/02-warum.mp3",
+      "bloecke": [
+        { "text": "Das ist die dritte Eigenheit der Alarmanlage: **die Erholung fehlt.** Nicht, weil wir keine Pausen machen — sondern weil unsere Pausen oft gar keine echte Erholung sind." },
+        { "text": "Stell dir ein Schiff vor. Draußen auf dem offenen Meer arbeitet es ununterbrochen gegen Wind und Wellen — auch wenn es „nur treibt“, ist es nie ganz in Ruhe. Erst im **geschützten Hafen** kommt es wirklich zur Ruhe: Erst dort wird repariert, aufgetankt, ausgebessert." },
+        { "text": "Dein Körper ist genauso. Solange innerlich noch Betrieb ist — Bildschirm, Gedanken, ein halbes Ohr auf Empfang —, treibt er weiter auf offener See. Das Reparieren und Auftanken passiert erst, wenn er in einen tieferen Gang schaltet: die **Entspannungsantwort**, den Ruhe-und-Erholungs-Modus. Genau dann sinkt der Puls, entspannen sich die Muskeln, arbeitet die Verdauung, erholt sich das System wirklich." },
+        { "text": "Und dieser Hafen liegt in dir. Du kommst nicht durch Anstrengung dorthin, sondern durchs Loslassen — indem du dem Körper eins nach dem anderen das Signal gibst: Hier ist es sicher, du darfst jetzt schwer werden, du musst nichts mehr halten." },
+        { "text": "Genau diesen Weg in den Hafen gehen wir jetzt zusammen. Ganz ohne Ziel — außer dem, für ein paar Minuten wirklich anzukommen." }
+      ]
+    },
+    {
+      "typ": "erleben",
+      "titel": "Erleben",
+      "strang": "hand",
+      "audio": "/audio/zur-ruhe-kommen/03-erleben.mp3",
+      "bloecke": [
+        { "text": "Für diese Übung darfst du es dir besonders bequem machen. Am schönsten im Liegen — aber Sitzen ist genauso gut. Deck dich zu, wenn dir das angenehm ist. Für die nächsten Minuten gibt es nichts zu tun. Und wie immer: Was sich nicht gut anfühlt, lässt du weg. Du bestimmst. [Pause]" },
+        { "text": "Lass die Augen sanft schließen, wenn das für dich in Ordnung ist — sonst lass den Blick weich auf einem Punkt ruhen. [Pause] Und spür zuerst die Unterlage, die dich trägt. Wie sie dich hält, an ganz vielen Stellen zugleich. Du musst dich nirgends festhalten. Du wirst gehalten. [längere Pause]" },
+        { "text": "Und jetzt gehen wir in Ruhe durch deinen Körper — nicht um etwas zu prüfen, sondern um überall dasselbe leise Signal zu geben: du darfst jetzt loslassen. [Pause] Beginne bei der **Stirn.** Lass sie glatt werden, weich. [Pause] Der **Kiefer** darf locker werden, die Zähne ein Spalt auseinander, die Zunge schwer. [Pause] Die **Schultern** dürfen sinken, weg von den Ohren, hinein in die Unterlage. [längere Pause]" },
+        { "text": "Lass die **Arme** schwer werden, bis in die Hände, bis in die Fingerspitzen. So schwer, dass du sie kaum noch heben möchtest. [Pause] Der **Bauch** darf weich werden und sich mit dem Atem von allein heben und senken. [Pause] Der **Rücken**, das Becken — alles darf sich der Unterlage überlassen. [längere Pause]" },
+        { "text": "Und die **Beine**, ganz hinunter bis in die Füße — schwer, warm, ruhig. [Pause] Spür einen Moment den ganzen Körper auf einmal, wie er daliegt, getragen, ohne Auftrag. Das ist dein Hafen. [längere Pause]" },
+        { "text": "Wenn du magst, stell dir jetzt einen **Ort vor, an dem du dich vollkommen sicher und wohl fühlst.** Ein wirklicher oder ein erfundener — ein warmer Raum, ein Platz in der Natur, irgendwo, wo dir nichts geschehen kann. Schau dich dort um. Was siehst du, was hörst du, wie fühlt sich die Luft an? Bleib einfach ein Weilchen dort. [längere Pause]" },
+        { "text": "Falls unterwegs Unruhe aufkommt oder ein Bild sich nicht gut anfühlt, lass es einfach ziehen und komm zurück zur Unterlage und zu deinem Atem — die tragen dich immer. [Pause] Und wenn du bereit bist, kein Stück früher: Nimm den Raum um dich langsam wieder wahr. Beweg vorsichtig Finger und Zehen. Und öffne die Augen, wann immer du magst. [Pause]" }
+      ]
+    },
+    {
+      "typ": "experiment",
+      "titel": "Verankern",
+      "strang": "hand",
+      "audio": "/audio/zur-ruhe-kommen/05-experiment.mp3",
+      "bloecke": [
+        { "text": "Echte Erholung braucht keine Stunde. Sie braucht die Erlaubnis, wirklich abzuschalten. Ein Vorschlag, kein Muss:" }
+      ],
+      "experiment": {
+        "haupt": "**Ein bewusster Hafen am Tag.** Such dir einmal am Tag zwei, drei Minuten, in denen du nichts nebenher tust — kein Bildschirm, kein halbes Ohr woanders. Leg dich oder setz dich hin und gib deinem Körper ein paar Mal das Signal „du darfst schwer werden“: Schultern sinken, Kiefer locker, ein langes Ausatmen. Mehr nicht.",
+        "optional": "**Oder, zum Bemerken:** Achte diese Woche einmal auf den Unterschied zwischen einer *Pause* und echter *Ruhe*. Wann bist du wirklich im Hafen — und wann treibst du nur mit halber Kraft weiter? Nichts ändern, nur den Unterschied kennenlernen."
+      }
+    },
+    {
+      "typ": "nachspueren",
+      "titel": "Reflektieren",
+      "strang": "herz",
+      "audio": "/audio/zur-ruhe-kommen/04-nachspueren.mp3",
+      "stilleSek": 15,
+      "bloecke": [
+        { "text": "Bleib noch einen Moment liegen oder sitzen. Nichts einordnen, nur nachspüren, wie es dir jetzt geht. [Pause]" },
+        { "text": "Und dann, ganz offen: **Wie war es, wirklich zur Ruhe zu kommen?**" },
+        { "text": "Vielleicht magst du festhalten, was du bemerkt hast — und wie es sich anfühlt, verglichen mit vorhin. Es gibt kein richtig und kein falsch." }
+      ],
+      "interaktionen": [
+        { "art": "journal", "frage": "Wie war es, wirklich zur Ruhe zu kommen?" },
+        { "art": "slider", "label": "unruhig ↔ ruhig", "vorherNachher": true }
+      ]
+    },
+    {
+      "typ": "weitergehen",
+      "titel": "Weitergehen",
+      "strang": "alle",
+      "audio": "/audio/zur-ruhe-kommen/06-weitergehen.mp3",
+      "bloecke": [
+        { "text": "Damit hast du die drei Schichten des Runterkommens beisammen: die Bremse für den Moment, das Entladen der aufgestauten Energie — und jetzt die tiefe Erholung, das Auftanken im Hafen." },
+        { "text": "Es fehlt noch die vierte, ehrlichste Schicht: sich die Zeit dafür überhaupt zu nehmen — mitten im Alltag, nicht erst im Urlaub. Genau darum geht es als Nächstes, mit den kleinen Inseln im Tag." }
+      ]
+    }
+  ]
+}

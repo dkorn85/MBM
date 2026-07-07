@@ -2,13 +2,16 @@
 // Offline-Kern: Kernrouten + S1-Audio werden bei install precached.
 // Bewusst KEINE Push-/Notification-API und kein Background-Sync (§3: keine Notifications).
 
-const CACHE = "yipyip-v6";
+const CACHE = "yipyip-v7";
 
 // Kernrouten, die offline erreichbar sein müssen (neue Stationen-Struktur).
 const CORE = [
   "/",
   "/modul/willkommen",
+  "/modul/wo-du-stehst",
   "/modul/alarm",
+  "/modul/energie-ablassen",
+  "/modul/zur-ruhe-kommen",
   "/modul/inseln",
   "/modul/koerper-hoeren",
   "/modul/gedanken-entwirren",
