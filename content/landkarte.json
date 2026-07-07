@@ -8,15 +8,17 @@
       "ebene": 0,
       "name": "Fundament",
       "untertitel": "Das nie gelehrte Grundwissen: was in deinem Körper passiert — und warum.",
+      "deko": "/deko/element-erde.svg",
       "module": [
-        { "id": "f1", "titel": "Dein zweites Nervensystem", "thema": "Grundlagen", "status": "bald" },
-        { "id": "f2", "titel": "Körper und Geist reden miteinander", "thema": "Grundlagen", "status": "bald" }
+        { "id": "f1", "titel": "Dein zweites Nervensystem", "thema": "Grundlagen", "status": "aktiv", "dauerMin": 10 },
+        { "id": "f2", "titel": "Körper und Geist reden miteinander", "thema": "Grundlagen", "status": "aktiv", "dauerMin": 10 }
       ]
     },
     {
       "ebene": 1,
       "name": "Werkzeuge",
       "untertitel": "Einfache Fähigkeiten, die du immer dabei hast.",
+      "deko": "/deko/element-luft.svg",
       "module": [
         { "id": "s1", "titel": "Dein innerer Alarm", "thema": "Stress", "status": "aktiv", "dauerMin": 12 },
         { "id": "s2", "titel": "Kleine Inseln im Tag", "thema": "Stress", "status": "bald" },
@@ -27,6 +29,7 @@
       "ebene": 2,
       "name": "Themenwelten",
       "untertitel": "Die Werkzeuge angewandt auf dein Leben.",
+      "deko": "/deko/element-wasser.svg",
       "module": [
         { "id": "t1", "titel": "Schlaf", "thema": "Schlaf", "status": "bald" },
         { "id": "t2", "titel": "Gedanken entwirren", "thema": "Gedanken", "status": "bald" },
@@ -37,6 +40,7 @@
       "ebene": 3,
       "name": "Integration",
       "untertitel": "Aus einzelnen Übungen wird deine eigene Praxis.",
+      "deko": "/deko/element-feuer.svg",
       "module": [
         { "id": "i1", "titel": "Deine eigene Praxis", "thema": "Lebenskunst", "status": "bald" }
       ]

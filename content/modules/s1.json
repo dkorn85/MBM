@@ -20,6 +20,7 @@
       "typ": "warum",
       "titel": "Warum",
       "audio": "/audio/s1/02-warum.mp3",
+      "bild": "/deko/saebelzahntiger.svg",
       "bloecke": [
         { "text": "Stell dir deine Vorfahren vor, vor vielen tausend Jahren. Taucht plötzlich ein Säbelzahntiger auf, schaltet der Körper in Sekunden in einen Notfallmodus: Herz schneller, Atem schneller, Muskeln gespannt, alle Energie nach außen. Kämpfen oder fliehen. Dieser Modus hat dem Menschen das Überleben gesichert." },
         { "text": "Dieses System steckt noch heute in dir — unverändert. Das Problem ist nur: **Dein Körper unterscheidet kaum zwischen einem echten Säbelzahntiger und einer bedrohlich wirkenden E-Mail, einem vollen Terminkalender oder einem Streit.** Die Alarmanlage springt gleich an. Nur — du kämpfst nicht und du fliehst auch nicht. Du sitzt einfach da." },

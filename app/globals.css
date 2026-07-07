@@ -122,6 +122,11 @@
   transform-origin: 60% 30%;
 }
 
+/* Cozy Deko-Piktogramme (Schritt-Bilder, Ebenen-Symbole) — ruhig, dezent */
+.mbm-deko-piktogramm {
+  opacity: 0.9;
+}
+
 /* Deko-Grafiken im Dark Mode stark dämpfen — warm, nie grell */
 @media (prefers-color-scheme: dark) {
   .mbm-deko-wolken {
@@ -129,6 +134,9 @@
   }
   .mbm-deko-drachen {
     opacity: 0.7;
+  }
+  .mbm-deko-piktogramm {
+    opacity: 0.55;
   }
 }
 

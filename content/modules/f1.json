@@ -1,0 +1,81 @@
+{
+  "id": "f1",
+  "ebene": 0,
+  "thema": "Grundlagen",
+  "titel": "Dein zweites Nervensystem",
+  "dauerMin": 10,
+  "voraussetzungen": [],
+  "schritte": [
+    {
+      "typ": "funke",
+      "titel": "Funke",
+      "audio": "/audio/f1/01-funke.mp3",
+      "bloecke": [
+        { "text": "Hat schon einmal jemand zu dir gesagt: „Jetzt entspann dich doch mal“? Und — hat es funktioniert? [kurze Pause] Eben. Es funktioniert nie. Genauso wenig, wie du deinem Herzen befehlen kannst, langsamer zu schlagen, oder deiner Verdauung, sich zu beeilen." },
+        { "text": "Und gleichzeitig passiert in dir, während du das hier liest oder hörst, Erstaunliches: Dein Herz schlägt — ohne dass du etwas dafür tust. Dein Atem kommt und geht, sogar wenn du schläfst. Irgendwo in dir wird gerade verdaut, repariert, Wärme gehalten. Du machst das nicht. Es geschieht." },
+        { "text": "In dir arbeitet ein zweites Nervensystem — eines, das nicht auf deine Befehle hört, sondern dich still am Leben hält. Die meisten von uns haben nie gelernt, wie es funktioniert. Dabei erklärt es so vieles: warum Entspannung nicht auf Kommando geht, warum der Körper manchmal anders will als der Kopf — und wo der Schlüssel liegt, wenn du Einfluss nehmen möchtest." }
+      ]
+    },
+    {
+      "typ": "warum",
+      "titel": "Warum",
+      "audio": "/audio/f1/02-warum.mp3",
+      "bild": "/deko/wippe.svg",
+      "bloecke": [
+        { "text": "Du kennst das Nervensystem, das auf dich hört: Du willst die Hand heben, und sie hebt sich. Du willst gehen, und die Beine gehen. Aber daneben gibt es ein zweites — Fachleute nennen es das autonome, also das selbstständige Nervensystem. Es steuert alles, was von allein laufen muss: Herzschlag, Atmung, Verdauung, Blutdruck, Körperwärme, Heilung. Rund um die Uhr, dein Leben lang, ohne eine einzige Pause." },
+        { "text": "Dieses zweite System hat zwei Spieler. Stell sie dir vor wie die beiden Seiten einer **Wippe.** Auf der einen Seite sitzt der **Antrieb**: Er macht dich wach, schnell und leistungsbereit — Herz höher, Muskeln gespannt, alle Energie nach außen. Auf der anderen Seite sitzt die **Erholung**: Sie ist zuständig für Ruhe, Verdauung, Schlaf und Reparatur — alle Energie nach innen. Fachleute sagen Sympathikus und Parasympathikus dazu. Aber die Namen darfst du gleich wieder vergessen. Die Wippe reicht." },
+        { "text": "Wichtig ist: **Beide Seiten sind gut.** Der Antrieb ist kein Feind — ohne ihn kämst du morgens nicht aus dem Bett, könntest dich nicht begeistern, nicht konzentrieren, nicht schützen. Ein gesundes System ist nicht eines, das immer ruhig ist. Es ist eines, das **frei schwingen kann**: rauf, wenn etwas ansteht — und wieder runter, wenn es vorbei ist." },
+        { "text": "Nur: Genau dieses Zurückschwingen geht vielen von uns verloren. Unser Alltag legt fast nur noch Gewichte auf die Antriebsseite — Termine, Nachrichten, Bildschirme, Sorgen. Die Wippe hängt schief und kommt kaum noch auf die andere Seite. Und weil das zweite Nervensystem nicht auf Worte hört, hilft auch kein „Jetzt entspann dich mal“. Man kann eine Wippe nicht anschreien." },
+        { "text": "Aber — und das ist die eigentliche Entdeckung: **Man kann sie einladen.** Dein zweites Nervensystem versteht keine Befehle, aber es liest Signale. Ein langsamer, langer Atem. Gelöste Schultern. Ein Moment ohne Anforderung. Solche Signale sind wie kleine Gewichte auf der Erholungsseite — und die Wippe beginnt, sich zu bewegen. Den Zustand, in den sie dann schwingt, nennen wir hier die **Entspannungsantwort**: der eingebaute Erholungsmodus deines Körpers. Er ist immer in dir angelegt. Er wartet nur auf ein Zeichen von dir. Und genau das probieren wir jetzt einmal aus." }
+      ]
+    },
+    {
+      "typ": "erleben",
+      "titel": "Erleben",
+      "audio": "/audio/f1/03-erleben.mp3",
+      "bloecke": [
+        { "text": "Such dir einen Platz, an dem du ein paar Minuten ungestört bist. Du kannst sitzen oder liegen — wie es für dich angenehm ist. Es gibt nichts zu leisten und nichts richtig zu machen. Wir schauen deinem Körper heute einfach nur einmal bei der Arbeit zu." },
+        { "text": "Lass deine Augen zuerst ruhig **geöffnet.** Lass den Blick in Ruhe durch den Raum wandern und nimm wahr, wo du gerade bist — Farben, Formen, Licht. [Pause] Wenn du magst, darfst du deine Augen jetzt schließen. Und falls dir das nicht angenehm ist, lass sie einfach sanft geöffnet. [kurze Pause]" },
+        { "text": "Spüre die **Unterlage**, die dich trägt — den Stuhl, das Bett, den Boden. Du musst dich nicht halten. Du wirst gehalten. [Pause] Und jetzt leg, wenn du magst, eine Hand auf deine Brust — oder spür einfach so in deinen Brustkorb hinein. Irgendwo darunter schlägt dein Herz. Vielleicht spürst du es, vielleicht nicht — beides ist in Ordnung. Es schlägt seit deinem allerersten Tag, ohne dass du je daran denken musstest. [Pause] Falls dir die Nähe zum Herzschlag unangenehm ist, lass die Hand einfach wieder sinken und bleib bei der Unterlage. Du bestimmst, was dir guttut. [längere Pause]" },
+        { "text": "Wandere nun weiter zu deinem **Atem.** Und hier kommt das Eigentliche: Verändere ihn nicht. Atme nicht schöner, nicht tiefer, nicht richtiger. Schau nur zu. [Pause] Die Luft kommt herein — von ganz allein. Und sie geht wieder — von ganz allein. Du atmest nicht. Es atmet dich. [längere Pause]" },
+        { "text": "Und jetzt lade ich dich zu einem kleinen Experiment ein. Gib deinem System ein einziges Signal: Atme einmal etwas tiefer ein — und lass die Luft dann **lang und weich entweichen**, fast wie ein Seufzer. [Pause] Und noch einmal: einatmen — und lang ausatmen, alles fallen lassen. [Pause] Falls sich das unangenehm anfühlt, lass den Atem einfach wieder ganz normal fließen — auch das ist völlig in Ordnung. [längere Pause]" },
+        { "text": "Bemerke, ob sich irgendetwas verschoben hat. Vielleicht in den Schultern, im Tempo, irgendwo dahinter. Vielleicht ist es winzig. Vielleicht auch gar nichts — auch das ist eine ehrliche Antwort. [Pause] Was immer du bemerkt hast: Du hast gerade mit deinem zweiten Nervensystem gesprochen. Nicht mit Worten — mit einem Signal. [längere Pause]" },
+        { "text": "Komm nun langsam wieder zurück. Nimm den Raum um dich wahr. Und wenn deine Augen geschlossen waren, öffne sie, wann immer du magst. [Pause]" }
+      ]
+    },
+    {
+      "typ": "nachspueren",
+      "titel": "Nachspüren",
+      "audio": "/audio/f1/04-nachspueren.mp3",
+      "stilleSek": 15,
+      "bloecke": [
+        { "text": "Bleib noch einen kurzen Moment einfach still. Nichts einordnen, nichts bewerten. Nur nachspüren. [Pause]" },
+        { "text": "Und dann, ganz offen und für dich: **Wie war das — deinem Körper einmal zuzuschauen, statt ihn zu steuern?**" },
+        { "text": "Vielleicht magst du in einem Satz festhalten, was du bemerkt hast. Auch ein „eigentlich nichts“ ist eine Beobachtung. Es gibt kein richtig und kein falsch." }
+      ],
+      "interaktionen": [
+        { "art": "journal", "frage": "Was hast du bemerkt?" }
+      ]
+    },
+    {
+      "typ": "experiment",
+      "titel": "Dein Experiment für zuhause",
+      "bloecke": [
+        { "text": "Das hier ist eine Einladung — kein Muss. Ohne Punkte, ohne Kontrolle. Nur du und ein bisschen Neugier auf dein eigenes System." }
+      ],
+      "experiment": {
+        "haupt": "**Dein Experiment:** Halte einmal am Tag für einen kurzen Moment inne — zum Beispiel immer dann, wenn du irgendwo warten musst — und stell dir eine einzige Frage: **Welche Seite meiner Wippe ist gerade oben — Antrieb oder Erholung?** Du musst nichts daran ändern. Nur nachschauen. Wie ein kurzer Blick aufs Wetter, nur eben nach innen.\n\nMit jedem Nachschauen lernst du dein System ein Stück besser kennen. Und wer sein System kennt, merkt früher, wenn es kippt.",
+        "optional": "**Wenn du magst, zusätzlich (optional):** Achte einmal darauf, was deine Erholungsseite ganz von allein einlädt. Eine warme Dusche? Ein paar Schritte draußen? Eine bestimmte Musik, ein bestimmter Mensch? Sammle diese Momente innerlich wie kleine Fundstücke — du wirst sie später noch gut gebrauchen können."
+      }
+    },
+    {
+      "typ": "weitergehen",
+      "titel": "Weitergehen",
+      "audio": "/audio/f1/06-weitergehen.mp3",
+      "bloecke": [
+        { "text": "Du hast heute ein Stück Grundwissen mitgenommen, das die meisten Menschen nie bekommen: In dir arbeitet ein zweites Nervensystem mit zwei Seiten — und es hört nicht auf Befehle, aber es nimmt Einladungen an." },
+        { "text": "Wenn du magst, geht es von hier aus an zwei Stellen weiter: Das Modul „Körper und Geist reden miteinander“ zeigt dir, wie eng dieses System mit deinen Gedanken und Gefühlen verwoben ist. Und „Dein innerer Alarm“ gibt dir das erste Werkzeug für die Momente, in denen der Antrieb überhandnimmt. Aber das hat Zeit. Lass das hier erst einmal wirken." }
+      ]
+    }
+  ]
+}

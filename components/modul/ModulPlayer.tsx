@@ -211,6 +211,17 @@ export default function ModulPlayer({ modul }: { modul: Modul }) {
       <Fortschritt titel={modul.schritte.map((s) => s.titel)} aktiv={schrittIndex} />
 
       <div key={schrittIndex} className="mbm-schritt-fade space-y-6">
+        {schritt.bild ? (
+          <div className="flex justify-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={schritt.bild}
+              alt=""
+              aria-hidden="true"
+              className="mbm-deko-piktogramm pointer-events-none w-32 select-none sm:w-36"
+            />
+          </div>
+        ) : null}
         <h2
           ref={ueberschriftRef}
           tabIndex={-1}

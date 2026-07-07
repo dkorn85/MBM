@@ -112,6 +112,13 @@ function validiereSchritt(data: unknown, index: number, fehler: Fehler): Schritt
     schritt.audio = data.audio;
   }
 
+  if (data.bild !== undefined) {
+    if (typeof data.bild !== "string" || data.bild.trim() === "") {
+      fehler(`${pfad}.bild`, "muss ein nicht-leerer String sein, wenn gesetzt.");
+    }
+    schritt.bild = data.bild;
+  }
+
   if (data.stilleSek !== undefined) {
     if (typeof data.stilleSek !== "number" || Number.isNaN(data.stilleSek)) {
       fehler(`${pfad}.stilleSek`, "muss eine Zahl sein, wenn gesetzt.");

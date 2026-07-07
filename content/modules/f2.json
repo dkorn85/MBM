@@ -1,0 +1,84 @@
+{
+  "id": "f2",
+  "ebene": 0,
+  "thema": "Grundlagen",
+  "titel": "Körper und Geist reden miteinander",
+  "dauerMin": 10,
+  "voraussetzungen": [],
+  "schritte": [
+    {
+      "typ": "funke",
+      "titel": "Funke",
+      "audio": "/audio/f2/01-funke.mp3",
+      "bloecke": [
+        { "text": "Kennst du das? Vor einem schwierigen Gespräch klopft dein Herz — dabei ist noch gar nichts passiert. Bei Kummer ist der Appetit plötzlich weg. Eine Sorge, und der Magen zieht sich zusammen. Ein Lied, und du bekommst Gänsehaut." },
+        { "text": "Und andersherum genauso: Nach einem Spaziergang wirken die Probleme oft ein wenig kleiner. Mit leerem Magen wird die Geduld dünn. Und nach einer durchwachten Nacht sieht die Welt grauer aus, als sie ist." },
+        { "text": "Nichts davon bildest du dir ein. Das ist keine Schwäche und keine Empfindlichkeit — es ist eine der ältesten Tatsachen deines Körpers: **Körper und Geist sind keine getrennten Welten. Sie führen ein Gespräch, das nie aufhört.** Und wer versteht, wie dieses Gespräch läuft, hält einen Schlüssel in der Hand." }
+      ]
+    },
+    {
+      "typ": "warum",
+      "titel": "Warum",
+      "audio": "/audio/f2/02-warum.mp3",
+      "bild": "/deko/verbindung.svg",
+      "bloecke": [
+        { "text": "Lange hat man so getan, als wären Kopf und Körper zwei getrennte Abteilungen: hier das Denken und Fühlen, dort die Muskeln und Organe. Heute weiß man: Sie sind mit einer **Standleitung** verbunden — und auf dieser Leitung wird ununterbrochen gesprochen, **in beide Richtungen.**" },
+        { "text": "Von oben nach unten: Ein bloßer Gedanke — die Erinnerung an etwas Peinliches, die Sorge um morgen — und der Körper antwortet. Das Herz wird schneller, die Wangen warm, der Magen eng. Dein Körper behandelt das, was du denkst und fühlst, als wäre es real. [kurze Pause] Und von unten nach oben: Wie du sitzt, wie du atmest, ob du gegessen und geschlafen hast — all das färbt, wie du denkst und fühlst. Der Körper redet ständig mit, auch wenn du ihn nicht bemerkst." },
+        { "text": "Die Wissenschaft kann dieses Gespräch inzwischen sogar messen: Nervensystem, Hormonsystem und selbst das Immunsystem tauschen pausenlos Botschaften aus — ein einziges großes, verwobenes Gespräch. Was du erlebst, kommt im Körper an. Und was im Körper geschieht, kommt im Erleben an." },
+        { "text": "Das Problem ist nur: Die meisten von uns benutzen nur eine Richtung. Wenn der Kopf voll ist, versuchen wir, uns **herauszudenken** — „Beruhig dich“, „Denk positiv“, „Stell dich nicht so an“. Aber Gedanken lassen sich schlecht mit Gedanken beruhigen. Das ist, als wollte man ein Feuer mit Wind löschen." },
+        { "text": "Die eigentliche Entdeckung ist die andere Richtung: **Ein Gespräch in beide Richtungen hat zwei Türen.** Wenn die Tür über den Kopf klemmt, steht die Tür über den Körper offen. Ein langsamer Atem, gelöste Schultern, ein paar Schritte — das sind Botschaften an deinen Geist, und er hört sie. Genau darauf bauen alle Werkzeuge auf, die du hier lernst. [kurze Pause] Und wie real diese Leitung ist, kannst du jetzt gleich selbst erleben — mit nichts als deiner Vorstellung." }
+      ]
+    },
+    {
+      "typ": "erleben",
+      "titel": "Erleben",
+      "audio": "/audio/f2/03-erleben.mp3",
+      "bild": "/deko/zitrone.svg",
+      "bloecke": [
+        { "text": "Such dir einen Platz, an dem du ein paar Minuten ungestört bist. Setz dich bequem hin. Das hier ist ein kleines Experiment — fast ein Spiel. Es gibt nichts zu leisten, nichts zu schaffen. Nur zu beobachten, was passiert. Und wie immer gilt: Wenn dir etwas nicht angenehm ist, lass es einfach weg. Du bestimmst, was dir guttut." },
+        { "text": "Lass den Blick noch einen Moment in Ruhe durch den Raum wandern und komm an. [Pause] Wenn du magst, schließe jetzt die Augen — es geht aber auch gut mit offenen. [kurze Pause]" },
+        { "text": "Stell dir nun vor, du stehst in einer Küche. Auf dem Brett vor dir liegt eine **Zitrone.** Nimm sie in der Vorstellung in die Hand. Spüre, wie kühl sie ist. Ihre feste, leicht wachsige Schale, ihr sattes Gelb. [Pause]" },
+        { "text": "Jetzt schneidest du sie in der Vorstellung langsam in zwei Hälften. Vielleicht siehst du, wie dabei ein feiner Nebel aufsprüht. Der Duft steigt dir in die Nase — frisch, scharf, unverkennbar Zitrone. [Pause]" },
+        { "text": "Und nun nimmst du eine Hälfte — und beißt hinein. Der Saft läuft über deine Zunge. Sauer. Richtig sauer. [längere Pause]" },
+        { "text": "Und jetzt bemerke, was in deinem Mund gerade wirklich passiert. Vielleicht ist Speichel zusammengelaufen. Vielleicht hat sich etwas zusammengezogen, im Mund oder im Gesicht. Vielleicht war es nur ein Hauch. [Pause] Dabei gab es nie eine Zitrone. Kein Tropfen Saft war echt. Nur eine Vorstellung — und dein Körper hat **geantwortet**, als wäre alles real. Das ist die Leitung, um die es hier geht. Du hast sie gerade selbst benutzt. [Pause]" },
+        { "text": "Vielleicht war bei dir auch wenig zu spüren — manche Menschen stellen sich Dinge eher in Worten als in Bildern vor, und auch das ist völlig in Ordnung. Das Gespräch läuft bei jedem Menschen ein wenig anders. [kurze Pause]" },
+        { "text": "Zum Schluss probieren wir noch kurz die andere Richtung. Lass jetzt einfach deine **Schultern sinken** — ein Stück weiter, als sie von selbst wollen. [Pause] Und atme einmal **lang und weich aus.** [Pause] Und noch einmal: Schultern schwer werden lassen, langes Ausatmen. [Pause] Bemerke, was währenddessen mit dem Tempo in deinem Kopf geschieht. Auch das ist eine Botschaft — diesmal vom Körper an den Geist. [längere Pause]" },
+        { "text": "Und wenn du bereit bist, komm zurück in den Raum. Nimm wahr, wo du bist. Und falls deine Augen geschlossen waren, öffne sie, wann immer du magst. [Pause]" }
+      ]
+    },
+    {
+      "typ": "nachspueren",
+      "titel": "Nachspüren",
+      "audio": "/audio/f2/04-nachspueren.mp3",
+      "stilleSek": 15,
+      "bloecke": [
+        { "text": "Bleib noch einen kurzen Moment einfach still. Nur nachspüren, ohne Worte. [Pause]" },
+        { "text": "Und dann, ganz offen und für dich: **Was hat dein Körper geantwortet?** Bei der Zitrone — und bei den sinkenden Schultern?" },
+        { "text": "Vielleicht magst du es in einem Satz festhalten. Ob deutlich, winzig oder gar nicht — jede Beobachtung zählt. Es gibt kein richtig und kein falsch." }
+      ],
+      "interaktionen": [
+        { "art": "journal", "frage": "Was hat dein Körper geantwortet?" }
+      ]
+    },
+    {
+      "typ": "experiment",
+      "titel": "Dein Experiment für zuhause",
+      "bloecke": [
+        { "text": "Auch das hier ist eine Einladung — kein Muss. Es gibt nichts abzuhaken, und niemand schaut zu." }
+      ],
+      "experiment": {
+        "haupt": "**Dein Experiment:** Einmal am Tag, wenn du merkst, dass dein Kopf voll wird — die Gedanken kreisen, etwas zieht sich zusammen — dann versuch es ausnahmsweise **nicht** über den Kopf. Benutz die andere Tür: Lass die Schultern sinken, atme dreimal lang aus, oder steh auf und geh ein paar Schritte. Und dann schau nach: **Was macht der Kopf jetzt?**\n\nEs geht nicht darum, dass danach alles gut ist. Es geht darum, die zweite Tür überhaupt einmal zu benutzen — und zu erleben, dass sie sich öffnet.",
+        "optional": "**Wenn du magst, zusätzlich (optional):** Achte im Alltag einmal darauf, **wo** in deinem Körper sich Gefühle melden. Wo wohnt bei dir die Anspannung — Schultern, Kiefer, Bauch? Wo macht sich Freude bemerkbar? Du musst nichts verändern, nur bemerken. So lernst du nach und nach die Sprache, in der dein Körper mit dir spricht."
+      }
+    },
+    {
+      "typ": "weitergehen",
+      "titel": "Weitergehen",
+      "audio": "/audio/f2/06-weitergehen.mp3",
+      "bloecke": [
+        { "text": "Du hast heute erlebt, dass Körper und Geist in beide Richtungen verbunden sind — und dass dir das zwei Türen gibt statt einer. Zusammen mit dem Wissen um dein zweites Nervensystem ist das das Fundament, auf dem hier alles Weitere aufbaut." },
+        { "text": "Von hier aus beginnen die Werkzeuge. „Dein innerer Alarm“ zeigt dir, was in deinem Körper bei Stress geschieht — und gibt dir ein erstes, einfaches Werkzeug an die Hand, die Entspannungsantwort einzuladen. Wann immer du magst. Lass das hier erst einmal wirken." }
+      ]
+    }
+  ]
+}

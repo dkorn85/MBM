@@ -12,6 +12,7 @@ export type Schritt = {
   titel: string;
   bloecke: TextBlock[];
   audio?: string;               // z.B. "/audio/s1/01-funke.mp3"
+  bild?: string;                // optionales Deko-Piktogramm, z.B. "/deko/wippe.svg"
   stilleSek?: number;           // nachspueren: Verzögerung, bevor Interaktionen erscheinen
   interaktionen?: Interaktion[];
   experiment?: { haupt: string; optional?: string };
@@ -32,7 +33,9 @@ export type LandkarteModul = {
   status: "aktiv" | "bald"; dauerMin?: number;
 };
 export type Ebene = {
-  ebene: 0 | 1 | 2 | 3; name: string; untertitel: string; module: LandkarteModul[];
+  ebene: 0 | 1 | 2 | 3; name: string; untertitel: string;
+  deko?: string; // optionales Ebenen-Symbol, z.B. "/deko/element-erde.svg"
+  module: LandkarteModul[];
 };
 export type Landkarte = {
   einstieg: { gruss: string; text: string };

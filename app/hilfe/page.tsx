@@ -10,6 +10,13 @@ const telLinkKlasse =
 export default function HilfePage() {
   return (
     <article className="space-y-6">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/deko/teekanne.svg"
+        alt=""
+        aria-hidden="true"
+        className="mbm-deko-piktogramm pointer-events-none w-24 select-none"
+      />
       <h1 className="text-3xl">Hilfe in Krisen</h1>
 
       <p>

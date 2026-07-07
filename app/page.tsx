@@ -105,10 +105,23 @@ export default function Home() {
         return (
           <section key={ebene.ebene} className="space-y-4">
             <div className="space-y-1">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-salbei-tief">
-                Ebene {ebene.ebene}
-              </p>
-              <h2 className="text-2xl">{ebene.name}</h2>
+              <div className="flex items-center gap-3">
+                {ebene.deko ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={ebene.deko}
+                    alt=""
+                    aria-hidden="true"
+                    className="mbm-deko-piktogramm h-9 w-9 shrink-0 select-none"
+                  />
+                ) : null}
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-salbei-tief">
+                    Ebene {ebene.ebene}
+                  </p>
+                  <h2 className="text-2xl">{ebene.name}</h2>
+                </div>
+              </div>
               <p className="max-w-[65ch] text-tinte-sanft">{ebene.untertitel}</p>
             </div>
             {aktive.length > 0 ? (
