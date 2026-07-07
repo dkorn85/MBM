@@ -123,3 +123,5 @@ Committe klein und benannt (`feat: modul-renderer schritt-navigation`). Nach jed
 - ~~ElevenLabs-Voice final~~ → entschieden: `v3V1d2rk6528UrLKRuy8` (in `.env`)
 - ~~App-Name/Branding~~ → entschieden: **YipYip**, Logo = Appa-inspirierter fliegender Bison (eigenständige Gestaltung, `public/icons/yipyip-bison.svg`)
 - Domain/Ziel-URL nach MVP (Vercel-URL reicht zunächst)
+- **Bilder-Bibliothek — Lana-Validierung ausstehend:** Alle „Warum"-Bilder außer dem Säbelzahntiger (s1) sind Arbeits-Entwürfe von Fable, nicht aus Lanas Praxis: Wippe (f1), Standleitung/zwei Türen (f2), Fluss & Inseln (s2), Haus-Rundgang (w1), scheues Tier (t1), Züge & Bahnsteig (t2), Gästehaus/Rumi (t3), eigener Garten (i1). In der nächsten Session mit Lana durchgehen und ggf. durch ihre bewährten Bilder ersetzen (Texte + Audio dann neu).
+- Deko-Stil entschieden: Schritt-Bilder als **Recraft-V4-Vektor** (via prompto MCP, `colors` als RGB-Objekte, Hintergrund-Pfad entfernen); keine handkodierten Flat-Icons für Modul-Bilder.
