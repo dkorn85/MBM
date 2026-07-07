@@ -20,6 +20,7 @@
       "typ": "warum",
       "titel": "Warum",
       "strang": "kopf",
+      "bild": "/deko/vier-fenster.svg",
       "bloecke": [
         { "text": "Stress zeigt sich nie nur an einer Stelle. Er meldet sich auf **vier Ebenen** gleichzeitig — wie vier Fenster, durch die du in dich hineinschauen kannst:" },
         { "text": "**Körper** — Verspannung, flacher Atem, Herzklopfen, Müdigkeit." },

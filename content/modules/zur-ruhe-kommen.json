@@ -23,6 +23,7 @@
       "titel": "Warum",
       "strang": "kopf",
       "audio": "/audio/zur-ruhe-kommen/02-warum.mp3",
+      "bild": "/deko/hafen.svg",
       "bloecke": [
         { "text": "Das ist die dritte Eigenheit der Alarmanlage: **die Erholung fehlt.** Nicht, weil wir keine Pausen machen — sondern weil unsere Pausen oft gar keine echte Erholung sind." },
         { "text": "Stell dir ein Schiff vor. Draußen auf dem offenen Meer arbeitet es ununterbrochen gegen Wind und Wellen — auch wenn es „nur treibt“, ist es nie ganz in Ruhe. Erst im **geschützten Hafen** kommt es wirklich zur Ruhe: Erst dort wird repariert, aufgetankt, ausgebessert." },

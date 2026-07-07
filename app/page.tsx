@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { landkarte } from "@/lib/content";
+import { getModul, landkarte } from "@/lib/content";
 import type {
   ModulStatus2,
   Seitenpfad,
   Station,
+  StationId,
   StationModulRef,
 } from "@/lib/module-schema";
 import AbgeschlossenChip from "@/components/AbgeschlossenChip";
@@ -15,6 +16,20 @@ const modulStatus = new Map<string, ModulStatus2>();
 landkarte.path.stations.forEach((s) =>
   s.modules.forEach((m) => modulStatus.set(m.id, m.status)),
 );
+
+// Signaturbild eines Moduls (für die Karten-Thumbnails) — aus dem Modul selbst.
+function bildFuer(id: string): string | null {
+  const m = getModul(id);
+  return m?.bild ?? m?.schritte.find((s) => s.bild)?.bild ?? null;
+}
+
+// Kleines Element-Symbol je Station (dekorativ, warm).
+const STATION_ELEMENT: Record<StationId, string> = {
+  ankommen: "/deko/element-erde.svg",
+  runterkommen: "/deko/element-wasser.svg",
+  wahrnehmen: "/deko/element-luft.svg",
+  "weit-werden": "/deko/element-feuer.svg",
+};
 
 // ── Needs-Einstieg ────────────────────────────────────────────────────
 function NeedsEinstieg() {
@@ -53,12 +68,22 @@ function NeedsEinstieg() {
 
 // ── Modul-Karten ──────────────────────────────────────────────────────
 function ModulKarte({ modul }: { modul: StationModulRef }) {
+  const bild = bildFuer(modul.id);
   return (
     <Link
       href={`/modul/${modul.id}`}
-      className="group block rounded-2xl border border-linie bg-flaeche p-5 transition-[border-color,transform,box-shadow] duration-300 ease-out hover:-translate-y-0.5 hover:border-salbei hover:shadow-sm"
+      className="group flex items-center gap-4 rounded-2xl border border-linie bg-flaeche p-5 transition-[border-color,transform,box-shadow] duration-300 ease-out hover:-translate-y-0.5 hover:border-salbei hover:shadow-sm"
     >
-      <div className="space-y-3">
+      {bild ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={bild}
+          alt=""
+          aria-hidden="true"
+          className="mbm-deko-piktogramm h-16 w-16 shrink-0 select-none sm:h-20 sm:w-20"
+        />
+      ) : null}
+      <div className="min-w-0 space-y-2">
         <div className="flex flex-wrap items-center gap-2">
           <h3 className="text-xl">{modul.title}</h3>
           <AbgeschlossenChip modulId={modul.id} />
@@ -124,9 +149,18 @@ function StationAbschnitt({ station }: { station: Station }) {
 
       <div className="space-y-4">
         <div className="space-y-1">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-salbei-tief">
-            {station.tag}
-          </p>
+          <div className="flex items-center gap-2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={STATION_ELEMENT[station.id]}
+              alt=""
+              aria-hidden="true"
+              className="mbm-deko-piktogramm h-7 w-7 shrink-0 select-none"
+            />
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-salbei-tief">
+              {station.tag}
+            </p>
+          </div>
           <h2 className="text-2xl">{station.title}</h2>
           {/* Shift-Satz — das Herzstück der Station */}
           <p className="max-w-[62ch] pt-1 text-lg italic text-tinte">
@@ -178,13 +212,14 @@ function Horizont() {
   const { name, subtitle, body, clarifier } = landkarte.horizon;
   return (
     <section className="flex flex-col items-center gap-5 pt-6 text-center">
-      {/* Ruhig atmende, sich öffnende konzentrische Ringe (dekorativ) */}
-      <div className="flex h-24 items-center justify-center">
-        <span
-          aria-hidden="true"
-          className="mbm-horizont-ringe block h-3 w-3 bg-gold"
-        />
-      </div>
+      {/* Ruhig schwebende, sich öffnende Ringe — der Horizont: Gelassenheit. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/deko/weite.svg"
+        alt=""
+        aria-hidden="true"
+        className="mbm-deko-piktogramm mbm-schwebt h-28 w-28 select-none"
+      />
       <div className="max-w-[58ch] space-y-2">
         <h2 className="text-3xl">{name}</h2>
         <p className="text-tinte-sanft">{subtitle}</p>
