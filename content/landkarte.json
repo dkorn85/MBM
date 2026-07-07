@@ -1,0 +1,45 @@
+{
+  "einstieg": {
+    "gruss": "Schön, dass du da bist.",
+    "text": "Hier lernst du in kleinen Modulen, wie dein Körper-Geist-System funktioniert — und wie du selbst Einfluss nehmen kannst. In deinem Tempo. Du bestimmst, was dir guttut."
+  },
+  "ebenen": [
+    {
+      "ebene": 0,
+      "name": "Fundament",
+      "untertitel": "Das nie gelehrte Grundwissen: was in deinem Körper passiert — und warum.",
+      "module": [
+        { "id": "f1", "titel": "Dein zweites Nervensystem", "thema": "Grundlagen", "status": "bald" },
+        { "id": "f2", "titel": "Körper und Geist reden miteinander", "thema": "Grundlagen", "status": "bald" }
+      ]
+    },
+    {
+      "ebene": 1,
+      "name": "Werkzeuge",
+      "untertitel": "Einfache Fähigkeiten, die du immer dabei hast.",
+      "module": [
+        { "id": "s1", "titel": "Dein innerer Alarm", "thema": "Stress", "status": "aktiv", "dauerMin": 12 },
+        { "id": "s2", "titel": "Kleine Inseln im Tag", "thema": "Stress", "status": "bald" },
+        { "id": "w1", "titel": "Den Körper hören", "thema": "Wahrnehmung", "status": "bald" }
+      ]
+    },
+    {
+      "ebene": 2,
+      "name": "Themenwelten",
+      "untertitel": "Die Werkzeuge angewandt auf dein Leben.",
+      "module": [
+        { "id": "t1", "titel": "Schlaf", "thema": "Schlaf", "status": "bald" },
+        { "id": "t2", "titel": "Gedanken entwirren", "thema": "Gedanken", "status": "bald" },
+        { "id": "t3", "titel": "Emotionen verdauen", "thema": "Emotionen", "status": "bald" }
+      ]
+    },
+    {
+      "ebene": 3,
+      "name": "Integration",
+      "untertitel": "Aus einzelnen Übungen wird deine eigene Praxis.",
+      "module": [
+        { "id": "i1", "titel": "Deine eigene Praxis", "thema": "Lebenskunst", "status": "bald" }
+      ]
+    }
+  ]
+}
