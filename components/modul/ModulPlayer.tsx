@@ -2,22 +2,47 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import type { Interaktion, Modul, Schritt } from "@/lib/module-schema";
+import type {
+  Interaktion,
+  Modul,
+  Schritt,
+  SchrittTyp,
+} from "@/lib/module-schema";
+import { storage } from "@/lib/storage";
 import AudioPlayer from "./AudioPlayer";
 import Bloecke from "./Bloecke";
-import ExperimentKarte from "./ExperimentKarte";
+import ExperimentMerken from "./ExperimentMerken";
 import Fortschritt from "./Fortschritt";
 import JournalFeld from "./JournalFeld";
 import SpuerRegler from "./SpuerRegler";
 
-function Interaktionen({ liste }: { liste: Interaktion[] }) {
+function Interaktionen({
+  liste,
+  modulId,
+  schrittTyp,
+}: {
+  liste: Interaktion[];
+  modulId: string;
+  schrittTyp: SchrittTyp;
+}) {
   return (
     <div className="space-y-6">
       {liste.map((it, i) => {
         if (it.art === "journal") {
-          return <JournalFeld key={i} frage={it.frage} />;
+          return <JournalFeld key={i} frage={it.frage} modulId={modulId} />;
         }
-        return <SpuerRegler key={i} label={it.label} />;
+        const wann = schrittTyp === "nachspueren" ? "nachher" : "vorher";
+        const vergleich =
+          schrittTyp === "nachspueren" && it.vorherNachher === true;
+        return (
+          <SpuerRegler
+            key={i}
+            label={it.label}
+            modulId={modulId}
+            wann={wann}
+            vergleich={vergleich}
+          />
+        );
       })}
     </div>
   );
@@ -26,10 +51,10 @@ function Interaktionen({ liste }: { liste: Interaktion[] }) {
 /** Nachspüren: erst Stille, dann erscheinen die restlichen Blöcke + Interaktionen. */
 function NachspuerenSchritt({
   schritt,
-  modulTitel,
+  modul,
 }: {
   schritt: Schritt;
-  modulTitel: string;
+  modul: Modul;
 }) {
   const [stilleVorbei, setStilleVorbei] = useState(false);
 
@@ -47,7 +72,7 @@ function NachspuerenSchritt({
         <AudioPlayer
           src={schritt.audio}
           schrittTitel={schritt.titel}
-          modulTitel={modulTitel}
+          modulTitel={modul.titel}
         />
       ) : null}
 
@@ -57,7 +82,11 @@ function NachspuerenSchritt({
         <div className="mbm-stille-fade space-y-6">
           {weitereBloecke.length > 0 ? <Bloecke bloecke={weitereBloecke} /> : null}
           {schritt.interaktionen && schritt.interaktionen.length > 0 ? (
-            <Interaktionen liste={schritt.interaktionen} />
+            <Interaktionen
+              liste={schritt.interaktionen}
+              modulId={modul.id}
+              schrittTyp={schritt.typ}
+            />
           ) : null}
         </div>
       ) : null}
@@ -84,7 +113,7 @@ function SchrittKoerper({
   ) : null;
 
   if (schritt.typ === "nachspueren") {
-    return <NachspuerenSchritt schritt={schritt} modulTitel={modul.titel} />;
+    return <NachspuerenSchritt schritt={schritt} modul={modul} />;
   }
 
   if (schritt.typ === "experiment") {
@@ -92,7 +121,11 @@ function SchrittKoerper({
       <div className="space-y-6">
         <Bloecke bloecke={schritt.bloecke} />
         {schritt.experiment ? (
-          <ExperimentKarte experiment={schritt.experiment} />
+          <ExperimentMerken
+            modulId={modul.id}
+            titel={modul.titel}
+            experiment={schritt.experiment}
+          />
         ) : null}
       </div>
     );
@@ -107,7 +140,11 @@ function SchrittKoerper({
               Wenn du magst, halte kurz fest, wie du gerade da bist. Ganz
               freiwillig.
             </p>
-            <SpuerRegler label={vorherNachherLabel} />
+            <SpuerRegler
+              label={vorherNachherLabel}
+              modulId={modul.id}
+              wann="vorher"
+            />
           </div>
         ) : null}
         {audio}
@@ -142,6 +179,20 @@ export default function ModulPlayer({ modul }: { modul: Modul }) {
         (i): i is Extract<Interaktion, { art: "slider" }> =>
           i.art === "slider" && i.vorherNachher === true,
       )?.label ?? null;
+
+  // Beim ersten Anzeigen: Status offen → begonnen (still).
+  useEffect(() => {
+    if (storage.getModulStatus(modul.id) === "offen") {
+      storage.setModulStatus(modul.id, "begonnen");
+    }
+  }, [modul.id]);
+
+  // Beim Erreichen von „weitergehen": Status → abgeschlossen (still).
+  useEffect(() => {
+    if (schritt.typ === "weitergehen") {
+      storage.setModulStatus(modul.id, "abgeschlossen");
+    }
+  }, [schritt.typ, modul.id]);
 
   // Nach jedem Schrittwechsel Fokus auf die Überschrift (nicht beim ersten Render).
   useEffect(() => {

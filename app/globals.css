@@ -13,7 +13,7 @@
   --color-akzent: #BC6C4F; /* warmer Akzent, sparsam, nie für Fließtext */
 
   --font-ueberschrift: "Fraunces Variable", serif;
-  --font-flaustext: "Source Sans 3 Variable", sans-serif;
+  --font-fliesstext: "Source Sans 3 Variable", sans-serif;
 }
 
 /* ── Design-Tokens (Dark) — gedämpft warm, nicht tiefschwarz-neon ───── */
@@ -40,7 +40,7 @@
   body {
     background-color: var(--color-grund);
     color: var(--color-tinte);
-    font-family: var(--font-flaustext);
+    font-family: var(--font-fliesstext);
     font-size: 1.125rem; /* 18px */
     line-height: 1.65;
     text-rendering: optimizeLegibility;

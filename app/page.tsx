@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { landkarte } from "@/lib/content";
 import type { LandkarteModul } from "@/lib/module-schema";
+import AbgeschlossenChip from "@/components/AbgeschlossenChip";
+import HomeGemerkt from "@/components/HomeGemerkt";
 
 function Chip({ text }: { text: string }) {
   return (
@@ -21,6 +23,7 @@ function ModulKarte({ modul }: { modul: LandkarteModul }) {
           <div className="flex flex-wrap items-center gap-2">
             <h3 className="text-xl">{modul.titel}</h3>
             {modul.thema ? <Chip text={modul.thema} /> : null}
+            <AbgeschlossenChip modulId={modul.id} />
           </div>
           {typeof modul.dauerMin === "number" ? (
             <p className="text-sm text-tinte-sanft">
@@ -54,6 +57,8 @@ export default function Home() {
           {landkarte.einstieg.text}
         </p>
       </section>
+
+      <HomeGemerkt />
 
       {landkarte.ebenen.map((ebene) => (
         <section key={ebene.ebene} className="space-y-4">
