@@ -1,0 +1,79 @@
+{
+  "id": "i1",
+  "ebene": 3,
+  "thema": "Lebenskunst",
+  "titel": "Deine eigene Praxis",
+  "dauerMin": 9,
+  "voraussetzungen": [],
+  "schritte": [
+    {
+      "typ": "funke",
+      "titel": "Funke",
+      "audio": "/audio/i1/01-funke.mp3",
+      "bloecke": [
+        { "text": "Vielleicht kennst du das von guten Vorsätzen: Am Anfang steht ein großer Plan — jeden Morgen zwanzig Minuten, ab jetzt, für immer. Zwei Wochen läuft es. Dann kommt ein voller Tag, dann zwei, und irgendwann liegt der Plan da wie ein Möbelstück, das man nicht mehr ansieht — und ein leiser Vorwurf liegt daneben." },
+        { "text": "Falls dir das je passiert ist: Es lag nicht an deiner Disziplin. Es lag am Plan. Er war für ein anderes Leben gebaut — nicht für deines." },
+        { "text": "In diesem letzten Modul geht es darum, wie aus den Übungen, die du hier kennengelernt hast, etwas wird, das **bleibt.** Nicht durch Strenge. Sondern durch etwas viel Einfacheres: die richtige Größe." }
+      ]
+    },
+    {
+      "typ": "warum",
+      "titel": "Warum",
+      "audio": "/audio/i1/02-warum.mp3",
+      "bild": "/deko/giesskanne.svg",
+      "bloecke": [
+        { "text": "Stell dir eine Praxis wie einen **Garten** vor. Verlockend ist der Katalog-Garten: zehn Beete, alles auf einmal — morgens Atem, mittags Rundgang, abends Übung, dazu Journal und am Wochenende Vertiefung. Solche Gärten werden angelegt und verdorren. Nicht weil der Gärtner faul wäre — sondern weil niemand zehn Beete nebenher gießen kann." },
+        { "text": "Der Garten, der wirklich wächst, sieht anders aus: **ein einziges Beet, klein, aber täglich gegossen.** Eine Minute, die tatsächlich stattfindet, verändert mehr als zwanzig, die geplant bleiben. Denn dein Körper lernt nicht aus guten Absichten — er lernt aus Wiederholung. Klein und oft schlägt groß und selten, jedes Mal." },
+        { "text": "Und noch etwas macht den Unterschied: Das Beet muss **zu dir** passen. Du hast auf deinem Weg hier verschiedene Werkzeuge in der Hand gehabt — die langen Ausatmungen, die Inseln, den Rundgang durchs Haus, den Feierabend am Abend, den Bahnsteig, das Gästehaus. Sie sind nicht alle für dich gemacht. Eines davon hat sich wahrscheinlich leichter angefühlt als die anderen, fast wie von selbst. **Genau das ist deins.** Nicht das, von dem du findest, du solltest es mögen — sondern das, das dich mag." },
+        { "text": "Mehr braucht eine Praxis am Anfang nicht: ein Werkzeug, das dir liegt, an einem Platz im Tag, der sowieso existiert. Und die Erlaubnis, umzupflanzen, wenn etwas nicht wächst — das ist kein Scheitern, das ist Gärtnern. [kurze Pause] Welches dein Beet ist und wo es steht, das findest du jetzt heraus. Nicht durch Nachdenken — durch Nachspüren." }
+      ]
+    },
+    {
+      "typ": "erleben",
+      "titel": "Erleben",
+      "audio": "/audio/i1/03-erleben.mp3",
+      "bloecke": [
+        { "text": "Such dir einen Platz, an dem du ein paar Minuten ungestört bist. Setz dich bequem hin. Das hier ist keine Übung im engeren Sinn — es ist eine ruhige Rückschau und eine Wahl. Und wie immer: Du bestimmst, was dir guttut." },
+        { "text": "Komm zuerst an. Blick durch den Raum. [Pause] Augen schließen, wenn du magst. [kurze Pause] Unterlage spüren, einmal lang und weich ausatmen. [längere Pause]" },
+        { "text": "Und nun geh in Gedanken noch einmal deinen Weg hier entlang — ganz gemütlich, wie durch ein Fotoalbum. Der Moment, als du zum ersten Mal drei lange Ausatmungen mitten in den Tag gelegt hast. [Pause] Die erste kleine Insel. [Pause] Der Rundgang durchs Haus, Zimmer für Zimmer. [Pause] Vielleicht der Feierabend am Abend, der Bahnsteig, das Gästehaus. [längere Pause]" },
+        { "text": "Und jetzt frag nicht deinen Kopf, sondern deinen Körper: **Bei welcher dieser Übungen ist gerade etwas warm geworden?** Welche hat sich am wenigsten nach Aufgabe angefühlt — und am meisten nach Aufatmen? [Pause] Nimm die erste, die sich meldet. Sie muss nicht spektakulär sein. Sie muss nur deine sein. [längere Pause]" },
+        { "text": "Halte sie fest. Und nun such ihr einen Platz: einen Moment, der in deinem Tag sowieso jeden Tag vorkommt. Das Zähneputzen. Der erste Kaffee. Das Hinsetzen ins Auto. Das Zubettgehen. [Pause] Und jetzt stell dir diesen Moment einmal ganz konkret vor — morgen: Du stehst da, wie jeden Tag. Und dann, ganz selbstverständlich, kommt dein Werkzeug dazu. Eine Minute, nicht mehr. Sieh es vor dir, so gewöhnlich wie möglich. [längere Pause]" },
+        { "text": "So sieht dein Beet aus. Klein genug, um wirklich gegossen zu werden. [Pause] Komm nun zurück in den Raum, und öffne die Augen, wann immer du magst. [Pause]" }
+      ]
+    },
+    {
+      "typ": "nachspueren",
+      "titel": "Nachspüren",
+      "audio": "/audio/i1/04-nachspueren.mp3",
+      "stilleSek": 15,
+      "bloecke": [
+        { "text": "Bleib noch einen Moment still. [Pause]" },
+        { "text": "Und dann halte fest, wenn du magst — schwarz auf weiß, als kleine Abmachung mit dir selbst: **Welches Werkzeug ist deins? Und an welchem Platz im Tag bekommt es sein Beet?**" },
+        { "text": "Es darf sich in einer Woche ändern. Gärten dürfen das. Es gibt kein richtig und kein falsch." }
+      ],
+      "interaktionen": [
+        { "art": "journal", "frage": "Dein Werkzeug + dein Anker — deine kleine Abmachung:" }
+      ]
+    },
+    {
+      "typ": "experiment",
+      "titel": "Dein Experiment für zuhause",
+      "bloecke": [
+        { "text": "Das letzte Experiment ist das einfachste — und das mit der längsten Wirkung. Und auch hier: Einladung, kein Vertrag. Ein Garten braucht keinen Aufseher, nur jemanden, der ab und zu mit der Gießkanne vorbeikommt." }
+      ],
+      "experiment": {
+        "haupt": "**Dein Experiment:** Gieße dein Beet **eine Woche lang** — dein gewähltes Werkzeug, an deinem gewählten Anker, eine Minute am Tag. Ausgelassene Tage zählen nicht als Rückschritt; du machst einfach beim nächsten Anker weiter.\n\nNach der Woche schau kurz nach: Wächst es? Dann lass es weiterwachsen. Fühlt es sich zäh an? Dann pflanz um — anderes Werkzeug oder anderer Platz. Das ist kein Neuanfang, sondern Gärtnern.",
+        "optional": "**Wenn du magst, zusätzlich (optional):** Schau einmal pro Woche in „Mein Weg“ vorbei — nicht um zu kontrollieren, sondern wie man über den Gartenzaun schaut: Was ist da eigentlich schon gewachsen, seit du angefangen hast?"
+      }
+    },
+    {
+      "typ": "weitergehen",
+      "titel": "Weitergehen",
+      "audio": "/audio/i1/06-weitergehen.mp3",
+      "bloecke": [
+        { "text": "Damit bist du einmal durch: Du weißt, wie dein zweites Nervensystem arbeitet und dass es auf Einladungen hört. Du kennst den Alarm und seine Gegenspieler — die Ausatmung, die Inseln, den Rundgang. Du weißt, wie man den Garten für den Schlaf still macht, am Bahnsteig stehen bleibt und Gästen die Tür aufhält. Das ist die Gebrauchsanweisung, die dir nie jemand gegeben hat — und du hast sie dir selbst erarbeitet, in deiner eigenen Erfahrung." },
+        { "text": "Von hier an gehört das Programm dir: Jedes Modul darf wiederholt werden, so oft du magst — dieselbe Übung trägt beim zweiten Mal oft weiter als beim ersten. Die Landkarte wächst weiter, und wenn ein neues Modul auftaucht, findet es dich schon. Bis dahin gilt der einfachste Satz von allen: Was heute da ist, darf für heute reichen. Gute Reise." }
+      ]
+    }
+  ]
+}

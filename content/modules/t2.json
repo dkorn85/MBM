@@ -1,0 +1,79 @@
+{
+  "id": "t2",
+  "ebene": 2,
+  "thema": "Gedanken",
+  "titel": "Gedanken entwirren",
+  "dauerMin": 10,
+  "voraussetzungen": [],
+  "schritte": [
+    {
+      "typ": "funke",
+      "titel": "Funke",
+      "audio": "/audio/t2/01-funke.mp3",
+      "bloecke": [
+        { "text": "Ein Gedanke kommt: „Das hätte ich anders sagen sollen.“ Und schwupp — bist du mittendrin. Das Gespräch läuft noch einmal, dann die Variante, wie es hätte laufen können, dann die Sorge, was jetzt wohl gedacht wird. Zwanzig Minuten später bist du weit weg — und erschöpft." },
+        { "text": "Oder nachts: „Habe ich an alles gedacht?“ Ein einziger Satz, und das Karussell dreht sich. Du willst aufhören zu denken — aber genau das ist auch wieder Denken." },
+        { "text": "Falls du daraus je den Schluss gezogen hast, mit deinem Kopf stimme etwas nicht: Das Gegenteil ist wahr. Dein Kopf tut, was Köpfe tun — er produziert Gedanken, unaufhörlich, ungefragt. Die Frage ist nicht, wie du das abstellst. Die Frage ist, was du mit all den Gedanken machst. Und da gibt es eine Möglichkeit, die kaum jemand kennt." }
+      ]
+    },
+    {
+      "typ": "warum",
+      "titel": "Warum",
+      "audio": "/audio/t2/02-warum.mp3",
+      "bild": "/deko/zug.svg",
+      "bloecke": [
+        { "text": "Stell dir vor, du stehst auf einem **Bahnsteig.** Deine Gedanken sind die Züge: Sie fahren ein, halten kurz, laden ein — und fahren weiter. Da kommt der Zug nach Gestern, der noch einmal das Gespräch von heute Mittag abfährt. Dahinter wartet schon der Zug nach Morgen, mit der ganzen Sorgenfracht. Und dazwischen der Was-wäre-wenn-Express, der besonders laut pfeift." },
+        { "text": "Das Entscheidende ist: **Ein Gedanke ist erst einmal nur ein Zug, der einfährt.** Ein Vorschlag. Eine Möglichkeit. Noch keine Tatsache — und noch keine Reise. Zur Reise wird er erst, wenn du **einsteigst**: wenn du dich hineinsetzt, mitfährst, Station für Station. Meistens steigen wir ein, ohne es zu merken. Wir schauen erst Stunden später aus dem Fenster und denken: Wie bin ich denn hierhergekommen?" },
+        { "text": "Viele versuchen dann, die Züge zu bekämpfen: nicht daran denken, den Gedanken verbieten, das Gleis sperren. Aber du hast es selbst erlebt — das macht sie nur lauter. Einen Zug hält man nicht auf, indem man sich davorstellt. [kurze Pause] Die eigentliche Entdeckung ist viel einfacher und fast unverschämt entspannt: **Du darfst am Bahnsteig stehen bleiben.** Einfahren lassen. Anschauen. Benennen: „Ah — der Zug nach Morgen.“ Und ihn weiterfahren lassen, ohne einzusteigen." },
+        { "text": "Und wenn du dich doch auf einer Reise wiederfindest — und das wird passieren, hundertmal —, dann ist auch das kein Scheitern: Der Moment, in dem du merkst, dass du im Zug sitzt, ist genau der Moment, in dem du aussteigen kannst. An jeder Haltestelle, freundlich, ohne Vorwurf. [kurze Pause] Wie sich das anfühlt, probieren wir jetzt aus." }
+      ]
+    },
+    {
+      "typ": "erleben",
+      "titel": "Erleben",
+      "audio": "/audio/t2/03-erleben.mp3",
+      "bloecke": [
+        { "text": "Such dir einen Platz, an dem du ein paar Minuten ungestört bist. Setz dich bequem hin. Heute üben wir etwas Ungewöhnliches: Wir wollen die Gedanken ausnahmsweise gar nicht loswerden. Sie dürfen alle kommen. Wir üben nur das Stehenbleiben. Und wie immer: Du bestimmst, was dir guttut — wenn dir etwas nicht angenehm ist, lass es weg." },
+        { "text": "Komm zuerst an. Lass den Blick durch den Raum wandern. [Pause] Wenn du magst, schließe die Augen. [kurze Pause] Und dann spüre deine Füße auf dem Boden und die Unterlage, die dich trägt. Das ist dein Bahnsteig. Fest, ruhig, verlässlich. Hierher kannst du immer zurück. [längere Pause]" },
+        { "text": "Und jetzt: Warte einfach auf den nächsten Gedanken. Vielleicht kommt er sofort, vielleicht lässt er dich einen Moment stehen — auch das ist schön. [Pause] Wenn einer einfährt, versuch, ihn kurz zu **benennen**, wie ein Zugansager: „Ah — ein Gedanke über nachher.“ „Ein Gedanke über gestern.“ „Ein Planungs-Zug.“ Mehr nicht. Nicht diskutieren, nicht prüfen, ob er recht hat. Nur ansagen. [längere Pause]" },
+        { "text": "Und dann lass ihn **weiterfahren.** Du musst ihn nicht wegschieben — Züge fahren von selbst weiter, wenn niemand einsteigt. Spüre dabei wieder deine Füße, deinen Bahnsteig. [Pause] Der nächste darf kommen. Ansagen. Weiterfahren lassen. [längere Pause]" },
+        { "text": "Irgendwann wirst du merken: Du sitzt mittendrin in einem Zug und fährst schon eine Weile mit. Wunderbar — genau darum geht es. Dieser Moment des Bemerkens ist die eigentliche Übung. Steig freundlich aus, ohne dich zu schimpfen, und stell dich wieder auf den Bahnsteig: Füße, Unterlage, Atem. [längere Pause]" },
+        { "text": "Noch ein, zwei Züge lang: einfahren lassen, ansagen, weiterfahren lassen. [längere Pause] Und dann lass den Bahnhof langsam hinter dir. Spüre noch einmal deine Füße, nimm den Raum wahr. Und öffne die Augen, wenn sie geschlossen waren — wann immer du magst. [Pause]" }
+      ]
+    },
+    {
+      "typ": "nachspueren",
+      "titel": "Nachspüren",
+      "audio": "/audio/t2/04-nachspueren.mp3",
+      "stilleSek": 15,
+      "bloecke": [
+        { "text": "Bleib noch einen kurzen Moment still. Nur nachspüren. [Pause]" },
+        { "text": "Und dann, ganz offen und für dich: **Wie war das — Züge anzusehen, statt mitzufahren?**" },
+        { "text": "Wenn du magst, halte fest, was du bemerkt hast. Auch „ich bin dauernd eingestiegen“ ist ein wunderbares Ergebnis — es heißt, du hast es bemerkt. Es gibt kein richtig und kein falsch." }
+      ],
+      "interaktionen": [
+        { "art": "journal", "frage": "Welche Züge sind gefahren?" }
+      ]
+    },
+    {
+      "typ": "experiment",
+      "titel": "Dein Experiment für zuhause",
+      "bloecke": [
+        { "text": "Wie immer eine Einladung — kein Muss. Und zur Sicherheit: Es geht nie darum, weniger zu denken. Dein Kopf darf Züge schicken, so viele er will." }
+      ],
+      "experiment": {
+        "haupt": "**Dein Experiment:** Einmal am Tag, wenn du merkst, dass du gedanklich abgefahren bist — beim Grübeln, Sorgen, Wiederkäuen — halte kurz an und mach die **Zugansage:** „Ah — der Zug nach Morgen.“ Dann: Füße spüren, drei ruhige Atemzüge, am Bahnsteig bleiben.\n\nDas dauert keine halbe Minute. Und mit jedem Mal wird der Abstand zwischen dir und deinen Gedanken ein kleines bisschen selbstverständlicher: Du hast Gedanken — aber du bist nicht deine Gedanken.",
+        "optional": "**Wenn du magst, zusätzlich (optional):** Lerne deinen Fahrplan kennen. Achte ein paar Tage lang darauf, welche Linien bei dir am häufigsten fahren: die Züge nach Gestern? Die nach Morgen? Der Was-wäre-wenn-Express? Du musst keinen davon stilllegen. Nur wissen, welche Linien es gibt — das allein verändert schon, wie du am Bahnsteig stehst."
+      }
+    },
+    {
+      "typ": "weitergehen",
+      "titel": "Weitergehen",
+      "audio": "/audio/t2/06-weitergehen.mp3",
+      "bloecke": [
+        { "text": "Du hast heute den vielleicht wichtigsten Abstand deines Lebens kennengelernt: den zwischen dir und deinen Gedanken. Er muss nicht groß sein. Eine Bahnsteigkante genügt." },
+        { "text": "Vielleicht ist dir aufgefallen, dass manche Züge schwere Fracht tragen — Ärger, Traurigkeit, Angst. Um diese Fracht geht es im Modul „Emotionen verdauen“. Aber wie immer: alles zu seiner Zeit. Steh erst einmal ein paar Tage am Bahnsteig und schau dem Verkehr zu." }
+      ]
+    }
+  ]
+}

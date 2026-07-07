@@ -148,10 +148,9 @@ export default function Home() {
         <div className="max-w-[52ch] space-y-2 pr-16 sm:pr-24">
           <h2 className="text-xl">Wann ist „bald“?</h2>
           <p className="text-tinte-sanft">
-            Die Landkarte füllt sich nach und nach: Jedes neue Modul entsteht
-            zuerst in Lanas Praxis und findet dann seinen Weg hierher — als
-            Nächstes „Den Körper hören“. Ohne Countdown, ohne Druck. Was
-            heute da ist, darf für heute reichen.
+            Die Landkarte wächst weiter: Jedes neue Modul entsteht zuerst in
+            Lanas Praxis und findet dann seinen Weg hierher. Ohne Countdown,
+            ohne Druck. Was heute da ist, darf für heute reichen.
           </p>
         </div>
       </section>

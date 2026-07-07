@@ -1,0 +1,80 @@
+{
+  "id": "t1",
+  "ebene": 2,
+  "thema": "Schlaf",
+  "titel": "Schlaf",
+  "dauerMin": 10,
+  "voraussetzungen": [],
+  "schritte": [
+    {
+      "typ": "funke",
+      "titel": "Funke",
+      "audio": "/audio/t1/01-funke.mp3",
+      "bloecke": [
+        { "text": "Es ist spät. Du bist müde — eigentlich. Aber kaum liegt der Kopf auf dem Kissen, geht da drinnen das Licht an: der Tag läuft noch einmal, das Gespräch von heute Mittag, die Liste für morgen. Je mehr du willst, dass es aufhört, desto wacher wirst du." },
+        { "text": "Vielleicht hast du es schon mit Strenge versucht: „Jetzt schlaf endlich.“ Mit Rechnen. Mit Zwingen. Und je härter du es angehst, desto weiter rückt der Schlaf weg." },
+        { "text": "Das liegt nicht an dir. Es liegt daran, wie Schlaf funktioniert: Er ist nichts, was man **tut.** Er ist etwas, das **kommt** — aber nur, wenn die Bedingungen stimmen. Und genau darauf hast du mehr Einfluss, als du denkst." }
+      ]
+    },
+    {
+      "typ": "warum",
+      "titel": "Warum",
+      "audio": "/audio/t1/02-warum.mp3",
+      "bild": "/deko/reh.svg",
+      "bloecke": [
+        { "text": "Stell dir den Schlaf wie ein **scheues Tier** vor — ein Reh am Rand deines Gartens. Es kommt nur, wenn es sich sicher fühlt. [kurze Pause] Und jetzt schau, was wir abends oft tun: Wir jagen es. Wir liegen im Bett und fordern, dass es endlich erscheint. Wir werden ärgerlich, wenn es ausbleibt. Aber ein scheues Tier kommt nicht zu jemandem, der es jagt. Es kommt zu jemandem, der still wird." },
+        { "text": "Dahinter steckt dein Körper, wie du ihn vielleicht schon kennengelernt hast: Einschlafen kann nur ein System, das in den Erholungsmodus wechseln darf. Solange innerlich noch Betrieb ist — Bildschirmlicht, letzte Nachrichten, kreisende Gedanken, Ärger über das Wachliegen —, bleibt der Körper in Bereitschaft. Und in Bereitschaft schläft niemand ein. **Das Wollen selbst ist Betrieb.** Deshalb funktioniert Erzwingen nie: Es hält genau den Zustand aufrecht, der den Schlaf fernhält." },
+        { "text": "Was also tun? Das, was man bei einem scheuen Tier eben tut: **den Garten still machen.** Nicht den Schlaf herbeizwingen, sondern die Bedingungen schaffen, unter denen er sich von selbst traut. Das Licht wird weicher, der Tag bekommt einen Abschluss, der Körper ein paar vertraute Zeichen: Jetzt ist der Betrieb vorbei. [kurze Pause] Und wenn es dann trotzdem einmal dauert? Dann ist das kein Scheitern. Auch ruhiges, weiches Wachliegen ist Erholung — und aus genau dieser Haltung kommt das Tier am ehesten doch noch näher." },
+        { "text": "Eine kleine Abend-Übung, die den Garten still macht, probieren wir jetzt zusammen. Du kannst sie später direkt im Bett verwenden." }
+      ]
+    },
+    {
+      "typ": "erleben",
+      "titel": "Erleben",
+      "audio": "/audio/t1/03-erleben.mp3",
+      "bloecke": [
+        { "text": "Du kannst diese Übung jetzt im Sitzen kennenlernen — und später im Liegen benutzen, wenn der Tag zu Ende geht. Es gibt nichts zu schaffen. Wir machen nur still. Und wie immer: Wenn dir etwas nicht guttut, lass es weg. Du bestimmst." },
+        { "text": "Lass den Blick weich werden und wandere einmal langsam durch den Raum. [Pause] Wenn du magst, lass die Augen zufallen — so wie sie es abends von selbst tun wollen. Offen ist auch in Ordnung. [kurze Pause] Spüre die Unterlage. Lass dich ein bisschen schwerer werden, als du es eben noch warst. Du musst nichts mehr halten. [längere Pause]" },
+        { "text": "Stell dir vor, dein Körper macht jetzt, Zimmer für Zimmer, **Feierabend.** Die Stirn darf glatt werden — Feierabend. [Pause] Der Kiefer darf sich lösen, die Zunge weich werden — Feierabend. [Pause] Die Schultern dürfen sinken. [Pause] Die Arme werden schwer. [Pause] Der Bauch darf weich sein. [Pause] Die Beine ruhen aus. [längere Pause]" },
+        { "text": "Und nun der Atem: Lass das **Ausatmen lang und weich** werden — wie ein Seufzer am Ende eines langen Tages. [Pause] Mit jedem Ausatmen: ein bisschen mehr abgeben. [Pause] Einatmen kommt von selbst. Ausatmen lässt los. [längere Pause]" },
+        { "text": "Wenn Gedanken kommen — und abends kommen sie —, musst du sie nicht verscheuchen. Sag ihnen innerlich einfach: **„Nicht jetzt. Ihr dürft bis morgen warten.“** Und kehr zurück zum langen Ausatmen. So oft, wie es nötig ist. Jedes Zurückkehren ist ein Stück Stille mehr im Garten. [längere Pause]" },
+        { "text": "Falls sich irgendetwas davon unangenehm anfühlt, lass es einfach los und ruh nur auf der Unterlage. Das genügt vollkommen. [Pause] Bleib noch einen Moment in dieser Feierabend-Schwere. [längere Pause] Und dann komm für jetzt noch einmal zurück in den Raum — heute Abend darfst du an dieser Stelle einfach liegen bleiben. [Pause]" }
+      ]
+    },
+    {
+      "typ": "nachspueren",
+      "titel": "Nachspüren",
+      "audio": "/audio/t1/04-nachspueren.mp3",
+      "stilleSek": 15,
+      "bloecke": [
+        { "text": "Bleib noch einen kurzen Moment still. Nur nachspüren. [Pause]" },
+        { "text": "Und dann, ganz offen und für dich: **Was ist mit deinem Körper passiert, als er Feierabend machen durfte?**" },
+        { "text": "Wenn du magst, halte fest, was du bemerkt hast — und vergleiche, wie es dir vorher ging und wie jetzt. Es gibt kein richtig und kein falsch." }
+      ],
+      "interaktionen": [
+        { "art": "journal", "frage": "Was hast du bemerkt?" },
+        { "art": "slider", "label": "angespannt ↔ entspannt", "vorherNachher": true }
+      ]
+    },
+    {
+      "typ": "experiment",
+      "titel": "Dein Experiment für zuhause",
+      "bloecke": [
+        { "text": "Wie immer eine Einladung — kein Muss. Und wichtig: Das hier ist kein Schlaf-Test. Es geht nicht darum, schneller einzuschlafen, sondern darum, den Abend weicher zu machen. Der Schlaf entscheidet selbst, wann er kommt — und genau das darf er." }
+      ],
+      "experiment": {
+        "haupt": "**Dein Experiment:** Gib deinem Abend einen kleinen **Feierabend-Moment** — nach dem Zähneputzen oder wenn du dich hinlegst: Lass den Körper Zimmer für Zimmer Feierabend machen — Stirn, Kiefer, Schultern, Bauch — und dann ein paar lange, weiche Ausatmungen. Zwei, drei Minuten, mehr nicht.\n\nDu machst damit nichts anderes, als den Garten still. Ob und wann das Reh kommt, ist nicht deine Aufgabe. Deine Aufgabe ist nur die Stille — den Rest macht dein Körper von selbst.",
+        "optional": "**Wenn du magst, zusätzlich (optional):** Achte einmal darauf, was bei dir abends den meisten „Betrieb“ macht — der Bildschirm bis zuletzt? Die Nachrichten im Bett? Das Grübeln beim Zudecken? Du musst nichts davon ändern. Nur einmal bemerken, wer da abends alles noch durch deinen Garten läuft."
+      }
+    },
+    {
+      "typ": "weitergehen",
+      "titel": "Weitergehen",
+      "audio": "/audio/t1/06-weitergehen.mp3",
+      "bloecke": [
+        { "text": "Du hast heute die vielleicht wichtigste Wahrheit über den Schlaf mitgenommen: Er ist kein Gegner, den man besiegt, und keine Leistung, die man erbringt. Er ist ein Gast, der von selbst kommt, wenn das Haus zur Ruhe gekommen ist." },
+        { "text": "Wenn dich als Nächstes die kreisenden Gedanken beschäftigen — die, die abends das Licht anmachen —, dann schau ins Modul „Gedanken entwirren“. Aber wie immer gilt: Lass das hier erst einmal wirken. Der Garten wird mit jedem Abend ein bisschen stiller." }
+      ]
+    }
+  ]
+}

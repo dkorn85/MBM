@@ -1,0 +1,80 @@
+{
+  "id": "w1",
+  "ebene": 1,
+  "thema": "Wahrnehmung",
+  "titel": "Den Körper hören",
+  "dauerMin": 10,
+  "voraussetzungen": [],
+  "schritte": [
+    {
+      "typ": "funke",
+      "titel": "Funke",
+      "audio": "/audio/w1/01-funke.mp3",
+      "bloecke": [
+        { "text": "Kennst du das? Abends ziehen die Schultern, und du merkst erst jetzt: Die hingen schon seit dem Mittag irgendwo bei den Ohren. Der Kiefer war stundenlang fest zusammengebissen — aufgefallen ist es dir erst beim Lösen. Der Rücken meldet sich, und du hast keine Ahnung, seit wann." },
+        { "text": "So geht es den meisten von uns: Wir wohnen in unserem Körper — aber wir sind selten wirklich zu Hause. Wir bemerken ihn erst, wenn er laut wird." },
+        { "text": "Dabei redet er die ganze Zeit. Leise, aber ununterbrochen. In diesem Modul lernst du die vielleicht grundlegendste Fähigkeit von allen: hinhören, bevor er laut werden muss." }
+      ]
+    },
+    {
+      "typ": "warum",
+      "titel": "Warum",
+      "audio": "/audio/w1/02-warum.mp3",
+      "bild": "/deko/haus.svg",
+      "bloecke": [
+        { "text": "Stell dir deinen Körper wie ein **Haus** vor, in dem du wohnst. Es hat viele Zimmer: die Stirn, den Kiefer, die Schultern, den Brustkorb, den Bauch, den Rücken, die Beine. In manchen Zimmern bist du oft. Aber sei ehrlich: Durch wie viele gehst du nie? [kurze Pause] Die meisten von uns wohnen fast nur im Kopf — ein einziges Zimmer, das Licht brennt Tag und Nacht. Der Rest des Hauses liegt im Dunkeln." },
+        { "text": "Das Problem daran: Ein Zimmer, in das nie jemand schaut, meldet sich irgendwann von selbst. Erst klopft es leise — ein Ziehen hier, eine Müdigkeit da, ein flaches Atmen. Wenn niemand aufmacht, klopft es lauter. Und irgendwann poltert es: Verspannung, Erschöpfung, Schmerz. **Nicht, weil dein Körper gegen dich arbeitet — sondern weil er keine andere Sprache hat.** Lauter werden ist seine einzige Möglichkeit, wenn leise nicht gehört wird." },
+        { "text": "Die gute Nachricht: Hinhören ist keine Begabung, sondern eine Fähigkeit — und sie lässt sich üben wie eine Sprache. Das Werkzeug dafür ist so einfach, dass es fast enttäuschend klingt: ein ruhiger **Rundgang durchs Haus.** Zimmer für Zimmer, von oben nach unten. Nicht um aufzuräumen. Nicht um etwas zu reparieren. Nur um nachzuschauen: Wie sieht es hier gerade aus? [kurze Pause] Wer regelmäßig durchgeht, bekommt die leisen Meldungen früh — und muss viel seltener auf das Poltern warten." },
+        { "text": "Und eines gilt auf diesem Rundgang immer: Es ist dein Haus. **Du musst keine Tür öffnen, die sich heute nicht öffnen lassen will.** Ein Zimmer, das sich nicht gut anfühlt, darfst du einfach passieren. Auch das ist Hinhören. [kurze Pause] Lass uns den ersten Rundgang zusammen machen." }
+      ]
+    },
+    {
+      "typ": "erleben",
+      "titel": "Erleben",
+      "audio": "/audio/w1/03-erleben.mp3",
+      "bloecke": [
+        { "text": "Such dir einen Platz, an dem du für ein paar Minuten ungestört bist. Sitzen oder liegen — was dir angenehmer ist. Es gibt nichts zu erreichen und nichts zu verbessern. Wir gehen nur einmal in Ruhe durchs Haus. Und du bestimmst dabei jedes Zimmer und jedes Tempo selbst." },
+        { "text": "Komm zuerst an. Lass den Blick durch den Raum wandern — Farben, Formen, Licht. [Pause] Wenn du magst, schließe die Augen. Offen geht es genauso gut. [kurze Pause] Spüre die Unterlage, die dich trägt. Das Haus steht. Du kannst in Ruhe durchgehen. [längere Pause]" },
+        { "text": "Beginne ganz oben, bei der **Stirn.** Schau nur nach: Ist sie glatt oder liegt da etwas? Du musst nichts verändern. Nur zur Kenntnis nehmen. [Pause] Weiter zum **Kiefer.** Viele halten hier fest, ohne es zu wissen. Wie ist es bei dir gerade? [Pause] Wenn er sich von selbst ein wenig lösen mag — gut. Wenn nicht — auch gut. [längere Pause]" },
+        { "text": "Nun die **Schultern.** Wo stehen sie gerade — oben in Bereitschaft oder unten in Ruhe? Nur nachschauen. [Pause] Die **Arme entlang** bis in die Hände. Vielleicht spürst du Wärme, ein Kribbeln, das Gewicht. Vielleicht wenig — auch das ist eine Antwort. [längere Pause]" },
+        { "text": "Weiter in den **Brustkorb.** Hier wohnt der Atem. Wie viel Platz hat er gerade? [Pause] Dann der **Bauch.** Ein Zimmer, das viele lieber überspringen — und das ist erlaubt. Wenn du magst, schau kurz hinein: weich oder fest? [Pause] Der **Rücken**, von oben nach unten. Er trägt viel und wird selten besucht. [längere Pause]" },
+        { "text": "Und zum Schluss die **Beine**, bis hinunter in die **Füße.** Spüre, wo sie den Boden oder die Unterlage berühren. Das Fundament des Hauses. [längere Pause]" },
+        { "text": "Falls dich unterwegs irgendwo etwas Unangenehmes empfangen hat: Du musst dort nicht bleiben. Geh einfach weiter zur Unterlage, zu den Füßen, zum Atem — in ein Zimmer, das sich sicher anfühlt. Du bestimmst, was dir guttut. [Pause] Und nun nimm noch einmal das ganze Haus auf einmal wahr — von der Stirn bis in die Füße. Du warst gerade überall zu Hause. [längere Pause] Dann komm zurück in den Raum. Öffne die Augen, wenn sie geschlossen waren — wann immer du magst. [Pause]" }
+      ]
+    },
+    {
+      "typ": "nachspueren",
+      "titel": "Nachspüren",
+      "audio": "/audio/w1/04-nachspueren.mp3",
+      "stilleSek": 15,
+      "bloecke": [
+        { "text": "Bleib noch einen kurzen Moment still. Nur nachspüren. [Pause]" },
+        { "text": "Und dann, ganz offen und für dich: **Wie war dieser Rundgang für dich? Hat sich ein Zimmer gemeldet?**" },
+        { "text": "Wenn du magst, halte es in einem Satz fest. Auch „überall ziemlich still“ ist ein vollkommen gutes Ergebnis. Es gibt kein richtig und kein falsch." }
+      ],
+      "interaktionen": [
+        { "art": "journal", "frage": "Welches Zimmer hat sich gemeldet?" }
+      ]
+    },
+    {
+      "typ": "experiment",
+      "titel": "Dein Experiment für zuhause",
+      "bloecke": [
+        { "text": "Wie immer: eine Einladung, kein Muss. Dein Haus steht auch dann, wenn du mal nicht durchgehst." }
+      ],
+      "experiment": {
+        "haupt": "**Dein Experiment:** Mach einmal am Tag einen **Kurzbesuch** — keinen ganzen Rundgang, nur drei Zimmer, dreißig Sekunden: **Kiefer, Schultern, Bauch.** Kurz anklopfen, nachschauen, weitergehen. Nichts verändern, nur zur Kenntnis nehmen.\n\nDas ist wie ein kurzer Blick ins Haus auf dem Weg vorbei. Mit jedem Besuch versteht ihr euch ein bisschen besser — du und dein Körper.",
+        "optional": "**Wenn du magst, zusätzlich (optional):** Achte über die Tage einmal darauf, **welches Zimmer sich bei dir am häufigsten meldet.** Bei manchen ist es der Kiefer, bei anderen der Nacken, der Bauch, die Stirn. Du musst nichts dagegen tun — du lernst gerade nur, wo dein persönliches Frühwarnsystem wohnt."
+      }
+    },
+    {
+      "typ": "weitergehen",
+      "titel": "Weitergehen",
+      "audio": "/audio/w1/06-weitergehen.mp3",
+      "bloecke": [
+        { "text": "Damit hast du die drei Grundwerkzeuge beisammen: die langen Ausatmungen für den Moment, in dem der Alarm läuft. Die Inseln, die deinen Tag unterbrechen, bevor sich zu viel ansammelt. Und den Rundgang, mit dem du hörst, was dein Körper leise erzählt." },
+        { "text": "Ab hier öffnen sich die Themenwelten — dieselben Werkzeuge, angewandt auf das, was dich wirklich beschäftigt: den Schlaf, die kreisenden Gedanken, die Gefühle. Geh dorthin, wo es dich hinzieht. Und lass dir Zeit. Das Haus läuft nicht weg." }
+      ]
+    }
+  ]
+}

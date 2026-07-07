@@ -1,0 +1,79 @@
+{
+  "id": "t3",
+  "ebene": 2,
+  "thema": "Emotionen",
+  "titel": "Emotionen verdauen",
+  "dauerMin": 10,
+  "voraussetzungen": [],
+  "schritte": [
+    {
+      "typ": "funke",
+      "titel": "Funke",
+      "audio": "/audio/t3/01-funke.mp3",
+      "bloecke": [
+        { "text": "Irgendwann haben es die meisten von uns gelernt: Ärger schluckt man runter. Traurigkeit zeigt man nicht. Angst redet man sich aus. Weiterlächeln, weitermachen — das Gefühl einfach wegdrücken." },
+        { "text": "Nur: Weg ist es dann nicht. Der runtergeschluckte Ärger sitzt abends noch im Kiefer. Die weggelächelte Traurigkeit macht schwer und müde. Das Weggedrückte zieht nicht aus — es zieht nur ein Stockwerk tiefer, in den Körper." },
+        { "text": "Was, wenn es genau andersherum funktioniert? Was, wenn Gefühle gar nicht bleiben wollen — sondern nur durchziehen? In diesem Modul geht es um eine Fähigkeit, die kaum jemandem beigebracht wurde: Gefühle nicht bekämpfen und nicht festhalten, sondern **verdauen** lassen." }
+      ]
+    },
+    {
+      "typ": "warum",
+      "titel": "Warum",
+      "audio": "/audio/t3/02-warum.mp3",
+      "bild": "/deko/gaestehaus.svg",
+      "bloecke": [
+        { "text": "Vor rund achthundert Jahren hat der Dichter Rumi ein Bild dafür gefunden, das bis heute trägt: **Der Mensch ist ein Gästehaus.** Jeden Morgen kommt neuer Besuch — eine Freude, ein Ärger, eine Traurigkeit, eine flüchtige Unruhe. Die Gäste klopfen an, ob es dir passt oder nicht. Aussuchen kannst du sie dir nicht." },
+        { "text": "Aber wie du sie empfängst, das liegt bei dir. Und hier wird es interessant: **Ein Gefühl ist im Körper zu Gast — als echtes, körperliches Ereignis.** Es hat einen Anfang, eine Mitte und ein Ende, wie eine Welle. Der Ärger heizt ein und flaut ab. Die Angst zieht durch und verebbt. Von sich aus bleibt kaum ein Gefühl lange — **wenn man es lässt.**" },
+        { "text": "Das Problem entsteht beim Wegdrücken: Ein Gast, den man in den Keller sperrt, reist nicht ab. Er rumort. Er klopft von innen an Stellen, wo man ihn nicht vermutet — im Nacken, im Magen, im Schlaf. Das Festhalten kostet Tag für Tag Kraft, und genau diese Anspannung sammelt sich, wie du es aus den anderen Modulen kennst. [kurze Pause] Verdauen heißt das Gegenteil: die Tür aufmachen. Den Gast ansehen. Ihm einen Stuhl anbieten — und ihn dann weiterziehen lassen, wenn er so weit ist." },
+        { "text": "Dafür braucht es keinen Mut zum großen Drama, sondern nur zwei kleine Schritte: das Gefühl **beim Namen nennen** — und nachschauen, **wo es gerade wohnt** im Körper. Schon das Benennen nimmt einem Gefühl nachweislich etwas von seiner Wucht. Es ist der Unterschied zwischen „ich BIN wütend“ und „da IST Wut, und sie sitzt gerade in meiner Brust“. [kurze Pause] Genau das üben wir jetzt — mit einem Gast deiner Wahl. Einem kleinen." }
+      ]
+    },
+    {
+      "typ": "erleben",
+      "titel": "Erleben",
+      "audio": "/audio/t3/03-erleben.mp3",
+      "bloecke": [
+        { "text": "Such dir einen Platz, an dem du ein paar Minuten ungestört bist. Und eines vorweg, das wichtiger ist als alles andere: Wähle für diese Übung ein **leichtes oder mittleres** Gefühl — eine kleine Verstimmung von heute, eine leise Unruhe, eine milde Freude. Nicht das Schwerste, das du in dir trägst. Die schweren Gäste haben Besseres verdient als eine Erstübung — für sie gilt: nicht allein, und nicht heute. Du bestimmst, was dir guttut, und du kannst jederzeit aufhören." },
+        { "text": "Komm zuerst an. Blick durch den Raum, ein paar Dinge sehen. [Pause] Augen schließen, wenn du magst. [kurze Pause] Unterlage spüren. Sie trägt dich — die ganze Übung hindurch. Hierher kannst du immer zurückkommen. [längere Pause]" },
+        { "text": "Und nun lade deinen Gast ein. Denk kurz an die Situation von heute oder den Tagen davor — nur so weit, dass das Gefühl leise anklopft. Es muss nicht stark werden. Ein Anklopfen genügt völlig. [Pause] Gib ihm einen Namen, ganz schlicht: „Da ist Ärger.“ „Da ist Unruhe.“ „Da ist etwas Trauriges.“ [längere Pause]" },
+        { "text": "Und jetzt die eigentliche Frage: **Wo wohnt dieser Gast gerade in deinem Körper?** In der Brust, im Bauch, im Hals, in den Schultern? [Pause] Wenn du ihn gefunden hast, schau ihn dir an wie ein neugieriger, freundlicher Gastgeber: Ist er groß oder klein? Eher fest oder weich? Warm oder kühl? Still oder in Bewegung? [längere Pause]" },
+        { "text": "Du musst nichts verändern und nichts lösen. Lass einfach deinen Atem in die Nähe dieser Stelle fließen — als würdest du dem Gast etwas mehr Platz am Tisch machen. [Pause] Und beobachte in Ruhe, was passiert, wenn er Platz bekommt. Vielleicht verändert er sich. Vielleicht wird er kleiner, weicher, wärmer. Vielleicht bleibt er gleich. Alles davon ist in Ordnung. [längere Pause]" },
+        { "text": "Falls der Gast unterwegs zu groß wird oder sich etwas nicht mehr gut anfühlt: Lass die Situation los, öffne die Augen und spüre die Unterlage und deine Füße. Das ist kein Abbruch — das ist gutes Gastgeben. Du bestimmst die Besuchszeit. [Pause] Und wenn du so weit bist, verabschiede deinen Gast für heute. Er darf wiederkommen. Und er darf weiterziehen. [längere Pause] Komm zurück in den Raum, und öffne die Augen, wann immer du magst. [Pause]" }
+      ]
+    },
+    {
+      "typ": "nachspueren",
+      "titel": "Nachspüren",
+      "audio": "/audio/t3/04-nachspueren.mp3",
+      "stilleSek": 15,
+      "bloecke": [
+        { "text": "Bleib noch einen kurzen Moment still. Nur nachspüren. [Pause]" },
+        { "text": "Und dann, ganz offen und für dich: **Wie war es, deinem Gast einen Platz anzubieten, statt die Tür zuzuhalten?**" },
+        { "text": "Wenn du magst, halte fest, wer zu Besuch war und wo er gewohnt hat. Es gibt kein richtig und kein falsch — und keinen Gast, für den man sich schämen müsste." }
+      ],
+      "interaktionen": [
+        { "art": "journal", "frage": "Wer war zu Gast — und wo hat er gewohnt?" }
+      ]
+    },
+    {
+      "typ": "experiment",
+      "titel": "Dein Experiment für zuhause",
+      "bloecke": [
+        { "text": "Wie immer eine Einladung — kein Muss. Und die Regel von eben gilt auch draußen: Geübt wird mit den kleinen und mittleren Gästen. Die schweren brauchen Begleitung, nicht Selbstdisziplin." }
+      ],
+      "experiment": {
+        "haupt": "**Dein Experiment:** Einmal am Tag, wenn ein Gefühl anklopft, mach die **Zwei-Schritte-Begrüßung:** beim Namen nennen („Da ist Ärger“) — und kurz orten („er sitzt gerade im Kiefer“). Mehr nicht. Nichts verändern, nichts lösen, nichts bewerten.\n\nDas dauert zehn Sekunden und sieht von außen nach nichts aus. Aber innen ist es der Unterschied zwischen einem Gast, der im Keller rumort — und einem, der gesehen wurde und irgendwann von selbst weiterzieht.",
+        "optional": "**Wenn du magst, zusätzlich (optional):** Führe für ein paar Tage ein kleines **Gästebuch:** Notiere abends in einem Satz, wer heute zu Besuch war — „Vormittags kurze Unruhe im Bauch, nachmittags Freude in der Brust.“ Ohne Analyse, ohne Warum. Du wirst überrascht sein, wie viele Gäste längst wieder abgereist sind, wenn du abends nachschaust."
+      }
+    },
+    {
+      "typ": "weitergehen",
+      "titel": "Weitergehen",
+      "audio": "/audio/t3/06-weitergehen.mp3",
+      "bloecke": [
+        { "text": "Du hast heute etwas geübt, das vielen Menschen ihr Leben lang niemand zeigt: ein Gefühl willkommen heißen, statt es wegzudrücken — und erleben, dass es dann von selbst weiterzieht. Dein Gästehaus wird davon nicht voller. Es wird freier." },
+        { "text": "Damit hast du alle Räume dieses Programms einmal betreten: das Fundament, die Werkzeuge, die Themenwelten. Was jetzt noch fehlt, ist das Zusammenfügen — aus einzelnen Übungen deine eigene, tägliche Praxis zu bauen. Genau darum geht es im letzten Modul: „Deine eigene Praxis“. Wann immer du so weit bist." }
+      ]
+    }
+  ]
+}
