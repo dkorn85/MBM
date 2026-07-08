@@ -247,6 +247,14 @@
   animation: mbm-anker-glanz 700ms var(--ease-ruhig);
 }
 
+/* ── Regler noch nicht angefasst ───────────────────────────────────────
+   Der Startwert 5 ist KEIN gesetzter Wert. Bis zur ersten Berührung nehmen
+   wir den Regler dezent zurück; beim ersten Anfassen kommt die volle Farbe. */
+input[type="range"][data-beruehrt="false"] {
+  opacity: 0.4;
+  transition: opacity var(--dur-schnell) var(--ease-ruhig);
+}
+
 /* Cozy Deko-Piktogramme (Schritt-Bilder, Ebenen-Symbole) — ruhig, dezent */
 .mbm-deko-piktogramm {
   opacity: 0.9;

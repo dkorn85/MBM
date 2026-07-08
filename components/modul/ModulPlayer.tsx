@@ -35,11 +35,15 @@ function SelbsttestFeld({
   const [anliegen, setAnliegen] = useState("");
   const [gespeichert, setGespeichert] = useState(false);
   const [baseline, setBaseline] = useState<Record<string, number> | null>(null);
+  // Welche Achsen wurden angefasst? Unberührte Regler bleiben dezent (Startwert
+  // 5 ist kein gesetzter Wert).
+  const [beruehrt, setBeruehrt] = useState<Set<string>>(() => new Set());
 
   useEffect(() => {
     const snap = storage.getSelbsttest(wann);
     if (snap) {
       setWerte((alt) => ({ ...alt, ...snap.achsen }));
+      setBeruehrt(new Set(Object.keys(snap.achsen)));
       if (typeof snap.anliegen === "string") setAnliegen(snap.anliegen);
       setGespeichert(true);
     }
@@ -74,9 +78,11 @@ function SelbsttestFeld({
                 step={1}
                 value={werte[achse.schluessel] ?? 5}
                 aria-label={achse.label}
+                data-beruehrt={beruehrt.has(achse.schluessel)}
                 onChange={(e) => {
                   const v = Number(e.target.value);
                   setWerte((alt) => ({ ...alt, [achse.schluessel]: v }));
+                  setBeruehrt((alt) => new Set(alt).add(achse.schluessel));
                   setGespeichert(false);
                 }}
                 className="h-2 w-full cursor-pointer accent-salbei-tief"
@@ -263,6 +269,10 @@ function NachspuerenSchritt({
   modul: Modul;
 }) {
   const [stilleVorbei, setStilleVorbei] = useState(false);
+  const enthuelltRef = useRef<HTMLDivElement>(null);
+  // Wurde sofort gezeigt (reduzierte Bewegung)? Dann keinen Fokus umlenken —
+  // beim Schritt-Eintritt hat die Überschrift Vorrang.
+  const sofortGezeigt = useRef(false);
 
   useEffect(() => {
     // Reduzierte Bewegung: nichts auf Timer verstecken, gleich zeigen.
@@ -270,6 +280,7 @@ function NachspuerenSchritt({
       typeof window !== "undefined" &&
       window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
     if (reduziert) {
+      sofortGezeigt.current = true;
       setStilleVorbei(true);
       return;
     }
@@ -278,6 +289,14 @@ function NachspuerenSchritt({
     const timer = window.setTimeout(() => setStilleVorbei(true), dauer);
     return () => window.clearTimeout(timer);
   }, [schritt.stilleSek]);
+
+  // Wenn die Frage auftaucht (nach der Stille ODER per Tap), den Fokus sanft
+  // dorthin führen — Screenreader kündigen den Reflexions-Teil dann an.
+  useEffect(() => {
+    if (!stilleVorbei || sofortGezeigt.current) return;
+    const id = window.requestAnimationFrame(() => enthuelltRef.current?.focus());
+    return () => window.cancelAnimationFrame(id);
+  }, [stilleVorbei]);
 
   const [ersterBlock, ...weitereBloecke] = schritt.bloecke;
 
@@ -294,7 +313,11 @@ function NachspuerenSchritt({
       <Bloecke bloecke={[ersterBlock]} />
 
       {stilleVorbei ? (
-        <div className="mbm-stille-fade space-y-6">
+        <div
+          ref={enthuelltRef}
+          tabIndex={-1}
+          className="mbm-stille-fade space-y-6 focus:outline-none"
+        >
           {weitereBloecke.length > 0 ? <Bloecke bloecke={weitereBloecke} /> : null}
           {schritt.interaktionen && schritt.interaktionen.length > 0 ? (
             <Interaktionen
