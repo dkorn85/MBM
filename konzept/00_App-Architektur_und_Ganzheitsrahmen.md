@@ -15,10 +15,10 @@ Damit erledigt sich das ursprüngliche Ziel „nicht erkennbar, dass es auf dem 
 
 Das eigentliche Ziel ist nicht Stressreduktion, sondern **Freiheit von Vorliebe und Abneigung** — der gemeinsame Kern, den die Weisheitslehren „Gleichmut" nennen. Die Forschung zeigt: Dieses Traditions-Merkmal ist psychometrisch operationalisiert und app-tauglich.
 
-- **Gleichmut** → `EVIDENZ` Equanimity Scale-16 (nur Gesamtscore verwenden, keine Subskalen)
-- **Nicht-Anhaftung** → `EVIDENZ` Nonattachment Scale, Kurzform NAS-7 (ideal für wiederholte In-App-Messung)
+- **Gleichmut** → Zielkonstrukt der Equanimity Scale-16 (`EVIDENZ`, nur Gesamtscore) — aber **ohne deutsche Validierung**.
+- **Nicht-Anhaftung** → Zielkonstrukt der Nonattachment Scale (NAS-7) — ebenfalls **ohne deutsche Validierung**.
 
-**Konsequenz für die App:** Das echte „Vorher/Nachher" ist nicht die Tagesstimmung, sondern die gelegentliche (alle 2–4 Wochen) NAS-7-/ES-16-Messung. Der tägliche Spür-Check bleibt als Anker und Retention-Motor, aber der Fortschritt der *Reise* wird an diesen validierten Skalen sichtbar gemacht — ehrlich, ohne Übertreibung, mit dem Hinweis, dass deutsche Validierungen noch offen sind.
+**Mess-Entscheidung (Studie 02, 2026-07-08 — `research/02`):** ES-16 und NAS-7 sind **nicht deutschsprachig validiert**, und eine Eigen-Übersetzung wäre wissenschaftlich unvalidiert + lizenzrechtlich fraglich. Daher stützt sich das In-App-„Vorher/Nachher" auf **deutsch-validierte Instrumente**: **CHIME** (Comprehensive Inventory of Mindfulness Experiences, Bergomi/Tschacher/Kupper 2014 — genuin deutsch konstruiert; Facetten Dezentrierung/Offenheit liegen nahe am Gleichmut) und/oder **FFMQ-D**. ES-16/NAS-7 bleiben die *begriffliche Zielgröße* (Gleichmut / Nicht-Anhaftung); **gemessen** wird auf Deutsch mit CHIME/FFMQ-D. Kadenz gelegentlich (alle 2–4 Wochen); der tägliche Spür-Check bleibt Anker und Retention-Motor. Konkrete Lizenzkonditionen (Hogrefe/Autoren) in der Umsetzungsphase klären.
 
 ---
 
@@ -61,7 +61,7 @@ Meine bisherigen vier Ebenen bleiben — aber ihr Zielpunkt ist jetzt die Weishe
 | **1 · Ankommen im Körper** | MBM-Regulation: der innere Alarm und seine Bremse | Kurs (Türöffner) | Grundregulation als Voraussetzung |
 | **2 · Wahrnehmen** | Achtsamkeit, der nicht-wertende Blick, Gedanken als Gedanken | Kurs + Weisheitslehren | erste Distanz zu Vorliebe/Abneigung |
 | **3 · Begegnen** | Innere Anteile, Schattenarbeit, Glaubenssätze (Schema-basiert) | Schattenarbeit-Fundus + AI-Engine | Integration des Abgespaltenen |
-| **4 · Weit werden** | Gleichmut, Nicht-Anhaftung, Ganzheit | Weisheitslehren | ES-16 / NAS-7 als Zielgrößen |
+| **4 · Weit werden** | Gleichmut, Nicht-Anhaftung, Ganzheit | Weisheitslehren | Zielgröße Gleichmut/Nicht-Anhaftung; **Messung deutsch: CHIME/FFMQ-D** (s. Nordstern) |
 
 Bewegung 1–2 entsprechen weitgehend meinem bisherigen „Kernpfad". Bewegung 3–4 sind die eigentliche Tiefe — mit Titration streng nach Leitplanke 3.
 
@@ -78,9 +78,9 @@ Der stärkste Einwand (Synkretismus bügelt reale Unterschiede glatt) lässt sic
 ## Bekannte Lücken (bewusst offen, vor Release zu schließen)
 
 Aus den Caveats von research/01:
-1. **Recht & AI-Architektur** (DACH, EU AI Act, DiGA, DSGVO Art. 9) — noch nicht verifiziert → **Studie 02 vor öffentlichem Release**.
-2. **Lizenzlage** der Instrumente, besonders YSQ (Young Schema Questionnaire) — kommerzielle Nutzung klären.
-3. **Deutsche Validierungen** von ES-16 und NAS stehen aus — bei der In-App-Nutzung ehrlich kennzeichnen.
+1. ~~**Recht & AI-Architektur** (DACH, EU AI Act, DiGA, DSGVO Art. 9)~~ → **erledigt: Studie 02** (`research/02`, 2026-07-08). Heilkunde-Abgrenzung DE/CH grün, AT gelb; AI Act günstig (Art. 50 ab 02.08.2026, text-only ohne Biometrie, kein Hochrisiko); DSGVO Art. 9 (abgeleitete Profile = Gesundheitsdaten) → entbündelte Consent + Pflicht-DPIA + EU-Inferenz. **Statischer Bildungs-Launch grün**; gelb/rot betrifft nur die AI-/Cloud-Phase.
+2. ~~**Lizenzlage** YSQ~~ → **geklärt (Studie 02):** YSQ-L3 ist lizenzpflichtig (Schema Therapy Institute); offene Alternative MSS-YSQ (kommerziell gedeckelt, keine deutsche Validierung) → vor Nutzung Direktlizenz aushandeln.
+3. ~~**Deutsche Validierungen** von ES-16/NAS~~ → **entschieden (Studie 02): existieren nicht** → In-App-Messung auf **CHIME/FFMQ-D** umgestellt (s. Nordstern oben).
 4. **Schatten-/Ego-Entwicklungs-Instrumente**: keine psychometrisch belastbaren Claims überlebten die Verifikation — hier ist die App auf Traditions-Deutung angewiesen, klar als solche zu markieren.
 
 ---
