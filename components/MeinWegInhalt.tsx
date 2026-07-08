@@ -140,7 +140,9 @@ export default function MeinWegInhalt({
                     {datumLang(e.erstellt)}
                   </span>
                 </div>
-                <p className="text-sm text-tinte-sanft">{e.frage}</p>
+                {e.frage ? (
+                  <p className="text-sm text-tinte-sanft">{e.frage}</p>
+                ) : null}
                 <p className="whitespace-pre-line">{e.text}</p>
               </li>
             ))}
@@ -218,6 +220,30 @@ export default function MeinWegInhalt({
                 );
               })}
             </div>
+            {baseline.anliegen || baseline.absicht ? (
+              <div className="space-y-4 border-t border-linie pt-5">
+                {baseline.anliegen ? (
+                  <div className="space-y-1">
+                    <p className="font-label text-xs uppercase tracking-[0.12em] text-salbei-tief">
+                      Was dich herbrachte
+                    </p>
+                    <p className="whitespace-pre-line text-tinte">
+                      {baseline.anliegen}
+                    </p>
+                  </div>
+                ) : null}
+                {baseline.absicht ? (
+                  <div className="space-y-1">
+                    <p className="font-label text-xs uppercase tracking-[0.12em] text-salbei-tief">
+                      Deine Absicht
+                    </p>
+                    <p className="whitespace-pre-line text-tinte">
+                      {baseline.absicht}
+                    </p>
+                  </div>
+                ) : null}
+              </div>
+            ) : null}
           </div>
         ) : (
           <Leer text="Dein Ausgangspunkt entsteht, sobald du im Modul „Wo du gerade stehst“ den kleinen Selbsttest machst." />
