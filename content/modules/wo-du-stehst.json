@@ -11,41 +11,74 @@
       "typ": "funke",
       "titel": "Funke",
       "strang": "herz",
+      "audio": "/audio/wo-du-stehst/01-funke.mp3",
       "bloecke": [
-        { "text": "Manchmal weiß man gar nicht so genau, was eigentlich los ist. Es ist nur … viel. Der Schlaf ist unruhig, die Schultern hoch, die Gedanken drehen, und man funktioniert irgendwie weiter." },
-        { "text": "Der erste Schritt ist nicht, das zu ändern. Der erste Schritt ist, es überhaupt mal zu benennen. Denn was du benennen kannst, bist du nicht mehr ganz so ausgeliefert." }
+        {
+          "text": "Manchmal weiß man gar nicht so genau, was eigentlich los ist. Es ist nur … viel. Der Schlaf ist unruhig, die Schultern hoch, die Gedanken drehen, und man funktioniert irgendwie weiter."
+        },
+        {
+          "text": "Der erste Schritt ist nicht, das zu ändern. Der erste Schritt ist, es überhaupt mal zu benennen. Denn was du benennen kannst, bist du nicht mehr ganz so ausgeliefert."
+        }
       ]
     },
     {
       "typ": "warum",
       "titel": "Warum",
       "strang": "kopf",
+      "audio": "/audio/wo-du-stehst/02-warum.mp3",
       "bild": "/deko/vier-fenster.svg",
       "bloecke": [
-        { "text": "Stress zeigt sich nie nur an einer Stelle. Er meldet sich auf **vier Ebenen** gleichzeitig — wie vier Fenster, durch die du in dich hineinschauen kannst:" },
-        { "text": "**Körper** — Verspannung, flacher Atem, Herzklopfen, Müdigkeit." },
-        { "text": "**Gedanken** — Grübeln, Sorgen, „ich muss“, der Kopf, der nicht abschaltet." },
-        { "text": "**Gefühle & Stimmung** — gereizt, dünnhäutig, leer, unruhig." },
-        { "text": "**Verhalten** — hetzen, Pausen streichen, mehr Kaffee, weniger Bewegung." },
-        { "text": "Das Nützliche daran: Wenn du weißt, an welchem Fenster es bei *dir* am lautesten klopft, weißt du auch, wo du am besten ansetzt. Bei manchen ist es der Körper, bei manchen der Kopf. Es gibt kein richtig." }
+        {
+          "text": "Stress zeigt sich nie nur an einer Stelle. Er meldet sich auf **vier Ebenen** gleichzeitig — wie vier Fenster, durch die du in dich hineinschauen kannst:"
+        },
+        {
+          "text": "**Körper** — Verspannung, flacher Atem, Herzklopfen, Müdigkeit."
+        },
+        {
+          "text": "**Gedanken** — Grübeln, Sorgen, „ich muss“, der Kopf, der nicht abschaltet."
+        },
+        {
+          "text": "**Gefühle & Stimmung** — gereizt, dünnhäutig, leer, unruhig."
+        },
+        {
+          "text": "**Verhalten** — hetzen, Pausen streichen, mehr Kaffee, weniger Bewegung."
+        },
+        {
+          "text": "Das Nützliche daran: Wenn du weißt, an welchem Fenster es bei *dir* am lautesten klopft, weißt du auch, wo du am besten ansetzt. Bei manchen ist es der Körper, bei manchen der Kopf. Es gibt kein richtig."
+        }
       ]
     },
     {
       "typ": "erleben",
       "titel": "Erleben",
       "strang": "hand",
+      "audio": "/audio/wo-du-stehst/03-erleben.mp3",
       "bloecke": [
-        { "text": "Geh die vier Fenster einmal in Ruhe durch. Kein Test, keine falsche Antwort — nur ehrlich hinschauen. Zieh jeden Regler dorthin, wo es sich für dich gerade stimmig anfühlt." }
+        {
+          "text": "Geh die vier Fenster einmal in Ruhe durch. Kein Test, keine falsche Antwort — nur ehrlich hinschauen. Zieh jeden Regler dorthin, wo es sich für dich gerade stimmig anfühlt."
+        }
       ],
       "interaktionen": [
         {
           "art": "selbsttest",
           "wann": "baseline",
           "achsen": [
-            { "schluessel": "koerper", "label": "Körper: ruhig ↔ angespannt" },
-            { "schluessel": "gedanken", "label": "Gedanken: ruhig ↔ rasend" },
-            { "schluessel": "stimmung", "label": "Stimmung: weit ↔ dünnhäutig" },
-            { "schluessel": "verhalten", "label": "Verhalten: fürsorglich ↔ im Hetzmodus" }
+            {
+              "schluessel": "koerper",
+              "label": "Körper: ruhig ↔ angespannt"
+            },
+            {
+              "schluessel": "gedanken",
+              "label": "Gedanken: ruhig ↔ rasend"
+            },
+            {
+              "schluessel": "stimmung",
+              "label": "Stimmung: weit ↔ dünnhäutig"
+            },
+            {
+              "schluessel": "verhalten",
+              "label": "Verhalten: fürsorglich ↔ im Hetzmodus"
+            }
           ],
           "absichtFrage": "Und in einem Satz oder Stichwort: Was bringt dich eigentlich hierher?"
         }
@@ -56,7 +89,9 @@
       "titel": "Verankern",
       "strang": "hand",
       "bloecke": [
-        { "text": "Zum Schluss keine großen Ziele — nur eine kleine, freundliche Absicht. Nicht „ich muss entspannter werden“. Eher etwas Warmes, das dir gehört." }
+        {
+          "text": "Zum Schluss keine großen Ziele — nur eine kleine, freundliche Absicht. Nicht „ich muss entspannter werden“. Eher etwas Warmes, das dir gehört."
+        }
       ],
       "experiment": {
         "haupt": "**Deine Absicht für den Weg.** Such dir einen Satz, der sich gut anfühlt — zum Beispiel:\n\n„Ich möchte lernen, abends leichter runterzukommen.“\n„Ich möchte meinen Kopf öfter mal zur Ruhe bringen.“\n„Ich möchte wieder spüren, was mir guttut.“\n\nTrag ihn leise mit dir. Diese Absicht begleitet dich — und du kannst sie jederzeit ändern."
@@ -66,21 +101,32 @@
       "typ": "nachspueren",
       "titel": "Reflektieren",
       "strang": "herz",
+      "audio": "/audio/wo-du-stehst/04-nachspueren.mp3",
       "stilleSek": 10,
       "bloecke": [
-        { "text": "Bleib einen Moment. [Pause]" },
-        { "text": "Und wenn du magst: **Was hast du gerade über dich bemerkt?** Manchmal ist es schon viel, das erste Mal genauer hinzusehen." }
+        {
+          "text": "Bleib einen Moment. [Pause]"
+        },
+        {
+          "text": "Und wenn du magst: **Was hast du gerade über dich bemerkt?** Manchmal ist es schon viel, das erste Mal genauer hinzusehen."
+        }
       ],
       "interaktionen": [
-        { "art": "journal", "frage": "Was hast du gerade über dich bemerkt?" }
+        {
+          "art": "journal",
+          "frage": "Was hast du gerade über dich bemerkt?"
+        }
       ]
     },
     {
       "typ": "weitergehen",
       "titel": "Weitergehen",
       "strang": "alle",
+      "audio": "/audio/wo-du-stehst/06-weitergehen.mp3",
       "bloecke": [
-        { "text": "Die meisten Menschen fangen dort an, wo es am lautesten ist — beim Körper, der nicht zur Ruhe kommt. Deshalb ist der nächste Schritt: dein innerer Alarm. Zu verstehen, warum er anspringt, und zu spüren, dass du ihn selbst wieder herunterfahren kannst." }
+        {
+          "text": "Die meisten Menschen fangen dort an, wo es am lautesten ist — beim Körper, der nicht zur Ruhe kommt. Deshalb ist der nächste Schritt: dein innerer Alarm. Zu verstehen, warum er anspringt, und zu spüren, dass du ihn selbst wieder herunterfahren kannst."
+        }
       ]
     }
   ]

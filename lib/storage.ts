@@ -4,6 +4,10 @@
 
 export type ModulStatus = "offen" | "begonnen" | "abgeschlossen";
 
+// Ansichts-Modus der Startseite: „Dem Weg folgen" vs. „Frei streifen".
+// Reine Betonung/Reihenfolge, keine Inhalts-Sperre. Default: „follow".
+export type Modus = "follow" | "roam";
+
 export type JournalEintrag = {
   modulId: string;
   frage: string;
@@ -61,6 +65,8 @@ export interface MbmStorage {
   getLoopEintrag(datum: string): LoopEintrag | null;
   setLoopEintrag(datum: string, patch: Partial<Omit<LoopEintrag, "datum">>): void;
   getLoopHistorie(): LoopEintrag[];
+  getModus(): Modus;
+  setModus(modus: Modus): void;
   istDisclaimerGesehen(): boolean;
   setDisclaimerGesehen(): void;
 }
@@ -74,6 +80,7 @@ const KEY_EXPERIMENTE = `${PREFIX}experimente`;
 const KEY_DISCLAIMER = `${PREFIX}disclaimerGesehen`;
 const KEY_SELBSTTEST = `${PREFIX}selbsttest`;
 const KEY_LOOP = `${PREFIX}loop`;
+const KEY_MODUS = `${PREFIX}modus`;
 
 /** localStorage nur im Browser; auf dem Server null. */
 function speicher(): Storage | null {
@@ -205,6 +212,14 @@ const localStorageImpl: MbmStorage = {
   getLoopHistorie() {
     const alle = lesen<Record<string, LoopEintrag>>(KEY_LOOP, {});
     return Object.values(alle).sort((a, b) => b.datum.localeCompare(a.datum));
+  },
+
+  getModus() {
+    return lesen<Modus>(KEY_MODUS, "follow") === "roam" ? "roam" : "follow";
+  },
+
+  setModus(modus) {
+    schreiben(KEY_MODUS, modus);
   },
 
   istDisclaimerGesehen() {

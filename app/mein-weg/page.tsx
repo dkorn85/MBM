@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
-import { landkarte } from "@/lib/content";
-import MeinWegInhalt, { type ModulInfo } from "@/components/MeinWegInhalt";
+import { getModul, landkarte } from "@/lib/content";
+import type { Interaktion } from "@/lib/module-schema";
+import MeinWegInhalt, {
+  type BaselineAchse,
+  type ModulInfo,
+} from "@/components/MeinWegInhalt";
 
 export const metadata: Metadata = {
   title: "Mein Weg — YipYip",
@@ -15,6 +19,16 @@ const modulInfos: ModulInfo[] = landkarte.path.stations.flatMap((station) =>
   })),
 );
 
+// Achsen des Baseline-Selbsttests (aus Modul „Wo du gerade stehst") — für die
+// Beschriftung von „Dein Ausgangspunkt". Werte selbst liegen lokal im Browser.
+const baselineAchsen: BaselineAchse[] =
+  getModul("wo-du-stehst")
+    ?.schritte.flatMap((s) => s.interaktionen ?? [])
+    .find(
+      (i): i is Extract<Interaktion, { art: "selbsttest" }> =>
+        i.art === "selbsttest",
+    )?.achsen ?? [];
+
 export default function MeinWegPage() {
   return (
     <article className="space-y-12">
@@ -26,7 +40,7 @@ export default function MeinWegPage() {
         </p>
       </div>
 
-      <MeinWegInhalt modulInfos={modulInfos} />
+      <MeinWegInhalt modulInfos={modulInfos} baselineAchsen={baselineAchsen} />
     </article>
   );
 }

@@ -325,7 +325,13 @@ function SchrittKoerper({
   );
 }
 
-export default function ModulPlayer({ modul }: { modul: Modul }) {
+export default function ModulPlayer({
+  modul,
+  naechstes,
+}: {
+  modul: Modul;
+  naechstes?: { id: string; titel: string } | null;
+}) {
   const [schrittIndex, setSchrittIndex] = useState(0);
   const ueberschriftRef = useRef<HTMLHeadingElement>(null);
   const ersterRender = useRef(true);
@@ -418,12 +424,28 @@ export default function ModulPlayer({ modul }: { modul: Modul }) {
         )}
 
         {letzterSchritt ? (
-          <Link
-            href="/"
-            className="inline-flex min-h-11 items-center rounded-xl bg-salbei-tief px-5 py-2 font-medium text-grund transition-colors duration-200 ease-out hover:bg-salbei"
-          >
-            Zur Übersicht
-          </Link>
+          <div className="flex flex-wrap items-center justify-end gap-3">
+            <Link
+              href="/"
+              className="inline-flex min-h-11 items-center rounded-xl border border-linie px-4 py-2 text-tinte-sanft transition-colors duration-200 ease-out hover:border-salbei hover:text-tinte"
+            >
+              Zur Übersicht
+            </Link>
+            {naechstes ? (
+              <Link
+                href={`/modul/${naechstes.id}`}
+                className="group inline-flex min-h-11 items-center rounded-xl bg-salbei-tief px-5 py-2 font-medium text-grund transition-colors duration-200 ease-out hover:bg-salbei"
+              >
+                Weiter zu {naechstes.titel}{" "}
+                <span
+                  aria-hidden="true"
+                  className="ml-1.5 inline-block transition-transform duration-300 ease-out group-hover:translate-x-1"
+                >
+                  →
+                </span>
+              </Link>
+            ) : null}
+          </div>
         ) : (
           <button
             type="button"

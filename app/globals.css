@@ -12,11 +12,19 @@
   --color-sand: #D9C9AC; /* Chips, dezente Hervorhebung */
   --color-akzent: #BC6C4F; /* warmer Akzent, sparsam, nie für Fließtext */
 
-  --color-gold: #C9A227; /* Horizont-Licht, sehr sparsam */
+  --color-gold: #C9A227; /* Horizont-Licht, Wärme-Akzent */
   --color-gold-tief: #A8841C;
 
+  /* Sanfte Stations-Tönungen — tragen die „Bewegung nach innen" als Farbe.
+     Hell genug für gute Lesbarkeit, aber viel wärmer/farbiger als reines Off-White. */
+  --color-panel-ankommen: #E3E8DE; /* kühl, dicht (oben) */
+  --color-panel-runterkommen: #E7ECDC;
+  --color-panel-wahrnehmen: #EEEDD6;
+  --color-panel-weit: #F6ECCF; /* warm, licht (unten) */
+
   --font-ueberschrift: "Fraunces Variable", serif;
-  --font-fliesstext: "Source Sans 3 Variable", sans-serif;
+  --font-fliesstext: "Newsreader Variable", Georgia, serif;
+  --font-label: "JetBrains Mono Variable", ui-monospace, monospace;
 }
 
 /* ── Design-Tokens (Dark) — gedämpft warm, nicht tiefschwarz-neon ───── */
@@ -33,6 +41,11 @@
     --color-akzent: #D08A67;
     --color-gold: #D8B84A;
     --color-gold-tief: #C9A227;
+
+    --color-panel-ankommen: #24281F;
+    --color-panel-runterkommen: #262A20;
+    --color-panel-wahrnehmen: #2A2A1E;
+    --color-panel-weit: #2F2A1D;
   }
 }
 
@@ -44,10 +57,25 @@
 
   body {
     background-color: var(--color-grund);
+    /* Warmer Ambient-Schimmer: Salbei-Hauch oben, Gold-Hauch unten —
+       trägt die Bewegung (kühl/dicht → warm/licht), ohne die Lesbarkeit zu stören. */
+    background-image:
+      radial-gradient(
+        130% 55% at 50% -8%,
+        color-mix(in srgb, var(--color-salbei) 16%, transparent),
+        transparent 62%
+      ),
+      radial-gradient(
+        120% 42% at 50% 108%,
+        color-mix(in srgb, var(--color-gold) 13%, transparent),
+        transparent 60%
+      );
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     color: var(--color-tinte);
     font-family: var(--font-fliesstext);
     font-size: 1.125rem; /* 18px */
-    line-height: 1.65;
+    line-height: 1.6;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }

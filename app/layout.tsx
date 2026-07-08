@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/fraunces";
-import "@fontsource-variable/source-sans-3";
+import "@fontsource-variable/newsreader";
+import "@fontsource-variable/jetbrains-mono";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";

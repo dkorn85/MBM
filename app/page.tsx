@@ -8,6 +8,7 @@ import type {
   StationModulRef,
 } from "@/lib/module-schema";
 import AbgeschlossenChip from "@/components/AbgeschlossenChip";
+import HomeEinstieg from "@/components/HomeEinstieg";
 import HomeGemerkt from "@/components/HomeGemerkt";
 import LoopPuls from "@/components/LoopPuls";
 
@@ -32,13 +33,26 @@ const STATION_ELEMENT: Record<StationId, string> = {
   "weit-werden": "/deko/element-feuer.svg",
 };
 
+// Stations-Tönung je Station — trägt die „Bewegung nach innen" als Farbe
+// (kühl/dicht oben → warm/licht unten). Volle Klassennamen, damit Tailwind sie
+// findet.
+const STATION_PANEL: Record<StationId, string> = {
+  ankommen: "bg-panel-ankommen",
+  runterkommen: "bg-panel-runterkommen",
+  wahrnehmen: "bg-panel-wahrnehmen",
+  "weit-werden": "bg-panel-weit",
+};
+
 // ── Needs-Einstieg ────────────────────────────────────────────────────
 function NeedsEinstieg() {
   const { eyebrow, chips } = landkarte.needsEntry;
   return (
     <section className="space-y-3">
-      <p className="text-tinte-sanft">{eyebrow}</p>
-      <ul className="flex flex-wrap gap-2">
+      <p className="font-label text-xs uppercase tracking-[0.16em] text-salbei-tief">
+        Ganz nach Gefühl
+      </p>
+      <p className="text-lg text-tinte">{eyebrow}</p>
+      <ul className="flex flex-wrap gap-2 pt-1">
         {chips.map((chip) => {
           const klickbar = modulStatus.get(chip.targetModule) === "written";
           if (klickbar) {
@@ -46,7 +60,7 @@ function NeedsEinstieg() {
               <li key={chip.targetModule}>
                 <Link
                   href={`/modul/${chip.targetModule}`}
-                  className="inline-flex min-h-11 items-center rounded-full border border-linie bg-flaeche px-4 py-2 text-tinte transition-[border-color,color] duration-200 ease-out hover:border-salbei hover:text-salbei-tief"
+                  className="inline-flex min-h-11 items-center rounded-full border border-linie bg-grund px-4 py-2 text-tinte shadow-sm transition-[border-color,color] duration-200 ease-out hover:border-salbei hover:text-salbei-tief"
                 >
                   {chip.label}
                 </Link>
@@ -73,7 +87,7 @@ function ModulKarte({ modul }: { modul: StationModulRef }) {
   return (
     <Link
       href={`/modul/${modul.id}`}
-      className="group flex items-center gap-4 rounded-2xl border border-linie bg-flaeche p-5 transition-[border-color,transform,box-shadow] duration-300 ease-out hover:-translate-y-0.5 hover:border-salbei hover:shadow-sm"
+      className="group flex items-center gap-4 rounded-2xl border border-linie bg-grund p-5 shadow-sm transition-[border-color,transform,box-shadow] duration-300 ease-out hover:-translate-y-0.5 hover:border-salbei hover:shadow-md"
     >
       {bild ? (
         // eslint-disable-next-line @next/next/no-img-element
@@ -90,8 +104,8 @@ function ModulKarte({ modul }: { modul: StationModulRef }) {
           <AbgeschlossenChip modulId={modul.id} />
         </div>
         {typeof modul.durationMin === "number" ? (
-          <p className="text-sm text-tinte-sanft">
-            ca. {modul.durationMin} Minuten
+          <p className="font-label text-xs uppercase tracking-[0.12em] text-tinte-sanft">
+            ca. {modul.durationMin} Min
           </p>
         ) : null}
         <p className="text-salbei-tief transition-colors duration-200 ease-out group-hover:text-akzent">
@@ -110,10 +124,10 @@ function ModulKarte({ modul }: { modul: StationModulRef }) {
 
 function GeplanteKarte({ modul }: { modul: StationModulRef }) {
   return (
-    <div className="rounded-2xl border border-dashed border-linie p-5">
+    <div className="rounded-2xl border border-dashed border-linie bg-grund/40 p-5">
       <div className="flex flex-wrap items-center gap-2">
         <h3 className="text-xl text-tinte-sanft">{modul.title}</h3>
-        <span className="inline-flex items-center rounded-full bg-sand/30 px-3 py-1 text-sm text-tinte-sanft">
+        <span className="font-label inline-flex items-center rounded-full bg-sand/40 px-3 py-1 text-xs uppercase tracking-[0.1em] text-tinte-sanft">
           auf dem Weg
         </span>
       </div>
@@ -124,10 +138,10 @@ function GeplanteKarte({ modul }: { modul: StationModulRef }) {
 // Seitenpfad „Begegnen" — gegatet, klar als späterer Nebenweg markiert.
 function BranchTeaser({ branch }: { branch: Seitenpfad }) {
   return (
-    <div className="rounded-2xl border border-dashed border-linie bg-flaeche/40 p-5">
+    <div className="rounded-2xl border border-dashed border-linie bg-grund/40 p-5">
       <div className="flex flex-wrap items-center gap-2">
         <h3 className="text-xl text-tinte-sanft">{branch.title}</h3>
-        <span className="inline-flex items-center rounded-full bg-sand/30 px-3 py-1 text-sm text-tinte-sanft">
+        <span className="font-label inline-flex items-center rounded-full bg-sand/40 px-3 py-1 text-xs uppercase tracking-[0.1em] text-tinte-sanft">
           {branch.tag}
         </span>
       </div>
@@ -136,35 +150,40 @@ function BranchTeaser({ branch }: { branch: Seitenpfad }) {
   );
 }
 
-// ── Eine Station auf dem Weg ──────────────────────────────────────────
+// Dezenter Verbinder zwischen zwei Stationen — der Weg als ein Fluss, ruhig.
+function Verbinder() {
+  return (
+    <div aria-hidden="true" className="flex flex-col items-center gap-1 py-3">
+      <span className="h-6 w-px bg-gradient-to-b from-linie to-transparent" />
+      <span className="h-1.5 w-1.5 rounded-full bg-salbei/60" />
+      <span className="h-6 w-px bg-gradient-to-b from-transparent to-linie" />
+    </div>
+  );
+}
+
+// ── Eine Station auf dem Weg (als farbiges Panel) ─────────────────────
 function StationAbschnitt({ station }: { station: Station }) {
   return (
-    <li className="relative pl-12 sm:pl-14">
-      {/* Knoten auf dem Wegband */}
-      <span
-        aria-hidden="true"
-        className="absolute left-0 top-0.5 flex h-9 w-9 items-center justify-center rounded-full border border-linie bg-grund text-sm font-medium text-salbei-tief sm:h-10 sm:w-10"
-      >
-        {station.number}
-      </span>
-
-      <div className="space-y-4">
-        <div className="space-y-1">
-          <div className="flex items-center gap-2">
+    <section
+      className={`rounded-3xl ${STATION_PANEL[station.id]} p-6 shadow-sm sm:p-8`}
+    >
+      <div className="space-y-6">
+        <div className="space-y-3">
+          <div className="flex items-center gap-3">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={STATION_ELEMENT[station.id]}
               alt=""
               aria-hidden="true"
-              className="mbm-deko-piktogramm h-7 w-7 shrink-0 select-none"
+              className="mbm-deko-piktogramm h-10 w-10 shrink-0 select-none sm:h-12 sm:w-12"
             />
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-salbei-tief">
-              {station.tag}
+            <p className="font-label text-xs uppercase tracking-[0.18em] text-salbei-tief">
+              Station {station.number} · {station.tag}
             </p>
           </div>
-          <h2 className="text-2xl">{station.title}</h2>
+          <h2 className="text-2xl sm:text-3xl">{station.title}</h2>
           {/* Shift-Satz — das Herzstück der Station */}
-          <p className="max-w-[62ch] pt-1 text-lg italic text-tinte">
+          <p className="max-w-[60ch] text-lg italic text-tinte">
             „{station.shift}“
           </p>
         </div>
@@ -180,40 +199,107 @@ function StationAbschnitt({ station }: { station: Station }) {
           {station.branch ? <BranchTeaser branch={station.branch} /> : null}
         </div>
       </div>
-    </li>
+    </section>
   );
 }
 
-// ── Horizont: Licht am Ende des Wegs ──────────────────────────────────
+// ── Der Weg: die vier Stationen als farbiger, fließender Pfad ─────────
+function WegSektion() {
+  return (
+    <section className="space-y-4">
+      <p className="font-label text-xs uppercase tracking-[0.16em] text-salbei-tief">
+        {landkarte.path.overviewLabel}
+      </p>
+      <ol className="space-y-0">
+        {landkarte.path.stations.map((station, i) => (
+          <li key={station.id}>
+            {i > 0 ? <Verbinder /> : null}
+            <StationAbschnitt station={station} />
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
+}
+
+// ── Neben dem Weg: Themenwelten (optional, spätere Releases) ──────────
+function Themenwelten() {
+  const tw = landkarte.themenwelten;
+  if (!tw) return null;
+  return (
+    <section className="space-y-5 rounded-3xl border border-dashed border-linie bg-flaeche/50 p-6 sm:p-8">
+      <div className="space-y-1">
+        <p className="font-label text-xs uppercase tracking-[0.16em] text-salbei-tief">
+          {tw.label}
+        </p>
+        <p className="text-tinte-sanft">{tw.sub}</p>
+      </div>
+      <ul className="grid gap-3 sm:grid-cols-2">
+        {tw.items.map((item) => (
+          <li
+            key={item.id}
+            className="rounded-2xl border border-dashed border-linie p-5"
+          >
+            <div className="flex flex-wrap items-center gap-2">
+              <h3 className="text-lg text-tinte-sanft">{item.title}</h3>
+              <span className="font-label inline-flex items-center rounded-full bg-sand/30 px-3 py-1 text-xs uppercase tracking-[0.1em] text-tinte-sanft">
+                {tw.release ?? "später"}
+              </span>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+// ── Horizont: Licht am Ende des Wegs (warmes Abschluss-Panel) ─────────
 function Horizont() {
   const { name, subtitle, body, clarifier } = landkarte.horizon;
   return (
-    <section className="flex flex-col items-center gap-5 pt-6 text-center">
-      {/* Ruhig schwebende, sich öffnende Ringe — der Horizont: Gelassenheit. */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/deko/weite.svg"
-        alt=""
-        aria-hidden="true"
-        className="mbm-deko-piktogramm mbm-schwebt h-28 w-28 select-none"
-      />
-      <div className="max-w-[58ch] space-y-2">
-        <h2 className="text-3xl">{name}</h2>
-        <p className="text-tinte-sanft">{subtitle}</p>
-        <p>{body}</p>
-        {clarifier ? (
-          <p className="text-sm text-tinte-sanft">{clarifier}</p>
-        ) : null}
+    <section className="rounded-3xl bg-panel-weit p-8 text-center shadow-sm sm:p-12">
+      <div className="flex flex-col items-center gap-6">
+        <p className="font-label text-xs uppercase tracking-[0.18em] text-salbei-tief">
+          Der Horizont
+        </p>
+        <div className="relative flex items-center justify-center">
+          {/* Warmer Gold-Halo hinter den Ringen (dekorativ). */}
+          <span
+            aria-hidden="true"
+            className="mbm-horizont-ringe pointer-events-none absolute h-20 w-20 sm:h-24 sm:w-24"
+          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/deko/weite.svg"
+            alt=""
+            aria-hidden="true"
+            className="mbm-deko-piktogramm mbm-schwebt relative h-32 w-32 select-none sm:h-40 sm:w-40"
+          />
+        </div>
+        <div className="max-w-[54ch] space-y-3">
+          <h2 className="text-3xl sm:text-4xl">{name}</h2>
+          <p className="text-tinte-sanft">{subtitle}</p>
+          <p>{body}</p>
+          {clarifier ? (
+            <p className="text-sm text-tinte-sanft">{clarifier}</p>
+          ) : null}
+        </div>
       </div>
     </section>
   );
 }
 
 export default function Home() {
+  const modes = landkarte.modes.map((m) => ({
+    id: m.id === "roam" ? ("roam" as const) : ("follow" as const),
+    label: m.label,
+    sub: m.sub,
+  }));
+
   return (
     <div className="space-y-14">
-      {/* ── Hero: der schwebende Bison zwischen Wolken ── */}
-      <section className="relative pb-2 pt-2">
+      {/* ── Hero: der schwebende Bison zwischen Wolken, in warmem Panel ── */}
+      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-b from-panel-ankommen to-grund p-6 shadow-sm sm:p-10">
         <div className="relative flex flex-col items-center gap-6 sm:flex-row-reverse sm:items-center sm:gap-10">
           <div className="relative shrink-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -221,14 +307,14 @@ export default function Home() {
               src="/deko/wolke-2.svg"
               alt=""
               aria-hidden="true"
-              className="mbm-deko-wolken pointer-events-none absolute -bottom-6 -right-3 w-56 select-none opacity-50 sm:w-64"
+              className="mbm-deko-wolken pointer-events-none absolute -bottom-6 -right-3 w-56 select-none opacity-60 sm:w-64"
             />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/deko/wolke-1.svg"
               alt=""
               aria-hidden="true"
-              className="mbm-deko-wolken pointer-events-none absolute -left-16 -top-8 w-36 select-none opacity-30 sm:-left-24 sm:w-44"
+              className="mbm-deko-wolken pointer-events-none absolute -left-16 -top-8 w-36 select-none opacity-40 sm:-left-24 sm:w-44"
             />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -239,6 +325,9 @@ export default function Home() {
             />
           </div>
           <div className="relative space-y-4 text-center sm:text-left">
+            <p className="font-label text-xs uppercase tracking-[0.18em] text-salbei-tief">
+              Guten Tag
+            </p>
             <h1 className="text-4xl sm:text-5xl">Schön, dass du da bist.</h1>
             <p className="mx-auto max-w-[60ch] text-lg text-tinte-sanft sm:mx-0">
               Von hier aus geht es Schritt für Schritt nach innen — vom ersten
@@ -251,28 +340,11 @@ export default function Home() {
 
       <HomeGemerkt />
 
-      <NeedsEinstieg />
+      <HomeEinstieg modes={modes} needs={<NeedsEinstieg />} weg={<WegSektion />} />
 
-      {/* ── Der Weg: vier Stationen, Bewegung nach innen ── */}
-      <section className="space-y-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-salbei-tief">
-          {landkarte.path.overviewLabel}
-        </p>
-        <div className="relative">
-          {/* Wegband: schmaler vertikaler Verlauf dunkel→licht neben den
-              Stationen (Entscheidung dokumentiert in globals.css). */}
-          <div
-            aria-hidden="true"
-            className="mbm-journey pointer-events-none absolute bottom-2 left-4 top-2 w-[3px] rounded-full sm:left-[19px]"
-          />
-          <ol className="space-y-12">
-            {landkarte.path.stations.map((station) => (
-              <StationAbschnitt key={station.id} station={station} />
-            ))}
-          </ol>
-        </div>
-      </section>
+      <Themenwelten />
 
+      {/* ── Der tägliche Puls (in warmem Rahmen, s. LoopPuls) ── */}
       <LoopPuls />
 
       <Horizont />

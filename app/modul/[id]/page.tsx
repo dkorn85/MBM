@@ -24,6 +24,13 @@ export default async function ModulPage({ params }: Props) {
   // Stations-Zugehörigkeit statt des früheren „thema".
   const station = landkarte.path.stations.find((s) => s.id === modul.station);
 
+  // Nächstes Modul auf dem Weg (no + 1) — nur wenn es geschrieben ist, also in
+  // `alleModule` liegt. Wird dem Player für „Weiter zu …" mitgegeben.
+  const naechstesModul = alleModule.find((m) => m.no === modul.no + 1);
+  const naechstes = naechstesModul
+    ? { id: naechstesModul.id, titel: naechstesModul.titel }
+    : null;
+
   return (
     <article className="space-y-8">
       <header className="space-y-1">
@@ -32,7 +39,7 @@ export default async function ModulPage({ params }: Props) {
           {station ? `${station.title} · ` : ""}ca. {modul.dauerMin} Minuten
         </p>
       </header>
-      <ModulPlayer modul={modul} />
+      <ModulPlayer modul={modul} naechstes={naechstes} />
     </article>
   );
 }

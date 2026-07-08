@@ -76,15 +76,18 @@ export default function LoopPuls() {
   const ankerGemacht = eintrag?.ankerGemacht === true;
 
   return (
-    <section className="space-y-5 rounded-2xl border border-linie bg-flaeche p-6 sm:p-7">
+    <section className="space-y-5 rounded-3xl border border-linie bg-gradient-to-br from-panel-wahrnehmen to-panel-weit p-6 shadow-sm sm:p-8">
       <div className="space-y-1">
-        <h2 className="text-xl">{title}</h2>
+        <p className="font-label text-xs uppercase tracking-[0.16em] text-salbei-tief">
+          Jeden Tag ein kleiner Moment
+        </p>
+        <h2 className="text-2xl">{title}</h2>
         <p className="text-tinte-sanft">{subtitle}</p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-3">
         {/* Spür-Check */}
-        <div className="space-y-3 rounded-xl border border-linie bg-grund/60 p-4">
+        <div className="space-y-3 rounded-2xl border border-linie bg-grund p-4 shadow-sm">
           <p className="font-medium text-tinte">Spür-Check</p>
           <Regler
             label="Körper: ruhig ↔ angespannt"
@@ -99,7 +102,7 @@ export default function LoopPuls() {
         </div>
 
         {/* Glücksmoment */}
-        <div className="space-y-2 rounded-xl border border-linie bg-grund/60 p-4">
+        <div className="space-y-2 rounded-2xl border border-linie bg-grund p-4 shadow-sm">
           <p className="font-medium text-tinte">Glücksmoment</p>
           <label htmlFor="glueck" className="block text-sm text-tinte-sanft">
             Was war heute schön?
@@ -133,7 +136,7 @@ export default function LoopPuls() {
         </div>
 
         {/* Anker */}
-        <div className="space-y-2 rounded-xl border border-linie bg-grund/60 p-4">
+        <div className="space-y-2 rounded-2xl border border-linie bg-grund p-4 shadow-sm">
           <p className="font-medium text-tinte">Anker</p>
           <p className="text-sm text-tinte-sanft">
             Deine kleine Übung, an eine Alltagsroutine gekoppelt.
