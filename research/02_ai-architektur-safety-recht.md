@@ -211,3 +211,45 @@ Ehrliche Bestandsaufnahme dessen, was diesem Zwischenstand fehlt:
 ---
 
 *Methodik (verkürzt, da Lauf abgebrochen): 5 Suchwinkel → 34 Quellen kuratiert und gelesen → 223 Kernaussagen extrahiert → Synthese entlang der 7 Auftragsfragen. Die adversariale Verifikationsstufe wurde aus Token-Gründen bei ~80 % abgebrochen; dieses Dokument ist der Zwischenstand vor dieser Stufe.*
+
+---
+
+# Fortsetzung — Release-Tor (verifiziert, Stand 2026-07-08)
+
+*Zweiter Recherche-Lauf (deep-research, adversarial verifiziert): 5 Suchwinkel → 23 Quellen (Primärquellen-Vorrang) → 101 Kernaussagen → 25 verifiziert (22 bestätigt, 3 verworfen) → 8 Synthese-Befunde. Schließt die release-kritischen **Rechts**-Lücken (DACH-Heilkunde + EU AI Act). DSGVO/Lizenz/Skalen blieben offen (der Internet-Ausfall traf genau diese Agenten — siehe unten).*
+
+## Release-Ampel: Heilkunde-Abgrenzung (DACH)
+
+| Land | Ampel | Kern | Bedingung |
+|---|---|---|---|
+| **Deutschland** | 🟢 grün (bedingt) | §1 Abs. 1 HeilprG = Erlaubnispflicht; §1 Abs. 2 = Heilkunde nur bei **Feststellung/Heilung/Linderung** von Krankheiten. Verfolgt die App keinen dieser Zwecke, erfüllt sie den Tatbestand **gar nicht** → nicht erlaubnispflichtig. | Zweck strikt Bildung/Coaching für **gesunde** Erwachsene; kein Text/Feature adressiert Krankheits-Feststellung/-Heilung/-Linderung. |
+| **Schweiz** | 🟢 grün (bedingt, Bund) | GesBG (SR 811.21) reguliert abschließend nur **7** Gesundheitsberufe — eine Mind-Body-Bildungs-App gehört zu keinem. | **Kantonale** Bewilligungen der Zielkantone + PsyG-Titelschutz noch prüfen. |
+| **Österreich** | 🟡 gelb | „Lebens- und Sozialberatung" ist **reglementiertes Gewerbe** (GewO §94 Z 46, §119) — eine Grenze unterhalb Psychotherapie/Psychologie/Medizin existiert, ist aber selbst qualifikationsgebunden. | Vor Launch klären, ob eine reine Bildungs-/Medien-App außerhalb bleibt oder ob **KI-vermittelte Beratung** das Gewerbe berührt. Positionierung als Selbstlern-/Bildungsprodukt, **keine** individualisierte Beratung mit Beratungsvertrag. |
+
+## Zentrale Korrektur zum Zwischenstand ⚠️
+Die oben (Abschnitt 5) genannte **„Eindruckstheorie"** — der *subjektive Kundeneindruck* sei maßgeblich — ist so **nicht haltbar** (durch **BVerfG 2004** eingeschränkt/verworfen; Verifikation hat die naive Lesart **verworfen**). Maßgeblich ist verfassungskonform-restriktiv das **Gefährdungspotenzial der konkreten tatsächlichen Tätigkeit** (BGH 2 StR 580/10). **§5 HeilprG bestraft ausschließlich die tatsächliche Durchführung** heilkundlicher Maßnahmen — **nicht die Werbung** (die aber wettbewerbs-/HWG-rechtlich abmahnbar bleibt). → **Ein Disclaimer allein genügt nicht:** die Features/Outputs müssen faktisch **keine Heilbehandlung** durchführen und dürfen keinen **Ersatz für medizinische Behandlung** suggerieren. *(Auch die Berufung auf die PsychThG-§1-Abs.-3-Ausnahme „soziale Konflikte / Zwecke außerhalb der Heilkunde" hat die Verifikation NICHT überstanden — nicht als Freibrief darauf verlassen.)*
+
+## EU AI Act — günstige Lage
+- **Art. 50 (Chatbot-Transparenz): gilt ab 02.08.2026** (Datumsunklarheit zugunsten 2026 aufgelöst). → klar sichtbarer „Du interagierst mit einer KI"-Hinweis in die Engine; leicht erfüllbar.
+- **Kein Annex-III-Hochrisiko**, solange keine MDR-/Medizinprodukt-Zweckbestimmung und keine Annex-III-Nutzung (z. B. keine Eignungs-/Zugangsbewertung im Bildungswesen mit Rechtsfolgen). Die Hochrisiko-Pflichten sind per **Digital-Omnibus final verschoben: 02.12.2027** (eigenständig) / 02.08.2028 (produktintegriert).
+- **Text-Sentiment ohne Biometrie fällt aus dem Emotionserkennungs-Verbot (Art. 5)** — ein „Emotionserkennungssystem" (Art. 3(39)) setzt **kumulativ biometrische** Daten voraus; Emotions-Ableitung aus geschriebenem Text ist laut Kommissions-Leitlinien **C(2025) 884** ausgenommen. → **strikt text-only bleiben** (keine Stimme/Mimik/physiologischen Signale).
+
+## Zweckbestimmungs- + Sprach-Checkliste
+*(hält die App gleichzeitig außerhalb Erlaubnispflicht, außerhalb MDR/DiGA und außerhalb AI-Act-Hochrisiko)*
+- [ ] Zweckbestimmung ausschließlich **Bildung/Selbsterfahrung/Coaching für gesunde Erwachsene** — nirgends Feststellung/Heilung/Linderung von Krankheiten.
+- [ ] **Sprach-Blocklist als harte Guardrail** in der KI-Engine (Prompt-Constraints + Output-Filter): kein „Therapie", keine „Selbstheilungskräfte", keine konkreten (medizinischen) Indikationen, kein Heilversprechen; nocebo-sicher.
+- [ ] **Kein Biometrie-Input** (rein textbasiert).
+- [ ] **Kein DiGA-Erstattungspfad** (erzwingt das teure MDR-Doppelregime).
+- [ ] Klarer **KI-Hinweis** (Art. 50) spätestens 02.08.2026.
+- [ ] **Keine individualisierte Beratung mit Beratungsvertrag** (v. a. AT-Gewerbe-relevant).
+
+## Noch offen vor echtem öffentlichem Release
+*(Dieser Lauf brachte KEINE verifizierte Antwort — der Internet-Ausfall traf genau die fetch/verify-Agenten dieser drei Punkte. Kein Ergebnis heißt hier „ungeklärt", nicht „unbedenklich".)*
+1. **DSGVO / Gesundheitsdaten + US-LLM-Transfer** (Frage 3): Gelten abgeleitete Schema-/Psyche-Profile als Art.-9-Gesundheitsdaten? Welche entbündelte Einwilligungs-/DPIA-Architektur? Welcher Transfermechanismus für US-LLM (EU-US Data Privacy Framework, Stand 2026)?
+2. **YSQ-Lizenz** (Frage 4): Lizenzgeber, kommerzielle Kosten/Rechte, frei/offen lizenzierte Schema-Alternative?
+3. **Deutsche ES-16 / NAS-7-Validierung** (Frage 5): validierte deutschsprachige Fassungen? Lizenz für kommerzielle App-Nutzung?
+4. **AT/CH-Feinklärung**: erfüllt eine Selbsthilfe-/Bildungs-App den AT-LSB-Gewerbetatbestand? Welche CH-Kantone + PsyG-Titelschutz?
+
+→ **Empfehlung:** ein fokussierter Nachlauf nur auf Punkte 1–3 (jetzt bei stabilem Netz) schließt das Release-Tor vollständig.
+
+*Methodik Lauf 2: 5 Suchwinkel → 23 Quellen gefetcht → 101 Kernaussagen → 25 adversarial verifiziert (2/3-Mehrheit zum Verwerfen), 22 bestätigt / 3 verworfen → 8 Synthese-Befunde. 5 von 106 Agenten durch den Internet-Ausfall abgebrochen (v. a. DSGVO/Lizenz/Skalen). Run-ID wf_dd637374-313.*
