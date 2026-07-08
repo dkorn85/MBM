@@ -1,0 +1,5 @@
+# Moderne Ziele — verhindert unnötige Legacy-Polyfills im Bundle
+# (Array.prototype.at/flat/flatMap, String.prototype.trimStart/trimEnd …).
+# YipYip ist eine neue, mobile-first PWA ohne Alt-Browser-Nutzerbasis;
+# diese Ziele decken >99 % der aktiven Browser.
+last 2 years and not dead

@@ -1,8 +1,24 @@
 import type { Metadata, Viewport } from "next";
-import "@fontsource-variable/fraunces";
-import "@fontsource-variable/newsreader";
-import "@fontsource-variable/jetbrains-mono";
+import { Fraunces, JetBrains_Mono, Newsreader } from "next/font/google";
 import "./globals.css";
+
+// Self-hosted über next/font: inline eingebunden + vorgeladen + font-display:swap,
+// damit die Fonts nicht mehr hinter dem CSS im kritischen Pfad hängen (LCP).
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-fraunces",
+});
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-newsreader",
+});
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-jetbrains",
+});
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import OnboardingDisclaimer from "@/components/OnboardingDisclaimer";
@@ -27,7 +43,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="de">
+    <html
+      lang="de"
+      className={`${fraunces.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}
+    >
       <body className="flex min-h-dvh flex-col">
         <a
           href="#inhalt"

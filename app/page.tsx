@@ -127,7 +127,7 @@ function GeplanteKarte({ modul }: { modul: StationModulRef }) {
     <div className="rounded-2xl border border-dashed border-linie bg-grund/40 p-5">
       <div className="flex flex-wrap items-center gap-2">
         <h3 className="text-xl text-tinte-sanft">{modul.title}</h3>
-        <span className="font-label inline-flex items-center rounded-full bg-sand/40 px-3 py-1 text-xs uppercase tracking-[0.1em] text-tinte-sanft">
+        <span className="font-label inline-flex items-center rounded-full bg-sand/40 px-3 py-1 text-xs uppercase tracking-[0.1em] text-etikett">
           auf dem Weg
         </span>
       </div>
@@ -141,7 +141,7 @@ function BranchTeaser({ branch }: { branch: Seitenpfad }) {
     <div className="rounded-2xl border border-dashed border-linie bg-grund/40 p-5">
       <div className="flex flex-wrap items-center gap-2">
         <h3 className="text-xl text-tinte-sanft">{branch.title}</h3>
-        <span className="font-label inline-flex items-center rounded-full bg-sand/40 px-3 py-1 text-xs uppercase tracking-[0.1em] text-tinte-sanft">
+        <span className="font-label inline-flex items-center rounded-full bg-sand/40 px-3 py-1 text-xs uppercase tracking-[0.1em] text-etikett">
           {branch.tag}
         </span>
       </div>
@@ -246,7 +246,7 @@ function Themenwelten() {
           >
             <div className="flex flex-wrap items-center gap-2">
               <h3 className="text-lg text-tinte-sanft">{item.title}</h3>
-              <span className="font-label inline-flex items-center rounded-full bg-sand/30 px-3 py-1 text-xs uppercase tracking-[0.1em] text-tinte-sanft">
+              <span className="font-label inline-flex items-center rounded-full bg-sand/30 px-3 py-1 text-xs uppercase tracking-[0.1em] text-etikett">
                 {tw.release ?? "später"}
               </span>
             </div>
