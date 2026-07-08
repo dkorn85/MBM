@@ -83,9 +83,11 @@ export default function JournalFeld({
           </p>
         ) : null}
       </div>
-      <p className="text-sm text-tinte-sanft">
-        Bleibt auf diesem Gerät. Du kannst das Feld auch leer lassen.
-      </p>
+      {!gespeichert ? (
+        <p className="text-sm text-tinte-sanft">
+          Bleibt auf diesem Gerät. Du kannst das Feld auch leer lassen.
+        </p>
+      ) : null}
     </div>
   );
 }
