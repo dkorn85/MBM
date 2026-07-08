@@ -60,7 +60,7 @@ function NeedsEinstieg() {
               <li key={chip.targetModule}>
                 <Link
                   href={`/modul/${chip.targetModule}`}
-                  className="inline-flex min-h-11 items-center rounded-full border border-linie bg-grund px-4 py-2 text-tinte shadow-sm transition-[border-color,color] duration-200 ease-out hover:border-salbei hover:text-salbei-tief"
+                  className="inline-flex min-h-11 items-center rounded-full border border-linie bg-grund px-4 py-2 text-tinte shadow-sm transition duration-200 ease-ruhig hover:border-salbei hover:text-salbei-tief active:scale-[0.97]"
                 >
                   {chip.label}
                 </Link>
@@ -87,7 +87,7 @@ function ModulKarte({ modul }: { modul: StationModulRef }) {
   return (
     <Link
       href={`/modul/${modul.id}`}
-      className="group flex items-center gap-4 rounded-2xl border border-linie bg-grund p-5 shadow-sm transition-[border-color,transform,box-shadow] duration-300 ease-out hover:-translate-y-0.5 hover:border-salbei hover:shadow-md"
+      className="group flex items-center gap-4 rounded-2xl border border-linie bg-grund p-5 shadow-sm transition duration-300 ease-ruhig hover:-translate-y-0.5 hover:border-salbei hover:shadow-md active:scale-[0.98] active:duration-150"
     >
       {bild ? (
         // eslint-disable-next-line @next/next/no-img-element
@@ -95,7 +95,7 @@ function ModulKarte({ modul }: { modul: StationModulRef }) {
           src={bild}
           alt=""
           aria-hidden="true"
-          className="mbm-deko-piktogramm h-16 w-16 shrink-0 select-none sm:h-20 sm:w-20"
+          className="mbm-deko-piktogramm h-16 w-16 shrink-0 select-none transition-transform duration-500 ease-ruhig group-hover:-rotate-2 group-hover:scale-[1.04] sm:h-20 sm:w-20"
         />
       ) : null}
       <div className="min-w-0 space-y-2">
@@ -108,11 +108,11 @@ function ModulKarte({ modul }: { modul: StationModulRef }) {
             ca. {modul.durationMin} Min
           </p>
         ) : null}
-        <p className="text-salbei-tief transition-colors duration-200 ease-out group-hover:text-akzent">
+        <p className="text-salbei-tief transition-colors duration-200 ease-ruhig group-hover:text-akzent">
           Modul beginnen{" "}
           <span
             aria-hidden="true"
-            className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-1"
+            className="inline-block transition-transform duration-300 ease-ruhig group-hover:translate-x-1.5"
           >
             →
           </span>
@@ -212,7 +212,11 @@ function WegSektion() {
       </p>
       <ol className="space-y-0">
         {landkarte.path.stations.map((station, i) => (
-          <li key={station.id}>
+          <li
+            key={station.id}
+            className="mbm-auftauchen"
+            style={{ animationDelay: `${i * 90}ms` }}
+          >
             {i > 0 ? <Verbinder /> : null}
             <StationAbschnitt station={station} />
           </li>
@@ -307,14 +311,14 @@ export default function Home() {
               src="/deko/wolke-2.svg"
               alt=""
               aria-hidden="true"
-              className="mbm-deko-wolken pointer-events-none absolute -bottom-6 -right-3 w-56 select-none opacity-60 sm:w-64"
+              className="mbm-deko-wolken mbm-wolke-drift-a pointer-events-none absolute -bottom-6 -right-3 w-56 select-none opacity-60 sm:w-64"
             />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/deko/wolke-1.svg"
               alt=""
               aria-hidden="true"
-              className="mbm-deko-wolken pointer-events-none absolute -left-16 -top-8 w-36 select-none opacity-40 sm:-left-24 sm:w-44"
+              className="mbm-deko-wolken mbm-wolke-drift-b pointer-events-none absolute -left-16 -top-8 w-36 select-none opacity-40 sm:-left-24 sm:w-44"
             />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img

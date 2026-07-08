@@ -5,7 +5,7 @@ export const metadata: Metadata = {
 };
 
 const telLinkKlasse =
-  "font-medium text-salbei-tief underline underline-offset-4 transition-colors duration-200 ease-out hover:text-akzent";
+  "font-medium text-salbei-tief underline underline-offset-4 transition-colors duration-200 ease-ruhig hover:text-akzent";
 
 export default function HilfePage() {
   return (

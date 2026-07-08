@@ -48,7 +48,7 @@ export default function JournalFeld({
           type="button"
           onClick={festhalten}
           disabled={!kannFesthalten}
-          className="inline-flex min-h-11 items-center rounded-xl bg-salbei-tief px-4 py-2 font-medium text-grund transition-colors duration-200 ease-out hover:bg-salbei disabled:cursor-not-allowed disabled:bg-linie disabled:text-tinte-sanft"
+          className="inline-flex min-h-11 items-center rounded-xl bg-salbei-tief px-4 py-2 font-medium text-grund transition duration-200 ease-ruhig hover:bg-salbei active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-linie disabled:text-tinte-sanft"
         >
           Festhalten
         </button>

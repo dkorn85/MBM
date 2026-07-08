@@ -20,7 +20,7 @@ export default function Fortschritt({
             <span
               role="img"
               aria-label={`Schritt ${i + 1} von ${titel.length}: ${t}`}
-              className={`block h-2.5 w-2.5 rounded-full transition-colors duration-200 ease-out ${farbe}`}
+              className={`block h-2.5 w-2.5 rounded-full transition-colors duration-300 ease-ruhig ${farbe}`}
             />
           </li>
         );

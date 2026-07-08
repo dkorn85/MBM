@@ -11,7 +11,7 @@ export default function Footer() {
         <p>
           <Link
             href="/hilfe"
-            className="inline-flex min-h-11 items-center text-salbei-tief underline underline-offset-4 transition-colors duration-200 ease-out hover:text-akzent"
+            className="inline-flex min-h-11 items-center text-salbei-tief underline underline-offset-4 transition-colors duration-200 ease-ruhig hover:text-akzent"
           >
             Hilfe in Krisen
           </Link>

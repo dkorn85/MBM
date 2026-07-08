@@ -20,14 +20,14 @@ export default function GemerktesExperiment({
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
         <Link
           href={`/modul/${experiment.modulId}`}
-          className="inline-flex min-h-11 items-center text-salbei-tief underline underline-offset-4 transition-colors duration-200 ease-out hover:text-akzent"
+          className="inline-flex min-h-11 items-center text-salbei-tief underline underline-offset-4 transition-colors duration-200 ease-ruhig hover:text-akzent"
         >
           Zum Modul
         </Link>
         <button
           type="button"
           onClick={nichtMehr}
-          className="inline-flex min-h-11 items-center rounded-xl border border-linie px-4 py-2 text-tinte-sanft transition-colors duration-200 ease-out hover:border-salbei hover:text-tinte"
+          className="inline-flex min-h-11 items-center rounded-xl border border-linie px-4 py-2 text-tinte-sanft transition duration-200 ease-ruhig hover:border-salbei hover:text-tinte active:scale-[0.98]"
         >
           Nicht mehr merken
         </button>

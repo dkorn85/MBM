@@ -42,7 +42,7 @@ export default function ExperimentMerken({
           <button
             type="button"
             onClick={nichtMehr}
-            className="inline-flex min-h-11 items-center rounded-xl border border-linie px-4 py-2 text-tinte-sanft transition-colors duration-200 ease-out hover:border-salbei hover:text-tinte"
+            className="inline-flex min-h-11 items-center rounded-xl border border-linie px-4 py-2 text-tinte-sanft transition duration-200 ease-ruhig hover:border-salbei hover:text-tinte active:scale-[0.98]"
           >
             Nicht mehr merken
           </button>
@@ -51,7 +51,7 @@ export default function ExperimentMerken({
         <button
           type="button"
           onClick={merken}
-          className="inline-flex min-h-11 items-center rounded-xl bg-salbei-tief px-4 py-2 font-medium text-grund transition-colors duration-200 ease-out hover:bg-salbei"
+          className="inline-flex min-h-11 items-center rounded-xl bg-salbei-tief px-4 py-2 font-medium text-grund transition duration-200 ease-ruhig hover:bg-salbei active:scale-[0.98]"
         >
           Experiment merken
         </button>

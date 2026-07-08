@@ -103,14 +103,14 @@ export default function OnboardingDisclaimer() {
           <button
             type="button"
             onClick={verstanden}
-            className="inline-flex min-h-11 items-center rounded-xl bg-salbei-tief px-5 py-2 font-medium text-grund transition-colors duration-200 ease-out hover:bg-salbei"
+            className="inline-flex min-h-11 items-center rounded-xl bg-salbei-tief px-5 py-2 font-medium text-grund transition duration-200 ease-ruhig hover:bg-salbei active:scale-[0.98]"
           >
             Verstanden
           </button>
           <Link
             href="/hilfe"
             onClick={zurHilfe}
-            className="inline-flex min-h-11 items-center text-tinte-sanft underline underline-offset-4 transition-colors duration-200 ease-out hover:text-tinte"
+            className="inline-flex min-h-11 items-center text-tinte-sanft underline underline-offset-4 transition-colors duration-200 ease-ruhig hover:text-tinte"
           >
             Hilfe in Krisen ansehen
           </Link>

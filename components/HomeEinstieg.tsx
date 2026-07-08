@@ -74,7 +74,7 @@ export default function HomeEinstieg({
                 type="button"
                 aria-pressed={an}
                 onClick={() => waehle(m.id)}
-                className={`inline-flex min-h-11 items-center rounded-full px-4 py-1.5 text-sm transition-colors duration-200 ease-out ${
+                className={`inline-flex min-h-11 items-center rounded-full px-4 py-1.5 text-sm transition duration-200 ease-ruhig active:scale-[0.97] ${
                   an
                     ? "bg-salbei-tief text-grund"
                     : "text-tinte-sanft hover:text-salbei-tief"

@@ -115,7 +115,7 @@ export default function AudioPlayer({
             type="button"
             onClick={toggle}
             aria-label={spielt ? "Pausieren" : "Abspielen"}
-            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-salbei-tief text-grund transition-colors duration-200 ease-out hover:bg-salbei"
+            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-salbei-tief text-grund transition duration-200 ease-ruhig hover:bg-salbei active:scale-95"
           >
             {spielt ? (
               <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" fill="currentColor">

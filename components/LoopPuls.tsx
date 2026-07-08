@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { landkarte } from "@/lib/content";
 import { storage, type LoopEintrag } from "@/lib/storage";
 
@@ -53,6 +53,9 @@ export default function LoopPuls() {
   const [eintrag, setEintrag] = useState<LoopEintrag | null>(null);
   const [glueck, setGlueck] = useState("");
   const [glueckGespeichert, setGlueckGespeichert] = useState(false);
+  // Einmaliger, weicher Bestätigungs-Moment beim frischen Setzen des Ankers.
+  const [ankerFunke, setAnkerFunke] = useState(false);
+  const funkeTimer = useRef<number | null>(null);
 
   useEffect(() => {
     const d = heuteDatum();
@@ -65,6 +68,13 @@ export default function LoopPuls() {
     }
   }, []);
 
+  useEffect(
+    () => () => {
+      if (funkeTimer.current) window.clearTimeout(funkeTimer.current);
+    },
+    [],
+  );
+
   const patch = (p: Partial<Omit<LoopEintrag, "datum">>) => {
     if (!datum) return;
     storage.setLoopEintrag(datum, p);
@@ -74,6 +84,17 @@ export default function LoopPuls() {
   const koerper = eintrag?.spuerKoerper ?? 5;
   const stimmung = eintrag?.spuerStimmung ?? 5;
   const ankerGemacht = eintrag?.ankerGemacht === true;
+
+  const ankerUmschalten = () => {
+    const neu = !ankerGemacht;
+    patch({ ankerGemacht: neu });
+    // Nur beim frischen Setzen aufleuchten — nicht beim Zurücknehmen.
+    if (neu) {
+      setAnkerFunke(true);
+      if (funkeTimer.current) window.clearTimeout(funkeTimer.current);
+      funkeTimer.current = window.setTimeout(() => setAnkerFunke(false), 700);
+    }
+  };
 
   return (
     <section className="space-y-5 rounded-3xl border border-linie bg-gradient-to-br from-panel-wahrnehmen to-panel-weit p-6 shadow-sm sm:p-8">
@@ -126,7 +147,7 @@ export default function LoopPuls() {
               });
               setGlueckGespeichert(true);
             }}
-            className="inline-flex min-h-11 items-center rounded-lg bg-salbei-tief px-4 py-1.5 text-sm font-medium text-grund transition-colors duration-200 ease-out hover:bg-salbei"
+            className="inline-flex min-h-11 items-center rounded-lg bg-salbei-tief px-4 py-1.5 text-sm font-medium text-grund transition duration-200 ease-ruhig hover:bg-salbei active:scale-[0.97]"
           >
             Festhalten
           </button>
@@ -144,8 +165,10 @@ export default function LoopPuls() {
           <button
             type="button"
             aria-pressed={ankerGemacht}
-            onClick={() => patch({ ankerGemacht: !ankerGemacht })}
-            className={`inline-flex min-h-11 items-center gap-2 rounded-lg border px-4 py-1.5 text-sm transition-colors duration-200 ease-out ${
+            onClick={ankerUmschalten}
+            className={`inline-flex min-h-11 items-center gap-2 rounded-lg border px-4 py-1.5 text-sm transition duration-200 ease-ruhig active:scale-[0.97] ${
+              ankerFunke ? "mbm-anker-bestaetigt " : ""
+            }${
               ankerGemacht
                 ? "border-salbei bg-salbei/20 text-salbei-tief"
                 : "border-linie text-tinte-sanft hover:border-salbei"

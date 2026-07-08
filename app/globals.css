@@ -25,6 +25,17 @@
   --font-ueberschrift: "Fraunces Variable", serif;
   --font-fliesstext: "Newsreader Variable", Georgia, serif;
   --font-label: "JetBrains Mono Variable", ui-monospace, monospace;
+
+  /* ── Bewegungs-Tokens: ein ruhiger Guss ─────────────────────────────
+     Eine kleine Handvoll Easings & Dauern, damit sich alle Übergänge in
+     der App gleich anfühlen. `--ease-*` erzeugt zugleich Tailwind-Utilities
+     (`ease-ruhig`, `ease-weich`), `--dur-*` sind CSS-Variablen für die
+     Keyframe-Klassen unten. */
+  --ease-ruhig: cubic-bezier(0.22, 0.61, 0.36, 1); /* weiches Ausklingen */
+  --ease-weich: cubic-bezier(0.33, 0, 0.2, 1); /* sanft ein & aus */
+  --dur-schnell: 200ms;
+  --dur-mittel: 320ms;
+  --dur-ruhig: 440ms;
 }
 
 /* ── Design-Tokens (Dark) — gedämpft warm, nicht tiefschwarz-neon ───── */
@@ -117,12 +128,39 @@
   }
 }
 
+/* Fade + minimaler Aufwärts-Hauch — für Schritt-Wechsel & Enter-Momente. */
+@keyframes mbm-auftauchen {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .mbm-schritt-fade {
-  animation: mbm-fade-in 250ms ease-out;
+  animation: mbm-auftauchen var(--dur-mittel) var(--ease-ruhig);
 }
 
 .mbm-stille-fade {
-  animation: mbm-fade-in 600ms ease-out;
+  animation: mbm-fade-in 600ms var(--ease-ruhig);
+}
+
+/* ── Seitenübergang (app/template.tsx) ─────────────────────────────────
+   Jeder Routen-Mount blendet die Seite ruhig ein: sanftes Fade + winziger
+   translateY. `both` hält die Anfangswerte, damit nichts kurz aufblitzt. */
+.mbm-seiten-wechsel {
+  animation: mbm-auftauchen var(--dur-ruhig) var(--ease-ruhig) both;
+}
+
+/* ── Cozy Enter: gestaffeltes Auftauchen (Landkarte) ───────────────────
+   Reine CSS-Animation; die Staffelung kommt über inline `animation-delay`.
+   `both` sorgt dafür, dass Elemente während ihrer Verzögerung noch
+   unsichtbar (Anfangs-Frame) bleiben — kein Flackern. */
+.mbm-auftauchen {
+  animation: mbm-auftauchen var(--dur-ruhig) var(--ease-ruhig) both;
 }
 
 /* ── Atmosphäre: sanftes Schweben (Bison, Drachen) ─────────────────── */
@@ -153,6 +191,60 @@
 .mbm-drachen-schwebt {
   animation: mbm-drachen-tanz 9s ease-in-out infinite;
   transform-origin: 60% 30%;
+}
+
+/* ── Twist: die Hero-Wolken driften eigenständig, versetzt zum Bison ───
+   Zwei sehr langsame, gegenläufige Drifts (andere Dauer + Phase) — dadurch
+   wirkt der Himmel lebendig-ruhig, statt dass alles im Gleichtakt schwebt. */
+@keyframes mbm-wolke-drift-a {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(10px, -6px, 0);
+  }
+}
+
+@keyframes mbm-wolke-drift-b {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-12px, 5px, 0);
+  }
+}
+
+.mbm-wolke-drift-a {
+  animation: mbm-wolke-drift-a 16s ease-in-out infinite;
+}
+
+.mbm-wolke-drift-b {
+  animation: mbm-wolke-drift-b 21s ease-in-out infinite;
+  animation-delay: -4s;
+}
+
+/* ── Twist: sanfter Bestätigungs-Moment (Loop-Anker) ───────────────────
+   Kein Konfetti — ein einmaliges, weiches Aufleuchten + minimales
+   Aufatmen, wenn der Anker frisch gesetzt wird. */
+@keyframes mbm-anker-glanz {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-salbei) 40%, transparent);
+  }
+  40% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px color-mix(in srgb, var(--color-salbei) 0%, transparent);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-salbei) 0%, transparent);
+  }
+}
+
+.mbm-anker-bestaetigt {
+  animation: mbm-anker-glanz 700ms var(--ease-ruhig);
 }
 
 /* Cozy Deko-Piktogramme (Schritt-Bilder, Ebenen-Symbole) — ruhig, dezent */
@@ -219,6 +311,7 @@
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important; /* auch gestaffelte Enter-Delays stilllegen */
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;

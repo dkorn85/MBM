@@ -6,7 +6,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-2xl flex-wrap items-center justify-between gap-x-6 gap-y-1 px-5 py-3 sm:px-6">
         <Link
           href="/"
-          className="flex items-center gap-3 font-ueberschrift text-2xl text-tinte transition-colors duration-200 ease-out hover:text-salbei-tief"
+          className="flex items-center gap-3 font-ueberschrift text-2xl text-tinte transition-colors duration-200 ease-ruhig hover:text-salbei-tief"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -23,7 +23,7 @@ export default function Header() {
             <li>
               <Link
                 href="/mein-weg"
-                className="inline-flex min-h-11 items-center transition-colors duration-200 ease-out hover:text-salbei-tief"
+                className="inline-flex min-h-11 items-center transition-colors duration-200 ease-ruhig hover:text-salbei-tief"
               >
                 Mein Weg
               </Link>
@@ -31,7 +31,7 @@ export default function Header() {
             <li>
               <Link
                 href="/hilfe"
-                className="inline-flex min-h-11 items-center transition-colors duration-200 ease-out hover:text-salbei-tief"
+                className="inline-flex min-h-11 items-center transition-colors duration-200 ease-ruhig hover:text-salbei-tief"
               >
                 Hilfe
               </Link>

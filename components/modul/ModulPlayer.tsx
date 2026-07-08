@@ -113,7 +113,7 @@ function SelbsttestFeld({
         <button
           type="button"
           onClick={festhalten}
-          className="inline-flex min-h-11 items-center rounded-xl bg-salbei-tief px-5 py-2 font-medium text-grund transition-colors duration-200 ease-out hover:bg-salbei"
+          className="inline-flex min-h-11 items-center rounded-xl bg-salbei-tief px-5 py-2 font-medium text-grund transition duration-200 ease-ruhig hover:bg-salbei active:scale-[0.98]"
         >
           Festhalten
         </button>
@@ -415,7 +415,7 @@ export default function ModulPlayer({
           <button
             type="button"
             onClick={zurueck}
-            className="inline-flex min-h-11 items-center rounded-xl px-4 py-2 text-tinte-sanft transition-colors duration-200 ease-out hover:text-tinte"
+            className="inline-flex min-h-11 items-center rounded-xl px-4 py-2 text-tinte-sanft transition duration-200 ease-ruhig hover:text-tinte active:scale-[0.97]"
           >
             Zurück
           </button>
@@ -427,19 +427,19 @@ export default function ModulPlayer({
           <div className="flex flex-wrap items-center justify-end gap-3">
             <Link
               href="/"
-              className="inline-flex min-h-11 items-center rounded-xl border border-linie px-4 py-2 text-tinte-sanft transition-colors duration-200 ease-out hover:border-salbei hover:text-tinte"
+              className="inline-flex min-h-11 items-center rounded-xl border border-linie px-4 py-2 text-tinte-sanft transition duration-200 ease-ruhig hover:border-salbei hover:text-tinte active:scale-[0.98]"
             >
               Zur Übersicht
             </Link>
             {naechstes ? (
               <Link
                 href={`/modul/${naechstes.id}`}
-                className="group inline-flex min-h-11 items-center rounded-xl bg-salbei-tief px-5 py-2 font-medium text-grund transition-colors duration-200 ease-out hover:bg-salbei"
+                className="group inline-flex min-h-11 items-center rounded-xl bg-salbei-tief px-5 py-2 font-medium text-grund transition duration-200 ease-ruhig hover:bg-salbei active:scale-[0.98]"
               >
                 Weiter zu {naechstes.titel}{" "}
                 <span
                   aria-hidden="true"
-                  className="ml-1.5 inline-block transition-transform duration-300 ease-out group-hover:translate-x-1"
+                  className="ml-1.5 inline-block transition-transform duration-300 ease-ruhig group-hover:translate-x-1.5"
                 >
                   →
                 </span>
@@ -450,7 +450,7 @@ export default function ModulPlayer({
           <button
             type="button"
             onClick={weiter}
-            className="inline-flex min-h-11 items-center rounded-xl bg-salbei-tief px-5 py-2 font-medium text-grund transition-colors duration-200 ease-out hover:bg-salbei"
+            className="inline-flex min-h-11 items-center rounded-xl bg-salbei-tief px-5 py-2 font-medium text-grund transition duration-200 ease-ruhig hover:bg-salbei active:scale-[0.98]"
           >
             Weiter
           </button>

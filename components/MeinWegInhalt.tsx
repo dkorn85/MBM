@@ -105,7 +105,7 @@ export default function MeinWegInhalt({
               <li key={m.id}>
                 <Link
                   href={`/modul/${m.id}`}
-                  className="group block rounded-2xl border border-linie bg-flaeche p-5 transition-colors duration-200 ease-out hover:border-salbei"
+                  className="group block rounded-2xl border border-linie bg-flaeche p-5 transition duration-300 ease-ruhig hover:-translate-y-0.5 hover:border-salbei active:scale-[0.98] active:duration-150"
                 >
                   <div className="flex flex-wrap items-center gap-2">
                     <h3 className="text-xl">{m.titel}</h3>
