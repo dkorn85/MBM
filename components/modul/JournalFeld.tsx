@@ -1,37 +1,61 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { storage } from "@/lib/storage";
 
+/** Freitext-Notiz. `frage` NUR anzeigen, wenn gesetzt: im Nachspüren steht die
+ *  Frage schon als 2. Satz im Block (dann kein frage-Feld → nur Platzhalter),
+ *  im Erleben (Anliegen) ist die frage die einzige Quelle → als Label zeigen.
+ *  Mit `speichern` (z.B. "anliegen") landet der Text im Baseline-Snapshot,
+ *  sonst als Journal-Eintrag. */
 export default function JournalFeld({
   frage,
+  platzhalter,
+  speichern,
   modulId,
 }: {
-  frage: string;
+  frage?: string;
+  platzhalter?: string;
+  speichern?: string;
   modulId: string;
 }) {
   const id = useId();
   const [wert, setWert] = useState("");
   const [gespeichert, setGespeichert] = useState(false);
 
+  useEffect(() => {
+    if (!speichern) return;
+    const v = storage.leseePfad(speichern);
+    if (typeof v === "string") {
+      setWert(v);
+      setGespeichert(true);
+    }
+  }, [speichern]);
+
   const kannFesthalten = wert.trim() !== "";
 
   const festhalten = () => {
     if (!kannFesthalten) return;
-    storage.addJournal({
-      modulId,
-      frage,
-      text: wert.trim(),
-      erstellt: new Date().toISOString(),
-    });
+    if (speichern) {
+      storage.speicherePfad(speichern, wert.trim());
+    } else {
+      storage.addJournal({
+        modulId,
+        frage: frage ?? "",
+        text: wert.trim(),
+        erstellt: new Date().toISOString(),
+      });
+    }
     setGespeichert(true);
   };
 
   return (
     <div className="space-y-2">
-      <label htmlFor={id} className="block font-medium text-tinte">
-        {frage}
-      </label>
+      {frage ? (
+        <label htmlFor={id} className="block font-medium text-tinte">
+          {frage}
+        </label>
+      ) : null}
       <textarea
         id={id}
         value={wert}
@@ -40,7 +64,8 @@ export default function JournalFeld({
           setGespeichert(false);
         }}
         rows={4}
-        placeholder="Ein Satz genügt — nur für dich."
+        placeholder={platzhalter ?? "Ein Satz genügt — nur für dich."}
+        aria-label={frage ?? platzhalter ?? "Deine Notiz"}
         className="w-full resize-y rounded-2xl border border-linie bg-flaeche px-4 py-3 text-tinte placeholder:text-tinte-sanft/70 focus-visible:border-salbei-tief"
       />
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">

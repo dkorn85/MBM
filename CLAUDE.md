@@ -56,7 +56,7 @@ Bei Widerspruch zwischen Code-Bequemlichkeit und Wissensbasis gewinnt die Wissen
 - **Next.js 15 (App Router) + Tailwind**, TypeScript. Deployment: **Vercel** (Muster: prompto-studio).
 - **PWA:** installierbar, Kernmodule offline (Texte + Audio precached via Service Worker).
 - **Inhalte als Daten, nicht als Code:** Module liegen als JSON in `content/modules/*.json` (Schema §5). Der Modul-Renderer ist generisch — neue Module = neue JSON + Audio, kein neuer Code.
-- **Audio:** vorproduzierte MP3s in `public/audio/<modulId>/`. Pipeline-Skript `scripts/generate-audio.mjs` (ElevenLabs API, Key + `ELEVENLABS_VOICE_ID` aus `.env` — **entschieden: `hOBDmVrVUuqtp1I3KsIq`**, Modell **`eleven_v3`**, Natural-Stability + etwas langsamer, natürliche Emotion). **v3-Eigenheiten:** kein `previous_text`/`next_text` (nicht unterstützt) und keine SSML-`<break>`-Tags — Pausen laufen über **Ellipsen** im Text, lange Pausen (`[längere Pause]`) über **echte Stille (ffmpeg-concat)** zwischen den Chunks.
+- **Audio:** vorproduzierte MP3s in `public/audio/<modulId>/`. Pipeline-Skript `scripts/generate-audio.mjs` (ElevenLabs API, Key + `ELEVENLABS_VOICE_ID` aus `.env` — **entschieden: `hOBDmVrVUuqtp1I3KsIq`**, Modell **`eleven_v3`**, Natural-Stability + etwas langsamer, natürliche Emotion). **v3-Eigenheiten:** kein `previous_text`/`next_text` (nicht unterstützt) und keine SSML-`<break>`-Tags. **Erzähl-Schritte** (funke/warum/…): Pausen über **Ellipsen** im Text, `[längere Pause]` über echte Stille zwischen Chunks. **Erleben-Schritte** tragen ein **`audioSkript` `[{text, pauseSek}]`** → jede Zeile einzeln synthetisiert, danach EXAKT `pauseSek` echte Stille; zusammengefügt per **ffmpeg concat-Filter** (Sample-Domain, 44.1 kHz mono, nahtlos — behebt Tonspur-Sprünge). `sprechtempo:"langsam"` senkt die Speed (0.8 statt 0.9).
 - **Kein Backend im MVP.** Später optional Supabase (Accounts, Sync) — Architektur so bauen, dass der Storage-Layer austauschbar ist (ein `storage.ts`-Interface über localStorage).
 
 ## 5. Datenmodell (Modul-JSON, Kern) — Stand „Bewegung nach innen"
@@ -81,12 +81,19 @@ type Schritt = {
   titel: string;           // Anzeige, z.B. "Verankern" / "Reflektieren"
   strang?: "kopf" | "hand" | "herz" | "alle"; // Kopf·Hand·Herz
   bloecke: TextBlock[];
-  audio?: string;          // fehlt bei Text-Modulen (Willkommen, Wo du stehst, Rückblick)
+  audio?: string;
   bild?: string;
-  stilleSek?: number;
-  interaktionen?: Interaktion[]; // "journal" | "slider" (vorherNachher) | "selbsttest"
-  experiment?: { haupt: string; optional?: string }; // nur bei typ "experiment"
+  stilleSek?: number;      // Nachspüren: Obergrenze der Pause (Reveal ~4 s + Tap)
+  sprechtempo?: "langsam" | "normal"; // nur Audio-Generierung (erleben = langsam)
+  audioSkript?: { text: string; pauseSek: number }[]; // nur erleben; NICHT im UI
+  interaktionen?: Interaktion[];
+  experiment?: { haupt: string; optional?: string }; // optional beim typ "experiment"
 };
+// TextBlock = { text: string; sichtbarAb?: string }  // sichtbarAb-Block: Gate (lib/gates.ts)
+// Interaktion.art: "journal" (frage optional, platzhalter/speichern) | "slider"
+//   (skala+speichern = Baseline | vorherNachher) | "auswahl" (Chips) |
+//   "auswahl-oder-freitext" (Vorlagen→Feld) | "selbsttest" (Modul 10).
+//   `speichern`-Pfade: baseline.<achse> | anliegen | absicht (lib/storage.ts).
 ```
 
 **Wichtig:** Schritt-Reihenfolge ist **Funke → Warum → Erleben → Verankern (`experiment`) → Reflektieren (`nachspueren`) → Weitergehen** (Lana-Spec; der Validator erzwingt sie). Die alten Typ-Ebenen (Fundament/Werkzeug/…) sind zu unsichtbaren Backend-Tags geworden — sichtbar ist **ein Weg**: 4 Stationen + Loop + Seitenpfad + Horizont. Struktur-Quelle: `konzept/01_App-Struktur_Ebenen-und-Pfade.md` + `konzept/reworked-lana/`.
@@ -135,7 +142,7 @@ Committe klein und benannt (`feat: modul-renderer schritt-navigation`). Nach jed
 - ~~ElevenLabs-Voice final~~ → entschieden: `hOBDmVrVUuqtp1I3KsIq`, Modell `eleven_v3` (Natural, langsamer, natürliche Emotion; in `.env`). Vom User per Ohr am Alarm-Modul bestätigt.
 - ~~App-Name/Branding~~ → entschieden: **YipYip**, Logo = Appa-inspirierter fliegender Bison (`public/icons/yipyip-bison*.svg`)
 - Domain/Ziel-URL nach MVP (Vercel-URL reicht zunächst)
-- **Module 4 & 5 (Energie ablassen, Zur Ruhe kommen) + 10 (Rückblick) sind Opus-Entwürfe → Lana-Review ausstehend.** Module 4/5 werden **erst nach Lanas Freigabe in v3 vertont** (Text könnte sich ändern).
+- ~~Module 4 & 5 sind Opus-Entwürfe → Lana-Review ausstehend~~ → **erledigt (08.07.2026):** Lana hat Module **01–06** in überarbeiteter Fassung geliefert (`Download/MBM/reworked lana/…zip`, Schema v2) — sind jetzt Lana-final und komplett neu vertont (alle 36 Audios). Modul 10 (Rückblick) war nicht im Paket, bleibt wie gehabt.
 - **Bilder-Bibliothek — Lana-Validierung ausstehend:** Die „Warum"-Bilder sind (außer Säbelzahntiger) von der KI erfundene Entwürfe im Geist ihrer Bilder-Bibliothek: vier Fenster (Wo du stehst), Reh schüttelt sich (Energie ablassen), Hafen (Zur Ruhe kommen), Haus-Rundgang (Körper hören), Züge (Gedanken entwirren), Gießkanne (eigene Praxis), Ringe/Weite (Rückblick), Gebrauchsanweisung (Willkommen). Von Lana absegnen lassen.
 - **ES-16 (Horizont / Modul 10):** nur der 4-Ebenen-Selbsttest ist scharf. Echte ES-16-Items brauchen validierte, lizenzierte Quelle (deutsche Validierung offen, gehört in Studie 02) — **nicht erfinden**.
 - Modul 2: die **Absicht** ist derzeit nur eine reflektierende Karte (nicht persistiert); nur der 4-Ebenen-Selbsttest wird als Baseline gespeichert.

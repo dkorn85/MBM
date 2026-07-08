@@ -17,7 +17,7 @@
           "text": "Für fast alles in deinem Leben gab es irgendwann eine Anleitung. Für das Handy, das Auto, den neuen Job."
         },
         {
-          "text": "Für das eine Ding, mit dem du jeden Tag verbringst — deinen eigenen Körper, deinen eigenen Kopf —, hat dir nie jemand eine gegeben."
+          "text": "Für das eine Ding, mit dem du jeden Tag verbringst, deinen eigenen Körper und deinen eigenen Kopf, hat dir nie jemand eine gegeben."
         },
         {
           "text": "Das hier ist der Versuch, genau das nachzuholen. Kein Kurs, den du bestehen musst. Eine Gebrauchsanweisung, die dir gehört."
@@ -35,13 +35,13 @@
           "text": "Drei Dinge, damit du weißt, worauf du dich einlässt."
         },
         {
-          "text": "**Erstens: Das hier ist ein Weg.** Er führt Schritt für Schritt nach innen — vom Runterkommen über das Wahrnehmen bis zu einer Weite, in der vieles leichter wird. Du kannst dem Weg der Reihe nach folgen. Oder du streifst frei umher und gehst dorthin, wo es dich gerade zieht. Beides ist richtig."
+          "text": "**Erstens: Das hier ist ein Weg.** Er führt Schritt für Schritt nach innen. Vom Runterkommen über das Wahrnehmen bis zu einer Weite, in der vieles leichter wird. Du kannst dem Weg der Reihe nach folgen. Oder du streifst frei umher und gehst dorthin, wo es dich gerade zieht. Beides ist richtig."
         },
         {
-          "text": "**Zweitens: Du bist hier nicht kaputt.** Nichts an dir muss repariert werden. Das meiste, was sich anstrengend anfühlt, ist ein völlig normales System, das gerade übersteuert. Du lernst hier, es besser zu verstehen und ihm zu antworten — nicht, gegen dich zu kämpfen."
+          "text": "**Zweitens: Du bist hier nicht kaputt.** Nichts an dir muss repariert werden. Das meiste, was sich anstrengend anfühlt, ist ein völlig normales System, das gerade übersteuert. Du lernst hier, es besser zu verstehen und ihm zu antworten, statt gegen dich zu kämpfen."
         },
         {
-          "text": "**Drittens: Das ist Bildung, keine Therapie.** Wir erklären, wir laden ein, wir üben gemeinsam. Wenn du gerade in einer echten Krise steckst, ist das hier nicht der richtige Ort — dann findest du oben im Menü jederzeit schnelle Hilfe."
+          "text": "**Drittens: Das ist Bildung, keine Therapie.** Wir erklären, wir laden ein, wir üben gemeinsam. Wenn du gerade in einer echten Krise steckst, ist das hier nicht der richtige Ort. Dann findest du oben im Menü jederzeit schnelle Hilfe."
         }
       ]
     },
@@ -50,21 +50,52 @@
       "titel": "Erleben",
       "strang": "hand",
       "audio": "/audio/willkommen/03-erleben.mp3",
+      "sprechtempo": "langsam",
+      "audioSkript": [
+        {
+          "text": "Bevor du weitergehst, machen wir etwas ganz Kleines. Damit das hier nicht nur Lesen bleibt, sondern von Anfang an ein Spüren ist.",
+          "pauseSek": 3
+        },
+        {
+          "text": "Setz dich bequem hin, oder leg dich hin, wenn du magst.",
+          "pauseSek": 5
+        },
+        {
+          "text": "Und jetzt tu einfach mal: nichts. Du musst nichts leisten. Nichts richtig machen.",
+          "pauseSek": 10
+        },
+        {
+          "text": "Spür, dass du gerade hier bist. Dein Körper auf der Unterlage. Der Boden, der dich trägt.",
+          "pauseSek": 10
+        },
+        {
+          "text": "Nimm einen etwas tieferen Atemzug. Und lass beim Ausatmen die Schultern ein Stück sinken.",
+          "pauseSek": 8
+        },
+        {
+          "text": "Noch einen.",
+          "pauseSek": 8
+        },
+        {
+          "text": "Das war es schon. Mehr ist es oft nicht. Genau um solche kleinen Momente geht es hier.",
+          "pauseSek": 0
+        }
+      ],
       "bloecke": [
         {
-          "text": "Bevor du weitergehst, machen wir etwas ganz Kleines — damit das hier nicht nur Lesen bleibt, sondern von Anfang an ein Spüren ist."
+          "text": "Bevor du weitergehst, mach etwas ganz Kleines. Damit das hier nicht nur Lesen bleibt, sondern von Anfang an ein Spüren ist."
         },
         {
-          "text": "Setz oder leg dich für einen Moment bequem hin. Es gibt nichts richtig zu machen, nichts zu leisten. Du darfst einfach ausprobieren."
+          "text": "Setz dich bequem hin. Tu für einen Moment: nichts. Du musst nichts leisten und nichts richtig machen."
         },
         {
-          "text": "Und jetzt tu einfach mal: nichts. Spür, dass du gerade hier bist. Dein Körper an der Unterlage. Der Boden, der dich trägt. Du musst dich nicht halten — du wirst gehalten."
+          "text": "Spür, dass du gerade hier bist. Dein Körper auf der Unterlage, der Boden, der dich trägt."
         },
         {
-          "text": "Und nimm einen etwas tieferen Atemzug — und beim Ausatmen lass die Schultern ein Stück sinken. Und noch einen: einatmen, und beim Ausatmen ein bisschen mehr loslassen."
+          "text": "Dann nimm einen etwas tieferen Atemzug und lass beim Ausatmen die Schultern ein Stück sinken. Und noch einen."
         },
         {
-          "text": "Das war’s. Mehr ist es oft nicht. Genau solche kleinen Momente sind das, worum es hier geht."
+          "text": "Das war es schon. Mehr ist es oft nicht. Genau um solche kleinen Momente geht es hier."
         }
       ]
     },
@@ -72,33 +103,38 @@
       "typ": "experiment",
       "titel": "Verankern",
       "strang": "hand",
+      "audio": "/audio/willkommen/05-experiment.mp3",
       "bloecke": [
         {
-          "text": "Noch eine einzige Bitte an dich, bevor es weitergeht."
+          "text": "Eine einzige Bitte an dich: Komm wieder, wann immer du magst, aber ohne Druck. Es gibt hier keine Serie, die du nicht reißen darfst, und keine Punkte, die du verlierst. Fünf Minuten an einem vollen Tag sind mehr wert als ein perfekter Plan, den keiner durchhält."
         }
-      ],
-      "experiment": {
-        "haupt": "Komm wieder, wann immer du magst — aber ohne Druck. Es gibt hier keine Serie, die du nicht reißen darfst, keine Punkte, die du verlierst. Fünf Minuten an einem vollen Tag sind mehr wert als ein perfekter Plan, den keiner durchhält."
-      }
+      ]
     },
     {
       "typ": "nachspueren",
       "titel": "Reflektieren",
       "strang": "herz",
       "audio": "/audio/willkommen/04-nachspueren.mp3",
-      "stilleSek": 8,
+      "stilleSek": 15,
       "bloecke": [
         {
-          "text": "Bevor es weitergeht: Wie fühlt es sich an, hier zu sein?"
+          "text": "Bleib noch einen Moment und spür nach, wie es sich anfühlt, hier zu sein."
         },
         {
-          "text": "Du musst nichts schreiben — ein Wort genügt, wenn dir danach ist. Neugierig, skeptisch, müde, offen … nichts davon ist falsch."
+          "text": "Und wenn du magst, halt es fest:"
         }
       ],
       "interaktionen": [
         {
-          "art": "journal",
-          "frage": "Wie fühlt es sich an, hier zu sein?"
+          "art": "auswahl",
+          "optionen": [
+            "neugierig",
+            "skeptisch",
+            "müde",
+            "offen",
+            "gemischt"
+          ],
+          "hinweis": "nichts davon ist falsch"
         }
       ]
     },

@@ -6,6 +6,7 @@
   "dauerMin": 6,
   "voraussetzungen": [],
   "moduleType": "fundament",
+  "hinweisBuild": "Liefert die Baseline für Modul 10 (Rückblick & Weite). Selbsttest ist ein Spiegel, keine Diagnose. Nie pathologisierend spiegeln.",
   "schritte": [
     {
       "typ": "funke",
@@ -14,10 +15,10 @@
       "audio": "/audio/wo-du-stehst/01-funke.mp3",
       "bloecke": [
         {
-          "text": "Manchmal weiß man gar nicht so genau, was eigentlich los ist. Es ist nur … viel. Der Schlaf ist unruhig, die Schultern hoch, die Gedanken drehen, und man funktioniert irgendwie weiter."
+          "text": "Manchmal weiß man gar nicht so genau, was eigentlich los ist. Es ist nur: viel. Der Schlaf ist unruhig, die Schultern sind hoch, die Gedanken drehen, und man funktioniert irgendwie weiter."
         },
         {
-          "text": "Der erste Schritt ist nicht, das zu ändern. Der erste Schritt ist, es überhaupt mal zu benennen. Denn was du benennen kannst, bist du nicht mehr ganz so ausgeliefert."
+          "text": "Der erste Schritt ist nicht, das zu ändern. Der erste Schritt ist, es überhaupt mal zu benennen. Denn was du benennen kannst, dem bist du nicht mehr ganz so ausgeliefert."
         }
       ]
     },
@@ -29,22 +30,22 @@
       "bild": "/deko/vier-fenster.svg",
       "bloecke": [
         {
-          "text": "Stress zeigt sich nie nur an einer Stelle. Er meldet sich auf **vier Ebenen** gleichzeitig — wie vier Fenster, durch die du in dich hineinschauen kannst:"
+          "text": "Stress zeigt sich nie nur an einer Stelle. Er meldet sich auf vier Ebenen gleichzeitig, wie vier Fenster, durch die du in dich hineinschauen kannst:"
         },
         {
-          "text": "**Körper** — Verspannung, flacher Atem, Herzklopfen, Müdigkeit."
+          "text": "**Körper.** Verspannung, flacher Atem, Herzklopfen, Müdigkeit."
         },
         {
-          "text": "**Gedanken** — Grübeln, Sorgen, „ich muss“, der Kopf, der nicht abschaltet."
+          "text": "**Gedanken.** Grübeln, Sorgen, „ich muss“, der Kopf, der nicht abschaltet."
         },
         {
-          "text": "**Gefühle & Stimmung** — gereizt, dünnhäutig, leer, unruhig."
+          "text": "**Gefühle und Stimmung.** Gereizt, dünnhäutig, leer, unruhig."
         },
         {
-          "text": "**Verhalten** — hetzen, Pausen streichen, mehr Kaffee, weniger Bewegung."
+          "text": "**Verhalten.** Hetzen, Pausen streichen, mehr Kaffee, weniger Bewegung."
         },
         {
-          "text": "Das Nützliche daran: Wenn du weißt, an welchem Fenster es bei *dir* am lautesten klopft, weißt du auch, wo du am besten ansetzt. Bei manchen ist es der Körper, bei manchen der Kopf. Es gibt kein richtig."
+          "text": "Das Nützliche daran: Wenn du weißt, an welchem Fenster es bei dir am lautesten klopft, weißt du auch, wo du am besten ansetzt. Bei manchen ist es der Körper, bei manchen der Kopf. Es gibt kein richtig."
         }
       ]
     },
@@ -55,32 +56,39 @@
       "audio": "/audio/wo-du-stehst/03-erleben.mp3",
       "bloecke": [
         {
-          "text": "Geh die vier Fenster einmal in Ruhe durch. Kein Test, keine falsche Antwort — nur ehrlich hinschauen. Zieh jeden Regler dorthin, wo es sich für dich gerade stimmig anfühlt."
+          "text": "Geh die vier Fenster einmal in Ruhe durch. Kein Test, keine falsche Antwort. Nur ehrlich hinschauen."
         }
       ],
       "interaktionen": [
         {
-          "art": "selbsttest",
-          "wann": "baseline",
-          "achsen": [
-            {
-              "schluessel": "koerper",
-              "label": "Körper: ruhig ↔ angespannt"
-            },
-            {
-              "schluessel": "gedanken",
-              "label": "Gedanken: ruhig ↔ rasend"
-            },
-            {
-              "schluessel": "stimmung",
-              "label": "Stimmung: weit ↔ dünnhäutig"
-            },
-            {
-              "schluessel": "verhalten",
-              "label": "Verhalten: fürsorglich ↔ im Hetzmodus"
-            }
-          ],
-          "absichtFrage": "Und in einem Satz oder Stichwort: Was bringt dich eigentlich hierher?"
+          "art": "slider",
+          "label": "Dein Körper. Wie geht es ihm gerade?",
+          "skala": "ruhig ↔ angespannt",
+          "speichern": "baseline.koerper"
+        },
+        {
+          "art": "slider",
+          "label": "Deine Gedanken. Wie voll ist der Kopf?",
+          "skala": "ruhig ↔ rasend",
+          "speichern": "baseline.gedanken"
+        },
+        {
+          "art": "slider",
+          "label": "Deine Stimmung. Wie ist sie heute?",
+          "skala": "weit ↔ dünnhäutig",
+          "speichern": "baseline.stimmung"
+        },
+        {
+          "art": "slider",
+          "label": "Dein Verhalten. Wie gehst du gerade mit dir um?",
+          "skala": "fürsorglich ↔ im Hetzmodus",
+          "speichern": "baseline.verhalten"
+        },
+        {
+          "art": "journal",
+          "frage": "Und jetzt, in einem Satz oder Stichwort: Was bringt dich eigentlich hierher?",
+          "optional": true,
+          "speichern": "anliegen"
         }
       ]
     },
@@ -88,33 +96,48 @@
       "typ": "experiment",
       "titel": "Verankern",
       "strang": "hand",
+      "audio": "/audio/wo-du-stehst/05-experiment.mp3",
       "bloecke": [
         {
-          "text": "Zum Schluss keine großen Ziele — nur eine kleine, freundliche Absicht. Nicht „ich muss entspannter werden“. Eher etwas Warmes, das dir gehört."
+          "text": "Zum Schluss keine großen Ziele, nur eine kleine, freundliche Absicht. Nicht „ich muss entspannter werden“. Eher etwas Warmes, das dir gehört."
+        },
+        {
+          "text": "Such dir einen Satz, der sich gut anfühlt, oder schreib deinen eigenen. Diese Absicht begleitet dich leise auf dem Weg, und du kannst sie jederzeit ändern."
         }
       ],
-      "experiment": {
-        "haupt": "**Deine Absicht für den Weg.** Such dir einen Satz, der sich gut anfühlt — zum Beispiel:\n\n„Ich möchte lernen, abends leichter runterzukommen.“\n„Ich möchte meinen Kopf öfter mal zur Ruhe bringen.“\n„Ich möchte wieder spüren, was mir guttut.“\n\nTrag ihn leise mit dir. Diese Absicht begleitet dich — und du kannst sie jederzeit ändern."
-      }
+      "interaktionen": [
+        {
+          "art": "auswahl-oder-freitext",
+          "vorlagen": [
+            "Ich möchte lernen, abends leichter runterzukommen.",
+            "Ich möchte meinen Kopf öfter mal zur Ruhe bringen.",
+            "Ich möchte wieder spüren, was mir guttut."
+          ],
+          "platzhalter": "Oder in deinen Worten …",
+          "speichern": "absicht",
+          "editierbar": true
+        }
+      ]
     },
     {
       "typ": "nachspueren",
       "titel": "Reflektieren",
       "strang": "herz",
       "audio": "/audio/wo-du-stehst/04-nachspueren.mp3",
-      "stilleSek": 10,
+      "stilleSek": 15,
       "bloecke": [
         {
-          "text": "Bleib einen Moment. [Pause]"
+          "text": "Bleib noch einen Moment bei dem, was du gerade über dich gesehen hast. Nichts musst du festhalten. Spür einfach nach."
         },
         {
-          "text": "Und wenn du magst: **Was hast du gerade über dich bemerkt?** Manchmal ist es schon viel, das erste Mal genauer hinzusehen."
+          "text": "Und wenn du magst: **Was ist dir dabei aufgegangen?**"
         }
       ],
       "interaktionen": [
         {
           "art": "journal",
-          "frage": "Was hast du gerade über dich bemerkt?"
+          "platzhalter": "Ein Satz genügt, nur für dich.",
+          "optional": true
         }
       ]
     },
@@ -125,7 +148,7 @@
       "audio": "/audio/wo-du-stehst/06-weitergehen.mp3",
       "bloecke": [
         {
-          "text": "Die meisten Menschen fangen dort an, wo es am lautesten ist — beim Körper, der nicht zur Ruhe kommt. Deshalb ist der nächste Schritt: dein innerer Alarm. Zu verstehen, warum er anspringt, und zu spüren, dass du ihn selbst wieder herunterfahren kannst."
+          "text": "Die meisten Menschen fangen dort an, wo es am lautesten ist: beim Körper, der nicht zur Ruhe kommt. Deshalb ist der nächste Schritt dein innerer Alarm. Zu verstehen, warum er anspringt. Und zu spüren, dass du ihn selbst wieder herunterfahren kannst."
         }
       ]
     }

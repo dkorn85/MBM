@@ -124,11 +124,16 @@ function validiereSchritt(data: unknown, index: number, fehler: Fehler): Schritt
   const bloecke: TextBlock[] = (data.bloecke as unknown[]).map((b, j) => {
     const bPfad = `${pfad}.bloecke[${j}]`;
     if (!istObjekt(b)) fehler(bPfad, "muss ein Objekt sein.");
-    const text = (b as Record<string, unknown>).text;
+    const bo = b as Record<string, unknown>;
+    const text = bo.text;
     if (typeof text !== "string" || text.trim() === "") {
       fehler(`${bPfad}.text`, "muss ein nicht-leerer String sein.");
     }
-    return { text: text as string };
+    const block: TextBlock = { text: text as string };
+    if (bo.sichtbarAb !== undefined) {
+      block.sichtbarAb = pflichtString(bo.sichtbarAb, `${bPfad}.sichtbarAb`, fehler);
+    }
+    return block;
   });
 
   const schritt: Schritt = { typ, titel, bloecke };
@@ -162,6 +167,41 @@ function validiereSchritt(data: unknown, index: number, fehler: Fehler): Schritt
     schritt.stilleSek = data.stilleSek;
   }
 
+  if (data.sprechtempo !== undefined) {
+    if (data.sprechtempo !== "langsam" && data.sprechtempo !== "normal") {
+      fehler(`${pfad}.sprechtempo`, 'muss "langsam" oder "normal" sein.');
+    }
+    schritt.sprechtempo = data.sprechtempo;
+  }
+
+  if (data.audioSkript !== undefined) {
+    if (!Array.isArray(data.audioSkript) || data.audioSkript.length === 0) {
+      fehler(`${pfad}.audioSkript`, "muss ein nicht-leeres Array sein, wenn gesetzt.");
+    }
+    schritt.audioSkript = (data.audioSkript as unknown[]).map((z, k) => {
+      const zPfad = `${pfad}.audioSkript[${k}]`;
+      if (!istObjekt(z)) fehler(zPfad, "muss ein Objekt sein.");
+      const zr = z as Record<string, unknown>;
+      const text = pflichtString(zr.text, `${zPfad}.text`, fehler);
+      if (
+        typeof zr.pauseSek !== "number" ||
+        Number.isNaN(zr.pauseSek) ||
+        zr.pauseSek < 0
+      ) {
+        fehler(`${zPfad}.pauseSek`, "muss eine Zahl ≥ 0 sein.");
+      }
+      return { text, pauseSek: zr.pauseSek as number };
+    });
+  }
+
+  if (data.hinweisBuild !== undefined) {
+    schritt.hinweisBuild = pflichtString(
+      data.hinweisBuild,
+      `${pfad}.hinweisBuild`,
+      fehler,
+    );
+  }
+
   if (data.interaktionen !== undefined) {
     if (!Array.isArray(data.interaktionen)) {
       fehler(`${pfad}.interaktionen`, "muss ein Array sein, wenn gesetzt.");
@@ -171,24 +211,27 @@ function validiereSchritt(data: unknown, index: number, fehler: Fehler): Schritt
     );
   }
 
-  // experiment-Feld genau beim Typ "experiment" vorhanden.
+  // experiment-Feld ist beim Typ "experiment" optional (Verankern kann eine
+  // merkbare Karte tragen ODER nur Text/Interaktion sein), sonst verboten.
   if (typ === "experiment") {
-    if (!istObjekt(data.experiment)) {
-      fehler(`${pfad}.experiment`, 'ist beim Typ "experiment" erforderlich.');
-    }
-    const exp = data.experiment as Record<string, unknown>;
-    const haupt = pflichtString(exp.haupt, `${pfad}.experiment.haupt`, fehler);
-    const experiment: { haupt: string; optional?: string } = { haupt };
-    if (exp.optional !== undefined) {
-      if (typeof exp.optional !== "string" || exp.optional.trim() === "") {
-        fehler(
-          `${pfad}.experiment.optional`,
-          "muss ein nicht-leerer String sein, wenn gesetzt.",
-        );
+    if (data.experiment !== undefined) {
+      if (!istObjekt(data.experiment)) {
+        fehler(`${pfad}.experiment`, "muss ein Objekt sein, wenn gesetzt.");
       }
-      experiment.optional = exp.optional;
+      const exp = data.experiment as Record<string, unknown>;
+      const haupt = pflichtString(exp.haupt, `${pfad}.experiment.haupt`, fehler);
+      const experiment: { haupt: string; optional?: string } = { haupt };
+      if (exp.optional !== undefined) {
+        if (typeof exp.optional !== "string" || exp.optional.trim() === "") {
+          fehler(
+            `${pfad}.experiment.optional`,
+            "muss ein nicht-leerer String sein, wenn gesetzt.",
+          );
+        }
+        experiment.optional = exp.optional;
+      }
+      schritt.experiment = experiment;
     }
-    schritt.experiment = experiment;
   } else if (data.experiment !== undefined) {
     fehler(
       `${pfad}.experiment`,
@@ -208,19 +251,77 @@ function validiereInteraktion(
     return fehler(pfad, "muss ein Objekt sein.");
   }
   if (data.art === "journal") {
-    const frage = pflichtString(data.frage, `${pfad}.frage`, fehler);
-    return { art: "journal", frage };
+    const it: Extract<Interaktion, { art: "journal" }> = { art: "journal" };
+    if (data.frage !== undefined) {
+      it.frage = pflichtString(data.frage, `${pfad}.frage`, fehler);
+    }
+    if (data.platzhalter !== undefined) {
+      it.platzhalter = pflichtString(data.platzhalter, `${pfad}.platzhalter`, fehler);
+    }
+    if (data.optional !== undefined) {
+      if (typeof data.optional !== "boolean") {
+        fehler(`${pfad}.optional`, "muss ein Boolean sein, wenn gesetzt.");
+      }
+      it.optional = data.optional;
+    }
+    if (data.speichern !== undefined) {
+      it.speichern = pflichtString(data.speichern, `${pfad}.speichern`, fehler);
+    }
+    return it;
   }
   if (data.art === "slider") {
     const label = pflichtString(data.label, `${pfad}.label`, fehler);
-    const interaktion: Interaktion = { art: "slider", label };
+    const it: Extract<Interaktion, { art: "slider" }> = { art: "slider", label };
+    if (data.skala !== undefined) {
+      it.skala = pflichtString(data.skala, `${pfad}.skala`, fehler);
+    }
     if (data.vorherNachher !== undefined) {
       if (typeof data.vorherNachher !== "boolean") {
         fehler(`${pfad}.vorherNachher`, "muss ein Boolean sein, wenn gesetzt.");
       }
-      interaktion.vorherNachher = data.vorherNachher;
+      it.vorherNachher = data.vorherNachher;
     }
-    return interaktion;
+    if (data.speichern !== undefined) {
+      it.speichern = pflichtString(data.speichern, `${pfad}.speichern`, fehler);
+    }
+    return it;
+  }
+  if (data.art === "auswahl") {
+    const optionen = pflichtStringArray(data.optionen, `${pfad}.optionen`, fehler);
+    if (optionen.length === 0) {
+      fehler(`${pfad}.optionen`, "muss ein nicht-leeres Array sein.");
+    }
+    const it: Extract<Interaktion, { art: "auswahl" }> = { art: "auswahl", optionen };
+    if (data.hinweis !== undefined) {
+      it.hinweis = pflichtString(data.hinweis, `${pfad}.hinweis`, fehler);
+    }
+    if (data.speichern !== undefined) {
+      it.speichern = pflichtString(data.speichern, `${pfad}.speichern`, fehler);
+    }
+    return it;
+  }
+  if (data.art === "auswahl-oder-freitext") {
+    const vorlagen = pflichtStringArray(data.vorlagen, `${pfad}.vorlagen`, fehler);
+    if (vorlagen.length === 0) {
+      fehler(`${pfad}.vorlagen`, "muss ein nicht-leeres Array sein.");
+    }
+    const it: Extract<Interaktion, { art: "auswahl-oder-freitext" }> = {
+      art: "auswahl-oder-freitext",
+      vorlagen,
+    };
+    if (data.platzhalter !== undefined) {
+      it.platzhalter = pflichtString(data.platzhalter, `${pfad}.platzhalter`, fehler);
+    }
+    if (data.editierbar !== undefined) {
+      if (typeof data.editierbar !== "boolean") {
+        fehler(`${pfad}.editierbar`, "muss ein Boolean sein, wenn gesetzt.");
+      }
+      it.editierbar = data.editierbar;
+    }
+    if (data.speichern !== undefined) {
+      it.speichern = pflichtString(data.speichern, `${pfad}.speichern`, fehler);
+    }
+    return it;
   }
   if (data.art === "selbsttest") {
     if (!Array.isArray(data.achsen) || data.achsen.length === 0) {

@@ -36,6 +36,7 @@ export type SelbsttestSnapshot = {
   wann: "baseline" | "nachher";
   achsen: Record<string, number>; // schluessel -> 0..10
   anliegen?: string;
+  absicht?: string; // Modul 2: freundliche Absicht (auswahl-oder-freitext)
   erstellt: string; // ISO-Datum
 };
 
@@ -62,6 +63,14 @@ export interface MbmStorage {
   entferneExperiment(modulId: string): void;
   getSelbsttest(wann: "baseline" | "nachher"): SelbsttestSnapshot | null;
   setSelbsttest(snap: SelbsttestSnapshot): void; // überschreibt gleiches wann
+  // Generischer Pfad-Setter/-Leser für Interaktionen mit `speichern`
+  // (baseline.<achse> | anliegen | absicht — alles im "baseline"-Snapshot,
+  // damit Modul 10 & „Mein Weg" den Vergleich unverändert lesen).
+  speicherePfad(pfad: string, wert: string | number): void;
+  leseePfad(pfad: string): string | number | null;
+  // Leichter Store für Auswahl-Chips ohne `speichern` (überlebt Reload).
+  getAuswahl(schluessel: string): string | null;
+  setAuswahl(schluessel: string, wert: string): void;
   getLoopEintrag(datum: string): LoopEintrag | null;
   setLoopEintrag(datum: string, patch: Partial<Omit<LoopEintrag, "datum">>): void;
   getLoopHistorie(): LoopEintrag[];
@@ -81,6 +90,7 @@ const KEY_DISCLAIMER = `${PREFIX}disclaimerGesehen`;
 const KEY_SELBSTTEST = `${PREFIX}selbsttest`;
 const KEY_LOOP = `${PREFIX}loop`;
 const KEY_MODUS = `${PREFIX}modus`;
+const KEY_AUSWAHL = `${PREFIX}auswahl`;
 
 /** localStorage nur im Browser; auf dem Server null. */
 function speicher(): Storage | null {
@@ -196,6 +206,49 @@ const localStorageImpl: MbmStorage = {
     const alle = lesen<Record<string, SelbsttestSnapshot>>(KEY_SELBSTTEST, {});
     alle[snap.wann] = snap;
     schreiben(KEY_SELBSTTEST, alle);
+  },
+
+  speicherePfad(pfad, wert) {
+    const snap: SelbsttestSnapshot = this.getSelbsttest("baseline") ?? {
+      wann: "baseline",
+      achsen: {},
+      erstellt: new Date().toISOString(),
+    };
+    if (pfad.startsWith("baseline.")) {
+      const key = pfad.slice("baseline.".length);
+      if (!key) return;
+      snap.achsen = { ...snap.achsen, [key]: Number(wert) };
+    } else if (pfad === "anliegen") {
+      snap.anliegen = String(wert);
+    } else if (pfad === "absicht") {
+      snap.absicht = String(wert);
+    } else {
+      return; // unbekannter Pfad — still ignorieren
+    }
+    this.setSelbsttest(snap);
+  },
+
+  leseePfad(pfad) {
+    const snap = this.getSelbsttest("baseline");
+    if (!snap) return null;
+    if (pfad.startsWith("baseline.")) {
+      const key = pfad.slice("baseline.".length);
+      return snap.achsen[key] ?? null;
+    }
+    if (pfad === "anliegen") return snap.anliegen ?? null;
+    if (pfad === "absicht") return snap.absicht ?? null;
+    return null;
+  },
+
+  getAuswahl(schluessel) {
+    const alle = lesen<Record<string, string>>(KEY_AUSWAHL, {});
+    return alle[schluessel] ?? null;
+  },
+
+  setAuswahl(schluessel, wert) {
+    const alle = lesen<Record<string, string>>(KEY_AUSWAHL, {});
+    alle[schluessel] = wert;
+    schreiben(KEY_AUSWAHL, alle);
   },
 
   getLoopEintrag(datum) {

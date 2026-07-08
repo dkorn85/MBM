@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { istSichtbar } from "@/lib/gates";
 import type { TextBlock } from "@/lib/module-schema";
 
 // Pausen-Marker sind Quelle für die Audio-Pipeline (P2) und bleiben in den
@@ -55,11 +56,13 @@ export function TextAbsaetze({
   );
 }
 
-/** Rendert eine Liste von Text-Blöcken mit ruhigem Absatzabstand. */
+/** Rendert eine Liste von Text-Blöcken mit ruhigem Absatzabstand.
+ *  Blöcke mit `sichtbarAb` bleiben verborgen, bis das Gate aktiv ist. */
 export default function Bloecke({ bloecke }: { bloecke: TextBlock[] }) {
+  const sichtbar = bloecke.filter((block) => istSichtbar(block.sichtbarAb));
   return (
     <div className="max-w-[65ch] space-y-4">
-      {bloecke.map((block, i) => (
+      {sichtbar.map((block, i) => (
         <TextAbsaetze key={i} text={block.text} keyPrefix={`b${i}`} />
       ))}
     </div>

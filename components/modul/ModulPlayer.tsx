@@ -9,7 +9,10 @@ import type {
   SchrittTyp,
 } from "@/lib/module-schema";
 import { storage } from "@/lib/storage";
+import AbsichtFeld from "./AbsichtFeld";
 import AudioPlayer from "./AudioPlayer";
+import AuswahlFeld from "./AuswahlFeld";
+import BaselineRegler from "./BaselineRegler";
 import Bloecke from "./Bloecke";
 import ExperimentMerken from "./ExperimentMerken";
 import Fortschritt from "./Fortschritt";
@@ -181,30 +184,77 @@ function Interaktionen({
   return (
     <div className="space-y-6">
       {liste.map((it, i) => {
-        if (it.art === "journal") {
-          return <JournalFeld key={i} frage={it.frage} modulId={modulId} />;
+        switch (it.art) {
+          case "journal":
+            return (
+              <JournalFeld
+                key={i}
+                frage={it.frage}
+                platzhalter={it.platzhalter}
+                speichern={it.speichern}
+                modulId={modulId}
+              />
+            );
+          case "selbsttest":
+            return <SelbsttestFeld key={i} interaktion={it} />;
+          case "auswahl":
+            return (
+              <AuswahlFeld
+                key={i}
+                optionen={it.optionen}
+                hinweis={it.hinweis}
+                speichern={it.speichern}
+                speicherKey={`${modulId}:${schrittTyp}:${i}`}
+              />
+            );
+          case "auswahl-oder-freitext":
+            return (
+              <AbsichtFeld
+                key={i}
+                vorlagen={it.vorlagen}
+                platzhalter={it.platzhalter}
+                editierbar={it.editierbar}
+                speichern={it.speichern}
+              />
+            );
+          case "slider": {
+            // Mit `speichern` = einmalige Baseline; sonst Vorher/Nachher je Modul.
+            if (it.speichern) {
+              return (
+                <BaselineRegler
+                  key={i}
+                  frage={it.label}
+                  skala={it.skala}
+                  speichern={it.speichern}
+                />
+              );
+            }
+            const wann = schrittTyp === "nachspueren" ? "nachher" : "vorher";
+            const vergleich =
+              schrittTyp === "nachspueren" && it.vorherNachher === true;
+            return (
+              <SpuerRegler
+                key={i}
+                label={it.label}
+                modulId={modulId}
+                wann={wann}
+                vergleich={vergleich}
+              />
+            );
+          }
+          default:
+            return null; // unbekannte Art: nichts rendern
         }
-        if (it.art === "selbsttest") {
-          return <SelbsttestFeld key={i} interaktion={it} />;
-        }
-        const wann = schrittTyp === "nachspueren" ? "nachher" : "vorher";
-        const vergleich =
-          schrittTyp === "nachspueren" && it.vorherNachher === true;
-        return (
-          <SpuerRegler
-            key={i}
-            label={it.label}
-            modulId={modulId}
-            wann={wann}
-            vergleich={vergleich}
-          />
-        );
       })}
     </div>
   );
 }
 
-/** Nachspüren: erst Stille, dann erscheinen die restlichen Blöcke + Interaktionen. */
+// Ziel-Einblendung der Nachspür-Frage: ~4 s, aber nie länger als `stilleSek`.
+const NACHSPUER_ZIEL_MS = 4000;
+
+/** Nachspüren: Satz 1 (Einladung) sofort; die Frage + Interaktionen tauchen nach
+ *  ~4 s auf — oder sofort, wenn man „Wenn du bereit bist" antippt. */
 function NachspuerenSchritt({
   schritt,
   modul,
@@ -215,8 +265,17 @@ function NachspuerenSchritt({
   const [stilleVorbei, setStilleVorbei] = useState(false);
 
   useEffect(() => {
-    const sekunden = schritt.stilleSek ?? 15;
-    const timer = window.setTimeout(() => setStilleVorbei(true), sekunden * 1000);
+    // Reduzierte Bewegung: nichts auf Timer verstecken, gleich zeigen.
+    const reduziert =
+      typeof window !== "undefined" &&
+      window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+    if (reduziert) {
+      setStilleVorbei(true);
+      return;
+    }
+    const obergrenze = (schritt.stilleSek ?? 4) * 1000;
+    const dauer = Math.min(NACHSPUER_ZIEL_MS, obergrenze);
+    const timer = window.setTimeout(() => setStilleVorbei(true), dauer);
     return () => window.clearTimeout(timer);
   }, [schritt.stilleSek]);
 
@@ -245,7 +304,21 @@ function NachspuerenSchritt({
             />
           ) : null}
         </div>
-      ) : null}
+      ) : (
+        <button
+          type="button"
+          onClick={() => setStilleVorbei(true)}
+          className="group inline-flex items-center gap-2 text-sm text-tinte-sanft transition duration-200 ease-ruhig hover:text-tinte"
+        >
+          Wenn du bereit bist
+          <span
+            aria-hidden="true"
+            className="inline-block transition-transform duration-300 ease-ruhig group-hover:translate-x-1"
+          >
+            →
+          </span>
+        </button>
+      )}
     </div>
   );
 }
@@ -275,12 +348,20 @@ function SchrittKoerper({
   if (schritt.typ === "experiment") {
     return (
       <div className="space-y-6">
+        {audio}
         <Bloecke bloecke={schritt.bloecke} />
         {schritt.experiment ? (
           <ExperimentMerken
             modulId={modul.id}
             titel={modul.titel}
             experiment={schritt.experiment}
+          />
+        ) : null}
+        {schritt.interaktionen && schritt.interaktionen.length > 0 ? (
+          <Interaktionen
+            liste={schritt.interaktionen}
+            modulId={modul.id}
+            schrittTyp={schritt.typ}
           />
         ) : null}
       </div>

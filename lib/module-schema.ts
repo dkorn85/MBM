@@ -21,15 +21,58 @@ export type SchrittTyp =
 // Kopf · Hand · Herz — durch jedes Modul gewebt (ein Strang je Schritt).
 export type Strang = "kopf" | "hand" | "herz" | "alle";
 
-export type TextBlock = { text: string };
+export type TextBlock = {
+  text: string;
+  // Gate-ID (z.B. "begegnen-teaser"): Block bleibt versteckt, bis das Gate in
+  // lib/gates.ts aktiv ist. Ohne Feld immer sichtbar.
+  sichtbarAb?: string;
+};
 
 // Eine Achse des Selbsttests (Modul „Wo du gerade stehst"): ein benannter
 // Regler, Label im Format "links ↔ rechts".
 export type SelbsttestAchse = { schluessel: string; label: string };
 
+// Eine Zeile der Audio-Vorlage eines Erleben-Schritts: gesprochener Satz plus
+// die Stille (Sekunden) DANACH. Wird nur vom Audio-Generator gelesen, nie im UI.
+export type AudioSkriptZeile = { text: string; pauseSek: number };
+
+// `speichern` (auf mehreren Interaktionen) ist ein Pfad in den lokalen Speicher,
+// z.B. "baseline.koerper", "anliegen", "absicht" — s. lib/storage.ts speicherePfad().
 export type Interaktion =
-  | { art: "journal"; frage: string }
-  | { art: "slider"; label: string; vorherNachher?: boolean }
+  // Freitext-Notiz. `frage` optional: ist keine gesetzt, steht die Frage schon
+  // im Block-Text und das Feld zeigt nur den Platzhalter.
+  | {
+      art: "journal";
+      frage?: string;
+      platzhalter?: string;
+      optional?: boolean;
+      speichern?: string;
+    }
+  // 0–10-Regler. Zwei Verwendungen: mit `speichern` = einmalige Baseline
+  // (`skala` = Pol-Beschriftung "a ↔ b", `label` = Frage); mit `vorherNachher`
+  // = Vorher/Nachher-Spiegel je Modul (`label` trägt die Pole).
+  | {
+      art: "slider";
+      label: string;
+      skala?: string;
+      vorherNachher?: boolean;
+      speichern?: string;
+    }
+  // Chips, eine Auswahl. `hinweis` = beruhigender Zusatz ("nichts davon ist falsch").
+  | {
+      art: "auswahl";
+      optionen: string[];
+      hinweis?: string;
+      speichern?: string;
+    }
+  // Antippbare Vorlagen füllen ein editierbares Freitextfeld (Modul 2: Absicht).
+  | {
+      art: "auswahl-oder-freitext";
+      vorlagen: string[];
+      platzhalter?: string;
+      editierbar?: boolean;
+      speichern?: string;
+    }
   | {
       art: "selbsttest";
       // wann="baseline" speichert die Ausgangswerte (Modul 2); wann="nachher"
@@ -44,10 +87,13 @@ export type Schritt = {
   typ: SchrittTyp;
   titel: string;
   strang?: Strang; // Kopf·Hand·Herz (optional; Backend/dezente Anzeige)
-  bloecke: TextBlock[];
+  bloecke: TextBlock[]; // Lese-Fassung (bei erleben: das, was im UI steht)
   audio?: string; // z.B. "/audio/alarm/03-erleben.mp3" — fehlt bei Text-Modulen
   bild?: string; // optionales Deko-Bild, z.B. "/deko/saebelzahntiger.svg"
-  stilleSek?: number; // nachspueren/reflektieren: Verzögerung vor den Interaktionen
+  stilleSek?: number; // nachspueren/reflektieren: Obergrenze der Nachspür-Pause
+  sprechtempo?: "langsam" | "normal"; // steuert die ElevenLabs-Speed (nur Audio)
+  audioSkript?: AudioSkriptZeile[]; // exakte Audio-Vorlage (nur erleben); NICHT im UI
+  hinweisBuild?: string; // reiner Build-/Dev-Hinweis, wird nicht gerendert
   interaktionen?: Interaktion[];
   experiment?: { haupt: string; optional?: string }; // nur beim Typ "experiment"
 };

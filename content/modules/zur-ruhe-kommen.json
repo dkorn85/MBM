@@ -13,9 +13,15 @@
       "strang": "herz",
       "audio": "/audio/zur-ruhe-kommen/01-funke.mp3",
       "bloecke": [
-        { "text": "Du machst mal Pause. Setzt dich hin, greifst zum Handy, scrollst ein bisschen. Zehn Minuten später stehst du wieder auf — und bist irgendwie genauso müde wie vorher. Die Pause war da, aber die Ruhe nicht." },
-        { "text": "So geht es vielen von uns: Wir kennen tausend kleine Unterbrechungen, aber kaum noch das echte, tiefe Ausruhen. Das, nach dem man sich wirklich erholt anfühlt." },
-        { "text": "Dieses tiefe Ausruhen ist keine Glückssache. Es ist ein Zustand, den dein Körper kennt — und in den du ihn einladen kannst. In diesem Modul lernst du, wie." }
+        {
+          "text": "Du machst mal Pause. Setzt dich hin, greifst zum Handy, scrollst ein bisschen. Zehn Minuten später stehst du wieder auf, und bist irgendwie genauso müde wie vorher. Die Pause war da, aber die Ruhe nicht."
+        },
+        {
+          "text": "So geht es vielen von uns: Wir kennen tausend kleine Unterbrechungen, aber kaum noch das echte, tiefe Ausruhen. Das, nach dem man sich wirklich erholt anfühlt."
+        },
+        {
+          "text": "Dieses tiefe Ausruhen ist keine Glückssache. Es ist ein Zustand, den dein Körper kennt, und in den du ihn einladen kannst. In diesem Modul lernst du, wie."
+        }
       ]
     },
     {
@@ -25,11 +31,21 @@
       "audio": "/audio/zur-ruhe-kommen/02-warum.mp3",
       "bild": "/deko/hafen.svg",
       "bloecke": [
-        { "text": "Das ist die dritte Eigenheit der Alarmanlage: **die Erholung fehlt.** Nicht, weil wir keine Pausen machen — sondern weil unsere Pausen oft gar keine echte Erholung sind." },
-        { "text": "Stell dir ein Schiff vor. Draußen auf dem offenen Meer arbeitet es ununterbrochen gegen Wind und Wellen — auch wenn es „nur treibt“, ist es nie ganz in Ruhe. Erst im **geschützten Hafen** kommt es wirklich zur Ruhe: Erst dort wird repariert, aufgetankt, ausgebessert." },
-        { "text": "Dein Körper ist genauso. Solange innerlich noch Betrieb ist — Bildschirm, Gedanken, ein halbes Ohr auf Empfang —, treibt er weiter auf offener See. Das Reparieren und Auftanken passiert erst, wenn er in einen tieferen Gang schaltet: die **Entspannungsantwort**, den Ruhe-und-Erholungs-Modus. Genau dann sinkt der Puls, entspannen sich die Muskeln, arbeitet die Verdauung, erholt sich das System wirklich." },
-        { "text": "Und dieser Hafen liegt in dir. Du kommst nicht durch Anstrengung dorthin, sondern durchs Loslassen — indem du dem Körper eins nach dem anderen das Signal gibst: Hier ist es sicher, du darfst jetzt schwer werden, du musst nichts mehr halten." },
-        { "text": "Genau diesen Weg in den Hafen gehen wir jetzt zusammen. Ganz ohne Ziel — außer dem, für ein paar Minuten wirklich anzukommen." }
+        {
+          "text": "Das ist die dritte Eigenheit der Alarmanlage: **die Erholung fehlt.** Nicht, weil wir keine Pausen machen, sondern weil unsere Pausen oft gar keine echte Erholung sind."
+        },
+        {
+          "text": "Stell dir ein Schiff vor. Draußen auf dem offenen Meer arbeitet es ununterbrochen gegen Wind und Wellen. Auch wenn es „nur treibt“, ist es nie ganz in Ruhe. Erst im **geschützten Hafen** kommt es wirklich zur Ruhe. Erst dort wird repariert, aufgetankt, ausgebessert."
+        },
+        {
+          "text": "Dein Körper ist genauso. Solange innerlich noch Betrieb ist, Bildschirm, Gedanken, ein halbes Ohr auf Empfang, treibt er weiter auf offener See. Das Reparieren und Auftanken passiert erst, wenn er in einen tieferen Gang schaltet: die **Entspannungsantwort**, den Ruhe-und-Erholungs-Modus. Genau dann sinkt der Puls, entspannen sich die Muskeln, arbeitet die Verdauung, erholt sich das System wirklich."
+        },
+        {
+          "text": "Und dieser Hafen liegt in dir. Du kommst nicht durch Anstrengung dorthin, sondern durchs Loslassen. Indem du dem Körper eins nach dem anderen das Signal gibst: Hier ist es sicher, du darfst jetzt schwer werden, du musst nichts mehr halten."
+        },
+        {
+          "text": "Genau diesen Weg in den Hafen gehen wir jetzt zusammen. Ganz ohne Ziel, außer dem, für ein paar Minuten wirklich anzukommen."
+        }
       ]
     },
     {
@@ -37,14 +53,123 @@
       "titel": "Erleben",
       "strang": "hand",
       "audio": "/audio/zur-ruhe-kommen/03-erleben.mp3",
+      "sprechtempo": "langsam",
+      "audioSkript": [
+        {
+          "text": "Für diese Übung darfst du es dir besonders bequem machen. Am schönsten im Liegen. Sitzen ist genauso gut. Deck dich zu, wenn dir das angenehm ist.",
+          "pauseSek": 8
+        },
+        {
+          "text": "Für die nächsten Minuten gibt es nichts zu tun. Und wie immer: Was sich nicht gut anfühlt, lässt du weg. Du bestimmst.",
+          "pauseSek": 8
+        },
+        {
+          "text": "Lass die Augen sanft schließen, wenn das für dich in Ordnung ist. Sonst lass den Blick weich auf einem Punkt ruhen.",
+          "pauseSek": 8
+        },
+        {
+          "text": "Spür zuerst die Unterlage, die dich trägt. Wie sie dich hält, an ganz vielen Stellen zugleich.",
+          "pauseSek": 10
+        },
+        {
+          "text": "Du musst dich nirgends festhalten. Du wirst gehalten.",
+          "pauseSek": 15
+        },
+        {
+          "text": "Wir gehen jetzt in Ruhe durch deinen Körper. Nicht um etwas zu prüfen. Sondern um überall dasselbe leise Signal zu geben: Du darfst jetzt loslassen.",
+          "pauseSek": 8
+        },
+        {
+          "text": "Beginne bei der Stirn. Lass sie glatt werden. Weich.",
+          "pauseSek": 10
+        },
+        {
+          "text": "Der Kiefer darf locker werden. Die Zähne ein Spalt auseinander. Die Zunge schwer.",
+          "pauseSek": 10
+        },
+        {
+          "text": "Die Schultern dürfen sinken. Weg von den Ohren. Hinein in die Unterlage.",
+          "pauseSek": 15
+        },
+        {
+          "text": "Lass die Arme schwer werden. Bis in die Hände. Bis in die Fingerspitzen. So schwer, dass du sie kaum noch heben möchtest.",
+          "pauseSek": 15
+        },
+        {
+          "text": "Der Bauch darf weich werden. Und sich mit dem Atem von allein heben und senken.",
+          "pauseSek": 15
+        },
+        {
+          "text": "Der Rücken. Das Becken. Alles darf sich der Unterlage überlassen.",
+          "pauseSek": 15
+        },
+        {
+          "text": "Und die Beine, ganz hinunter bis in die Füße. Schwer. Warm. Ruhig.",
+          "pauseSek": 15
+        },
+        {
+          "text": "Spür einen Moment den ganzen Körper auf einmal. Wie er daliegt. Getragen. Ohne Auftrag. Das ist dein Hafen.",
+          "pauseSek": 20
+        },
+        {
+          "text": "Wenn du magst, stell dir jetzt einen Ort vor, an dem du dich vollkommen sicher und wohl fühlst. Ein wirklicher oder ein erfundener. Ein warmer Raum. Ein Platz in der Natur. Irgendwo, wo dir nichts geschehen kann.",
+          "pauseSek": 10
+        },
+        {
+          "text": "Schau dich dort um. Was siehst du?",
+          "pauseSek": 10
+        },
+        {
+          "text": "Was hörst du?",
+          "pauseSek": 10
+        },
+        {
+          "text": "Wie fühlt sich die Luft an?",
+          "pauseSek": 10
+        },
+        {
+          "text": "Bleib einfach ein Weilchen dort.",
+          "pauseSek": 30
+        },
+        {
+          "text": "Falls unterwegs Unruhe aufkommt oder ein Bild sich nicht gut anfühlt, lass es einfach ziehen. Und komm zurück zur Unterlage und zu deinem Atem. Die tragen dich immer.",
+          "pauseSek": 10
+        },
+        {
+          "text": "Und wenn du bereit bist, kein Stück früher: Nimm den Raum um dich langsam wieder wahr.",
+          "pauseSek": 8
+        },
+        {
+          "text": "Beweg vorsichtig Finger und Zehen.",
+          "pauseSek": 8
+        },
+        {
+          "text": "Und öffne die Augen, wann immer du magst.",
+          "pauseSek": 0
+        }
+      ],
       "bloecke": [
-        { "text": "Für diese Übung darfst du es dir besonders bequem machen. Am schönsten im Liegen — aber Sitzen ist genauso gut. Deck dich zu, wenn dir das angenehm ist. Für die nächsten Minuten gibt es nichts zu tun. Und wie immer: Was sich nicht gut anfühlt, lässt du weg. Du bestimmst. [Pause]" },
-        { "text": "Lass die Augen sanft schließen, wenn das für dich in Ordnung ist — sonst lass den Blick weich auf einem Punkt ruhen. [Pause] Und spür zuerst die Unterlage, die dich trägt. Wie sie dich hält, an ganz vielen Stellen zugleich. Du musst dich nirgends festhalten. Du wirst gehalten. [längere Pause]" },
-        { "text": "Und jetzt gehen wir in Ruhe durch deinen Körper — nicht um etwas zu prüfen, sondern um überall dasselbe leise Signal zu geben: du darfst jetzt loslassen. [Pause] Beginne bei der **Stirn.** Lass sie glatt werden, weich. [Pause] Der **Kiefer** darf locker werden, die Zähne ein Spalt auseinander, die Zunge schwer. [Pause] Die **Schultern** dürfen sinken, weg von den Ohren, hinein in die Unterlage. [längere Pause]" },
-        { "text": "Lass die **Arme** schwer werden, bis in die Hände, bis in die Fingerspitzen. So schwer, dass du sie kaum noch heben möchtest. [Pause] Der **Bauch** darf weich werden und sich mit dem Atem von allein heben und senken. [Pause] Der **Rücken**, das Becken — alles darf sich der Unterlage überlassen. [längere Pause]" },
-        { "text": "Und die **Beine**, ganz hinunter bis in die Füße — schwer, warm, ruhig. [Pause] Spür einen Moment den ganzen Körper auf einmal, wie er daliegt, getragen, ohne Auftrag. Das ist dein Hafen. [längere Pause]" },
-        { "text": "Wenn du magst, stell dir jetzt einen **Ort vor, an dem du dich vollkommen sicher und wohl fühlst.** Ein wirklicher oder ein erfundener — ein warmer Raum, ein Platz in der Natur, irgendwo, wo dir nichts geschehen kann. Schau dich dort um. Was siehst du, was hörst du, wie fühlt sich die Luft an? Bleib einfach ein Weilchen dort. [längere Pause]" },
-        { "text": "Falls unterwegs Unruhe aufkommt oder ein Bild sich nicht gut anfühlt, lass es einfach ziehen und komm zurück zur Unterlage und zu deinem Atem — die tragen dich immer. [Pause] Und wenn du bereit bist, kein Stück früher: Nimm den Raum um dich langsam wieder wahr. Beweg vorsichtig Finger und Zehen. Und öffne die Augen, wann immer du magst. [Pause]" }
+        {
+          "text": "Für diese Übung darfst du es dir besonders bequem machen, am schönsten im Liegen. Sitzen ist genauso gut. Deck dich zu, wenn dir das angenehm ist. Für die nächsten Minuten gibt es nichts zu tun. Und wie immer: Was sich nicht gut anfühlt, lässt du weg. Du bestimmst."
+        },
+        {
+          "text": "Lass die Augen sanft schließen, wenn das für dich in Ordnung ist, sonst lass den Blick weich ruhen. Spür zuerst die Unterlage, die dich trägt, an ganz vielen Stellen zugleich. Du musst dich nirgends festhalten. Du wirst gehalten."
+        },
+        {
+          "text": "Geh dann in Ruhe durch deinen Körper und gib überall dasselbe leise Signal: Du darfst jetzt loslassen. Die Stirn wird glatt und weich. Der Kiefer locker, die Zähne ein Spalt auseinander, die Zunge schwer. Die Schultern sinken, weg von den Ohren, hinein in die Unterlage."
+        },
+        {
+          "text": "Lass die Arme schwer werden, bis in die Fingerspitzen. Der Bauch wird weich und hebt und senkt sich mit dem Atem von allein. Rücken und Becken überlassen sich der Unterlage. Und die Beine, ganz hinunter bis in die Füße: schwer, warm, ruhig."
+        },
+        {
+          "text": "Spür einen Moment den ganzen Körper auf einmal, wie er daliegt, getragen, ohne Auftrag. Das ist dein Hafen."
+        },
+        {
+          "text": "Wenn du magst, stell dir dann einen Ort vor, an dem du dich vollkommen sicher und wohl fühlst. Ein wirklicher oder ein erfundener. Schau dich dort um: Was siehst du, was hörst du, wie fühlt sich die Luft an? Bleib ein Weilchen dort."
+        },
+        {
+          "text": "Falls Unruhe aufkommt oder ein Bild sich nicht gut anfühlt, lass es ziehen und komm zurück zur Unterlage und zu deinem Atem. Die tragen dich immer. Und wenn du bereit bist: Beweg vorsichtig Finger und Zehen, und öffne die Augen, wann immer du magst."
+        }
       ]
     },
     {
@@ -53,11 +178,13 @@
       "strang": "hand",
       "audio": "/audio/zur-ruhe-kommen/05-experiment.mp3",
       "bloecke": [
-        { "text": "Echte Erholung braucht keine Stunde. Sie braucht die Erlaubnis, wirklich abzuschalten. Ein Vorschlag, kein Muss:" }
+        {
+          "text": "Echte Erholung braucht keine Stunde. Sie braucht die Erlaubnis, wirklich abzuschalten. Ein Vorschlag, kein Muss:"
+        }
       ],
       "experiment": {
-        "haupt": "**Ein bewusster Hafen am Tag.** Such dir einmal am Tag zwei, drei Minuten, in denen du nichts nebenher tust — kein Bildschirm, kein halbes Ohr woanders. Leg dich oder setz dich hin und gib deinem Körper ein paar Mal das Signal „du darfst schwer werden“: Schultern sinken, Kiefer locker, ein langes Ausatmen. Mehr nicht.",
-        "optional": "**Oder, zum Bemerken:** Achte diese Woche einmal auf den Unterschied zwischen einer *Pause* und echter *Ruhe*. Wann bist du wirklich im Hafen — und wann treibst du nur mit halber Kraft weiter? Nichts ändern, nur den Unterschied kennenlernen."
+        "haupt": "**Ein bewusster Hafen am Tag.** Such dir einmal am Tag zwei, drei Minuten, in denen du nichts nebenher tust. Kein Bildschirm, kein halbes Ohr woanders. Leg dich oder setz dich hin und gib deinem Körper ein paar Mal das Signal „du darfst schwer werden“: Schultern sinken, Kiefer locker, ein langes Ausatmen. Mehr nicht.",
+        "optional": "**Oder, zum Bemerken:** Achte diese Woche einmal auf den Unterschied zwischen einer *Pause* und echter *Ruhe*. Wann bist du wirklich im Hafen, und wann treibst du nur mit halber Kraft weiter? Nichts ändern, nur den Unterschied kennenlernen."
       }
     },
     {
@@ -67,13 +194,24 @@
       "audio": "/audio/zur-ruhe-kommen/04-nachspueren.mp3",
       "stilleSek": 15,
       "bloecke": [
-        { "text": "Bleib noch einen Moment liegen oder sitzen. Nichts einordnen, nur nachspüren, wie es dir jetzt geht. [Pause]" },
-        { "text": "Und dann, ganz offen: **Wie war es, wirklich zur Ruhe zu kommen?**" },
-        { "text": "Vielleicht magst du festhalten, was du bemerkt hast — und wie es sich anfühlt, verglichen mit vorhin. Es gibt kein richtig und kein falsch." }
+        {
+          "text": "Bleib noch einen Moment liegen oder sitzen. Nichts einordnen, nur nachspüren, wie es dir jetzt geht."
+        },
+        {
+          "text": "Und wenn du magst: **Wie war es, wirklich zur Ruhe zu kommen?**"
+        }
       ],
       "interaktionen": [
-        { "art": "journal", "frage": "Wie war es, wirklich zur Ruhe zu kommen?" },
-        { "art": "slider", "label": "unruhig ↔ ruhig", "vorherNachher": true }
+        {
+          "art": "journal",
+          "platzhalter": "Ein Satz genügt, nur für dich.",
+          "optional": true
+        },
+        {
+          "art": "slider",
+          "label": "unruhig ↔ ruhig",
+          "vorherNachher": true
+        }
       ]
     },
     {
@@ -82,8 +220,12 @@
       "strang": "alle",
       "audio": "/audio/zur-ruhe-kommen/06-weitergehen.mp3",
       "bloecke": [
-        { "text": "Damit hast du die drei Schichten des Runterkommens beisammen: die Bremse für den Moment, das Entladen der aufgestauten Energie — und jetzt die tiefe Erholung, das Auftanken im Hafen." },
-        { "text": "Es fehlt noch die vierte, ehrlichste Schicht: sich die Zeit dafür überhaupt zu nehmen — mitten im Alltag, nicht erst im Urlaub. Genau darum geht es als Nächstes, mit den kleinen Inseln im Tag." }
+        {
+          "text": "Damit hast du drei Schichten des Runterkommens beisammen: die Bremse für den Moment, das Entladen der aufgestauten Energie, und jetzt die tiefe Erholung, das Auftanken im Hafen."
+        },
+        {
+          "text": "Es fehlt noch die vierte, ehrlichste Schicht: sich die Zeit dafür überhaupt zu nehmen. Mitten im Alltag, nicht erst im Urlaub. Genau darum geht es als Nächstes, mit den kleinen Inseln im Tag."
+        }
       ]
     }
   ]

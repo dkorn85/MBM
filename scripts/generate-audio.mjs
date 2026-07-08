@@ -169,6 +169,29 @@ function schrittZuChunks(schritt) {
   return gruppen.map((g) => baueChunkText(g));
 }
 
+// ── audioSkript (Erleben): exakte Zeilen mit Pause-danach ────────────
+// Lanas Erleben-Schritte tragen ein `audioSkript` [{text, pauseSek}]. Jede Zeile
+// wird einzeln synthetisiert; danach kommt EXAKT `pauseSek` echte Stille.
+function skriptZeilen(schritt) {
+  if (!Array.isArray(schritt.audioSkript)) return null;
+  const zeilen = schritt.audioSkript
+    .filter((z) => z && typeof z.text === "string" && z.text.trim() !== "")
+    .map((z) => ({
+      text: bereinige(z.text),
+      pauseSek:
+        typeof z.pauseSek === "number" && z.pauseSek > 0
+          ? Math.round(z.pauseSek)
+          : 0,
+    }));
+  return zeilen.length > 0 ? zeilen : null;
+}
+
+// Sprechtempo → Speed. „langsam" (Übungen) deutlich ruhiger als die Erzählschritte.
+function voiceSettingsFuer(schritt) {
+  const speed = schritt.sprechtempo === "langsam" ? 0.8 : VOICE_SETTINGS.speed;
+  return { ...VOICE_SETTINGS, speed };
+}
+
 // ── Modul laden ──────────────────────────────────────────────────────
 function ladeModul(modulId) {
   const pfad = path.join(REPO_ROOT, "content", "modules", `${modulId}.json`);
@@ -194,28 +217,17 @@ function zielPfad(audioFeld) {
 }
 
 // ── ElevenLabs ───────────────────────────────────────────────────────
-async function synthetisiere({
-  apiKey,
-  voiceId,
-  text,
-  previousText,
-  nextText,
-  previousRequestIds,
-}) {
+async function synthetisiere({ apiKey, voiceId, text, voiceSettings = VOICE_SETTINGS }) {
   const url =
     `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}` +
     `?output_format=${OUTPUT_FORMAT}`;
   const body = {
     text,
     model_id: MODEL_ID,
-    voice_settings: VOICE_SETTINGS,
+    voice_settings: voiceSettings,
   };
   // Hinweis: eleven_v3 unterstützt previous_text/next_text/previous_request_ids
-  // (noch) NICHT. Chunk-Kontinuität ist hier unnötig, da zwischen den Chunks
-  // ohnehin echte Stille sitzt. Parameter werden bewusst nicht gesendet.
-  void previousText;
-  void nextText;
-  void previousRequestIds;
+  // (noch) NICHT — Chunk-Kontinuität ist hier unnötig (echte Stille dazwischen).
 
   let versuch = 0;
   // Retry-Schleife nur für 429.
@@ -353,6 +365,74 @@ function schreibeMp3(zielPfad_, buffers, stilleSek = 0) {
   }
 }
 
+/**
+ * Wie schreibeMp3, aber mit EXAKTER Stille (Sekunden) NACH jeder Zeile aus dem
+ * audioSkript. Nutzt den concat-FILTER (Sample-Domain, mit aresample/aformat je
+ * Eingang) statt des concat-Demuxers → nahtlose Übergänge und einheitliches
+ * Encoding; das behebt den Tonspur-Sprung (z.B. alarm/03 bei ~1:30).
+ */
+function schreibeMp3MitPausen(zielPfad_, buffers, pausenSek) {
+  mkdirSync(path.dirname(zielPfad_), { recursive: true });
+  const fallback = () => writeFileSync(zielPfad_, Buffer.concat(buffers));
+
+  if (buffers.length === 0) return;
+  if (!ffmpegVerfuegbar()) {
+    fallback();
+    return;
+  }
+
+  const arbeitsDir = path.join(
+    os.tmpdir(),
+    `mbm-audio-${process.pid}-${Date.now()}`,
+  );
+  try {
+    mkdirSync(arbeitsDir, { recursive: true });
+
+    // Eingänge: Zeile, [Stille], Zeile, [Stille], … (Stille pro Wert gecacht).
+    const stilleCache = new Map();
+    const inputs = [];
+    buffers.forEach((buf, i) => {
+      const p = path.join(arbeitsDir, `line-${i}.mp3`);
+      writeFileSync(p, buf);
+      inputs.push(p);
+      const pause = pausenSek[i] ?? 0;
+      if (pause > 0) {
+        let s = stilleCache.get(pause);
+        if (!s) {
+          s = erzeugeStilleDatei(pause, arbeitsDir);
+          if (s) stilleCache.set(pause, s);
+        }
+        if (s) inputs.push(s);
+      }
+    });
+
+    const args = ["-y"];
+    for (const p of inputs) args.push("-i", p);
+    // Jeden Eingang auf 44.1 kHz mono normalisieren, dann verketten.
+    const norm = inputs
+      .map((_, i) => `[${i}:a]aresample=44100,aformat=channel_layouts=mono[a${i}]`)
+      .join(";");
+    const kette = inputs.map((_, i) => `[a${i}]`).join("");
+    const filter = `${norm};${kette}concat=n=${inputs.length}:v=0:a=1[out]`;
+    args.push(
+      "-filter_complex", filter, "-map", "[out]",
+      "-ar", "44100", "-ac", "1", "-c:a", "libmp3lame", "-b:a", "128k",
+      zielPfad_,
+    );
+
+    const r = spawnSync("ffmpeg", args, { stdio: "ignore" });
+    if (!(r.status === 0 && existsSync(zielPfad_))) fallback();
+  } catch {
+    fallback();
+  } finally {
+    try {
+      rmSync(arbeitsDir, { recursive: true, force: true });
+    } catch {
+      // egal
+    }
+  }
+}
+
 // ── Ausgabe-Hilfen ───────────────────────────────────────────────────
 function dauerText(bytes) {
   if (!Number.isFinite(bytes) || bytes <= 0) return "–";
@@ -430,6 +510,24 @@ async function main() {
   if (args.dryRun) {
     const zeilen = [];
     for (const schritt of schritte) {
+      const zeilenSkript = skriptZeilen(schritt);
+      if (zeilenSkript) {
+        let gesamtPause = 0;
+        console.log(
+          `\n── ${schritt.audio}  (Schritt: ${schritt.typ}, audioSkript ${zeilenSkript.length} Zeilen, tempo=${schritt.sprechtempo ?? "normal"}) ──`,
+        );
+        zeilenSkript.forEach((z, k) => {
+          gesamtPause += z.pauseSek;
+          console.log(`  ${k + 1}. [Pause ${z.pauseSek}s] ${z.text}`);
+        });
+        zeilen.push({
+          datei: schritt.audio.replace(/^\/audio\//, ""),
+          chunks: `${zeilenSkript.length}z`,
+          dauer: `+${gesamtPause}s Stille`,
+          bytes: "–",
+        });
+        continue;
+      }
       const chunkTexte = schrittZuChunks(schritt);
       console.log(
         `\n── ${schritt.audio}  (Schritt: ${schritt.typ}, ${chunkTexte.length} Chunk(s)) ──`,
@@ -474,27 +572,55 @@ async function main() {
       continue;
     }
 
+    const voiceSettings = voiceSettingsFuer(schritt);
+    const zeilenSkript = skriptZeilen(schritt);
+
+    if (zeilenSkript) {
+      // Erleben mit audioSkript: Zeile für Zeile + exakte Pause danach.
+      console.log(
+        `\n${schritt.audio}: audioSkript, ${zeilenSkript.length} Zeile(n), tempo=${schritt.sprechtempo ?? "normal"} — generiere …`,
+      );
+      const buffers = [];
+      const pausen = [];
+      for (let k = 0; k < zeilenSkript.length; k++) {
+        console.log(
+          `  Zeile ${k + 1}/${zeilenSkript.length} (Pause ${zeilenSkript[k].pauseSek}s) …`,
+        );
+        const { buffer } = await synthetisiere({
+          apiKey,
+          voiceId,
+          text: zeilenSkript[k].text,
+          voiceSettings,
+        });
+        buffers.push(buffer);
+        pausen.push(zeilenSkript[k].pauseSek);
+      }
+      schreibeMp3MitPausen(ziel, buffers, pausen);
+      const bytes = readFileSync(ziel).length;
+      zeilen.push({
+        datei: relativ,
+        chunks: `${zeilenSkript.length}z`,
+        dauer: dauerText(bytes),
+        bytes,
+      });
+      continue;
+    }
+
     const chunkTexte = schrittZuChunks(schritt);
     console.log(
       `\n${schritt.audio}: ${chunkTexte.length} Chunk(s) — generiere …`,
     );
 
     const buffers = [];
-    const requestIds = [];
     for (let k = 0; k < chunkTexte.length; k++) {
-      const previousText = chunkTexte.slice(0, k).join(" ").trim();
-      const nextText = chunkTexte.slice(k + 1).join(" ").trim();
       console.log(`  Chunk ${k + 1}/${chunkTexte.length} …`);
-      const { buffer, requestId } = await synthetisiere({
+      const { buffer } = await synthetisiere({
         apiKey,
         voiceId,
         text: chunkTexte[k],
-        previousText,
-        nextText,
-        previousRequestIds: requestIds,
+        voiceSettings,
       });
       buffers.push(buffer);
-      if (requestId) requestIds.push(requestId);
     }
 
     schreibeMp3(ziel, buffers, STILLE_LANG_SEK);
