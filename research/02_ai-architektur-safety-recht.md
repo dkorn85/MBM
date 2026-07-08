@@ -244,7 +244,7 @@ Die oben (Abschnitt 5) genannte **„Eindruckstheorie"** — der *subjektive Kun
 - [ ] **Keine individualisierte Beratung mit Beratungsvertrag** (v. a. AT-Gewerbe-relevant).
 
 ## Noch offen vor echtem öffentlichem Release
-*(Dieser Lauf brachte KEINE verifizierte Antwort — der Internet-Ausfall traf genau die fetch/verify-Agenten dieser drei Punkte. Kein Ergebnis heißt hier „ungeklärt", nicht „unbedenklich".)*
+*(Der erste Lauf brachte hier keine verifizierte Antwort — Internet-Ausfall. **→ Mit dem fokussierten Nachlauf unten (2026-07-08) sind die Punkte 1–3 jetzt aufgelöst; nur die AT/CH-Feinklärung bleibt offen.**)*
 1. **DSGVO / Gesundheitsdaten + US-LLM-Transfer** (Frage 3): Gelten abgeleitete Schema-/Psyche-Profile als Art.-9-Gesundheitsdaten? Welche entbündelte Einwilligungs-/DPIA-Architektur? Welcher Transfermechanismus für US-LLM (EU-US Data Privacy Framework, Stand 2026)?
 2. **YSQ-Lizenz** (Frage 4): Lizenzgeber, kommerzielle Kosten/Rechte, frei/offen lizenzierte Schema-Alternative?
 3. **Deutsche ES-16 / NAS-7-Validierung** (Frage 5): validierte deutschsprachige Fassungen? Lizenz für kommerzielle App-Nutzung?
@@ -253,3 +253,47 @@ Die oben (Abschnitt 5) genannte **„Eindruckstheorie"** — der *subjektive Kun
 → **Empfehlung:** ein fokussierter Nachlauf nur auf Punkte 1–3 (jetzt bei stabilem Netz) schließt das Release-Tor vollständig.
 
 *Methodik Lauf 2: 5 Suchwinkel → 23 Quellen gefetcht → 101 Kernaussagen → 25 adversarial verifiziert (2/3-Mehrheit zum Verwerfen), 22 bestätigt / 3 verworfen → 8 Synthese-Befunde. 5 von 106 Agenten durch den Internet-Ausfall abgebrochen (v. a. DSGVO/Lizenz/Skalen). Run-ID wf_dd637374-313.*
+
+---
+
+# Nachlauf — DSGVO, Drittland-Transfer, Instrument-Lizenzen, Skalen (verifiziert, 2026-07-08)
+
+*Fokussierter dritter deep-research-Lauf auf die oben offenen Punkte — 106/106 Agenten, 0 Fehler, 25 Claims (überwiegend 3-0 gegen Primärquellen) verifiziert, 0 verworfen, 9 Synthese-Befunde. Run-ID wf_41ae3473-d58. Damit ist das Release-Tor vollständig dokumentiert.*
+
+## Ampel-Überblick
+| Punkt | Ampel | Kurz |
+|---|---|---|
+| DSGVO Art. 9 (abgeleitete Psyche-Profile) | 🟡 gelb (klarer Pfad) | Sind Gesundheitsdaten → explizite, entbündelte Einwilligung + Pflicht-DPIA + Privacy by Design |
+| US-LLM-Drittlandtransfer | 🟡 gelb / 🟢 grün mit EU-Hosting | DPF trägt (noch), aber für Gesundheitsdaten EU-Inferenz wählen |
+| YSQ (Schema-Fragebogen) | 🔴 rot direkt / 🟡 gelb Alternative | YSQ lizenzpflichtig; MSS-YSQ offener, aber gedeckelt + kein Deutsch |
+| ES-16 / NAS-7 deutsch | 🔴 rot / 🟢 grün mit Ersatz | Keine deutsche Validierung → CHIME / FFMQ-D nutzen |
+
+**Wichtig:** Diese Punkte betreffen die spätere **AI-Engine-/Mess-/Cloud-Phase**, NICHT den jetzigen statischen, lokalen Bildungs-Launch (der bleibt rechtlich grün).
+
+## 1 · DSGVO Art. 9 — Gesundheitsdaten
+- **Abgeleitete psychische/Schema-/Stress-/Stimmungsprofile = besondere Kategorie (Gesundheitsdaten)** — EuGH C-252/21 (Meta v. Bundeskartellamt, 4.7.2023): Art. 9 greift schon, wenn Daten sensible Attribute *offenbaren können* (auch durch Ableitung); Recital 35 nennt ausdrücklich *geistigen* Gesundheitszustand + abgeleitete Daten.
+- **Einziger Zulässigkeitsweg: explizite, pro Zweck ENTBÜNDELTE Einwilligung** (Art. 9 Abs. 2 lit. a). „Offensichtlich öffentlich" (lit. e) greift nicht. Koppelungsverbot (Art. 7 Abs. 4): jede nicht-notwendige Verarbeitung einzeln ablehnbar. → **Consent-UI mit getrennten Opt-ins je Zweck** (lokale Analyse · Cloud-Backend · LLM-Aufruf), kein Bundle.
+- **DPIA in DE zwingend** (DSK-Muss-Liste, 2 Trigger: Nr. 11 KI zur Interaktionssteuerung/Bewertung persönlicher Aspekte; Nr. 9 umfassende Persönlichkeitsprofile) → muss **vor** Produktivstellung der AI-Engine vorliegen; plus Privacy by Design/Default (Art. 25).
+
+## 2 · US-LLM & Drittlandtransfer
+- **DPF trägt (Stand 2026):** EuG wies die Klage gegen den EU-US-DPF-Angemessenheitsbeschluss ab (T-553/23 Latombe, 3.9.2025); **AVV (Art. 28) mit DPF-zertifiziertem US-Anbieter** genügt, **SCC + TIA** als Fallback.
+- **Risiko:** Latombe-Rechtsmittel zum EuGH (~31.10.2025, keine aufschiebende Wirkung) — eine Aufhebung würde die DPF-Grundlage kippen (Schrems-III-Szenario).
+- **Belastbar für Gesundheitsdaten: EU-Inferenz.** OpenAI seit 16.1.2026 In-Region-GPU-**Inferenz** + Zero Data Retention (nur neue Projekte), inkl. „ChatGPT for Healthcare"; Alt.: Azure OpenAI EU / AWS Bedrock EU / Mistral. → **EU-Inferenz + ZDR** statt US-Standard-Endpunkt.
+
+## 3 · Schema-Instrument (YSQ)
+- **YSQ-L3 urheberrechtlich geschützt** (Young & Brown 2003 / Schema Therapy Institute) — keine Open-Lizenz, schriftliche (kostenpflichtige) Lizenz nötig, Übersetzung nur mit Erlaubnis.
+- **Offene Alternative MSS-YSQ** (NovoPsych, 19 Schemata; validiert Buchanan et al. 2025, n=2.182). Aber Lizenz **deckelt** kommerzielle Nutzung (max. 1.000 Administrationen/Jahr bzw. 100 Nutzer/Jahr bei Software-Einbindung) + Attribution/ShareAlike; darüber Verhandlungslizenz. **Keine deutsche Validierung.** → aussichtsreichster offener Kandidat, aber Direktverhandlung + deutsche Validierung nötig.
+
+## 4 · Nordstern-Skalen (Gelassenheit/Nicht-Anhaftung)
+- **Keine deutsche Validierung von ES-16 oder NAS-7** (nur EN-Original + chin./Hindi). Eigen-Übersetzung = unvalidiert + lizenzrechtlich fraglich → **nicht selbst übersetzen.**
+- **Ersatz (deutsch validiert):** **CHIME** (Bergomi/Tschacher/Kupper, Diagnostica 2014 — genuin deutsch konstruiert, 8 Facetten inkl. Dezentrierung/Offenheit, nahe an Gleichmut) + **FFMQ-D** (Hogrefe). → **Vorher/Nachher der App auf CHIME/FFMQ-D stützen** (Achtsamkeit/Gleichmut statt exakt Equanimity/Nonattachment). *Ersetzt die im MVP leer gelassenen ES-16-Container.*
+
+## Rest-offen (klein, Umsetzungsphase)
+- Konkrete Lizenzkosten: YSQ (Schema Therapy Institute), MSS-YSQ oberhalb der Schwelle (NovoPsych), CHIME/FFMQ-D (Hogrefe).
+- Validierte deutsche NAS/Nicht-Anhaftungs-Skala jenseits achtsamkeitsnaher Instrumente.
+- DPF-Durabilität: Zeithorizont der Latombe-EuGH-Berufung.
+
+## Gesamt-Fazit Release-Tor
+**Der jetzige statische Bildungs-Launch ist rechtlich im grünen Bereich** (Heilkunde DE/CH grün, AT gelb; kein Backend, keine KI, keine Gesundheitsdaten-Verarbeitung, keine geschützten Skalen im Einsatz). **Alle gelben/roten Punkte betreffen die spätere AI-Engine-/Cloud-/Mess-Phase** und sind mit definierten Maßnahmen lösbar: entbündelte Consent-Architektur + DPIA, EU-Inferenz, lizenzierte oder deutsch-validierte Instrumente (CHIME/FFMQ-D statt ES-16/NAS-7; YSQ-Lizenz oder MSS-YSQ).
+
+*Methodik Nachlauf: 5 Suchwinkel → 24 Quellen → 108 Kernaussagen → 25 adversarial verifiziert (25 bestätigt / 0 verworfen) → 9 Synthese-Befunde. 106/106 Agenten, 0 Fehler. Run-ID wf_41ae3473-d58.*
