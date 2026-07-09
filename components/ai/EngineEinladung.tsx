@@ -36,10 +36,12 @@ export default function EngineEinladung({ anlass }: { anlass: Anlass }) {
     storage.getEngineConsent() ? "bereit" : "opt-in",
   );
   const [ergebnis, setErgebnis] = useState<Einladung | null>(null);
+  const [meldung, setMeldung] = useState<string | null>(null);
 
   if (!ENGINE_ENABLED || phase === "verborgen") return null;
 
   async function hole() {
+    setMeldung(null);
     setPhase("laedt");
     try {
       const res = await fetch("/api/einladung", {
@@ -48,6 +50,10 @@ export default function EngineEinladung({ anlass }: { anlass: Anlass }) {
         body: JSON.stringify({ zustand: sammleZustand(), anlass }),
       });
       if (res.status === 503) return setPhase("verborgen"); // Engine (noch) nicht live
+      if (res.status === 429) {
+        setMeldung("Gerade ist viel los — magst du es in einer Minute nochmal versuchen?");
+        return setPhase("bereit");
+      }
       if (!res.ok) return setPhase("bereit"); // still zurück, kein Fehlerlärm
       setErgebnis((await res.json()) as Einladung);
       setPhase("fertig");
@@ -109,6 +115,7 @@ export default function EngineEinladung({ anlass }: { anlass: Anlass }) {
     return (
       <section className={rahmen} aria-label="Persönliche Spiegelung (KI)">
         <p className="text-tinte-sanft">{FRAGE[anlass]}</p>
+        {meldung ? <p className="text-sm text-tinte-sanft">{meldung}</p> : null}
         <button
           type="button"
           onClick={hole}

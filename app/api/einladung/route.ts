@@ -6,6 +6,7 @@
 import { NextResponse } from "next/server";
 import { ENGINE_ENABLED } from "@/lib/ai-engine/config";
 import { naechsteEinladung } from "@/lib/ai-engine/einladung";
+import { pruefeRate } from "@/lib/ai-engine/ratelimit";
 import type { Anlass } from "@/lib/ai-engine/context";
 import type { Achsen, Zustand } from "@/lib/ai-engine/types";
 
@@ -53,6 +54,20 @@ export async function POST(req: Request) {
   if (!ENGINE_ENABLED || !process.env.MISTRAL_API_KEY) {
     return NextResponse.json({ disabled: true }, { status: 503 });
   }
+
+  // Rate-Limit (Kosten-/Abuse-Schutz auf der öffentlichen Route).
+  const ip =
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    req.headers.get("x-real-ip") ||
+    "unbekannt";
+  const rate = pruefeRate(ip);
+  if (!rate.ok) {
+    return NextResponse.json(
+      { fehler: "rate-limit" },
+      { status: 429, headers: { "Retry-After": String(rate.retryNachSek) } },
+    );
+  }
+
   let body: unknown;
   try {
     body = await req.json();
