@@ -4,21 +4,27 @@
 
 import type { Zustand } from "./types";
 
-// Kompakte Modul-Landkarte (nur so viel, dass die Engine einen passenden
-// nächsten Schritt vorschlagen kann).
-const MODULE: Record<string, string> = {
-  willkommen: "Willkommen — wie das hier funktioniert (Ankommen)",
-  "wo-du-stehst": "Wo du gerade stehst — der Vier-Fenster-Selbstcheck (Ankommen)",
-  alarm: "Dein innerer Alarm — die lange Ausatmung als Bremse (Runterkommen)",
-  "energie-ablassen": "Energie ablassen — aufgestaute Anspannung abschütteln (Runterkommen)",
-  "zur-ruhe-kommen": "Zur Ruhe kommen — tiefe Erholung, der geschützte Hafen (Runterkommen)",
-  inseln: "Kleine Inseln im Tag — Mikro-Pausen (Runterkommen)",
-  "koerper-hoeren": "Den Körper hören — der Rundgang durchs Haus (Wahrnehmen)",
-  "gedanken-entwirren": "Gedanken entwirren — Gedanken als Züge am Bahnsteig (Wahrnehmen)",
-  "eigene-praxis": "Deine eigene Praxis — dein eigener Garten (Weit werden)",
-  "rueckblick-weite": "Rückblick & Weite — was sich bewegt hat (Weit werden)",
+// Kompakte Modul-Landkarte. Titel und Bild sind bewusst GETRENNT: solange beides in
+// einer Zeile stand, empfahl das Modell „das Modul ‚Der geschützte Hafen‘" — also
+// Lanas Bild statt des Modulnamens, den man auf der Landkarte auch findet.
+const MODULE: Record<string, { titel: string; station: string; worum: string }> = {
+  willkommen: { titel: "Willkommen", station: "Ankommen", worum: "wie das hier funktioniert" },
+  "wo-du-stehst": { titel: "Wo du gerade stehst", station: "Ankommen", worum: "der Vier-Fenster-Selbstcheck" },
+  alarm: { titel: "Dein innerer Alarm", station: "Runterkommen", worum: "die lange Ausatmung als Bremse" },
+  "energie-ablassen": { titel: "Energie ablassen", station: "Runterkommen", worum: "aufgestaute Anspannung abschütteln" },
+  "zur-ruhe-kommen": { titel: "Zur Ruhe kommen", station: "Runterkommen", worum: "tiefe Erholung, der geschützte Hafen" },
+  inseln: { titel: "Kleine Inseln im Tag", station: "Runterkommen", worum: "Mikro-Pausen" },
+  "koerper-hoeren": { titel: "Den Körper hören", station: "Wahrnehmen", worum: "der Rundgang durchs Haus" },
+  "gedanken-entwirren": { titel: "Gedanken entwirren", station: "Wahrnehmen", worum: "Gedanken als Züge am Bahnsteig" },
+  "eigene-praxis": { titel: "Deine eigene Praxis", station: "Weit werden", worum: "dein eigener Garten" },
+  "rueckblick-weite": { titel: "Rückblick & Weite", station: "Weit werden", worum: "was sich bewegt hat" },
 };
 const REIHENFOLGE = Object.keys(MODULE);
+
+const zeile = (id: string) => {
+  const m = MODULE[id];
+  return m ? `„${m.titel}“ (${m.station}: ${m.worum})` : id;
+};
 
 // Welche Module es gibt, und wo die Person darin steht. Ohne diese Zeilen erfindet
 // das Modell Modulnamen („Gedanken wie Wolken") — deshalb bekommt sie jeder Kontext,
@@ -26,11 +32,12 @@ const REIHENFOLGE = Object.keys(MODULE);
 export function modulZeilen(abgeschlossen: string[] = []): string[] {
   const zeilen: string[] = [];
   if (abgeschlossen.length)
-    zeilen.push(`- Schon durchlaufen: ${abgeschlossen.map((id) => MODULE[id] || id).join("; ")}.`);
+    zeilen.push(`- Schon durchlaufen: ${abgeschlossen.map(zeile).join("; ")}.`);
   const offen = REIHENFOLGE.filter((id) => !abgeschlossen.includes(id));
-  if (offen.length)
-    zeilen.push(`- Noch offen (mögliche nächste Schritte): ${offen.map((id) => MODULE[id]).join("; ")}.`);
-  zeilen.push("- Nenne NUR Module aus diesen Listen, mit genau diesem Titel. Erfinde keine.");
+  if (offen.length) zeilen.push(`- Noch offen (mögliche nächste Schritte): ${offen.map(zeile).join("; ")}.`);
+  zeilen.push(
+    "- Wenn du ein Modul erwähnst: nenne es EXAKT mit dem Titel in Anführungszeichen, nie mit dem Bild darin. Also „Zur Ruhe kommen“, nicht „Der geschützte Hafen“. Erfinde keine Module.",
+  );
   return zeilen;
 }
 
