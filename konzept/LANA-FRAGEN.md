@@ -102,6 +102,18 @@ bewusst flüchtig, nur ein Moment?
 
 ---
 
+## 7. Später: der Ton der KI-Spiegelung
+
+Wir bauen eine behutsame KI-Schicht, die den bestehenden Weg *persönlich* macht —
+sie spiegelt aus dem, was jemand ohnehin schon eingegeben hat, und stimmt die
+*nächste Einladung* darauf ab (nie Diagnose, nie Druck, immer nur ein Angebot).
+
+**Frage (nicht dringend, aber deins):** Magst du den **Ton dieser Spiegelung**
+mitprägen — im Geist deiner Haltung (Einladung statt Anordnung, folgen statt führen,
+so tief wie tragbar)? Die „Seele" der Engine ist ein Text, an dem du später feilst.
+
+---
+
 ### Was wir parallel schon ohne dich erledigen
 Performance/Ladezeit, Barrierefreiheit, Offline-Fähigkeit, Aufräumen im Code — alles
 Technik, kein Inhalt. Du kommst zu einem aufgeräumten Haus; wir richten zusammen die
