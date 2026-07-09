@@ -10,6 +10,7 @@
     {
       "typ": "funke",
       "titel": "Funke",
+      "audio": "/audio/rueckblick-weite/01-funke.mp3",
       "strang": "herz",
       "bloecke": [
         {
@@ -23,6 +24,7 @@
     {
       "typ": "warum",
       "titel": "Warum",
+      "audio": "/audio/rueckblick-weite/02-warum.mp3",
       "strang": "kopf",
       "bloecke": [
         {
@@ -39,6 +41,7 @@
     {
       "typ": "erleben",
       "titel": "Erleben",
+      "audio": "/audio/rueckblick-weite/03-erleben.mp3",
       "strang": "hand",
       "bloecke": [
         {
@@ -73,6 +76,7 @@
     {
       "typ": "experiment",
       "titel": "Verankern",
+      "audio": "/audio/rueckblick-weite/05-experiment.mp3",
       "strang": "hand",
       "bloecke": [
         {
@@ -86,6 +90,7 @@
     {
       "typ": "nachspueren",
       "titel": "Reflektieren",
+      "audio": "/audio/rueckblick-weite/04-nachspueren.mp3",
       "strang": "herz",
       "stilleSek": 15,
       "bloecke": [
@@ -107,6 +112,7 @@
     {
       "typ": "weitergehen",
       "titel": "Weitergehen",
+      "audio": "/audio/rueckblick-weite/06-weitergehen.mp3",
       "strang": "alle",
       "bloecke": [
         {

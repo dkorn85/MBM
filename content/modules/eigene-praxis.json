@@ -10,6 +10,7 @@
     {
       "typ": "funke",
       "titel": "Funke",
+      "audio": "/audio/eigene-praxis/01-funke.mp3",
       "strang": "herz",
       "bloecke": [
         {
@@ -26,6 +27,7 @@
     {
       "typ": "warum",
       "titel": "Warum",
+      "audio": "/audio/eigene-praxis/02-warum.mp3",
       "strang": "kopf",
       "bloecke": [
         {
@@ -45,6 +47,7 @@
     {
       "typ": "erleben",
       "titel": "Erleben",
+      "audio": "/audio/eigene-praxis/03-erleben.mp3",
       "strang": "hand",
       "sprechtempo": "langsam",
       "audioSkript": [
@@ -90,7 +93,7 @@
         },
         {
           "text": "Der Bahnsteig, an dem du stehen geblieben bist.",
-          "pauseSek": 12
+          "pauseSek": 10
         },
         {
           "text": "Und jetzt frag nicht deinen Kopf, sondern deinen Körper: Bei welcher dieser Übungen ist gerade etwas warm geworden? Welche hat sich am wenigsten nach Aufgabe angefühlt, und am meisten nach Aufatmen?",
@@ -98,7 +101,7 @@
         },
         {
           "text": "Nimm die erste, die sich meldet. Sie muss nicht spektakulär sein. Sie muss nur deine sein.",
-          "pauseSek": 15
+          "pauseSek": 10
         },
         {
           "text": "Und nun such ihr einen Platz. Einen Moment, den es in deinem Tag sowieso gibt. Das Zähneputzen. Der erste Kaffee. Das Hinsetzen ins Auto.",
@@ -106,7 +109,7 @@
         },
         {
           "text": "Stell dir diesen Moment einmal ganz konkret vor, morgen: Du stehst da, wie jeden Tag. Und dann, ganz selbstverständlich, kommt deine Übung dazu. Eine Minute, nicht mehr. Sieh es vor dir, so gewöhnlich wie möglich.",
-          "pauseSek": 15
+          "pauseSek": 10
         },
         {
           "text": "So sieht dein Beet aus. Klein genug, um wirklich gegossen zu werden.",
@@ -138,6 +141,7 @@
     {
       "typ": "experiment",
       "titel": "Verankern",
+      "audio": "/audio/eigene-praxis/05-experiment.mp3",
       "strang": "hand",
       "bloecke": [
         {
@@ -152,6 +156,7 @@
     {
       "typ": "nachspueren",
       "titel": "Reflektieren",
+      "audio": "/audio/eigene-praxis/04-nachspueren.mp3",
       "strang": "herz",
       "stilleSek": 15,
       "bloecke": [
@@ -187,6 +192,7 @@
     {
       "typ": "weitergehen",
       "titel": "Weitergehen",
+      "audio": "/audio/eigene-praxis/06-weitergehen.mp3",
       "strang": "alle",
       "bloecke": [
         {

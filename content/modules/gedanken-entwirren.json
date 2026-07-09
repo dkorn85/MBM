@@ -10,6 +10,7 @@
     {
       "typ": "funke",
       "titel": "Funke",
+      "audio": "/audio/gedanken-entwirren/01-funke.mp3",
       "strang": "herz",
       "bloecke": [
         {
@@ -26,6 +27,7 @@
     {
       "typ": "warum",
       "titel": "Warum",
+      "audio": "/audio/gedanken-entwirren/02-warum.mp3",
       "strang": "kopf",
       "bloecke": [
         {
@@ -48,6 +50,7 @@
     {
       "typ": "erleben",
       "titel": "Erleben",
+      "audio": "/audio/gedanken-entwirren/03-erleben.mp3",
       "strang": "hand",
       "sprechtempo": "langsam",
       "audioSkript": [
@@ -81,7 +84,7 @@
         },
         {
           "text": "Und jetzt warte einfach auf den nächsten Gedanken. Vielleicht kommt er sofort. Vielleicht lässt er dich einen Moment stehen. Auch das ist schön.",
-          "pauseSek": 15
+          "pauseSek": 10
         },
         {
           "text": "Wenn einer einfährt, benenne ihn kurz, wie ein Zugansager: Ah, ein Gedanke über nachher. Ein Gedanke über gestern. Ein Planungs-Zug.",
@@ -89,7 +92,7 @@
         },
         {
           "text": "Mehr nicht. Nicht diskutieren. Nicht prüfen, ob er recht hat. Nur ansagen.",
-          "pauseSek": 15
+          "pauseSek": 10
         },
         {
           "text": "Und dann lass ihn weiterfahren. Du musst ihn nicht wegschieben. Züge fahren von selbst weiter, wenn niemand einsteigt.",
@@ -101,7 +104,7 @@
         },
         {
           "text": "Der nächste darf kommen. Ansagen. Weiterfahren lassen.",
-          "pauseSek": 20
+          "pauseSek": 10
         },
         {
           "text": "Irgendwann merkst du vielleicht: Du sitzt mittendrin in einem Zug und fährst schon eine Weile mit. Genau darum geht es. Der Moment, in dem du es bemerkst, ist die eigentliche Übung.",
@@ -109,11 +112,11 @@
         },
         {
           "text": "Steig freundlich aus, ohne dich zu schimpfen. Und stell dich wieder auf den Bahnsteig: Füße. Unterlage. Atem.",
-          "pauseSek": 20
+          "pauseSek": 10
         },
         {
           "text": "Noch ein, zwei Züge lang. Einfahren lassen. Ansagen. Weiterfahren lassen.",
-          "pauseSek": 25
+          "pauseSek": 10
         },
         {
           "text": "Und dann lass den Bahnhof langsam hinter dir. Spür noch einmal deine Füße. Nimm den Raum wahr.",
@@ -148,6 +151,7 @@
     {
       "typ": "experiment",
       "titel": "Verankern",
+      "audio": "/audio/gedanken-entwirren/05-experiment.mp3",
       "strang": "hand",
       "bloecke": [
         {
@@ -162,6 +166,7 @@
     {
       "typ": "nachspueren",
       "titel": "Reflektieren",
+      "audio": "/audio/gedanken-entwirren/04-nachspueren.mp3",
       "strang": "herz",
       "stilleSek": 15,
       "bloecke": [
@@ -183,6 +188,7 @@
     {
       "typ": "weitergehen",
       "titel": "Weitergehen",
+      "audio": "/audio/gedanken-entwirren/06-weitergehen.mp3",
       "strang": "alle",
       "bloecke": [
         {

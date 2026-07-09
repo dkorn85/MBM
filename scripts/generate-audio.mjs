@@ -43,6 +43,17 @@ const ELLIPSE_LANG = " … … ";
 // Echte Stille (Sekunden) zwischen Chunks (an [längere Pause]-Grenzen).
 const STILLE_LANG_SEK = 2.5;
 
+// Geführte Übungen (Schritte mit `audioSkript`) bekommen eine eigene, ruhigere
+// Stimme — es sind Meditationen, keine Erzähltexte. Alles andere spricht die
+// gewohnte Stimme.
+const VOICE_ID_ERLEBEN_DEFAULT = "rAmra0SCIYOxYmRNDSm3";
+
+// Eine Klangschale öffnet und schließt jede geführte Übung. Bewusst NICHT um jede
+// Pause herum: sie würde die Übung in Gongs ertränken. Kurz gehalten (2 s) — ein
+// langer Ausklang macht den Einstieg zäh.
+const KLANG_DATEI = path.join(HIER, "assets", "klangschale.mp3");
+const KLANG_STILLE_SEK = 1; // Atempause zwischen Schale und Stimme
+
 const MARKER_ENDE = /\[(?:kurze Pause|Pause|längere Pause)\]\s*$/;
 const MARKER_ANFANG = /^\s*\[(?:kurze Pause|Pause|längere Pause)\]/;
 const LAENGERE_ENDE = /\[längere Pause\]\s*$/;
@@ -93,7 +104,15 @@ function verlangeConfig() {
       "ELEVENLABS_API_KEY und ELEVENLABS_VOICE_ID müssen in .env gesetzt sein.",
     );
   }
-  return { apiKey, voiceId };
+  const voiceIdErleben =
+    process.env.ELEVENLABS_VOICE_ID_ERLEBEN || VOICE_ID_ERLEBEN_DEFAULT;
+  return { apiKey, voiceId, voiceIdErleben };
+}
+
+/** Geführte Übung? Genau die Schritte mit `audioSkript` — Modul 2 und 10 erklären
+ *  im „Erleben" nur den Selbsttest und bleiben deshalb bei der gewohnten Stimme. */
+function istGefuehrteUebung(schritt) {
+  return Array.isArray(schritt.audioSkript) && schritt.audioSkript.length > 0;
 }
 
 // ── Text-Aufbereitung (Spec §Text-Aufbereitung) ──────────────────────
@@ -230,7 +249,8 @@ async function synthetisiere({ apiKey, voiceId, text, voiceSettings = VOICE_SETT
   // (noch) NICHT — Chunk-Kontinuität ist hier unnötig (echte Stille dazwischen).
 
   let versuch = 0;
-  // Retry-Schleife nur für 429.
+  let serverVersuch = 0;
+  // Retry-Schleife für 429 (Rate-Limit) und 5xx (vorübergehende Serverfehler).
   for (;;) {
     const res = await fetch(url, {
       method: "POST",
@@ -249,6 +269,22 @@ async function synthetisiere({ apiKey, voiceId, text, voiceSettings = VOICE_SETT
       versuch += 1;
       console.warn(`  Rate-Limit (429) — warte 5 s, Versuch ${versuch}/3 …`);
       await warte(5000);
+      continue;
+    }
+
+    // 500er sind bei ElevenLabs vorübergehend („You have not been charged").
+    // Ohne Retry riss ein einzelner davon einen ganzen Modul-Lauf ab und ließ
+    // alte Tonspuren stehen, die zum neuen Text nicht mehr passten.
+    if (res.status >= 500) {
+      if (serverVersuch >= 4) {
+        throw new Error(`ElevenLabs HTTP ${res.status} nach 5 Versuchen.`);
+      }
+      serverVersuch += 1;
+      const wartezeit = 3000 * serverVersuch; // 3, 6, 9, 12 s
+      console.warn(
+        `  Serverfehler (${res.status}) — warte ${wartezeit / 1000} s, Versuch ${serverVersuch}/4 …`,
+      );
+      await warte(wartezeit);
       continue;
     }
 
@@ -371,7 +407,7 @@ function schreibeMp3(zielPfad_, buffers, stilleSek = 0) {
  * Eingang) statt des concat-Demuxers → nahtlose Übergänge und einheitliches
  * Encoding; das behebt den Tonspur-Sprung (z.B. alarm/03 bei ~1:30).
  */
-function schreibeMp3MitPausen(zielPfad_, buffers, pausenSek) {
+function schreibeMp3MitPausen(zielPfad_, buffers, pausenSek, mitKlangschale = false) {
   mkdirSync(path.dirname(zielPfad_), { recursive: true });
   const fallback = () => writeFileSync(zielPfad_, Buffer.concat(buffers));
 
@@ -391,20 +427,40 @@ function schreibeMp3MitPausen(zielPfad_, buffers, pausenSek) {
     // Eingänge: Zeile, [Stille], Zeile, [Stille], … (Stille pro Wert gecacht).
     const stilleCache = new Map();
     const inputs = [];
+    const stille = (sek) => {
+      let s = stilleCache.get(sek);
+      if (!s) {
+        s = erzeugeStilleDatei(sek, arbeitsDir);
+        if (s) stilleCache.set(sek, s);
+      }
+      return s;
+    };
+
+    // Klangschale öffnet die Übung, kurze Atempause, dann die Stimme.
+    const klang = mitKlangschale && existsSync(KLANG_DATEI) ? KLANG_DATEI : null;
+    if (klang) {
+      inputs.push(klang);
+      const s = stille(KLANG_STILLE_SEK);
+      if (s) inputs.push(s);
+    }
+
     buffers.forEach((buf, i) => {
       const p = path.join(arbeitsDir, `line-${i}.mp3`);
       writeFileSync(p, buf);
       inputs.push(p);
       const pause = pausenSek[i] ?? 0;
       if (pause > 0) {
-        let s = stilleCache.get(pause);
-        if (!s) {
-          s = erzeugeStilleDatei(pause, arbeitsDir);
-          if (s) stilleCache.set(pause, s);
-        }
+        const s = stille(pause);
         if (s) inputs.push(s);
       }
     });
+
+    // … und schließt sie wieder.
+    if (klang) {
+      const s = stille(KLANG_STILLE_SEK);
+      if (s) inputs.push(s);
+      inputs.push(klang);
+    }
 
     const args = ["-y"];
     for (const p of inputs) args.push("-i", p);
@@ -553,7 +609,7 @@ async function main() {
   }
 
   // ── Echt-Lauf ──
-  const { apiKey, voiceId } = verlangeConfig();
+  const { apiKey, voiceId, voiceIdErleben } = verlangeConfig();
   const zeilen = [];
 
   for (const schritt of schritte) {
@@ -577,8 +633,9 @@ async function main() {
 
     if (zeilenSkript) {
       // Erleben mit audioSkript: Zeile für Zeile + exakte Pause danach.
+      // Meditations-Stimme, Klangschale zum Öffnen und Schließen.
       console.log(
-        `\n${schritt.audio}: audioSkript, ${zeilenSkript.length} Zeile(n), tempo=${schritt.sprechtempo ?? "normal"} — generiere …`,
+        `\n${schritt.audio}: audioSkript, ${zeilenSkript.length} Zeile(n), tempo=${schritt.sprechtempo ?? "normal"}, Stimme=Meditation, Klangschale — generiere …`,
       );
       const buffers = [];
       const pausen = [];
@@ -588,14 +645,14 @@ async function main() {
         );
         const { buffer } = await synthetisiere({
           apiKey,
-          voiceId,
+          voiceId: voiceIdErleben,
           text: zeilenSkript[k].text,
           voiceSettings,
         });
         buffers.push(buffer);
         pausen.push(zeilenSkript[k].pauseSek);
       }
-      schreibeMp3MitPausen(ziel, buffers, pausen);
+      schreibeMp3MitPausen(ziel, buffers, pausen, true);
       const bytes = readFileSync(ziel).length;
       zeilen.push({
         datei: relativ,

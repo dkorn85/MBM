@@ -103,7 +103,7 @@
         },
         {
           "text": "Jetzt kommt dein Atem dazu. Du musst nichts an ihm verändern. Beobachte ihn nur, so wie er gerade ist.",
-          "pauseSek": 15
+          "pauseSek": 10
         },
         {
           "text": "Das Einatmen.",
@@ -115,7 +115,7 @@
         },
         {
           "text": "Vielleicht spürst du ihn in der Nase. Vielleicht im Bauch, der sich hebt und senkt.",
-          "pauseSek": 15
+          "pauseSek": 10
         },
         {
           "text": "Und jetzt, ganz sanft, eine kleine Veränderung: Lass das Ausatmen ein wenig länger werden als das Einatmen.",
@@ -127,19 +127,19 @@
         },
         {
           "text": "Und lang ausatmen.",
-          "pauseSek": 16
+          "pauseSek": 10
         },
         {
           "text": "Als würdest du etwas loslassen, das du nicht mehr tragen musst.",
-          "pauseSek": 16
+          "pauseSek": 10
         },
         {
           "text": "Das ist deine Bremse. Ein längeres Ausatmen sagt deinem Nervensystem: Es ist gerade sicher. Du darfst herunterfahren.",
-          "pauseSek": 24
+          "pauseSek": 10
         },
         {
           "text": "Bleib noch ein paar Atemzüge dabei, in deinem Tempo.",
-          "pauseSek": 30
+          "pauseSek": 10
         },
         {
           "text": "Und wenn du so weit bist, lass den Atem wieder von allein fließen.",

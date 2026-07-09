@@ -10,6 +10,7 @@
     {
       "typ": "funke",
       "titel": "Funke",
+      "audio": "/audio/koerper-hoeren/01-funke.mp3",
       "strang": "herz",
       "bloecke": [
         {
@@ -26,6 +27,7 @@
     {
       "typ": "warum",
       "titel": "Warum",
+      "audio": "/audio/koerper-hoeren/02-warum.mp3",
       "strang": "kopf",
       "bloecke": [
         {
@@ -48,6 +50,7 @@
     {
       "typ": "erleben",
       "titel": "Erleben",
+      "audio": "/audio/koerper-hoeren/03-erleben.mp3",
       "strang": "hand",
       "sprechtempo": "langsam",
       "audioSkript": [
@@ -109,11 +112,11 @@
         },
         {
           "text": "Der Rücken, von oben nach unten. Er trägt viel und wird selten besucht.",
-          "pauseSek": 15
+          "pauseSek": 10
         },
         {
           "text": "Und zum Schluss die Beine, bis hinunter in die Füße. Spür, wo sie den Boden oder die Unterlage berühren.",
-          "pauseSek": 15
+          "pauseSek": 10
         },
         {
           "text": "Falls dich unterwegs irgendwo etwas Unangenehmes empfangen hat: Du musst dort nicht bleiben. Geh einfach weiter, zur Unterlage, zu den Füßen, zum Atem. Du bestimmst, was dir guttut.",
@@ -121,7 +124,7 @@
         },
         {
           "text": "Und nun nimm noch einmal den ganzen Körper auf einmal wahr. Von der Stirn bis in die Füße. Du warst gerade überall zu Hause.",
-          "pauseSek": 15
+          "pauseSek": 10
         },
         {
           "text": "Dann komm zurück in den Raum. Und öffne die Augen, wann immer du magst.",
@@ -152,6 +155,7 @@
     {
       "typ": "experiment",
       "titel": "Verankern",
+      "audio": "/audio/koerper-hoeren/05-experiment.mp3",
       "strang": "hand",
       "bloecke": [
         {
@@ -166,6 +170,7 @@
     {
       "typ": "nachspueren",
       "titel": "Reflektieren",
+      "audio": "/audio/koerper-hoeren/04-nachspueren.mp3",
       "strang": "herz",
       "stilleSek": 15,
       "bloecke": [
@@ -187,6 +192,7 @@
     {
       "typ": "weitergehen",
       "titel": "Weitergehen",
+      "audio": "/audio/koerper-hoeren/06-weitergehen.mp3",
       "strang": "alle",
       "bloecke": [
         {
