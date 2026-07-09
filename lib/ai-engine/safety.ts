@@ -45,8 +45,10 @@ export function pruefeEingabe(zustand: Zustand): EingangsPruefung {
 }
 
 // Fixe, sichere Antwort im Krisenfall — nie das Modell frei formulieren lassen.
+// Wortlaut von Lana (2026-07-09): „verdient es gehört zu werden“ statt „klingt nach
+// mehr als einer Übung“ — nicht abwiegeln, sondern zuwenden.
 export const KRISEN_EINLADUNG =
-  "Das, was du gerade beschreibst, klingt nach mehr als einer Übung — und das brauchst du nicht allein zu tragen. Bitte hol dir jetzt echte Unterstützung: oben im Menü unter „Hilfe“ findest du sofort erreichbare Anlaufstellen, die für dich da sind. Du bist damit nicht allein.";
+  "Das, was du gerade beschreibst, verdient es gehört zu werden — und das brauchst du nicht allein zu tragen. Bitte hol dir jetzt echte Unterstützung: oben im Menü unter „Hilfe“ findest du sofort erreichbare Anlaufstellen, die für dich da sind. Du bist damit nicht allein.";
 
 // ── Ausgang: Output-Filter ───────────────────────────────────────────
 // Heilkunde-/Diagnose-Sprache (research/02: Sprach-Blocklist als harte Guardrail).

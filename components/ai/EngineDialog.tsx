@@ -16,7 +16,9 @@ import { localMemory } from "@/lib/ai-engine/memory/local";
 import type { DialogAntwort, MemoryOp, Turn } from "@/lib/ai-engine/dialog-types";
 import { storage } from "@/lib/storage";
 
-const SANFTE_GRENZE = 12; // ab hier eine Pause anregen (Anti-Abhängigkeit)
+// Lana (2026-07-09): früher als gedacht, und ohne Kuschelton — der Weg liegt in den
+// Modulen, nicht im Chat. Die Begrenzung steht auch schon im Opt-in-Text.
+const SANFTE_GRENZE = 7; // ab hier eine Pause anregen (Anti-Abhängigkeit)
 
 function wendeAn(ops: MemoryOp[]) {
   for (const op of ops) {
@@ -88,9 +90,16 @@ export default function EngineDialog() {
       <section className={rahmen} aria-label="Begleitung im Gespräch (KI)">
         <p className="font-label text-xs uppercase tracking-[0.14em] text-etikett">Optional · KI</p>
         <p className="text-tinte-sanft">
-          Wenn du magst, kannst du hier in eigenen Worten schreiben — eine KI (Mistral,
-          EU) spiegelt behutsam und lädt zu kleinen Schritten ein, nie eine Diagnose.
-          Das Gespräch selbst wird <strong>nicht gespeichert</strong>; nur ein paar
+          Wenn du magst, kannst du hier in eigenen Worten schreiben. Was du schreibst,
+          liest eine <strong>KI</strong> (Mistral, in der EU) — kein Mensch. Sie spiegelt,
+          was sie hört, und lädt zu einem kleinen Schritt ein.
+        </p>
+        <p className="text-tinte-sanft">
+          Sie stellt keine Diagnose, sie behandelt nichts und sie kennt dich nicht.
+        </p>
+        <p className="text-tinte-sanft">
+          Es sind ein paar Nachrichten, kein langes Gespräch — der Weg liegt in den
+          Modulen. Das Geschriebene wird <strong>nicht gespeichert</strong>; nur ein paar
           verdichtete Notizen bleiben <strong>auf deinem Gerät</strong> (jederzeit
           einseh- und löschbar). Du kannst das jederzeit abschalten.
         </p>
@@ -144,6 +153,7 @@ export default function EngineDialog() {
       ) : (
         <p className="text-tinte-sanft">
           Schreib, was gerade da ist — in deinen Worten. Es muss nichts Besonderes sein.
+          Ein paar Nachrichten, dann geht es weiter auf deinem Weg.
         </p>
       )}
 
@@ -158,8 +168,8 @@ export default function EngineDialog() {
         <>
           {personTurns >= SANFTE_GRENZE ? (
             <p className="text-sm text-tinte-sanft">
-              Ihr seid schon eine Weile im Gespräch — vielleicht magst du gleich eine
-              Pause machen oder dich an einen echten Menschen wenden. Ich lauf dir nicht weg.
+              Du schreibst schon eine Weile. Der Weg liegt in den Modulen — vielleicht
+              magst du hier pausieren, oder dich an einen echten Menschen wenden.
             </p>
           ) : null}
           {meldung ? <p className="text-sm text-tinte-sanft">{meldung}</p> : null}

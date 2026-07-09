@@ -1,20 +1,13 @@
-# Fragen an Lana — zum Durchgehen
+# Fragen an Lana — Protokoll
 
-Stand: 2026-07-09. Das hier sammelt alles, wo wir **deinen Blick** brauchen, bevor
-es final wird. Alles Technische läuft weiter ohne dich; das hier ist der Content-
-und Herzensteil, den nur du abnehmen kannst. Geh es in deinem Tempo durch —
-gern Punkt für Punkt, nichts muss auf einmal.
+Stand: **2026-07-09, gemeinsam mit Lana durchgegangen.** Ihre Antworten sind unten
+eingetragen. Was noch offen ist, steht unter „Offen".
 
-Kurz zur Einordnung: Module **01–06** sind in deiner überarbeiteten Fassung drin,
-komplett neu vertont und live. Der Rest unten wartet auf dich.
+Module **01–06** sind in Lanas überarbeiteter Fassung drin, vertont und live.
 
 ---
 
-## 1. Module 07–10 — deine Textabnahme (der große Block)
-
-Module 01–06 hast du überarbeitet. **07–10 sind bisher unsere Entwürfe** im Ton
-von „Dein innerer Alarm" — inhaltlich stimmig gebaut, aber noch nicht durch deine
-Hand gegangen:
+## 1. Module 07–10 — Textabnahme ✅ entschieden
 
 | Nr | Modul | Station |
 |----|-------|---------|
@@ -23,98 +16,122 @@ Hand gegangen:
 | 09 | Deine eigene Praxis | Weit werden |
 | 10 | Rückblick & Weite | Weit werden |
 
-**Frage:** Gehst du 07–10 genauso durch wie 01–06 (überarbeiten / in deinen Worten)?
-Wenn ja, liefern wir sie dir im gleichen Format wie dein 01–06-Paket.
+**Lana:** überarbeitet 07–10 **voll, wie 01–06** — in ihren Worten.
 
-> Wichtig: Erst wenn dein Text steht, vertonen wir 07–10 neu mit der v3-Stimme —
-> damit wir nicht zweimal einsprechen. Bis dahin laufen sie mit der alten Vertonung.
+**Daraus folgt eine feste Reihenfolge:** erst Lanas Text → dann das „Warum"-Bild →
+dann die v3-Vertonung. Nichts davon vorziehen (sonst sprechen/zeichnen wir zweimal).
+
+→ **Nächster Schritt (wir):** 07–10 im gleichen Format wie ihr 01–06-Paket liefern.
 
 ---
 
-## 2. Bilder-Bibliothek — passen die „Warum"-Bilder zu dir?
+## 2. Bilder-Bibliothek ✅ teilweise entschieden
 
-Jedes Modul hat im Schritt „Warum" ein Bild aus deiner Bilder-Sprache. **Bis auf den
-Säbelzahntiger (Alarm) sind alle von der KI erfunden** — im Geist deiner Bibliothek,
-aber ohne deine Freigabe. Bitte sag bei jedem: **passt / ändern / ganz anderes Bild**:
-
-| Modul | Bild-Idee | passt? |
+| Modul | Bild-Idee | Status |
 |-------|-----------|--------|
-| Willkommen | Gebrauchsanweisung / Handbuch | ☐ |
-| Wo du stehst | Vier Fenster | ☐ |
-| Dein innerer Alarm | Säbelzahntiger *(schon von dir)* | ✓ |
-| Energie ablassen | Reh, das sich schüttelt | ☐ |
-| Zur Ruhe kommen | Hafen | ☐ |
-| Kleine Inseln im Tag | Insel | ☐ |
-| Den Körper hören | Haus-Rundgang | ☐ |
-| Gedanken entwirren | Züge, die durchfahren | ☐ |
-| Deine eigene Praxis | Gießkanne | ☐ |
-| Rückblick & Weite | Ringe / Weite | ☐ |
+| Willkommen | Gebrauchsanweisung / Handbuch | ✅ Lana ok |
+| Wo du stehst | Vier Fenster | ✅ Lana ok |
+| Dein innerer Alarm | Säbelzahntiger | ✅ von Lana |
+| Energie ablassen | Reh, das sich schüttelt | ✅ Lana ok |
+| Zur Ruhe kommen | Hafen | ✅ Lana ok |
+| Kleine Inseln im Tag | Insel | ✅ Lana ok |
+| Den Körper hören | Haus-Rundgang | ⏸ wartet auf ihren Text |
+| Gedanken entwirren | Züge am Bahnsteig | ⏸ wartet auf ihren Text |
+| Deine eigene Praxis | Gießkanne | ⏸ wartet auf ihren Text |
+| Rückblick & Weite | Ringe / Weite | ⏸ wartet auf ihren Text |
 
-**Frage:** Welche Bilder tragen, welche sollen wir ersetzen — und hast du für ein
-Modul ein konkretes Bild im Kopf, das wir stattdessen bauen sollen?
-
----
-
-## 3. Der Gleichmut-Selbsttest (Horizont, Modul 10)
-
-Der 4-Ebenen-Selbsttest (Modul 2 als Baseline, Modul 10 als Vorher/Nachher) ist
-scharf und funktioniert. Für den **Horizont „Gelassenheit"** wollten wir zusätzlich
-einen Gleichmut-/Nicht-Anhaftungs-Fragebogen. Unsere Recherche (Studie 02) sagt:
-
-- Die ursprünglich gedachten Skalen (ES-16, NAS-7) haben **keine geprüfte deutsche
-  Fassung** — die dürfen wir nicht einfach selbst zusammenbasteln.
-- **Gut validiert auf Deutsch** wären stattdessen **CHIME** (Achtsamkeit, Bergomi 2014)
-  oder **FFMQ-D**.
-
-**Frage:** Ist es für dich stimmig, wenn wir den Horizont-Selbsttest auf
-CHIME/FFMQ-D-Basis aufbauen? Oder hast du eine eigene, dir vertraute Quelle für
-„Gleichmut / innere Weite", die wir nutzen sollen? *(Wir erfinden hier bewusst nichts.)*
+**Lana:** „Bilder 1–6 haben mein Okay. Die Bilder 7–10 kenne ich noch nicht, dafür
+muss ich erst die Texte lesen." — Das Bild folgt dem Text, nicht umgekehrt.
 
 ---
 
-## 4. Modul 2 — die „Absicht"
+## 3. Gleichmut-Selbsttest (Horizont, Modul 10) ✅ entschieden
 
-Aktuell speichern wir aus Modul 2 nur den 4-Ebenen-Selbsttest als Baseline. Die
-**Absicht** („Wofür bist du hier?") ist bisher nur eine reflektierende Karte — sie
-wird *nicht* gespeichert und im Rückblick *nicht* gespiegelt.
+**Lana: gar kein Fragebogen.** Der Horizont bleibt eine offene Reflexion ohne Skala —
+kein Messen, nur Spüren.
 
-**Frage:** Soll die Absicht festgehalten und in Modul 10 („Rückblick") sanft
-zurückgespiegelt werden („Damals hast du dir das vorgenommen…")? Oder bleibt sie
-bewusst flüchtig, nur ein Moment?
+Damit ist die ES-16-/NAS-7-Frage **endgültig erledigt** (fehlende deutsche Validierung,
+siehe `research/02`); auch CHIME/FFMQ-D werden **nicht** eingebaut.
 
----
-
-## 5. Tonfall & Sicherheit — dein Ohr
-
-- Gibt es in 07–10 (nach deiner Durchsicht) Formulierungen, die du anders sagst?
-  Du bist die Stimme — jeder Satz, der sich nicht nach dir anfühlt, wird geändert.
-- Die Krisen-/Safety-Texte (Disclaimer beim Start, „Hilfe in Krisen") sind drin und
-  live. **Frage:** Fühlst du dich mit dem Wortlaut wohl, oder soll etwas weicher/klarer?
+→ **Nächster Schritt (wir):** die leeren ES-16-Container aus Modul 10 entfernen, statt
+sie zu füllen.
 
 ---
 
-## 6. Sonstiges / offen für dich
+## 4. Modul 2 — die „Absicht" ✅ entschieden
 
-- Stimmt die **Reihenfolge & Stations-Zuordnung** von 07–10 für dich (Körper hören
-  und Gedanken entwirren unter „Wahrnehmen"; eigene Praxis und Rückblick unter „Weit
-  werden")?
-- Fehlt dir ein Thema, das unbedingt noch ein eigenes Modul verdient?
+**Lana: festhalten und zurückspiegeln.** Modul 10 („Rückblick") bringt die eigene
+Absicht sanft zurück („Damals hast du dir das vorgenommen …"). Bleibt lokal auf dem Gerät.
 
----
-
-## 7. Später: der Ton der KI-Spiegelung
-
-Wir bauen eine behutsame KI-Schicht, die den bestehenden Weg *persönlich* macht —
-sie spiegelt aus dem, was jemand ohnehin schon eingegeben hat, und stimmt die
-*nächste Einladung* darauf ab (nie Diagnose, nie Druck, immer nur ein Angebot).
-
-**Frage (nicht dringend, aber deins):** Magst du den **Ton dieser Spiegelung**
-mitprägen — im Geist deiner Haltung (Einladung statt Anordnung, folgen statt führen,
-so tief wie tragbar)? Die „Seele" der Engine ist ein Text, an dem du später feilst.
+→ **Nächster Schritt (wir):** `absicht` persistieren (`storage.speicherePfad` kann das
+bereits) und in Modul 10 spiegeln.
 
 ---
 
-### Was wir parallel schon ohne dich erledigen
-Performance/Ladezeit, Barrierefreiheit, Offline-Fähigkeit, Aufräumen im Code — alles
-Technik, kein Inhalt. Du kommst zu einem aufgeräumten Haus; wir richten zusammen die
-Räume ein, in denen deine Worte wohnen.
+## 5. Sicherheits- und Rahmentexte ✅ entschieden
+
+- **Onboarding-Disclaimer beim ersten Start: passt so.** Unverändert.
+- **Krisen-Antwort der KI — Lana hat sie umformuliert** (umgesetzt, `safety.ts`):
+  > „Das, was du gerade beschreibst, **verdient es gehört zu werden** — und das brauchst
+  > du nicht allein zu tragen. Bitte hol dir jetzt echte Unterstützung: oben im Menü unter
+  > „Hilfe" findest du sofort erreichbare Anlaufstellen, die für dich da sind. Du bist
+  > damit nicht allein."
+
+  Nicht abwiegeln („klingt nach mehr als einer Übung"), sondern zuwenden.
+
+---
+
+## 6. Weg & Umfang ✅ entschieden
+
+- **Die zehn Module tragen.** Kein weiteres Thema fehlt; Weiteres kommt erst, wenn
+  Menschen den Weg gegangen sind.
+- Stations-Zuordnung 07–10: implizit mit der Textabnahme, wird mit ihrem Text final.
+
+---
+
+## 7. Die KI-Schicht — Ton und Texte 🔶 in Arbeit
+
+Lana hat die echten Texte und echte Testantworten gelesen. Ihre Korrekturen sind
+**alle umgesetzt** (`EngineDialog.tsx`, `dialog.ts`, `safety.ts`):
+
+**a) Einwilligungs-Text** — „den Diagnose-Teil würde ich als eigenständigen Satz
+formulieren. Sonst ist es okay. Trotzdem nochmal deutlich darauf hinweisen, was KI macht."
+→ Umgesetzt: die KI-Aussage steht vorn („Was du schreibst, liest eine KI — kein Mensch"),
+der Diagnose-Satz steht allein („Sie stellt keine Diagnose, sie behandelt nichts und sie
+kennt dich nicht.").
+
+**b) Pausen-Hinweis** — „‚Ich lauf dir nicht weg' kann weg. Und so nach 7 Nachrichten der
+Hinweis. Der Fokus liegt ja auf den Modulen, nicht auf dem Chatbot. Am besten von
+vornherein klar machen, dass es eine Begrenzung gibt."
+→ Umgesetzt: Grenze 12 → **7**; der Kuschelsatz ist raus; die Begrenzung steht jetzt
+schon im Opt-in und in der Einstiegszeile („Ein paar Nachrichten, dann geht es weiter
+auf deinem Weg").
+
+**c) Der Ton der Spiegelung** — „zu vertraut, zu nah", „zu behauptend", sie soll
+„mehr fragen als feststellen".
+→ Umgesetzt als harte Regel im Dialog-Prompt: nie behaupten, was die Person kennt,
+fühlt oder erlebt; vorsichtige Angebote statt Feststellungen; eine offene Frage ist
+mehr wert als ein Vorschlag; nicht jede Antwort braucht ein Modul.
+
+**Ergebnis nach der Änderung** (live, dieselbe Person, derselbe Satz):
+> *vorher:* „Du kennst diesen Moment genau: der Körper schwer wie Blei …"
+> *jetzt:* „Klingt, als würde dein Kopf abends nochmal Gas geben, obwohl der Körper
+> längst müde ist … Vielleicht magst du heute einfach nur beobachten: Wo im Körper
+> spürst du diese Müdigkeit am deutlichsten?"
+
+**Lanas Urteil dazu: „besser, aber noch nicht ganz."** → **offen**, siehe unten.
+
+---
+
+## Offen
+
+1. **Der Ton der KI-Spiegelung** — Lana feilt weiter. Verdacht: die KI erfindet eigene
+   Bilder („der Ärger kommt wie ein ungebetener Gast"), statt bei Lanas Bilder-Bibliothek
+   zu bleiben; und/oder die Antwort macht drei Bewegungen, wo eine reichte.
+2. **Module 07–10** — Lanas Textfassung (der große Block, blockiert Bilder + Vertonung).
+3. **Bilder 7–10** — nach ihrem Text.
+4. **Stations-Zuordnung 07–10** — final mit ihrem Text.
+
+## Was wir parallel ohne sie erledigen
+Performance, Barrierefreiheit, Offline, Code-Hygiene; die ES-16-Container ausbauen;
+die Absicht persistieren. Technik, kein Inhalt.
