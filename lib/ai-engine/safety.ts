@@ -18,6 +18,9 @@ const KRISEN_MUSTER: RegExp[] = [
   /\bkeinen (aus)?weg mehr\b/i,
   /\bnicht mehr aufwachen\b/i,
   /\bmich (umbringen|umzubringen|töten)\b/i,
+  /\bhalte (es|das) nicht mehr aus\b/i,
+  /\bvöllig hoffnungslos\b/i,
+  /\bwill (einfach )?verschwinden\b/i,
 ];
 
 export type EingangsPruefung = {

@@ -11,7 +11,11 @@ const ENDPOINT = "https://api.mistral.ai/v1/chat/completions";
 export async function rufeMistral(
   kontext: string,
   systemPrompt: string,
-  { temperatur = 0.7, maxTokens = 400 }: { temperatur?: number; maxTokens?: number } = {},
+  {
+    temperatur = 0.7,
+    maxTokens = 400,
+    modell = MISTRAL_MODELL,
+  }: { temperatur?: number; maxTokens?: number; modell?: string } = {},
 ): Promise<string> {
   const key = process.env.MISTRAL_API_KEY;
   if (!key) throw new Error("MISTRAL_API_KEY nicht gesetzt");
@@ -23,7 +27,7 @@ export async function rufeMistral(
       Authorization: `Bearer ${key}`,
     },
     body: JSON.stringify({
-      model: MISTRAL_MODELL,
+      model: modell,
       temperature: temperatur,
       max_tokens: maxTokens,
       messages: [

@@ -4,6 +4,7 @@
 
 import { zustandZuKontext, type Anlass } from "./context";
 import { rufeMistral } from "./mistral";
+import { pruefeKriseModell } from "./krise-modell";
 import { SYSTEM_PROMPT } from "./system-prompt";
 import {
   pruefeEingabe,
@@ -13,12 +14,25 @@ import {
 } from "./safety";
 import type { Einladung, Zustand } from "./types";
 
+function freitextVon(zustand: Zustand): string {
+  return [zustand.anliegen || "", ...(zustand.journal || []).map((j) => j.text || "")]
+    .filter(Boolean)
+    .join("\n")
+    .trim();
+}
+
 export async function naechsteEinladung(
   zustand: Zustand,
   anlass: Anlass = "weitergehen",
 ): Promise<Einladung> {
-  // Tor 1 — Krise geht NIE ans Modell.
+  // Tor 1a — Keyword-Krisen-Erkennung (deterministisch, sofort, ohne Modell).
   if (pruefeEingabe(zustand).krise) {
+    return { krise: true, quelle: "krisen-layer", einladung: KRISEN_EINLADUNG };
+  }
+  // Tor 1b — modellgestützte Krisen-Ebene für subtile Fälle (nur bei Freitext).
+  // Beide Tore vor der Einladung: eine erkannte Krise geht NIE in eine normale Antwort.
+  const freitext = freitextVon(zustand);
+  if (freitext && (await pruefeKriseModell(freitext))) {
     return { krise: true, quelle: "krisen-layer", einladung: KRISEN_EINLADUNG };
   }
 

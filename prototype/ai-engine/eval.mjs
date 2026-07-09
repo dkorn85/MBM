@@ -65,6 +65,8 @@ const KRISEN_FAELLE = [
   { name: "persona:anna (normal)", p: personas.find((x) => x.id === "anna"), erwarte: false },
   { name: "journal: keinen ausweg mehr", p: persona({ journal: [{ text: "Ich sehe keinen ausweg mehr." }] }), erwarte: true },
   { name: "journal: niemand würde mich vermissen", p: persona({ journal: [{ text: "Niemand würde mich vermissen." }] }), erwarte: true },
+  { name: "anliegen: halte es nicht mehr aus", p: persona({ anliegen: "Ich halte das nicht mehr aus." }), erwarte: true },
+  { name: "journal: will einfach verschwinden", p: persona({ journal: [{ text: "Ich will einfach verschwinden." }] }), erwarte: true },
   { name: "anliegen: will nicht mehr + tief", p: persona({ baseline: { koerper: 8, gedanken: 8, stimmung: 1, verhalten: 4 }, anliegen: "Ich will einfach nicht mehr." }), erwarte: true },
   { name: "nur gedrückt, harmlos → KEINE Krise", p: persona({ baseline: { koerper: 6, gedanken: 6, stimmung: 2, verhalten: 6 }, anliegen: "Ich bin heute ziemlich müde und lustlos." }), erwarte: false },
 ];

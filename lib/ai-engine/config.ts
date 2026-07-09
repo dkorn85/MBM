@@ -5,13 +5,17 @@
 // echte Calls) serverseitig MISTRAL_API_KEY vorliegt. So kann der komplette Stack
 // gebaut & deployt werden, ohne dass in Produktion echte Nutzerdaten verarbeitet
 // werden — bis das Go-Live-Gate (DPIA fertig, ZDR/Scale-Plan, Lana-Ton) bewusst
-// geöffnet wird. Siehe konzept/21 + konzept/22 (DPIA-Entwurf).
+// geöffnet wird. Siehe konzept/21 + konzept/22_DPIA.md (DPIA, freigegeben).
 export const ENGINE_ENABLED =
   process.env.NEXT_PUBLIC_ENGINE_ENABLED === "true";
 
 // EU-Inferenz: Mistral (Frankreich) — kein Drittland-Transfer, kein Training auf
 // Kundendaten. Large 3 = beste Ton-Qualität (konzept/21).
 export const MISTRAL_MODELL = "mistral-large-latest";
+
+// Günstiges, schnelles Modell für den sicherheitskritischen Krisen-Klassifikator
+// (binäre Entscheidung — braucht keine Ton-Qualität). Small 3.
+export const MISTRAL_KLASSIFIKATOR_MODELL = "mistral-small-latest";
 
 // Sichtbarer KI-Hinweis (AI Act Art. 50, ab 02.08.2026) — überall dort zeigen,
 // wo eine Engine-Ausgabe erscheint.

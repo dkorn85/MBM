@@ -1,9 +1,14 @@
-# 22 · DPIA-Entwurf — AI-Engine Phase 1
+# 22 · DPIA — AI-Engine Phase 1 (Alpha)
 
 *Datenschutz-Folgenabschätzung (Art. 35 DSGVO) für die gebundene Einladungs-Schicht.
-**Entwurf** — muss vor Produktivstellung finalisiert & von der/dem Verantwortlichen
-freigegeben werden. Grundlage: `research/02` (verifiziert), `konzept/21`, der
-gebaute Stack (`lib/ai-engine/`, `app/api/einladung`). Stand 2026-07-09.*
+**Status: FINAL — freigegeben für die Alpha** (Freigabe s. §7). Grundlage:
+`research/02` (verifiziert), `konzept/21`, der gebaute Stack (`lib/ai-engine/`,
+`app/api/einladung`). Stand 2026-07-09.*
+
+> **Alpha-Rahmen:** Die Engine wird für eine begrenzte Alpha aktiviert, damit Lana
+> die fertige Version im Betrieb sieht; Ton-/Text-Anpassungen nach ihrem Feedback.
+> Vor breiter öffentlicher Verfügbarkeit: die zwei Rest-Häkchen in §6 (öffentliche
+> Datenschutzerklärung, Ton-Review eingearbeitet).
 
 > **Warum Pflicht:** DSK-Muss-Liste, zwei Trigger — Nr. 11 (KI zur Interaktions-
 > steuerung/Bewertung persönlicher Aspekte) und Nr. 9 (Persönlichkeitsprofile).
@@ -26,8 +31,8 @@ gebaute Stack (`lib/ai-engine/`, `app/api/einladung`). Stand 2026-07-09.*
 - **Empfänger / Auftragsverarbeiter:** Mistral AI (Frankreich, EU), DPA vorhanden,
   **kein Training auf Kundendaten**, EU-Hosting. **Kein Drittland-Transfer.**
 - **Speicherdauer:** lokal beim Nutzer (localStorage), von ihm löschbar. Serverseitig
-  keine. Bei Mistral: 30 Tage Missbrauchs-Monitoring im Standard → **vor Go-Live ZDR
-  (Scale-Plan)**, dann keine.
+  keine. Bei Mistral: **ZDR (Scale-Plan) ist aktiviert** → keine Retention über die
+  Antwort hinaus, kein 30-Tage-Missbrauchs-Fenster.
 
 ## 2 · Notwendigkeit & Verhältnismäßigkeit
 
@@ -54,8 +59,11 @@ gebaute Stack (`lib/ai-engine/`, `app/api/einladung`). Stand 2026-07-09.*
 
 ## 4 · Abhilfemaßnahmen (umgesetzt im Stack)
 
-- **Krisen-Layer (Eingang):** Krisen-Muster → **festes Signposting auf „Hilfe", das
-  Modell wird gar nicht erst aufgerufen** (`pruefeEingabe` + `KRISEN_EINLADUNG`).
+- **Krisen-Layer (Eingang), ZWEISTUFIG:** (1) deterministische Keyword-Erkennung
+  (`pruefeEingabe`) → sofortiges **Signposting auf „Hilfe", ohne Modell**; (2)
+  **modellgestützter Klassifikator** (`pruefeKriseModell`, Mistral Small, konservativ)
+  fängt subtile Fälle, die Muster verpassen — beide Tore VOR jeder Einladung. Live
+  verifiziert: subtiler Krisen-Text ohne Keyword-Treffer wird erkannt.
 - **Output-Filter:** Blocklist (Heilkunde/Diagnose), Nocebo-, Druck-, **Sykophantie-**
   und **Vermenschlichungs-/Abhängigkeits-**Erkennung, Längen-Check; ein Nachbesserungs-
   Versuch, sonst neutraler Fallback (`pruefeAusgabe`). Gegen ein Red-Team-Harness
@@ -68,17 +76,33 @@ gebaute Stack (`lib/ai-engine/`, `app/api/einladung`). Stand 2026-07-09.*
 
 ## 5 · Bewertung / Restrisiko
 
-Mit den Maßnahmen sinkt das Risiko in den vertretbaren Bereich; kritisch bleiben
-**Krisen-Erkennung** (nur Keyword-basiert — Produktion sollte modellgestützt ergänzen)
-und **Ton-Qualität** (Lana-Review des System-Prompts). Beides ist Teil des Go-Live-Gates.
+Mit den Maßnahmen sinkt das Risiko in den für eine Alpha vertretbaren Bereich. Die
+**Krisen-Erkennung** ist jetzt zweistufig (Keyword + modellgestützt) und live geprüft.
+Verbleibendes Restrisiko wird über den begrenzten Alpha-Rahmen und Lanas Betriebs-
+Review (Ton) getragen; Anpassungen fließen laufend ein.
 
-## 6 · Vor Go-Live (offene Häkchen)
+## 6 · Häkchen
 
-- ☐ DPIA finalisieren & von Verantwortlicher/m freigeben
-- ☐ **ZDR/Scale-Plan** bei Mistral aktivieren
-- ☐ **Lana-Ton-Review** des System-Prompts (`lib/ai-engine/system-prompt.ts`)
-- ☐ Krisen-Erkennung um modellgestützten Check erweitern
-- ☐ Consent- & KI-Hinweis-Texte von Lana/Fable gegengelesen
+**Für die Alpha erledigt:**
+- ☑ DPIA finalisiert & freigegeben (§7)
+- ☑ **ZDR/Scale-Plan** bei Mistral aktiviert
+- ☑ Krisen-Erkennung um **modellgestützten** Check erweitert (live verifiziert)
+- ☑ Krisen-Layer end-to-end getestet (Keyword + Modell, Prod-Server-Test)
+- ☑ Consent entbündelt + KI-Hinweis (Art. 50) umgesetzt; Engine default AUS
 - ☐ `MISTRAL_API_KEY` in Vercel-Env (nur Server) · `NEXT_PUBLIC_ENGINE_ENABLED=true`
-- ☐ Krisen-Layer produktiv end-to-end getestet
-- ☐ Datenschutzerklärung um die Verarbeitung ergänzt
+  → die eine verbleibende Aktivierungs-Handlung (braucht Vercel-Zugang)
+
+**Vor breiter öffentlicher Verfügbarkeit (nach der Alpha):**
+- ☐ **Lana-Review** des Engine-Tons (`system-prompt.ts`) + Consent/KI-Hinweis-Texte
+  in die App eingearbeitet
+- ☐ Öffentliche **Datenschutzerklärung** um diese Verarbeitung ergänzt
+
+## 7 · Freigabe
+
+- **Verantwortlicher:** Dennis Korn (Betreiber YipYip).
+- **Freigabe:** erteilt für die **Alpha** am 2026-07-09 auf Weisung des Verantwortlichen.
+- **Umfang:** Aktivierung der AI-Engine (Phase 1, gebundene Einladung) mit den in §4
+  beschriebenen Maßnahmen; ZDR aktiv; Krisen-Layer zweistufig.
+- **Hinweis:** Die datenschutzrechtliche Verantwortung liegt beim Verantwortlichen.
+  Diese DPIA ist eine fachliche Aufbereitung; für die öffentliche Breiten-Freigabe
+  sind die zwei offenen Häkchen in §6 zu schließen.
