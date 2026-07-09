@@ -164,9 +164,19 @@ eintragen.**
 
 1. **Der Ton der KI-Spiegelung** — Lana: „nicht so viele Bilder, bisschen reduzierter."
    Umgesetzt: keine erfundenen Metaphern mehr, höchstens EIN Bild aus ihrer Bibliothek,
-   meist keins; 2–3 kurze Sätze. **Rest-Frage:** in einer von drei Antworten stehen noch
-   zwei ihrer Bilder in einem Satz („der Tag wie ein Fluss, ohne Insel zum Anhalten") —
-   geht das durch, oder verschärfen wir auf „eins oder keins"?
+   meist keins; 2–3 kurze Sätze.
+
+   **Rest-Frage — und eine Korrektur meiner eigenen Diagnose:** Ich hielt „der Tag wie
+   ein Fluss, ohne Insel zum Anhalten" für *zwei* Bilder. Das stimmt nicht — in Lanas
+   Bibliothek ist **„der Tag als Fluss mit Inseln" ein einziges Bild**. Die Engine hält
+   sich also an die Regel. (Nebenbei gelernt: ein wörtliches Negativbeispiel im Prompt
+   *primt* das Modell, den Satz zu produzieren — es kam danach häufiger, nicht seltener.
+   Regeln positiv formulieren.)
+
+   Bei drei Läufen auf denselben Input griffen **zwei zum Bild, einer kam ohne aus.**
+   Ist das die Mischung, die Lana will? Wenn nicht, ist der Hebel nicht der Prompt,
+   sondern die Bibliothek: „Fluss mit Inseln" müsste für die KI gesperrt werden,
+   obwohl es in den Modulen weiter vorkommt.
 2. **Module 07–10** — Lanas Textfassung (der große Block, blockiert Bilder + Vertonung).
    Beim Schreiben die Liste in §8 beachten.
 3. **Bilder 09 + 10** — Gießkanne, Ringe/Weite; nach ihrem Text.
