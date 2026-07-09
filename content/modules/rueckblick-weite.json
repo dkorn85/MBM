@@ -11,13 +11,12 @@
       "typ": "funke",
       "titel": "Funke",
       "strang": "herz",
-      "audio": "/audio/rueckblick-weite/01-funke.mp3",
       "bloecke": [
         {
           "text": "Vielleicht hast du ein paar der Übungen ausprobiert. Vielleicht auch nur ein, zwei. Beides ist genug."
         },
         {
-          "text": "Wir neigen dazu, immer nur nach vorne zu schauen — auf das Nächste, das noch fehlt. Für einen Moment machen wir es andersherum: Wir schauen einmal zurück, auf den Weg, den du schon gegangen bist."
+          "text": "Wir neigen dazu, immer nur nach vorne zu schauen, auf das Nächste, das noch fehlt. Für einen Moment machen wir es andersherum: Wir schauen einmal zurück, auf den Weg, den du schon gegangen bist."
         }
       ]
     },
@@ -25,17 +24,15 @@
       "typ": "warum",
       "titel": "Warum",
       "strang": "kopf",
-      "audio": "/audio/rueckblick-weite/02-warum.mp3",
-      "bild": "/deko/weite.svg",
       "bloecke": [
         {
-          "text": "Veränderung ist ein leiser Vorgang. Sie passiert nicht an einem Tag, sondern in vielen kleinen. Deshalb merkt man sie im Alltag kaum — genau wie beim Wandern: Beim Gehen spürst du jeden Schritt als klein und mühsam. Aber wenn du dich irgendwann umdrehst, siehst du auf einmal, wie weit unten der Punkt liegt, an dem du gestartet bist."
+          "text": "Veränderung ist ein leiser Vorgang. Sie passiert nicht an einem Tag, sondern in vielen kleinen. Deshalb merkt man sie im Alltag kaum. Genau wie beim Wandern: Beim Gehen spürst du jeden Schritt als klein und mühsam. Aber wenn du dich irgendwann umdrehst, siehst du auf einmal, wie weit unten der Punkt liegt, an dem du gestartet bist."
         },
         {
-          "text": "Genau dafür ist dieser Rückblick da. Ganz am Anfang hast du einmal festgehalten, wie es dir ging — an den vier Fenstern: Körper, Gedanken, Stimmung, Verhalten. Gleich schaust du noch einmal hin. Nicht, um dich zu prüfen. Nur, um zu sehen, was sich vielleicht bewegt hat."
+          "text": "Genau dafür ist dieser Rückblick da. Ganz am Anfang hast du einmal festgehalten, wie es dir ging, an den vier Fenstern: Körper, Gedanken, Stimmung, Verhalten. Gleich schaust du noch einmal hin. Nicht, um dich zu prüfen. Nur, um zu sehen, was sich vielleicht bewegt hat."
         },
         {
-          "text": "Und noch etwas ist wichtig: Das eigentliche Ziel war nie, dass immer alles ruhig ist. Das Leben bleibt laut, das darf es auch. Worauf dieser ganze Weg zuläuft, ist etwas anderes — eine innere **Weite**, in der auch das Laute sein darf, ohne dich gleich umzuwerfen. Ein alter Name dafür ist **Gelassenheit.** Sie ist kein Ort, an dem man ankommt, sondern eine Richtung, in die man geht. Und du bist schon unterwegs."
+          "text": "Und noch etwas ist wichtig: Das eigentliche Ziel war nie, dass immer alles ruhig ist. Das Leben bleibt laut, das darf es auch. Worauf dieser ganze Weg zuläuft, ist etwas anderes: eine innere **Weite**, in der auch das Laute sein darf, ohne dich gleich umzuwerfen. Ein alter Name dafür ist **Gelassenheit.** Sie ist kein Ort, an dem man ankommt, sondern eine Richtung, in die man geht. Und du bist schon unterwegs."
         }
       ]
     },
@@ -43,10 +40,9 @@
       "typ": "erleben",
       "titel": "Erleben",
       "strang": "hand",
-      "audio": "/audio/rueckblick-weite/03-erleben.mp3",
       "bloecke": [
         {
-          "text": "Geh noch einmal in Ruhe an die vier Fenster — so, wie es dir *heute* geht. Kein Vergleich mit „damals“ nötig, kein richtig oder falsch. Zieh die Regler einfach dorthin, wo es sich gerade stimmig anfühlt. Danach zeigt dir die App, wie es beim Start war — als leises Nebeneinander, nicht als Note."
+          "text": "Geh noch einmal in Ruhe an die vier Fenster, so, wie es dir **heute** geht. Kein Vergleich nötig, kein richtig oder falsch. Zieh die Regler einfach dorthin, wo es sich gerade stimmig anfühlt. Danach zeigst du dir selbst, wie es beim Start war: als leises Nebeneinander, nicht als Note."
         }
       ],
       "interaktionen": [
@@ -80,31 +76,31 @@
       "strang": "hand",
       "bloecke": [
         {
-          "text": "Zum Schluss keine neue Aufgabe — nur eine Erinnerung, die du mitnehmen darfst."
+          "text": "Zum Schluss keine neue Aufgabe. Nur eine Erinnerung, die du mitnehmen darfst."
         }
       ],
       "experiment": {
-        "haupt": "**Was dir geblieben ist.** Von allem, was du hier ausprobiert hast — welche eine kleine Sache möchtest du behalten? Die lange Ausatmung, eine Insel im Tag, das Abschütteln, der Hafen … such dir das eine aus, das sich am meisten nach *dir* angefühlt hat. Das ist deins. Der Rest darf warten, bis du ihn brauchst."
+        "haupt": "**Was dir geblieben ist.** Von allem, was du hier ausprobiert hast: Welche eine kleine Sache möchtest du behalten? Die lange Ausatmung, eine Insel im Tag, das Abschütteln, der Hafen. Such dir das eine aus, das sich am meisten nach **dir** angefühlt hat. Das ist deins. Der Rest darf warten, bis du ihn brauchst."
       }
     },
     {
       "typ": "nachspueren",
       "titel": "Reflektieren",
       "strang": "herz",
-      "audio": "/audio/rueckblick-weite/04-nachspueren.mp3",
-      "stilleSek": 10,
+      "stilleSek": 15,
       "bloecke": [
         {
-          "text": "Bleib noch einen Moment. [Pause]"
+          "text": "Bleib noch einen Moment bei dem, was du gerade gesehen hast, und spür nach, wie sich der Blick zurück anfühlt."
         },
         {
-          "text": "Und wenn du magst: **Was ist heute anders als am Anfang — und sei es nur eine Kleinigkeit?** Manchmal ist die Kleinigkeit das Wichtigste."
+          "text": "Und wenn du magst: **Was ist heute anders als am Anfang, und sei es nur eine Kleinigkeit?** Manchmal ist die Kleinigkeit das Wichtigste."
         }
       ],
       "interaktionen": [
         {
           "art": "journal",
-          "frage": "Was ist heute anders als am Anfang?"
+          "platzhalter": "Ein Satz genügt, nur für dich.",
+          "optional": true
         }
       ]
     },
@@ -112,16 +108,15 @@
       "typ": "weitergehen",
       "titel": "Weitergehen",
       "strang": "alle",
-      "audio": "/audio/rueckblick-weite/06-weitergehen.mp3",
       "bloecke": [
         {
-          "text": "Damit bist du einmal den ganzen Weg gegangen: angekommen, runtergekommen, wahrgenommen, weit geworden. Das Betriebshandbuch für deinen Körper und deinen Kopf, das dir nie jemand gegeben hat — du hast es dir selbst erarbeitet."
+          "text": "Damit bist du einmal den ganzen Weg gegangen: angekommen, runtergekommen, wahrgenommen, weit geworden. Die Gebrauchsanweisung für deinen Körper und deinen Kopf, die dir nie jemand gegeben hat: Du hast sie dir selbst erarbeitet, in deiner eigenen Erfahrung."
         },
         {
-          "text": "Von hier an gehört alles dir. Jedes Modul darfst du wiederholen, so oft du magst — beim zweiten Mal trägt manches weiter als beim ersten. Und die Landkarte wächst weiter; wenn ein neues Modul auftaucht, findet es dich schon."
+          "text": "Von hier an gehört alles dir. Jedes Modul darfst du wiederholen, so oft du magst. Beim zweiten Mal trägt manches weiter als beim ersten."
         },
         {
-          "text": "Bis dahin gilt der einfachste Satz von allen: Was heute da ist, darf für heute reichen. Gute Reise."
+          "text": "Und sonst gilt der einfachste Satz von allen: Was heute da ist, darf für heute reichen. Gute Reise."
         }
       ]
     }

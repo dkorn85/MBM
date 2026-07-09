@@ -67,11 +67,6 @@
     "subtitle": "Nicht das Ende des Wegs, sondern seine Richtung.",
     "body": "Alles davor läuft darauf zu — und du kommst ihr mit jeder Station ein Stück näher.",
     "clarifier": "Nicht Gleichgültigkeit, sondern innere Weite.",
-    "measure": {
-      "instrument": "Equanimity Scale-16 (ES-16)",
-      "cadence": "alle 2–4 Wochen",
-      "framing": "ressourcenorientiert spiegeln, nie defizitär"
-    },
     "visual": "sich öffnende, ruhig atmende konzentrische Ringe"
   },
   "modes": [
@@ -261,7 +256,7 @@
             "title": "Rückblick & Weite",
             "status": "written",
             "durationMin": 7,
-            "note": "Vorher/Nachher via Selbsttest (4 Ebenen); ES-16 später (validierte Items ausstehend); öffnet zur Gelassenheit"
+            "note": "Vorher/Nachher via Selbsttest (4 Ebenen); öffnet zur Gelassenheit"
           }
         ]
       }

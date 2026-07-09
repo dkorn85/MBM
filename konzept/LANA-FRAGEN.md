@@ -177,12 +177,17 @@ eintragen.**
    Ist das die Mischung, die Lana will? Wenn nicht, ist der Hebel nicht der Prompt,
    sondern die Bibliothek: „Fluss mit Inseln" müsste für die KI gesperrt werden,
    obwohl es in den Modulen weiter vorkommt.
-2. **Module 07–10** — Lanas Textfassung (der große Block, blockiert Bilder + Vertonung).
-   Beim Schreiben die Liste in §8 beachten.
-3. **Bilder 09 + 10** — Gießkanne, Ringe/Weite; nach ihrem Text.
-4. **Stations-Zuordnung 07–10** — final mit ihrem Text.
-5. **Tonspur Modul 07, Schritt „Weitergehen"** — bei der Neuvertonung `audio` wieder
-   eintragen.
+2. ~~**Module 07–10**~~ → **eingebaut (09.07.2026).** Fable hat die vier Module
+   überarbeitet und als JSON geliefert; die toten Verweise sind alle weg. **Lana liest
+   noch gegen** — erst danach wird vertont.
+3. ~~**Bilder 09 + 10**~~ → **abgenommen.** Alle zehn Bilder haben Lanas Okay.
+4. **Stations-Zuordnung 07–10** — Fable hat sie unverändert gelassen (Wahrnehmen ·
+   Wahrnehmen · Weit werden · Weit werden). Lana bestätigt beim Gegenlesen.
+5. **VERTONUNG: alle 24 Schritte von 07–10 brauchen neue Audios.** Fable hat jeden
+   Text angefasst — damit ist jede alte Tonspur ungültig, nicht nur die von Modul 07.
+   Alle `audio`-Felder sind vorerst **entfernt** (Lanas Prinzip: lieber stumm als
+   Text ≠ Stimme). Beim Vertonen wieder eintragen; die `audioSkript`-Fassungen für
+   die Erleben-Schritte hat Fable mitgeliefert.
 
 ## Was wir parallel ohne sie erledigen
 Performance, Barrierefreiheit, Offline, Code-Hygiene; die ES-16-Container ausbauen;

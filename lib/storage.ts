@@ -40,6 +40,13 @@ export type SelbsttestSnapshot = {
   erstellt: string; // ISO-Datum
 };
 
+// Modul 9 („Deine eigene Praxis"): das eine gewählte Werkzeug und der Platz im Tag,
+// an dem es sein Beet bekommt. Eigener Store — es gehört nicht in den Selbsttest.
+export type PraxisWahl = {
+  werkzeug?: string;
+  anker?: string;
+};
+
 // Täglicher Loop (Puls): Spür-Check · Glücksmoment · Anker. Kein Streak-Zwang —
 // einfach ein Eintrag pro Tag, alles optional.
 export type LoopEintrag = {
@@ -65,9 +72,11 @@ export interface MbmStorage {
   setSelbsttest(snap: SelbsttestSnapshot): void; // überschreibt gleiches wann
   // Generischer Pfad-Setter/-Leser für Interaktionen mit `speichern`
   // (baseline.<achse> | anliegen | absicht — alles im "baseline"-Snapshot,
-  // damit Modul 10 & „Mein Weg" den Vergleich unverändert lesen).
+  // damit Modul 10 & „Mein Weg" den Vergleich unverändert lesen;
+  // praxis.werkzeug | praxis.anker — eigener Store, s. PraxisWahl).
   speicherePfad(pfad: string, wert: string | number): void;
   leseePfad(pfad: string): string | number | null;
+  getPraxis(): PraxisWahl;
   // Leichter Store für Auswahl-Chips ohne `speichern` (überlebt Reload).
   getAuswahl(schluessel: string): string | null;
   setAuswahl(schluessel: string, wert: string): void;
@@ -94,6 +103,7 @@ const KEY_DISCLAIMER = `${PREFIX}disclaimerGesehen`;
 const KEY_SELBSTTEST = `${PREFIX}selbsttest`;
 const KEY_LOOP = `${PREFIX}loop`;
 const KEY_MODUS = `${PREFIX}modus`;
+const KEY_PRAXIS = `${PREFIX}praxis`;
 const KEY_AUSWAHL = `${PREFIX}auswahl`;
 const KEY_ENGINE_CONSENT = `${PREFIX}engineConsent`;
 
@@ -214,6 +224,13 @@ const localStorageImpl: MbmStorage = {
   },
 
   speicherePfad(pfad, wert) {
+    // Modul 9: eigener Store, gehört nicht in den Selbsttest-Snapshot.
+    if (pfad === "praxis.werkzeug" || pfad === "praxis.anker") {
+      const key = pfad.slice("praxis.".length) as keyof PraxisWahl;
+      schreiben(KEY_PRAXIS, { ...this.getPraxis(), [key]: String(wert) });
+      return;
+    }
+
     const snap: SelbsttestSnapshot = this.getSelbsttest("baseline") ?? {
       wann: "baseline",
       achsen: {},
@@ -228,12 +245,25 @@ const localStorageImpl: MbmStorage = {
     } else if (pfad === "absicht") {
       snap.absicht = String(wert);
     } else {
-      return; // unbekannter Pfad — still ignorieren
+      // Unbekannter Pfad. Früher stillschweigend verworfen — das kostete uns die
+      // Praxis-Wahl aus Modul 9, ohne dass irgendwo etwas aufgefallen wäre.
+      if (process.env.NODE_ENV !== "production") {
+        console.warn(`[storage] speicherePfad: unbekannter Pfad „${pfad}" — nichts gespeichert.`);
+      }
+      return;
     }
     this.setSelbsttest(snap);
   },
 
+  getPraxis() {
+    return lesen<PraxisWahl>(KEY_PRAXIS, {});
+  },
+
   leseePfad(pfad) {
+    if (pfad === "praxis.werkzeug" || pfad === "praxis.anker") {
+      const key = pfad.slice("praxis.".length) as keyof PraxisWahl;
+      return this.getPraxis()[key] ?? null;
+    }
     const snap = this.getSelbsttest("baseline");
     if (!snap) return null;
     if (pfad.startsWith("baseline.")) {

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import type {
   Interaktion,
   Modul,
@@ -446,6 +446,7 @@ export default function ModulPlayer({
   const schritt = modul.schritte[schrittIndex];
   const anzahl = modul.schritte.length;
   const letzterSchritt = schrittIndex === anzahl - 1;
+  const ersterSchritt = schrittIndex === 0;
 
   // Label des Vorher/Nachher-Sliders (für den Vorher-Spür-Check im Erleben).
   const vorherNachherLabel =
@@ -479,8 +480,38 @@ export default function ModulPlayer({
     ueberschriftRef.current?.focus();
   }, [schrittIndex]);
 
-  const zurueck = () => setSchrittIndex((i) => Math.max(0, i - 1));
-  const weiter = () => setSchrittIndex((i) => Math.min(anzahl - 1, i + 1));
+  // Der Schritt gehört in die URL (#schritt-3), nicht nur in den React-State. Sonst
+  // kennt der Browser die sechs Schritte nicht: „Zurück" verließ mitten im Modul die
+  // Seite und landete auf der Landkarte, und ein Reload warf einen auf Schritt 1.
+  const schrittAusHash = useCallback(() => {
+    const treffer = /^#schritt-(\d+)$/.exec(window.location.hash);
+    const n = treffer ? Number(treffer[1]) - 1 : 0;
+    return Number.isInteger(n) && n >= 0 && n < anzahl ? n : 0;
+  }, [anzahl]);
+
+  useEffect(() => {
+    setSchrittIndex(schrittAusHash());
+    const beiPopstate = () => setSchrittIndex(schrittAusHash());
+    window.addEventListener("popstate", beiPopstate);
+    return () => window.removeEventListener("popstate", beiPopstate);
+  }, [schrittAusHash]);
+
+  // Jeder Vorwärts-Schritt bekommt einen History-Eintrag; „Zurück" gibt ihn dem
+  // Browser zurück (history.back), damit In-App- und Browser-Zurück dasselbe tun.
+  const geheZu = (ziel: number) => {
+    const n = Math.min(anzahl - 1, Math.max(0, ziel));
+    if (n === schrittIndex) return;
+    window.history.pushState({ mbmSchritt: n }, "", `#schritt-${n + 1}`);
+    setSchrittIndex(n);
+  };
+
+  // history.back() nur, wenn der vorherige Eintrag auch von uns stammt. Wer per
+  // geteiltem Link direkt auf #schritt-4 einsteigt, würde sonst die Seite verlassen.
+  const zurueck = () => {
+    if (window.history.state?.mbmSchritt != null) window.history.back();
+    else geheZu(schrittIndex - 1);
+  };
+  const weiter = () => geheZu(schrittIndex + 1);
 
   return (
     <div className="space-y-8">
@@ -518,7 +549,16 @@ export default function ModulPlayer({
         aria-label="Schritt-Navigation"
         className="flex items-center justify-between gap-4 border-t border-linie pt-6"
       >
-        {schrittIndex > 0 ? (
+        {/* Auf Schritt 1 gab es früher gar kein Zurück (ein leeres span) — dort führt
+            es jetzt ehrlich dorthin, wo man herkam: zur Landkarte. */}
+        {ersterSchritt ? (
+          <Link
+            href="/"
+            className="inline-flex min-h-11 items-center rounded-xl px-4 py-2 text-tinte-sanft transition duration-200 ease-ruhig hover:text-tinte active:scale-[0.97]"
+          >
+            Zur Landkarte
+          </Link>
+        ) : (
           <button
             type="button"
             onClick={zurueck}
@@ -526,8 +566,6 @@ export default function ModulPlayer({
           >
             Zurück
           </button>
-        ) : (
-          <span />
         )}
 
         {letzterSchritt ? (

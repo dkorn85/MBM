@@ -9,118 +9,191 @@
   "schritte": [
     {
       "typ": "funke",
-      "strang": "herz",
       "titel": "Funke",
-      "audio": "/audio/eigene-praxis/01-funke.mp3",
+      "strang": "herz",
       "bloecke": [
         {
-          "text": "Vielleicht kennst du das von guten Vorsätzen: Am Anfang steht ein großer Plan — jeden Morgen zwanzig Minuten, ab jetzt, für immer. Zwei Wochen läuft es. Dann kommt ein voller Tag, dann zwei, und irgendwann liegt der Plan da wie ein Möbelstück, das man nicht mehr ansieht — und ein leiser Vorwurf liegt daneben."
+          "text": "Am Anfang steht ein großer Plan: jeden Morgen zwanzig Minuten, ab jetzt, für immer. Zwei Wochen läuft es. Dann kommt ein voller Tag, dann zwei. Und irgendwann liegt der Plan da wie ein Möbelstück, das man nicht mehr ansieht, und ein leiser Vorwurf liegt daneben."
         },
         {
-          "text": "Falls dir das je passiert ist: Es lag nicht an deiner Disziplin. Es lag am Plan. Er war für ein anderes Leben gebaut — nicht für deines."
+          "text": "Falls dir das je passiert ist: Es lag nicht an deiner Disziplin. Es lag am Plan. Er war für ein anderes Leben gebaut, nicht für deines."
         },
         {
-          "text": "In diesem letzten Modul geht es darum, wie aus den Übungen, die du hier kennengelernt hast, etwas wird, das **bleibt.** Nicht durch Strenge. Sondern durch etwas viel Einfacheres: die richtige Größe."
+          "text": "In diesem Modul geht es darum, wie aus den Übungen, die du hier kennengelernt hast, etwas wird, das **bleibt.** Nicht durch Strenge. Sondern durch etwas viel Einfacheres: die richtige Größe."
         }
       ]
     },
     {
       "typ": "warum",
-      "strang": "kopf",
       "titel": "Warum",
-      "audio": "/audio/eigene-praxis/02-warum.mp3",
-      "bild": "/deko/giesskanne.svg",
+      "strang": "kopf",
       "bloecke": [
         {
-          "text": "Stell dir eine Praxis wie einen **Garten** vor. Verlockend ist der Katalog-Garten: zehn Beete, alles auf einmal — morgens Atem, mittags Rundgang, abends Übung, dazu Journal und am Wochenende Vertiefung. Solche Gärten werden angelegt und verdorren. Nicht weil der Gärtner faul wäre — sondern weil niemand zehn Beete nebenher gießen kann."
+          "text": "Stell dir eine Praxis wie einen **Garten** vor. Verlockend ist der Katalog-Garten: zehn Beete, alles auf einmal. Morgens Atem, mittags Rundgang, abends Übung, dazu Journal und am Wochenende Vertiefung. Solche Gärten werden angelegt und verdorren. Nicht weil der Gärtner faul wäre, sondern weil niemand zehn Beete nebenher gießen kann."
         },
         {
-          "text": "Der Garten, der wirklich wächst, sieht anders aus: **ein einziges Beet, klein, aber täglich gegossen.** Eine Minute, die tatsächlich stattfindet, verändert mehr als zwanzig, die geplant bleiben. Denn dein Körper lernt nicht aus guten Absichten — er lernt aus Wiederholung. Klein und oft schlägt groß und selten, jedes Mal."
+          "text": "Der Garten, der wirklich wächst, sieht anders aus: **ein einziges Beet, klein, aber täglich gegossen.** Eine Minute, die tatsächlich stattfindet, verändert mehr als zwanzig, die geplant bleiben. Denn dein Körper lernt nicht aus guten Absichten. Er lernt aus Wiederholung. Klein und oft schlägt groß und selten, jedes Mal."
         },
         {
-          "text": "Und noch etwas macht den Unterschied: Das Beet muss **zu dir** passen. Du hast auf deinem Weg hier verschiedene Werkzeuge in der Hand gehabt — die langen Ausatmungen, die Inseln, den Rundgang durchs Haus, den Feierabend am Abend, den Bahnsteig, das Gästehaus. Sie sind nicht alle für dich gemacht. Eines davon hat sich wahrscheinlich leichter angefühlt als die anderen, fast wie von selbst. **Genau das ist deins.** Nicht das, von dem du findest, du solltest es mögen — sondern das, das dich mag."
+          "text": "Und noch etwas macht den Unterschied: Das Beet muss **zu dir** passen. Du hast auf deinem Weg verschiedene Werkzeuge in der Hand gehabt: die lange Ausatmung, das Abschütteln, den geschützten Hafen, die kleinen Inseln, den Rundgang durch den Körper, den Bahnsteig. Sie sind nicht alle für dich gemacht. Eines davon hat sich wahrscheinlich leichter angefühlt als die anderen, fast wie von selbst. **Genau das ist deins.** Nicht das, von dem du findest, du solltest es mögen. Sondern das, das dich mag."
         },
         {
-          "text": "Mehr braucht eine Praxis am Anfang nicht: ein Werkzeug, das dir liegt, an einem Platz im Tag, der sowieso existiert. Und die Erlaubnis, umzupflanzen, wenn etwas nicht wächst — das ist kein Scheitern, das ist Gärtnern. [kurze Pause] Welches dein Beet ist und wo es steht, das findest du jetzt heraus. Nicht durch Nachdenken — durch Nachspüren."
+          "text": "Mehr braucht eine Praxis am Anfang nicht: ein Werkzeug, das dir liegt, an einem Platz im Tag, der sowieso existiert. Und die Erlaubnis, umzupflanzen, wenn etwas nicht wächst. Das ist kein Scheitern, das ist Gärtnern. Welches dein Beet ist und wo es steht, das findest du jetzt heraus. Nicht durch Nachdenken, durch Nachspüren."
         }
       ]
     },
     {
       "typ": "erleben",
-      "strang": "hand",
       "titel": "Erleben",
-      "audio": "/audio/eigene-praxis/03-erleben.mp3",
+      "strang": "hand",
       "sprechtempo": "langsam",
+      "audioSkript": [
+        {
+          "text": "Such dir einen Platz, an dem du ein paar Minuten ungestört bist. Setz dich bequem hin. Das hier ist keine Übung im engeren Sinn. Es ist eine ruhige Rückschau und eine Wahl. Und wie immer: Du bestimmst, was dir guttut.",
+          "pauseSek": 5
+        },
+        {
+          "text": "Komm zuerst an. Lass den Blick durch den Raum wandern.",
+          "pauseSek": 8
+        },
+        {
+          "text": "Wenn du magst, schließe die Augen.",
+          "pauseSek": 5
+        },
+        {
+          "text": "Spür die Unterlage. Und atme einmal lang und weich aus.",
+          "pauseSek": 10
+        },
+        {
+          "text": "Geh nun in Gedanken noch einmal deinen Weg entlang. Ganz gemütlich, wie durch ein Fotoalbum.",
+          "pauseSek": 3
+        },
+        {
+          "text": "Die drei langen Ausatmungen, mitten im Tag.",
+          "pauseSek": 8
+        },
+        {
+          "text": "Das Abschütteln, als die Energie einen Weg nach draußen fand.",
+          "pauseSek": 8
+        },
+        {
+          "text": "Der geschützte Hafen.",
+          "pauseSek": 8
+        },
+        {
+          "text": "Die erste kleine Insel.",
+          "pauseSek": 8
+        },
+        {
+          "text": "Der Rundgang durch den Körper, Zimmer für Zimmer.",
+          "pauseSek": 8
+        },
+        {
+          "text": "Der Bahnsteig, an dem du stehen geblieben bist.",
+          "pauseSek": 12
+        },
+        {
+          "text": "Und jetzt frag nicht deinen Kopf, sondern deinen Körper: Bei welcher dieser Übungen ist gerade etwas warm geworden? Welche hat sich am wenigsten nach Aufgabe angefühlt, und am meisten nach Aufatmen?",
+          "pauseSek": 10
+        },
+        {
+          "text": "Nimm die erste, die sich meldet. Sie muss nicht spektakulär sein. Sie muss nur deine sein.",
+          "pauseSek": 15
+        },
+        {
+          "text": "Und nun such ihr einen Platz. Einen Moment, den es in deinem Tag sowieso gibt. Das Zähneputzen. Der erste Kaffee. Das Hinsetzen ins Auto.",
+          "pauseSek": 10
+        },
+        {
+          "text": "Stell dir diesen Moment einmal ganz konkret vor, morgen: Du stehst da, wie jeden Tag. Und dann, ganz selbstverständlich, kommt deine Übung dazu. Eine Minute, nicht mehr. Sieh es vor dir, so gewöhnlich wie möglich.",
+          "pauseSek": 15
+        },
+        {
+          "text": "So sieht dein Beet aus. Klein genug, um wirklich gegossen zu werden.",
+          "pauseSek": 8
+        },
+        {
+          "text": "Komm nun zurück in den Raum. Und öffne die Augen, wann immer du magst.",
+          "pauseSek": 0
+        }
+      ],
       "bloecke": [
         {
-          "text": "Such dir einen Platz, an dem du ein paar Minuten ungestört bist. Setz dich bequem hin. Das hier ist keine Übung im engeren Sinn — es ist eine ruhige Rückschau und eine Wahl. Und wie immer: Du bestimmst, was dir guttut."
+          "text": "Such dir einen Platz, an dem du ein paar Minuten ungestört bist, und setz dich bequem hin. Das hier ist keine Übung im engeren Sinn, sondern eine ruhige Rückschau und eine Wahl."
         },
         {
-          "text": "Komm zuerst an. Blick durch den Raum. [Pause] Augen schließen, wenn du magst. [kurze Pause] Unterlage spüren, einmal lang und weich ausatmen. [längere Pause]"
+          "text": "Komm kurz an: Blick durch den Raum, Augen schließen, wenn du magst, Unterlage spüren, einmal lang und weich ausatmen. Dann geh in Gedanken noch einmal deinen Weg entlang, wie durch ein Fotoalbum: die drei langen Ausatmungen mitten im Tag. Das Abschütteln. Der geschützte Hafen. Die erste kleine Insel. Der Rundgang durch den Körper. Der Bahnsteig, an dem du stehen geblieben bist."
         },
         {
-          "text": "Und nun geh in Gedanken noch einmal deinen Weg hier entlang — ganz gemütlich, wie durch ein Fotoalbum. Der Moment, als du zum ersten Mal drei lange Ausatmungen mitten in den Tag gelegt hast. [Pause] Die erste kleine Insel. [Pause] Der Rundgang durchs Haus, Zimmer für Zimmer. [Pause] Vielleicht der Feierabend am Abend, der Bahnsteig, das Gästehaus. [längere Pause]"
+          "text": "Und jetzt frag nicht deinen Kopf, sondern deinen Körper: Bei welcher dieser Übungen ist gerade etwas warm geworden? Welche hat sich am wenigsten nach Aufgabe angefühlt und am meisten nach Aufatmen? Nimm die erste, die sich meldet. Sie muss nicht spektakulär sein. Sie muss nur deine sein."
         },
         {
-          "text": "Und jetzt frag nicht deinen Kopf, sondern deinen Körper: **Bei welcher dieser Übungen ist gerade etwas warm geworden?** Welche hat sich am wenigsten nach Aufgabe angefühlt — und am meisten nach Aufatmen? [Pause] Nimm die erste, die sich meldet. Sie muss nicht spektakulär sein. Sie muss nur deine sein. [längere Pause]"
+          "text": "Such ihr dann einen Platz: einen Moment, den es in deinem Tag sowieso gibt. Das Zähneputzen, der erste Kaffee, das Hinsetzen ins Auto. Stell dir diesen Moment konkret vor, morgen: Du stehst da wie jeden Tag, und ganz selbstverständlich kommt deine Übung dazu. Eine Minute, nicht mehr."
         },
         {
-          "text": "Halte sie fest. Und nun such ihr einen Platz: einen Moment, der in deinem Tag sowieso jeden Tag vorkommt. Das Zähneputzen. Der erste Kaffee. Das Hinsetzen ins Auto. Das Zubettgehen. [Pause] Und jetzt stell dir diesen Moment einmal ganz konkret vor — morgen: Du stehst da, wie jeden Tag. Und dann, ganz selbstverständlich, kommt dein Werkzeug dazu. Eine Minute, nicht mehr. Sieh es vor dir, so gewöhnlich wie möglich. [längere Pause]"
-        },
-        {
-          "text": "So sieht dein Beet aus. Klein genug, um wirklich gegossen zu werden. [Pause] Komm nun zurück in den Raum, und öffne die Augen, wann immer du magst. [Pause]"
+          "text": "So sieht dein Beet aus. Klein genug, um wirklich gegossen zu werden."
         }
       ]
     },
     {
       "typ": "experiment",
+      "titel": "Verankern",
       "strang": "hand",
-      "titel": "Dein Experiment für zuhause",
       "bloecke": [
         {
-          "text": "Das letzte Experiment ist das einfachste — und das mit der längsten Wirkung. Und auch hier: Einladung, kein Vertrag. Ein Garten braucht keinen Aufseher, nur jemanden, der ab und zu mit der Gießkanne vorbeikommt."
+          "text": "Dieses Experiment ist das einfachste, und das mit der längsten Wirkung. Auch hier: Einladung, kein Vertrag. Ein Garten braucht keinen Aufseher, nur jemanden, der ab und zu mit der Gießkanne vorbeikommt."
         }
       ],
       "experiment": {
-        "haupt": "**Dein Experiment:** Gieße dein Beet **eine Woche lang** — dein gewähltes Werkzeug, an deinem gewählten Anker, eine Minute am Tag. Ausgelassene Tage zählen nicht als Rückschritt; du machst einfach beim nächsten Anker weiter.\n\nNach der Woche schau kurz nach: Wächst es? Dann lass es weiterwachsen. Fühlt es sich zäh an? Dann pflanz um — anderes Werkzeug oder anderer Platz. Das ist kein Neuanfang, sondern Gärtnern.",
-        "optional": "**Wenn du magst, zusätzlich (optional):** Schau einmal pro Woche in „Mein Weg“ vorbei — nicht um zu kontrollieren, sondern wie man über den Gartenzaun schaut: Was ist da eigentlich schon gewachsen, seit du angefangen hast?"
+        "haupt": "**Gieße dein Beet, eine Woche lang.** Dein gewähltes Werkzeug, an deinem gewählten Platz, eine Minute am Tag. Ausgelassene Tage zählen nicht als Rückschritt, du machst einfach beim nächsten Mal weiter. Nach der Woche schau kurz nach: Wächst es? Dann lass es weiterwachsen. Fühlt es sich zäh an? Dann pflanz um, anderes Werkzeug oder anderer Platz. Das ist kein Neuanfang, sondern Gärtnern.",
+        "optional": "**Wenn du magst, zusätzlich:** Schau einmal pro Woche in „Mein Weg“ vorbei. Nicht um zu kontrollieren, sondern wie man über den Gartenzaun schaut: Was ist da eigentlich schon gewachsen, seit du angefangen hast?"
       }
     },
     {
       "typ": "nachspueren",
+      "titel": "Reflektieren",
       "strang": "herz",
-      "titel": "Nachspüren",
-      "audio": "/audio/eigene-praxis/04-nachspueren.mp3",
       "stilleSek": 15,
       "bloecke": [
         {
-          "text": "Bleib noch einen Moment still. [Pause]"
+          "text": "Bleib noch einen Moment still und spür nach, wie sich deine Wahl anfühlt."
         },
         {
-          "text": "Und dann halte fest, wenn du magst — schwarz auf weiß, als kleine Abmachung mit dir selbst: **Welches Werkzeug ist deins? Und an welchem Platz im Tag bekommt es sein Beet?**"
-        },
-        {
-          "text": "Es darf sich in einer Woche ändern. Gärten dürfen das. Es gibt kein richtig und kein falsch."
+          "text": "Und dann halte sie fest, wenn du magst, als kleine Abmachung mit dir selbst: **Welches Werkzeug ist deins, und an welchem Platz im Tag bekommt es sein Beet?** Es darf sich in einer Woche ändern. Gärten dürfen das."
         }
       ],
       "interaktionen": [
         {
+          "art": "auswahl",
+          "label": "Dein Werkzeug",
+          "optionen": [
+            "Die lange Ausatmung",
+            "Das Abschütteln",
+            "Der geschützte Hafen",
+            "Die kleine Insel",
+            "Der Rundgang durch den Körper",
+            "Der Bahnsteig"
+          ],
+          "speichern": "praxis.werkzeug"
+        },
+        {
           "art": "journal",
-          "frage": "Dein Werkzeug + dein Anker — deine kleine Abmachung:"
+          "platzhalter": "Und sein Platz im Tag, in deinen Worten …",
+          "speichern": "praxis.anker",
+          "optional": true
         }
       ]
     },
     {
       "typ": "weitergehen",
-      "strang": "alle",
       "titel": "Weitergehen",
-      "audio": "/audio/eigene-praxis/06-weitergehen.mp3",
+      "strang": "alle",
       "bloecke": [
         {
-          "text": "Damit bist du einmal durch: Du weißt, wie dein zweites Nervensystem arbeitet und dass es auf Einladungen hört. Du kennst den Alarm und seine Gegenspieler — die Ausatmung, die Inseln, den Rundgang. Du weißt, wie man den Garten für den Schlaf still macht, am Bahnsteig stehen bleibt und Gästen die Tür aufhält. Das ist die Gebrauchsanweisung, die dir nie jemand gegeben hat — und du hast sie dir selbst erarbeitet, in deiner eigenen Erfahrung."
+          "text": "Damit hast du deine eigene Praxis: ein Werkzeug, das dir liegt, an einem Platz, den dein Tag ohnehin hat. Kein Katalog-Garten. Ein Beet."
         },
         {
-          "text": "Von hier an gehört das Programm dir: Jedes Modul darf wiederholt werden, so oft du magst — dieselbe Übung trägt beim zweiten Mal oft weiter als beim ersten. Die Landkarte wächst weiter, und wenn ein neues Modul auftaucht, findet es dich schon. Bis dahin gilt der einfachste Satz von allen: Was heute da ist, darf für heute reichen. Gute Reise."
+          "text": "Und dann bleibt noch eines. Du hast ganz am Anfang einmal festgehalten, wie es dir ging, an den vier Fenstern. Beim Gehen merkt man selten, wie weit man gekommen ist. Im letzten Modul drehen wir uns einmal um und schauen zurück."
         }
       ]
     }
