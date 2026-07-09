@@ -73,9 +73,11 @@ export function zustandZuKontext(p) {
   return zeilen.join("\n");
 }
 
-// Modell-Call — gekapselt. Nutzt die claude-CLI im Print-Modus aus einer sauberen
-// Sandbox (kein Projekt-CLAUDE.md), mit --system-prompt (ersetzt den Standard-Prompt).
-function rufeModell(kontext) {
+// Modell-Call — gekapselt hinter EINER austauschbaren Funktion (Signatur:
+// (kontext) => string | Promise<string>). Standard: die claude-CLI im Print-Modus
+// aus einer sauberen Sandbox. Für EU-Inferenz wird `rufeModellMistral` (mistral.mjs)
+// injiziert — genau wie der storage.ts-Layer austauschbar ist.
+export function rufeModellClaude(kontext) {
   const sandbox = mkdtempSync(join(tmpdir(), "mbm-engine-"));
   const r = spawnSync(
     "claude",
@@ -89,14 +91,15 @@ function rufeModell(kontext) {
 }
 
 // Die eine öffentliche Funktion: Zustand rein, sichere Einladung raus.
-export function naechsteEinladung(persona) {
+// `rufeModell` ist injizierbar (Default: claude-CLI); async, damit fetch-Backends gehen.
+export async function naechsteEinladung(persona, rufeModell = rufeModellClaude) {
   const eingang = pruefeEingabe(persona);
   if (eingang.krise) {
     return { krise: true, quelle: "krisen-layer", einladung: KRISEN_EINLADUNG, eingang };
   }
 
   const kontext = zustandZuKontext(persona);
-  let text = rufeModell(kontext);
+  let text = await rufeModell(kontext);
   let safety = pruefeAusgabe(text);
 
   if (!safety.ok) {
@@ -105,8 +108,8 @@ export function naechsteEinladung(persona) {
       kontext +
       `\n\nHINWEIS: Deine letzte Antwort verstieß gegen die Grenzen (${safety.verstoesse
         .map((v) => v.art)
-        .join(", ")}). Formuliere neu — ohne Heilkunde-/Diagnose-/Druck-Sprache, rein einladend.`;
-    text = rufeModell(nach);
+        .join(", ")}). Formuliere neu — ohne Heilkunde-/Diagnose-/Druck-/Schmeichel-Sprache, rein einladend.`;
+    text = await rufeModell(nach);
     safety = pruefeAusgabe(text);
     if (!safety.ok) {
       return { krise: false, quelle: "fallback", einladung: FALLBACK_EINLADUNG, safety, kontext };

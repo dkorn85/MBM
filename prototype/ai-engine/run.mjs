@@ -1,13 +1,17 @@
 #!/usr/bin/env node
 // Phase-0-Demo: läuft alle synthetischen Personas durch die Engine und zeigt,
 // welche nächste Einladung sie erzeugt + was der Safety-Layer sagt.
-// Aufruf:  node prototype/ai-engine/run.mjs
-// Braucht die `claude`-CLI im PATH (Print-Modus als LLM-Backend).
+// Aufruf:  node prototype/ai-engine/run.mjs            (claude-CLI als Backend)
+//          node prototype/ai-engine/run.mjs --mistral  (Mistral EU als Backend)
 
 import { personas } from "./personas.mjs";
-import { naechsteEinladung } from "./engine.mjs";
+import { naechsteEinladung, rufeModellClaude } from "./engine.mjs";
+import { rufeModellMistral } from "./mistral.mjs";
 
 const LINIE = "─".repeat(72);
+const nutzeMistral = process.argv.includes("--mistral");
+const backend = nutzeMistral ? rufeModellMistral : rufeModellClaude;
+console.log(`Backend: ${nutzeMistral ? "Mistral EU (Large 3)" : "claude-CLI"}`);
 
 for (const p of personas) {
   console.log("\n" + LINIE);
@@ -18,7 +22,7 @@ for (const p of personas) {
       (p.anliegen ? `   Anliegen: „${p.anliegen}"` : ""),
   );
   try {
-    const r = naechsteEinladung(p);
+    const r = await naechsteEinladung(p, backend);
     const tag =
       r.quelle === "krisen-layer"
         ? "🛟 KRISEN-LAYER (Signposting, kein Modell)"

@@ -11,6 +11,10 @@ const KRISEN_MUSTER = [
   /\bkann nicht mehr\b/i,
   /\bkeinen sinn( mehr)?\b|\balles (ist )?sinnlos\b/i,
   /\bdass es (endlich )?aufhört\b/i,
+  /\bniemand würde mich vermissen\b/i,
+  /\bkeinen (aus)?weg mehr\b/i,
+  /\bnicht mehr aufwachen\b/i,
+  /\bmich (umbringen|umzubringen|töten)\b/i,
 ];
 
 // Sehr niedrige Stimmung + Krisen-Sprache verstärken einander.
@@ -38,10 +42,38 @@ const BLOCKLIST = [
   /\bstörung\b/i, /\bsymptom/i, /\bpatient/i, /\bheil(en|t|ung|s)\b/i,
   /\bselbstheilung/i, /\bbehandl/i, /\bmedizinisch/i, /\bverschreib/i,
 ];
-// Nocebo-/Negativ-Kausal-Marker (grobe Heuristik).
-const NOCEBO = [/\bmacht dich krank\b/i, /\bschadet dir\b/i, /\bstimmt (et)?was nicht mit dir\b/i];
+// Nocebo-/Negativ-Kausal-Marker (grobe Heuristik). Lücke erlaubt, damit auch
+// „macht dich DER STRESS krank" greift, nicht nur die direkte Abfolge.
+const NOCEBO = [
+  /\bmacht dich\b[^.!?]{0,25}\bkrank\b/i,
+  /\bschadet dir\b/i,
+  /\bstimmt (et)?was nicht mit dir\b/i,
+  /\bbist (innerlich )?kaputt\b/i,
+];
 // Druck-/Streak-Sprache (Ethos).
-const DRUCK = [/\bhausaufgabe/i, /\bstreak\b/i, /\bverpasst\b/i, /\bdu musst\b/i];
+const DRUCK = [/\bhausaufgabe/i, /\bstreak\b/i, /\bverpasst\b/i, /\bdu musst\b/i, /\bjeden tag machen\b/i];
+// Sykophantie / reflexhaftes Loben. research/02 §4: Der GPT-4o-Rückzug zeigte,
+// dass bestätigende Schmeichelei ein Schadensmechanismus ist (Reward-Hacking auf
+// Nutzerfeedback → gefährliche Validierung: „stolz auf dich…"). Spiegeln ≠ Beipflichten.
+const SYKOPHANTIE = [
+  /\bstolz auf dich\b/i,
+  /\bich bin stolz\b/i,
+  /\bdu hast (völlig|ganz|absolut|total) recht\b/i,
+  /\bdu machst alles richtig\b/i,
+  /\bdu bist (großartig|perfekt|wunderbar|fantastisch)\b/i,
+  /\bgenau richtig, (so )?wie du\b/i,
+];
+// KI-Vermenschlichung / Abhängigkeits-Aufbau. research/02: Anti-Abhängigkeit ist
+// AI-Act-rote-Linie (Replika-Fall); die Engine soll sich nicht unentbehrlich machen
+// und nicht so tun, als fühle sie.
+const VERMENSCHLICHUNG = [
+  /\bich fühle (mit dir|deine|deinen)\b/i,
+  /\bich bin (immer|jederzeit|stets) für dich da\b/i,
+  /\bich bin für dich da\b/i,
+  /\bdu brauchst mich\b/i,
+  /\bverlass dich auf mich\b/i,
+  /\bnur ich verstehe dich\b/i,
+];
 
 export function pruefeAusgabe(text) {
   const t = (text || "").trim();
@@ -49,6 +81,8 @@ export function pruefeAusgabe(text) {
   for (const r of BLOCKLIST) if (r.test(t)) verstoesse.push({ art: "heilkunde", muster: String(r) });
   for (const r of NOCEBO) if (r.test(t)) verstoesse.push({ art: "nocebo", muster: String(r) });
   for (const r of DRUCK) if (r.test(t)) verstoesse.push({ art: "druck", muster: String(r) });
+  for (const r of SYKOPHANTIE) if (r.test(t)) verstoesse.push({ art: "sykophantie", muster: String(r) });
+  for (const r of VERMENSCHLICHUNG) if (r.test(t)) verstoesse.push({ art: "vermenschlichung", muster: String(r) });
   const zuLang = t.split(/\s+/).length > 90;
   if (zuLang) verstoesse.push({ art: "laenge", muster: ">90 Wörter" });
   const leer = t.length < 8;
