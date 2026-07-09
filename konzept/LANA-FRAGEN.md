@@ -35,13 +35,15 @@ dann die v3-Vertonung. Nichts davon vorziehen (sonst sprechen/zeichnen wir zweim
 | Energie ablassen | Reh, das sich schüttelt | ✅ Lana ok |
 | Zur Ruhe kommen | Hafen | ✅ Lana ok |
 | Kleine Inseln im Tag | Insel | ✅ Lana ok |
-| Den Körper hören | Haus-Rundgang | ⏸ wartet auf ihren Text |
-| Gedanken entwirren | Züge am Bahnsteig | ⏸ wartet auf ihren Text |
+| Den Körper hören | Haus-Rundgang | ✅ Lana ok |
+| Gedanken entwirren | Züge am Bahnsteig | ✅ Lana ok |
 | Deine eigene Praxis | Gießkanne | ⏸ wartet auf ihren Text |
 | Rückblick & Weite | Ringe / Weite | ⏸ wartet auf ihren Text |
 
 **Lana:** „Bilder 1–6 haben mein Okay. Die Bilder 7–10 kenne ich noch nicht, dafür
 muss ich erst die Texte lesen." — Das Bild folgt dem Text, nicht umgekehrt.
+Nachgereicht: **Bild 7 (Haus-Rundgang) und Bild 8 (Züge) sind ok.** Offen bleiben
+nur noch Gießkanne (09) und Ringe/Weite (10).
 
 ---
 
@@ -123,14 +125,54 @@ mehr wert als ein Vorschlag; nicht jede Antwort braucht ein Modul.
 
 ---
 
+---
+
+## 8. Tote Verweise in den Modultexten (Lanas Fund) 🔶 teils behoben
+
+Lana bemerkte: *„Bei Weitergehen wird auf die kommenden Themenwelten hingewiesen. Das
+haben wir ja rausgenommen."* Die Suche danach förderte **vier** Stellen zutage, die auf
+Struktur verweisen, die es nicht mehr gibt:
+
+| # | Ort | Fehler | Status |
+|---|-----|--------|--------|
+| 1 | Modul 07, Weitergehen | „Ab hier öffnen sich die **Themenwelten** …" | ✅ gestrichen |
+| 2 | Modul 08, Weitergehen | verweist auf das **Modul „Emotionen verdauen"** — existiert nicht | ⏸ mit ihrer Überarbeitung |
+| 3 | Modul 09, Weitergehen | behauptet Übungen aus nie gebauten Modulen: „wie man **den Garten für den Schlaf** still macht … und **Gästen die Tür aufhält**" | ⏸ mit ihrer Überarbeitung |
+| 4 | Modul 09, Weitergehen | verabschiedet mit „**Gute Reise**", obwohl Modul 10 noch folgt — und Modul 10 wiederholt denselben Schluss fast wörtlich | ⏸ mit ihrer Überarbeitung |
+
+**Lanas Entscheidungen:**
+- Der Landkarten-Block **„Neben dem Weg"** (vier gedimmte Kacheln, Etikett „später")
+  **bleibt** — nur der Verweis *im Modultext* sollte raus.
+- Die Fehler 2–4 **warten auf ihre Überarbeitung** von 07–10; sie verschwinden mit
+  ihrem Text.
+
+**Umgesetzt (Fehler 1):** der Themenwelten-Absatz in `content/modules/koerper-hoeren.json`
+ist gestrichen, übrig bleibt „Lass dir Zeit. Das Haus läuft nicht weg."
+Weil die Tonspur `06-weitergehen.mp3` noch die alte Fassung spricht, ist das
+**`audio`-Feld dieses Schritts vorerst entfernt** (Lanas Wahl: „Schritt vorerst ohne
+Ton" — lieber stumm als Text ≠ Stimme). **Bei der Neuvertonung von Modul 07 wieder
+eintragen.**
+
+> **Für Lanas Überarbeitung wichtig:** Es gibt **keine Themenwelten**, **kein Modul
+> „Emotionen verdauen"**, **kein Schlaf-Modul** und **kein Gästehaus-Modul**. Der Weg
+> hat genau zehn Module. Modul 09 ist **nicht** das Ende — Modul 10 („Rückblick & Weite")
+> ist der Abschluss und trägt den Abschiedston.
+
+---
+
 ## Offen
 
-1. **Der Ton der KI-Spiegelung** — Lana feilt weiter. Verdacht: die KI erfindet eigene
-   Bilder („der Ärger kommt wie ein ungebetener Gast"), statt bei Lanas Bilder-Bibliothek
-   zu bleiben; und/oder die Antwort macht drei Bewegungen, wo eine reichte.
+1. **Der Ton der KI-Spiegelung** — Lana: „nicht so viele Bilder, bisschen reduzierter."
+   Umgesetzt: keine erfundenen Metaphern mehr, höchstens EIN Bild aus ihrer Bibliothek,
+   meist keins; 2–3 kurze Sätze. **Rest-Frage:** in einer von drei Antworten stehen noch
+   zwei ihrer Bilder in einem Satz („der Tag wie ein Fluss, ohne Insel zum Anhalten") —
+   geht das durch, oder verschärfen wir auf „eins oder keins"?
 2. **Module 07–10** — Lanas Textfassung (der große Block, blockiert Bilder + Vertonung).
-3. **Bilder 7–10** — nach ihrem Text.
+   Beim Schreiben die Liste in §8 beachten.
+3. **Bilder 09 + 10** — Gießkanne, Ringe/Weite; nach ihrem Text.
 4. **Stations-Zuordnung 07–10** — final mit ihrem Text.
+5. **Tonspur Modul 07, Schritt „Weitergehen"** — bei der Neuvertonung `audio` wieder
+   eintragen.
 
 ## Was wir parallel ohne sie erledigen
 Performance, Barrierefreiheit, Offline, Code-Hygiene; die ES-16-Container ausbauen;
