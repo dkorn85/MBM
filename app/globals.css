@@ -62,6 +62,13 @@
   }
 }
 
+/* No-Flash: Das Inline-Skript im <body> setzt vor dem ersten Paint
+   data-disclaimer="seen", wenn der Disclaimer schon bestätigt wurde — dann
+   wird das server-gerenderte Modal sofort ausgeblendet (kein Aufblitzen). */
+html[data-disclaimer="seen"] .mbm-onboarding {
+  display: none;
+}
+
 /* ── Basis ─────────────────────────────────────────────────────────── */
 @layer base {
   html {

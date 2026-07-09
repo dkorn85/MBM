@@ -13,21 +13,25 @@ const DISCLAIMER_TEXT =
   "Und: **Du bestimmst.** Alles hier ist ein Angebot. Du kannst jede Übung jederzeit unterbrechen, jeden Schritt überspringen und in deinem eigenen Tempo gehen. Wenn es dir gerade sehr schlecht geht, findest du unter „Hilfe in Krisen\" Anlaufstellen, die für dich da sind.";
 
 export default function OnboardingDisclaimer() {
-  // Startwert false ⇒ Server und erster Client-Render zeigen nichts (keine
-  // Hydration-Diskrepanz); der echte Zustand kommt im Effect.
-  const [sichtbar, setSichtbar] = useState(false);
+  // Startwert true ⇒ Server und erster Client-Render zeigen das Modal (im HTML,
+  // kein JS-Gating → guter LCP; robuster für den Safety-Disclaimer, weil auch
+  // ohne JS sichtbar). Wiederkehrende Besucher: das No-Flash-Skript im Layout
+  // blendet es vor dem Paint per CSS aus, dieser Effect räumt es dann sauber ab.
+  const [sichtbar, setSichtbar] = useState(true);
   const titelId = useId();
   const dialogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!storage.istDisclaimerGesehen()) {
-      setSichtbar(true);
+    if (storage.istDisclaimerGesehen()) {
+      setSichtbar(false);
     }
   }, []);
 
   // Fokus ins Dialog, Hintergrund-Scroll sperren, Fokus-Falle, Esc schließt nicht.
   useEffect(() => {
     if (!sichtbar) return;
+    // Wiederkehrend: Modal ist per CSS schon aus — keine Fokus-Falle/Scroll-Sperre.
+    if (storage.istDisclaimerGesehen()) return;
 
     const vorherFokus = document.activeElement as HTMLElement | null;
     dialogRef.current?.focus();
@@ -84,7 +88,7 @@ export default function OnboardingDisclaimer() {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-tinte/40 p-5">
+    <div className="mbm-onboarding fixed inset-0 z-50 flex items-center justify-center bg-tinte/40 p-5">
       <div
         ref={dialogRef}
         role="dialog"

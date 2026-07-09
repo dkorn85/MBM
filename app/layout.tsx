@@ -48,6 +48,16 @@ export default function RootLayout({
       className={`${fraunces.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}
     >
       <body className="flex min-h-dvh flex-col">
+        {/* No-Flash: Das Onboarding-Modal wird server-seitig gerendert (im HTML,
+            kein JS-Gating → guter LCP). Dieses Skript läuft synchron VOR dem
+            ersten Paint und markiert <html>, damit CSS das Modal bei bereits
+            gesehenem Disclaimer sofort ausblendet (kein Aufblitzen). */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(localStorage.getItem('mbm.v1.disclaimerGesehen')==='true')document.documentElement.dataset.disclaimer='seen'}catch(e){}",
+          }}
+        />
         <a
           href="#inhalt"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-xl focus:bg-flaeche focus:px-4 focus:py-3 focus:text-tinte focus:shadow"
