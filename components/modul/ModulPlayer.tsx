@@ -9,6 +9,7 @@ import type {
   SchrittTyp,
 } from "@/lib/module-schema";
 import { storage } from "@/lib/storage";
+import EngineEinladung from "@/components/ai/EngineEinladung";
 import AbsichtFeld from "./AbsichtFeld";
 import AudioPlayer from "./AudioPlayer";
 import AuswahlFeld from "./AuswahlFeld";
@@ -425,6 +426,8 @@ function SchrittKoerper({
     <div className="space-y-6">
       {audio}
       <Bloecke bloecke={schritt.bloecke} />
+      {/* Andockpunkt der AI-Engine am Modul-Ende (Feature-Flag AUS ⇒ unsichtbar). */}
+      {schritt.typ === "weitergehen" ? <EngineEinladung anlass="weitergehen" /> : null}
     </div>
   );
 }

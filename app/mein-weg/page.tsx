@@ -5,6 +5,7 @@ import MeinWegInhalt, {
   type BaselineAchse,
   type ModulInfo,
 } from "@/components/MeinWegInhalt";
+import EngineEinladung from "@/components/ai/EngineEinladung";
 
 export const metadata: Metadata = {
   title: "Mein Weg — YipYip",
@@ -38,6 +39,8 @@ export default function MeinWegPage() {
           Hier sammelt sich, was du erlebt hast: abgeschlossene Module, deine
           Notizen, deine Experimente. Alles bleibt auf deinem Gerät.
         </p>
+        {/* Optionaler Andockpunkt der AI-Engine (Feature-Flag AUS ⇒ unsichtbar). */}
+        <EngineEinladung anlass="mein-weg" />
       </div>
 
       <MeinWegInhalt modulInfos={modulInfos} baselineAchsen={baselineAchsen} />

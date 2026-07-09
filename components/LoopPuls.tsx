@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { landkarte } from "@/lib/content";
 import { storage, type LoopEintrag } from "@/lib/storage";
+import EngineEinladung from "@/components/ai/EngineEinladung";
 
 // Lokales Tagesdatum (YYYY-MM-DD) — nur im Browser bestimmt.
 function heuteDatum(): string {
@@ -179,6 +180,9 @@ export default function LoopPuls() {
           </button>
         </div>
       </div>
+
+      {/* Andockpunkt der AI-Engine im Loop (Feature-Flag AUS ⇒ unsichtbar). */}
+      <EngineEinladung anlass="loop" />
     </section>
   );
 }

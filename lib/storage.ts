@@ -78,6 +78,10 @@ export interface MbmStorage {
   setModus(modus: Modus): void;
   istDisclaimerGesehen(): boolean;
   setDisclaimerGesehen(): void;
+  // AI-Engine: entbündelte Einwilligung für den LLM-Aufruf (DSGVO Art. 9,
+  // konzept/21). Default false (Privacy by Design); jederzeit widerrufbar.
+  getEngineConsent(): boolean;
+  setEngineConsent(erteilt: boolean): void;
 }
 
 // ── interne Helfer ───────────────────────────────────────────────────
@@ -91,6 +95,7 @@ const KEY_SELBSTTEST = `${PREFIX}selbsttest`;
 const KEY_LOOP = `${PREFIX}loop`;
 const KEY_MODUS = `${PREFIX}modus`;
 const KEY_AUSWAHL = `${PREFIX}auswahl`;
+const KEY_ENGINE_CONSENT = `${PREFIX}engineConsent`;
 
 /** localStorage nur im Browser; auf dem Server null. */
 function speicher(): Storage | null {
@@ -281,6 +286,14 @@ const localStorageImpl: MbmStorage = {
 
   setDisclaimerGesehen() {
     schreiben(KEY_DISCLAIMER, true);
+  },
+
+  getEngineConsent() {
+    return lesen<boolean>(KEY_ENGINE_CONSENT, false) === true;
+  },
+
+  setEngineConsent(erteilt) {
+    schreiben(KEY_ENGINE_CONSENT, erteilt === true);
   },
 };
 
