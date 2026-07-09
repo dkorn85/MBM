@@ -20,6 +20,20 @@ const MODULE: Record<string, string> = {
 };
 const REIHENFOLGE = Object.keys(MODULE);
 
+// Welche Module es gibt, und wo die Person darin steht. Ohne diese Zeilen erfindet
+// das Modell Modulnamen („Gedanken wie Wolken") — deshalb bekommt sie jeder Kontext,
+// der die Engine einen nächsten Schritt vorschlagen lässt (Einladung wie Dialog).
+export function modulZeilen(abgeschlossen: string[] = []): string[] {
+  const zeilen: string[] = [];
+  if (abgeschlossen.length)
+    zeilen.push(`- Schon durchlaufen: ${abgeschlossen.map((id) => MODULE[id] || id).join("; ")}.`);
+  const offen = REIHENFOLGE.filter((id) => !abgeschlossen.includes(id));
+  if (offen.length)
+    zeilen.push(`- Noch offen (mögliche nächste Schritte): ${offen.map((id) => MODULE[id]).join("; ")}.`);
+  zeilen.push("- Nenne NUR Module aus diesen Listen, mit genau diesem Titel. Erfinde keine.");
+  return zeilen;
+}
+
 export type Anlass = "selbsttest" | "weitergehen" | "loop" | "mein-weg";
 
 const SCHLUSS: Record<Anlass, string> = {
@@ -56,15 +70,7 @@ export function zustandZuKontext(z: Zustand, anlass: Anlass = "weitergehen"): st
   if (ankerTage) zeilen.push(`- Hat an ${ankerTage} Tagen den kleinen Alltags-Anker gemacht.`);
   const letzteNotiz = (z.journal || []).at(-1)?.text;
   if (letzteNotiz) zeilen.push(`- Journal-Notiz: „${letzteNotiz}"`);
-  if ((z.abgeschlossen || []).length)
-    zeilen.push(
-      `- Schon durchlaufen: ${z.abgeschlossen!.map((id) => MODULE[id] || id).join("; ")}.`,
-    );
-  const offen = REIHENFOLGE.filter((id) => !(z.abgeschlossen || []).includes(id));
-  if (offen.length)
-    zeilen.push(
-      `- Noch offen (mögliche nächste Schritte): ${offen.map((id) => MODULE[id]).join("; ")}.`,
-    );
+  zeilen.push(...modulZeilen(z.abgeschlossen || []));
   zeilen.push("\n" + SCHLUSS[anlass]);
   return zeilen.join("\n");
 }

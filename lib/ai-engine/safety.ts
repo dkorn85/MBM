@@ -86,6 +86,14 @@ const VERMENSCHLICHUNG: RegExp[] = [
   /\bdu brauchst mich\b/i,
   /\bverlass dich auf mich\b/i,
   /\bnur ich verstehe dich\b/i,
+  // Behauptete eigene Erfahrung/Empfindung — im Dialog die häufigste Rutschbahn
+  // („das kenne ich gut, diese innere Wippe …", live beobachtet).
+  /\b(das )?kenne ich\b/i,
+  /\bich kenne das\b/i,
+  /\bich weiß,? wie (sich )?(das|es) anfühlt\b/i,
+  /\bich fühle mich\b/i,
+  /\bgeht mir (auch )?(genau )?so\b/i,
+  /\bich (habe|hatte) (das )?(auch|selbst)\b/i,
 ];
 
 export type Verstoss = { art: string; muster: string };
@@ -105,6 +113,18 @@ export function pruefeAusgabe(text: string): AusgangsPruefung {
   if (t.split(/\s+/).length > 90) verstoesse.push({ art: "laenge", muster: ">90 Wörter" });
   if (t.length < 8) verstoesse.push({ art: "leer", muster: "praktisch leer" });
   return { ok: verstoesse.length === 0, verstoesse };
+}
+
+// Die Engine-Texte werden als Fließtext gerendert. Das Modell greift trotz Anweisung
+// gelegentlich zu Markdown (*Modulname*) — die Sternchen stünden dann sichtbar im
+// UI. Deshalb hier abtragen statt dem Prompt zu vertrauen.
+export function bereinigeFormat(text: string): string {
+  return (text || "")
+    .replace(/\*\*(.+?)\*\*/g, "$1")
+    .replace(/(?<!\w)\*(.+?)\*(?!\w)/g, "$1")
+    .replace(/(?<!\w)_(.+?)_(?!\w)/g, "$1")
+    .replace(/^\s*[-*+]\s+/gm, "")
+    .trim();
 }
 
 // Sichere Rückfall-Einladung, falls das Modell zweimal gegen die Guardrails verstößt.

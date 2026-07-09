@@ -6,6 +6,8 @@ import MeinWegInhalt, {
   type ModulInfo,
 } from "@/components/MeinWegInhalt";
 import EngineEinladung from "@/components/ai/EngineEinladung";
+import EngineDialog from "@/components/ai/EngineDialog";
+import MeinGedaechtnis from "@/components/ai/MeinGedaechtnis";
 
 export const metadata: Metadata = {
   title: "Mein Weg — YipYip",
@@ -44,6 +46,10 @@ export default function MeinWegPage() {
       </div>
 
       <MeinWegInhalt modulInfos={modulInfos} baselineAchsen={baselineAchsen} />
+
+      {/* Phase 2a — dialogischer Spiegel + lokales Gedächtnis (Flag AUS ⇒ unsichtbar). */}
+      <EngineDialog />
+      <MeinGedaechtnis />
     </article>
   );
 }
