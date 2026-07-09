@@ -106,6 +106,14 @@ export default function EngineEinladung({ anlass }: { anlass: Anlass }) {
             Vielleicht später
           </button>
         </div>
+        <p className="text-sm">
+          <Link
+            href="/datenschutz"
+            className="text-tinte-sanft underline underline-offset-4 transition-colors hover:text-tinte"
+          >
+            Wie das mit deinen Daten läuft
+          </Link>
+        </p>
       </section>
     );
   }
