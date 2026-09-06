@@ -3,6 +3,7 @@ import Link from "next/link";
 export default function Header() {
   return (
     <header className="border-b border-linie">
+      <div className="mx-auto flex max-w-2xl justify-between px-5 pt-3 text-xs text-tinte-sanft sm:px-6"><a href="https://chazon.eu/">← Chazon</a><a href="https://lanalutz.de/">Ein Programm von Lana Lutz</a></div>
       <div className="mx-auto flex max-w-2xl flex-wrap items-center justify-between gap-x-6 gap-y-1 px-5 py-3 sm:px-6">
         <Link
           href="/"

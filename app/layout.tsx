@@ -1,24 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, JetBrains_Mono, Newsreader } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-// Self-hosted über next/font: inline eingebunden + vorgeladen + font-display:swap,
-// damit die Fonts nicht mehr hinter dem CSS im kritischen Pfad hängen (LCP).
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-fraunces",
-});
-const newsreader = Newsreader({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-newsreader",
-});
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-jetbrains",
-});
+// Existing Lana Lutz kit, bundled locally; no font-provider request at build/runtime.
+const cormorant=localFont({src:'./fonts/CormorantGaramond-VF.ttf',display:'swap',variable:'--font-cormorant'});
+const dmSans=localFont({src:'./fonts/DMSans-VF.ttf',display:'swap',variable:'--font-dm-sans'});
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import OnboardingDisclaimer from "@/components/OnboardingDisclaimer";
@@ -32,8 +18,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#FAF6EF" },
-    { media: "(prefers-color-scheme: dark)", color: "#221F1A" },
+    { media: "(prefers-color-scheme: light)", color: "#F6F6E9" },
+    { media: "(prefers-color-scheme: dark)", color: "#12251D" },
   ],
 };
 
@@ -45,7 +31,7 @@ export default function RootLayout({
   return (
     <html
       lang="de"
-      className={`${fraunces.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}
+      className={`${cormorant.variable} ${dmSans.variable}`}
     >
       <body className="flex min-h-dvh flex-col">
         {/* No-Flash: Das Onboarding-Modal wird server-seitig gerendert (im HTML,

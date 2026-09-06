@@ -2,7 +2,7 @@
 // Offline-Kern: Kernrouten + S1-Audio werden bei install precached.
 // Bewusst KEINE Push-/Notification-API und kein Background-Sync (§3: keine Notifications).
 
-const CACHE = "yipyip-v11";
+const CACHE = "yipyip-v12";
 
 // Kernrouten, die offline erreichbar sein müssen (neue Stationen-Struktur).
 const CORE = [
@@ -62,7 +62,7 @@ self.addEventListener("activate", (event) => {
     (async () => {
       const keys = await caches.keys();
       await Promise.all(
-        keys.filter((key) => key !== CACHE).map((key) => caches.delete(key)),
+        keys.filter((key) => key.startsWith("yipyip-") && key !== CACHE).map((key) => caches.delete(key)),
       );
       await self.clients.claim();
     })(),
@@ -89,7 +89,7 @@ self.addEventListener("fetch", (event) => {
   }
 
   // Deko-Grafiken + Icons: cache-first (ändern sich praktisch nie).
-  if (url.pathname.startsWith("/deko/") || url.pathname.startsWith("/icons/")) {
+  if (url.pathname.startsWith("/deko/") || url.pathname.startsWith("/icons/") || url.pathname.startsWith("/brand/")) {
     event.respondWith(cacheFirst(req));
     return;
   }

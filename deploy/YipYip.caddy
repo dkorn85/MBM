@@ -1,0 +1,5 @@
+# Append to the public Caddyfile after validation; preserve its other sites.
+yipyip.chazon.eu {
+    encode zstd gzip
+    reverse_proxy yipyip:3000
+}

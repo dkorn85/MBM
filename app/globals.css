@@ -2,30 +2,30 @@
 
 /* ── Design-Tokens (Light) ─────────────────────────────────────────── */
 @theme {
-  --color-grund: #FAF6EF; /* Seitenhintergrund, warmes Off-White */
-  --color-flaeche: #F3EDE2; /* Karten, Felder */
-  --color-linie: #E4DBCB; /* Ränder, Trennlinien */
-  --color-tinte: #3D3831; /* Fließtext */
-  --color-tinte-sanft: #6E675C; /* Sekundärtext */
-  --color-etikett: #544E44; /* Chip-/Etikett-Text — dunkler als tinte-sanft, hält WCAG-AA auf getönten Chips */
-  --color-salbei: #708A72; /* Deko/Icons, große Flächen */
-  --color-salbei-tief: #4F6653; /* interaktive Elemente, Text auf hell */
-  --color-sand: #D9C9AC; /* Chips, dezente Hervorhebung */
-  --color-akzent: #BC6C4F; /* warmer Akzent, sparsam, nie für Fließtext */
+  --color-grund: #F6F6E9; /* Seitenhintergrund, warmes Off-White */
+  --color-flaeche: #FFFFFF; /* Karten, Felder */
+  --color-linie: #D5D5C6; /* Ränder, Trennlinien */
+  --color-tinte: #0D131A; /* Fließtext */
+  --color-tinte-sanft: #56585E; /* Sekundärtext */
+  --color-etikett: #46534B; /* Chip-/Etikett-Text — dunkler als tinte-sanft, hält WCAG-AA auf getönten Chips */
+  --color-salbei: #7D9B76; /* Deko/Icons, große Flächen */
+  --color-salbei-tief: #4B7255; /* interaktive Elemente, Text auf hell */
+  --color-sand: #B6CDBD; /* Chips, dezente Hervorhebung */
+  --color-akzent: #9B4922; /* warmer Akzent, sparsam, nie für Fließtext */
 
-  --color-gold: #C9A227; /* Horizont-Licht, Wärme-Akzent */
-  --color-gold-tief: #A8841C;
+  --color-gold: #BC9C2F; /* Horizont-Licht, Wärme-Akzent */
+  --color-gold-tief: #816B20;
 
   /* Sanfte Stations-Tönungen — tragen die „Bewegung nach innen" als Farbe.
      Hell genug für gute Lesbarkeit, aber viel wärmer/farbiger als reines Off-White. */
-  --color-panel-ankommen: #E3E8DE; /* kühl, dicht (oben) */
-  --color-panel-runterkommen: #E7ECDC;
-  --color-panel-wahrnehmen: #EEEDD6;
-  --color-panel-weit: #F6ECCF; /* warm, licht (unten) */
+  --color-panel-ankommen: #E8EFE6; /* kühl, dicht (oben) */
+  --color-panel-runterkommen: #EDF1E8;
+  --color-panel-wahrnehmen: #F0F2E8;
+  --color-panel-weit: #F6F6E9; /* warm, licht (unten) */
 
-  --font-ueberschrift: var(--font-fraunces), serif;
-  --font-fliesstext: var(--font-newsreader), Georgia, serif;
-  --font-label: var(--font-jetbrains), ui-monospace, monospace;
+  --font-ueberschrift: var(--font-cormorant), Georgia, serif;
+  --font-fliesstext: var(--font-dm-sans), sans-serif;
+  --font-label: var(--font-dm-sans), sans-serif;
 
   /* ── Bewegungs-Tokens: ein ruhiger Guss ─────────────────────────────
      Eine kleine Handvoll Easings & Dauern, damit sich alle Übergänge in
@@ -42,18 +42,18 @@
 /* ── Design-Tokens (Dark) — gedämpft warm, nicht tiefschwarz-neon ───── */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-grund: #221F1A;
-    --color-flaeche: #2A261F;
-    --color-linie: #3B352B;
-    --color-tinte: #ECE4D6;
-    --color-tinte-sanft: #B3A995;
+    --color-grund: #12251D;
+    --color-flaeche: #192E24;
+    --color-linie: #385042;
+    --color-tinte: #F6F6E9;
+    --color-tinte-sanft: #C0CCC0;
     --color-etikett: #C7BEAA; /* Chip-/Etikett-Text (Dark) — heller als tinte-sanft für AA-Reserve */
     --color-salbei: #93AC94;
     --color-salbei-tief: #AFC4AE;
     --color-sand: #6E6148;
     --color-akzent: #D08A67;
     --color-gold: #D8B84A;
-    --color-gold-tief: #C9A227;
+    --color-gold-tief: #BC9C2F;
 
     --color-panel-ankommen: #24281F;
     --color-panel-runterkommen: #262A20;
@@ -77,24 +77,10 @@ html[data-disclaimer="seen"] .mbm-onboarding {
 
   body {
     background-color: var(--color-grund);
-    /* Warmer Ambient-Schimmer: Salbei-Hauch oben, Gold-Hauch unten —
-       trägt die Bewegung (kühl/dicht → warm/licht), ohne die Lesbarkeit zu stören. */
-    background-image:
-      radial-gradient(
-        130% 55% at 50% -8%,
-        color-mix(in srgb, var(--color-salbei) 16%, transparent),
-        transparent 62%
-      ),
-      radial-gradient(
-        120% 42% at 50% 108%,
-        color-mix(in srgb, var(--color-gold) 13%, transparent),
-        transparent 60%
-      );
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+    background-image: none;
     color: var(--color-tinte);
     font-family: var(--font-fliesstext);
-    font-size: 1.125rem; /* 18px */
+    font-size: 1rem;
     line-height: 1.6;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -334,3 +320,14 @@ input[type="range"][data-beruehrt="false"] {
     scroll-behavior: auto !important;
   }
 }
+
+/* Lana Lutz kit: quiet surfaces, square edges, no floating cards. */
+@theme { --radius-sm:0px; --radius-md:0px; --radius-lg:0px; --radius-xl:0px; --radius-2xl:0px; --radius-3xl:0px; --radius-full:0px; --shadow-sm:none; --shadow-md:none; --shadow-lg:none; --shadow-xl:none; --shadow-2xl:none; }
+:root { --font-fraunces:var(--font-cormorant); --font-newsreader:var(--font-dm-sans); --font-jetbrains:var(--font-dm-sans); }
+h1,h2,h3 { color:var(--color-salbei-tief); font-weight:400; }
+h1 { line-height:1.1; text-wrap:balance; }
+.lana-partner { display:flex; align-items:center; gap:18px; border-top:1px solid #D9C98A; padding-top:24px; margin-bottom:24px; }
+.lana-partner img { width:48px; height:48px; object-fit:contain; }
+.lana-partner strong { display:block; color:var(--color-salbei-tief); font-family:var(--font-cormorant); font-size:24px; font-weight:400; }
+.lana-partner span { font-size:12px; }
+@media(prefers-color-scheme:dark){.lana-partner img{background:#F6F6E9;padding:4px;}}

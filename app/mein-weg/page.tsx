@@ -8,6 +8,7 @@ import MeinWegInhalt, {
 import EngineEinladung from "@/components/ai/EngineEinladung";
 import EngineDialog from "@/components/ai/EngineDialog";
 import MeinGedaechtnis from "@/components/ai/MeinGedaechtnis";
+import LocalBackup from "@/components/LocalBackup";
 
 export const metadata: Metadata = {
   title: "Mein Weg — YipYip",
@@ -50,6 +51,7 @@ export default function MeinWegPage() {
       {/* Phase 2a — dialogischer Spiegel + lokales Gedächtnis (Flag AUS ⇒ unsichtbar). */}
       <EngineDialog />
       <MeinGedaechtnis />
+      <LocalBackup />
     </article>
   );
 }

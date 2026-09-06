@@ -1,6 +1,7 @@
 // Austauschbarer Storage-Layer (P3). Kein Zugriff auf localStorage außerhalb
 // dieser Datei. SSR-sicher: auf dem Server No-Op/leere Werte.
 // Namespace: mbm.v1.
+import {BACKUP_KEYS, parseBackup, type LocalBackup} from "./backup";
 
 export type ModulStatus = "offen" | "begonnen" | "abgeschlossen";
 
@@ -328,3 +329,28 @@ const localStorageImpl: MbmStorage = {
 };
 
 export const storage: MbmStorage = localStorageImpl;
+
+/** Explicit, local file transfer between devices or site addresses. Consent is never copied. */
+export function exportLocalBackup(): LocalBackup {
+  const s=speicher();
+  if(!s)throw new Error("Dein Browserspeicher ist gerade nicht zugänglich.");
+  const data:LocalBackup['data']={};
+  for(const key of BACKUP_KEYS){const raw=s.getItem(PREFIX+key);if(raw!==null)data[key]=JSON.parse(raw);}
+  if(!Object.keys(data).length)throw new Error("Hier sind noch keine Lernstände oder Notizen gespeichert.");
+  return parseBackup(JSON.stringify({format:'yipyip.local-backup',version:1,createdAt:new Date().toISOString(),data}));
+}
+
+export function importLocalBackup(input: LocalBackup): void {
+  const backup=parseBackup(JSON.stringify(input));
+  const s=speicher();if(!s)throw new Error("Dein Browserspeicher ist gerade nicht zugänglich.");
+  const entries=Object.entries(backup.data).map(([key,value])=>[PREFIX+key,JSON.stringify(value)] as const);
+  const before=entries.map(([key])=>[key,s.getItem(key)] as const);
+  try {for(const [key,value] of entries)s.setItem(key,value);}
+  catch {
+    // Restore the previous values if a write fails, for example because of quota.
+    try {for(const [key] of entries)s.removeItem(key);for(const [key,value] of before)if(value!==null)s.setItem(key,value);}
+    catch {throw new Error("Die Wiederherstellung wurde unterbrochen. Bitte behalte deine Sicherungsdatei und prüfe deinen gespeicherten Stand.");}
+    throw new Error("Die Sicherung konnte nicht übernommen werden. Dein vorheriger Stand wurde wiederhergestellt.");
+  }
+  benachrichtige();
+}

@@ -34,6 +34,7 @@ const audio = sammle(audioDir, /\.(mp3|m4a|ogg|wav)$/i);
 const assets = [
   ...sammle(join(publicDir, "deko"), /\.(svg|png)$/i),
   ...sammle(join(publicDir, "icons"), /\.(svg|png)$/i),
+  ...sammle(join(publicDir, "brand"), /\.(svg|png|webp|jpe?g)$/i),
 ];
 
 const manifest = { audio, assets, generatedAt: new Date().toISOString() };

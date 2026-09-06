@@ -1,0 +1,35 @@
+services:
+  yipyip:
+    image: ${YIPYIP_IMAGE:?Set a tested release image}
+    container_name: yipyip
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:4180:3000"
+    environment:
+      NODE_ENV: production
+      NEXT_TELEMETRY_DISABLED: "1"
+      NEXT_PUBLIC_ENGINE_ENABLED: "false"
+      NEXT_PUBLIC_DIALOG_ENABLED: "false"
+    cpus: 1.0
+    mem_limit: 640m
+    pids_limit: 128
+    read_only: true
+    tmpfs:
+      - /tmp:size=32m,mode=1777
+      - /app/.next/cache:size=64m,uid=1000,gid=1000
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    networks:
+      - edge
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "2"
+
+networks:
+  edge:
+    external: true
+    name: postiz_default

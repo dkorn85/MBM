@@ -1,0 +1,12 @@
+*
+!.next
+!.next/standalone
+!.next/standalone/**
+!.next/static
+!.next/static/**
+!public
+!public/**
+!deploy
+!deploy/Dockerfile.runtime
+**/.env*
+**/.git
