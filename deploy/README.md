@@ -22,13 +22,21 @@ Der Test wartet nun auf die tatsächlich aus lokalem Speicher geladene Notiz,
 bevor er mit den React-Schaltflächen interagiert; SSR allein ist noch keine
 abgeschlossene Hydration. Keine Anwendungsänderung war dafür nötig.
 
-Die bisherigen Vercel-Daten bleiben an deren Browser-Origin gebunden. Die
-neue App kann Sicherungen importieren. Eine Export-Brücke auf der bisherigen
-Vercel-Adresse ist noch nicht veröffentlicht (vorhandener API-Zugang HTTP 403).
-Deshalb Hauptseitenlink noch nicht umgestellt und Vercel nicht abgeschaltet.
-Keine bestehenden Nutzerstände als automatisch migriert bezeichnen.
+Die bisherigen Vercel-Daten bleiben an deren Browser-Origin gebunden.
+Die Export-Brücke ist inzwischen über den Git-Deploy von `dkorn85/MBM`
+veröffentlicht (Commit `a659c8e`). Obwohl der vorhandene Vercel-API-Zugang HTTP
+403 meldet, hat der bestehende Git-Deploy funktioniert. Die alte Adresse liefert
+nun ebenfalls „Deinen Weg mitnehmen“. Browserprüfung bei 390 / 1440 bestanden.
+Eine tatsächlich dort heruntergeladene synthetische Sicherung wurde zusätzlich
+auf https://yipyip.chazon.eu importiert und inhaltlich geprüft.
 
-Nach DNS: öffentlich TLS, Home, /mein-weg, /modul/willkommen, /manifest.webmanifest,
-Audio-Range und Browserbedienung prüfen; Export-Brücke veröffentlichen oder
-einen konkret geprüften Übertragungsweg bereitstellen, danach Modulverzeichnis
-auf die neue Adresse umstellen. Keine Testnotizen in echte Konten übernehmen.
+Umzug für vorhandene Nutzer: unter der alten Adresse `/mein-weg` die Sicherung
+speichern, auf der neuen Adresse unter `/mein-weg` die Datei öffnen, Vorschau
+prüfen und übernehmen. Vercel bleibt hierfür erreichbar; kein Datenbestand
+wird automatisch gelöscht oder als bereits übertragen ausgegeben.
+
+Das Chazon-Modulverzeichnis wird auf die neue Adresse umgestellt. Die VPS-App
+läuft unabhängig von Vercel. Rollback: vorherige getestete Imagekennung mit
+Compose starten; beim Entfernen des Proxy-Eintrags die anderen Caddy-Domains
+bewahren. Keine Datenspeicherung auf dem YipYip-Server; Inhalte liegen weiterhin
+im Browser des Nutzers, Einwilligungen werden nicht mitkopiert.
